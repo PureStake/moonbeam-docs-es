@@ -11,4 +11,4 @@ description: If you're new to Moonbeam or the Polkadot network, here are some im
  - [Solidity Docs](https://solidity.readthedocs.io/) - Solidity es el principal lenguaje de programación por contrato inteligente soportado por Ethereum y Moonbeam. El sitio donde se hallan los documentos de Solidity es muy abarcativo.
  - [Remix](https://remix.ethereum.org/) - Entorno de desarrollo integrado (IDE, por su sigla en inglés) basado en la web para el desarrollo de contratos inteligentes de
 Solidity que sean compatibles con Moonbeam.
- - [Truffle](https://www.trufflesuite.com/) - Herramientas de desarrollo para Solidity que incluye la depuración, la examinación y la implementación automatizada que sea compatible con Moonbeam..
+ - [Truffle](https://www.trufflesuite.com/) - Herramientas de desarrollo para Solidity que incluye la depuración, la examinación y la implementación automatizada que sea compatible con Moonbeam.
