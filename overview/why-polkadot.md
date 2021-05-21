@@ -4,7 +4,7 @@ description: Moonbeam se basa en el Marco  de Desarrollo Substrate y está conec
 ---
 # Por qué nos basamos en Polkadot
 
-Después de una extensa investigación, decidimos construir Moonbeam usando el [marco de desarrollo Substrate](/resources/glossary/#substrate) y desplegar Moonbeam como una [parachain](/resources/glossary/#parachain) en la [red Polkadot](/resources/glossary/#polkadot).
+Después de una extensa investigación, decidimos construir Moonbeam usando el [Marco de Desarrollo Substrate](/resources/glossary/#substrate) y desplegar Moonbeam como una [parachain](/resources/glossary/#parachains) en la [red Polkadot](/resources/glossary/#polkadot).
 
 
 ## Marco de Desarrollo Blockchain - Substrate
