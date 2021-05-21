@@ -11,7 +11,7 @@ Después de una extensa investigación, decidimos construir Moonbeam usando el [
 
 Substrate  es un buen ajuste técnico para Moonbeam. Al construir sobre este marco, podemos aprovechar la amplia funcionalidad que Substrate incluye lista para usar, en lugar de construirla nosotros mismos. Esto incluye redes peer-to-peer, mecanismos de consenso, funcionalidad de gobernanza, una implementación de EVM y más.
 
-En general, el uso de Substrate reducirá drásticamente el tiempo y el esfuerzo de implementación necesarios para implementar Moonbeam. Substrate permite un alto grado de personalización, que es necesario para lograr nuestros objetivos de compatibilidad con Ethereum. Y, al utilizar Rust, nos beneficiamos tanto de las garantías de seguridad como de las mejoras en el rendimiento. Prueba
+En general, el uso de Substrate reducirá drásticamente el tiempo y el esfuerzo de implementación necesarios para implementar Moonbeam. Substrate permite un alto grado de personalización, que es necesario para lograr nuestros objetivos de compatibilidad con Ethereum. Y, al utilizar Rust, nos beneficiamos tanto de las garantías de seguridad como de las mejoras en el rendimiento.
  
 
 ## Red y ecosistema de Polkadot
