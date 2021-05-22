@@ -30,8 +30,7 @@ Están disponibles las siguientes funciones:
 
 ??? release v1 "_Septiembre de 2020_"
     - Producción de bloques Ethereum totalmente emulada en substrate (paleta Ethereum).
-    - Funciones despachables para interactuar con la implementación de Rust EVM [paleta EVM]
-(https://docs.rs/pallet-evm/2.0.1/pallet_evm/))
+    - Funciones despachables para interactuar con la implementación de Rust EVM ([paleta EVM](https://docs.rs/pallet-evm/2.0.1/pallet_evm/)
     - Soporte nativo de Ethereum RPC (Web3) en Substrate ([Frontier](https://github.com/paritytech/frontier)). Esto proporciona compatibilidad con las herramientas de desarrollo de Ethereum como MetaMask, Remix y Truffle.
 
 ??? release v2 "_Octubre de 2020_"
@@ -69,7 +68,7 @@ Están disponibles las siguientes funciones:
     - Se corrigieron problemas de propagación de bloques para que ya no se limite a los collators, mejorando la estabilidad de la red
     - Se agregaron el “Consejo y el Comité Técnico”, ampliando las funciones de gobernanza
     - El módulo de Staking se ha refactorizado, con nuevos nombres para mejorar la experiencia del usuario final
-    - Se agregaron tres nuevas precompilaciones: [Bn128Add](https://eips.ethereum.org/EIPS/eip-196), [Bn128Mul](https://eips.ethereum.org/EIPS/eip-196) and [Bn128Pairing](https://eips.ethereum.org/EIPS/eip-197)
+    - Se agregaron tres nuevas precompilaciones: [Bn128Add](https://eips.ethereum.org/EIPS/eip-196), [Bn128Mul](https://eips.ethereum.org/EIPS/eip-196) y [Bn128Pairing](https://eips.ethereum.org/EIPS/eip-197)
 
 ### Notas de lanzamiento
 
@@ -86,7 +85,7 @@ Para obtener más detalles sobre las actualizaciones de Moonbase Alpha, consulte
 
 Características que pueden implementarse en el futuro:
 
- - Funciones de tesorería con la ([paleta de Tesorería](https://github.com/paritytech/substrate/tree/master/frame/treasury))
+ - Funciones de tesorería con la [paleta de Tesorería](https://github.com/paritytech/substrate/tree/master/frame/treasury))
 
 ## Cómo empezar
 
@@ -94,7 +93,7 @@ Características que pueden implementarse en el futuro:
 
 ## Telemetría
 
-Puede ver la información actual de telemetría Moonbase Alpha visitando [this link](https://telemetry.polkadot.io/#list/Moonbase%20Alpha).
+Puede ver la información actual de telemetría Moonbase Alpha visitando [este link](https://telemetry.polkadot.io/#list/Moonbase%20Alpha).
 
 ## Tokens
 
