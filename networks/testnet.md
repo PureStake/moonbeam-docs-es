@@ -119,7 +119,7 @@ Los usuarios solo tienen acceso a la parachain Moonbeam. En redes futuras, agreg
 
 ## Purga de cadena
 
-Esta red está en desarrollo activo. Ocasionalmente, es posible que se necesiten purgas de la cadena para restablecer la blockchain a su estado inicial. Esto es necesario cuando se realizan actualizaciones o mantenimiento importantes de TestNet. Anunciaremos cuándo se llevará a cabo una purga de la cadena a través de nuestro canal de [Discord](https://discord.gg/PfpUATX) al menos 24 horas de anticipación.
+Esta red está en desarrollo activo. Ocasionalmente, es posible que se necesiten purgas de la cadena para restablecer la blockchain a su estado inicial. Esto es necesario cuando se realizan actualizaciones o mantenimiento importantes de TestNet. Anunciaremos cuándo se llevará a cabo una purga de la cadena a través de nuestro canal de [Discord](https://discord.gg/PfpUATX) al menos con 24 horas de anticipación.
 
-Tenga en cuenta que PureStake no migrará el estado de la cadena. Por lo tanto, todos los datos almacenados en la cadena de bloques se perderán cuando se lleve a cabo una purga de la cadena. Sin embargo, como no hay límite de gas(fees), los usuarios pueden recrear fácilmente su estado de prepurga.
+Tenga en cuenta que PureStake no migrará el estado de la cadena. Por lo tanto, todos los datos almacenados en la blockchain se perderán cuando se lleve a cabo una purga de la cadena. Sin embargo, como no hay límite de gas(fees), los usuarios pueden recrear fácilmente su estado de prepurga.
 
