@@ -1,42 +1,42 @@
 ---
 title: MetaMask
-description: This guide walks you through how to connect MetaMask, an browser-based Ethereum wallet, to Moonbeam.
+description: Esta guía le explica cómo conectar MetaMask, una billetera Ethereum basada en navegador, a Moonbeam.
 ---
 
-# Interacting with Moonbeam Using MetaMask
+# Interactuando con Moonbeam usando MetaMask
 
 ![Intro diagram](/images/integrations/integrations-metamask-banner.png)
 
-## Introduction
+## Introduccíon
 
-Developers can leverage Moonbeam's Ethereum compatibility features to integrate tools, such as [MetaMask](https://metamask.io/), into their DApps. By doing so, they can use the injected library MetaMask provides to interact with the blockchain.
+Los desarrolladores pueden aprovechar las funciones de compatibilidad con Ethereum de Moonbeam para integrar herramientas, como [MetaMask](https://metamask.io/), en sus DApps. Al hacerlo, pueden usar la “injected library” que proporciona MetaMask para interactuar con la blockchain.
 
-Currently, MetaMask can be configured to connect to two networks: a Moonbeam development node or the Moonbase Alpha TestNet.
+CActualmente, MetaMask se puede configurar para conectarse a dos redes: un nodo de desarrollo Moonbeam o Moonbase Alpha TestNet.
 
-If you already have MetaMask installed, you can easily connect MetaMask to the Moonbase Alpha TestNet:
+Si ya tiene MetaMask instalado, puede conectarlo fácilmente a la red Moonbase Alpha Tesnet:
 
 <div class="button-wrapper">
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
 !!! note
-    MetaMask will popup asking for permission to add Moonbase Alpha as a custom network. Once you approve permissions, MetaMask will switch your current network to Moonbase Alpha.
+   MetaMask aparecerá pidiendo permiso para agregar Moonbase Alpha como una red personalizada. Una vez que apruebe los permisos, MetaMask cambiará su red actual a Moonbase Alpha.
 
-Learn [how to integrate a Connect MetaMask button](#integrate-metamask-into-a-dapp) into your dapp, so that users can connect to Moonbase Alpha with a simple click of a button.
+Aprende [cómo integrar el boton de Conectar con Mestamask](#integrate-metamask-into-a-dapp) en su dapp, para que los usuarios puedan conectarse a Moonbase Alpha con un simple clic de un botón.
 
-## Connect MetaMask to Moonbeam
+## Conecte MetaMask a Moonbeam
 
-Once you have [MetaMask](https://metamask.io/) installed, you can connect it to Moonbeam by clicking on the top right logo and opening the settings.
+Una vez que haya instalado [MetaMask](https://metamask.io/), puede conectarlo a Moonbeam haciendo clic en el logotipo superior derecho y abriendo la configuración.
 
 ![MetaMask3](/images/testnet/testnet-metamask3.png)
 
-Next, navigate to the Networks tab and click on the "Add Network" button.
+A continuación, vaya a la pestaña Redes y haga clic en el botón "Agregar red".
 
 ![MetaMask4](/images/testnet/testnet-metamask4.png)
 
-Here you can configure MetaMask for the following networks:
+Aquí puede configurar MetaMask para las siguientes redes:
 
-Moonbeam development node:
+Nodo de desarrollo Moonbeam:
 
 --8<-- 'text/metamask-local/development-node-details.md'
 
@@ -44,12 +44,12 @@ Moonbase Alpha TestNet:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-## Step-by-step Tutorials
+## Tutoriales paso a paso
 
-In the case that you are interested in more detailed, step-by-step guides to configure MetaMask to Moonbeam, you can go to our specific tutorials:
+En el caso de que te interese una guía paso a paso más detallada, puedes acudir a nuestros tutoriales específicos
 
- - MetaMask on a [Moonbeam development node](/getting-started/local-node/using-metamask/)
- - MetaMask on [Moonbase Alpha](/getting-started/testnet/metamask/)
+ - MetaMask en un [nodo de desarrollo Moonbeam](/getting-started/local-node/using-metamask/)
+ - MetaMask en [Moonbase Alpha](/getting-started/testnet/metamask/)
 
 ## Integrate MetaMask into a DApp
 
