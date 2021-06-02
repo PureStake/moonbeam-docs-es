@@ -1,33 +1,33 @@
 ---
 title: Tokens
-description: Like all smart contract platforms, the Moonbeam Network will require a utility token to function, which is called Glimmer (GLMR) for Polkadot, and River (RIVER) for Kusama.
+description: Como todas las plataformas de contratos inteligentes, Moonbeam Network requerirá un token de utilidad para funcionar, que se llama Glimmer (GLMR) para Polkadot y Movr (MOVR) para Kusama.
 ---
 
-# Introduction
+# Introducción
 
-As a decentralized smart contract platform, Moonbeam requires a utility token to function.  
+Como plataforma de contrato inteligente descentralizada, Moonbeam requiere un token de utilidad para funcionar.  
 
-This token is central to the design of Moonbeam and cannot be removed without sacrificing essential functionality. The Moonbeam token uses include:
+Este token es fundamental para el diseño de Moonbeam y no se puede quitar sin sacrificar la funcionalidad esencial. Los usos del token Moonbeam incluyen:
 
- - Supporting the gas metering of smart contract execution
- - Incentivizing collators and powering the mechanics around the creation of a decentralized node infrastructure on which the platform can run
- - Facilitating the on-chain governance mechanism, including proposing referenda, electing council members, voting, etc.
- - Paying for network transaction fees
+ - Apoyar la medición de gas de la ejecución de contratos inteligentes
+ - Incentivar a los intercaladores y potenciar la mecánica en torno a la creación de una infraestructura de nodo descentralizada en la que se pueda ejecutar la     plataforma
+ - Facilitar el mecanismo de gobernanza en cadena, incluida la propuesta de referendos, la elección de miembros del consejo, la votación, etc.
+ - Pagar las tarifas de transacción de la red
 
 ## Glimmer Token
 
-In the Moonbeam deployment on Polkadot MainNet, this token will be called Glimmer, as in, “that smart contract call will cost 3 Glimmer.”  The token symbol will be GLMR.
+En la implementación de Moonbeam en Polkadot MainNet, este token se llamará Glimmer, como en, "esa llamada de contrato inteligente costará 3 Glimmer". El símbolo del token será GLMR.
 
-You can find more information about Glimmer [here](https://moonbeam.network/networks/moonbeam/glimmer-token/).
+Puede encontrar más información sobre Glimmer [aquí](https://moonbeam.network/networks/moonbeam/glimmer-token/).
 
-## River Token
+## Movr Token
 
-In the Moonbeam deployment on Kusama (called Moonriver), this token will be called River, as in, “that smart contract call will cost 3 River.”  The token symbol will be RIVER.
+En el despliegue de Moonbeam en Kusama (llamado Moonriver), este token se llamará MOVR, como en, "esa llamada de contrato inteligente costará 3 MOVR". El símbolo de la ficha será MOVR.
 
-You can find more information about River [here](https://moonbeam.network/networks/moonriver/river-token/).
+Puedes encontrar más información sobre MOVR [aquí](https://moonbeam.network/networks/moonriver/river-token/).
 
 ## DEV Token
 
-In our Moonbeam TestNet (called Moonbase Alpha), the token is called DEV. This token can be acquired freely, as its only purpose is to drive development and testing on Moonbase Alpha.
+En nuestro Moonbeam TestNet (llamado Moonbase Alpha), el token se llama DEV. Este token se puede adquirir libremente, ya que su único propósito es impulsar el desarrollo y las pruebas en Moonbase Alpha.
 
-You can access free DEV tokens from our [faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/).
+Puede acceder a tokens DEV gratuitos desde nuestro [faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/).
