@@ -1,64 +1,64 @@
 ---
-title: Chainlink Node
-description: How to set up a Chainlink Oracle node for the Moonbeam Network to feed data on-chain to be used by Smart Contracts
+title: Nodo de Chainlink
+description: Cómo configurar un nodo de Oracle Chainlink para Moonbeam Network para alimentar datos en cadena para ser utilizados por Smart Contracts.
 ---
 
-# Run a Chainlink Oracle Node on Moonbeam
+# Ejecute un nodo de Oracle Chainlink en Moonbeam
 
 ![Chainlink Moonbeam Banner](/images/chainlink/chainlinknode-banner.png)
 
-## Introduction
+## Introducción
 
-As an open, permissionless network, anyone may choose to operate an Oracle providing data to smart contracts running on Moonbeam.
+Como red abierta y sin permisos, cualquiera puede optar por operar un Oracle que proporcione datos a contratos inteligentes que se ejecutan en Moonbeam.
 
-This article provides an overview in regards to setting up a Chainlink Oracle on Moonbase Alpha.
+Este artículo proporciona una descripción general con respecto a la configuración de un Oracle Chainlink en Moonbase Alpha.
 
-!!! note
-    The examples provided are for demonstration purposes only. Passwords **MUST** be managed securely and never stored in plaintext. These examples assume an Ubuntu 18.04-based environment, but call-outs for MacOs are included. This guide is for a development setup only, do not use this for a production environment.
+!!! Nota
+    Los ejemplos proporcionados son solo para fines de demostración. Las contraseñas **DEBEN** administrarse de forma segura y nunca almacenarse en texto plano. Estos ejemplos asumen un entorno basado en Ubuntu 18.04, pero se incluyen llamadas para MacOs. Esta guía es solo para una configuración de desarrollo, no la use para un entorno de producción.
 
-## Basic Request Model
+## Modelo de solicitud básico
 
-Before we go dive into how to get started, it is important to understand the basics of the "basic request model."
+Antes de profundizar en cómo empezar, es importante comprender los conceptos básicos del "modelo de solicitud básico".
 
 --8<-- 'text/chainlink/chainlink-brm.md'
 
-## Advanced Users
+## Usuarios avanzados
 
-If you are familiar with running Chainlink Oracle nodes, this information will get you started on the Moonbase Alpha TestNet quickly:
+Si está familiarizado con la ejecución de nodos de Chainlink Oracle, esta información lo ayudará a comenzar en Moonbase Alpha TestNet rápidamente:
 
- - Chainlink documentation, which can be found [here](https://docs.chain.link/docs/running-a-chainlink-node)
- - Moonbase Alpha WSS EndPoint: `wss://wss.testnet.moonbeam.network`
- - Moonbase Alpha ChainId: `1287`
- - LINK Token on Moonbase Alpha: `0xa36085F69e2889c224210F603D836748e7dC0088`
- - Get Moonbase Alpha tokens from [our Faucet](/getting-started/testnet/faucet/)
+ - Documentación de Chainlink, que se puede encontrar [aquí](https://docs.chain.link/docs/running-a-chainlink-node)
+ - Punto final de Moonbase Alpha WSS: `wss://wss.testnet.moonbeam.network`
+ - ID de cadena alfa de Moonbase: `1287`
+ - Token LINK en Moonbase Alpha: `0xa36085F69e2889c224210F603D836748e7dC0088`
+ - Obtén tokens Moonbase Alpha de [nuestro Faucet](/getting-started/testnet/faucet/)
 
-## Getting Started
+## Empezando
 
-This guide will walk through the process of setting up the Oracle node, summarized as:
+Esta guía le explicará el proceso de configuración del nodo de Oracle, resumido como:
 
- - Setup a Chainlink node connected to Moonbase Alpha
- - Fund node
- - Deploy an Oracle contract
- - Create a job on the Chainlink node
- - Bond node and Oracle
- - Test using a client contract
+ - Configurar un nodo Chainlink conectado a Moonbase Alpha
+ - Nodo de fondos
+ - Implementar un contrato de Oracle
+ - Crear un trabajo en el nodo Chainlink
+ - Bond nodo y Oracle
+ - Prueba usando un contrato de cliente
 
-The basic requirements are:
+Los requisitos básicos son:
 
- - Docker for running Postgres DB and ChainLink node containers. For more information on installing Docker, please visit [this page](https://docs.docker.com/get-docker/)
- - An account with funds. You can create one with [Metamask](/integrations/wallets/metamask/), which can be funded via [our Faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/)
- - Access to the Remix IDE in case you want to use it to deploy the Oracle contract. You can find more information about Remix on Moonbeam [here](/integrations/remix/)
+ - Docker para ejecutar contenedores de nodo Postgres DB y ChainLink. Para obtener más información sobre la instalación de Docker, visite [esta página](https://docs.docker.com/get-docker/)
+ - Una cuenta con fondos. Puede crear uno con [Metamask](/integrations/wallets/metamask/), que se puede financiar a través de [nuestro Faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/)
+ - Acceda al Remix IDE en caso de que desee utilizarlo para implementar el contrato de Oracle. Puedes encontrar más información sobre Remix en Moonbeam [aquí](/integrations/remix/)
 
-## Node Setup
+## Configuración de nodo
 
-First, let's create a new directory to place all the necessary files. For example:
+Primero, creemos un nuevo directorio para colocar todos los archivos necesarios. Por ejemplo:
 
 ```
 mkdir -p ~/.chainlink-moonbeam //
 cd ~/.chainlink-moonbeam
 ```
 
-Next, lets create a Postgres DB with Docker. To do so, execute the following command (MacOs users may replace `--network host \` with `-p 5432:5432`):
+A continuación, creemos una base de datos de Postgres con Docker. Para hacerlo, ejecute el siguiente comando (los usuarios de MacOs pueden reemplazarlo `--network host \` por `-p 5432:5432`):
 
 ```
 docker run -d --name chainlink_postgres_db \
@@ -69,12 +69,12 @@ docker run -d --name chainlink_postgres_db \
     -t postgres:11
 ```
 
-Make sure to replace `{YOU_PASSWORD_HERE}` with an actual password.
+Asegúrese de reemplazarlo  `{YOU_PASSWORD_HERE}` con una contraseña real.
 
-!!! note
-    Reminder, do not store any production passwords in a plaintext file. The examples provided are for demonstration purposes only.
+!!! Nota
+    Recordatorio, no almacene ninguna contraseña de producción en un archivo de texto sin formato. Los ejemplos proporcionados son solo para fines de demostración.
 
-Docker will proceed to download the necessary images if they are not available. Now, we need to create an environment file for Chainlink in the newly-created directory. This file is read on the creation of the Chainlink container. MacOs users may replace `localhost` with `host.docker.internal`.
+Docker procederá a descargar las imágenes necesarias si no se encuentran disponibles. Ahora, necesitamos crear un archivo de entorno para Chainlink en el directorio recién creado. Este archivo se lee en la creación del contenedor Chainlink. Los usuarios de MacOs pueden reemplazar `localhost` por `host.docker.internal`.
 
 ```
 echo "ROOT=/chainlink
@@ -91,20 +91,20 @@ DATABASE_URL=postgresql://chainlink:{YOUR_PASSWORD_HERE}@localhost:5432/chainlin
 MINIMUM_CONTRACT_PAYMENT=0" > ~/.chainlink-moonbeam/.env
 ```
 
-Here, besides the password (`{YOUR_PASSWORD_HERE}`), we need to provide the Link token contract (`{LINK TOKEN CONTRACT ADDRESS}`). After we've created the environment file, we also need an `.api` file that stores the user and password used to access the node's API, the node's operator UI,and the Chainlink command line.
+Aquí, además de la contraseña (`{YOUR_PASSWORD_HERE}`), debemos proporcionar el contrato del token de enlace (`{LINK TOKEN CONTRACT ADDRESS}`). Una vez que hemos creado el archivo de entorno, también necesitamos un `.api` archivo que almacene el usuario y la contraseña utilizados para acceder a la API del nodo, la IU del operador del nodo y la línea de comando Chainlink.
 
 ```
 echo "{AN_EMAIL_ADDRESS}" >  ~/.chainlink-moonbeam/.api
 echo "{ANOTHER_PASSWORD}"   >> ~/.chainlink-moonbeam/.api
 ```
 
-Set both an email address and another password. Lastly, we need another file that stores the wallet password for the node's address:
+Establezca una dirección de correo electrónico y otra contraseña. Por último, necesitamos otro archivo que almacene la contraseña de la billetera para la dirección del nodo:
 
 ```
 echo "{THIRD_PASSWORD}" > ~/.chainlink-moonbeam/.password
 ```
 
-Now that we have finished creating all necessary files, we can launch the containers with the following command (MacOs users may replace `--network host \` with `-p 6688:6688`):
+Ahora que hemos terminado de crear todos los archivos necesarios, podemos lanzar los contenedores con el siguiente comando ((los usuarios de MacOs pueden reemplazar `--network host \` with `-p 6688:6688`):
 
 ```
 docker run -d --name chainlink_oracle_node \
@@ -117,7 +117,7 @@ docker run -d --name chainlink_oracle_node \
         -a /chainlink/.api
 ```
 
-To verify everything is running and that the logs are progressing use:
+Para verificar que todo se está ejecutando y que los registros están progresando, use:
 
 ```
 docker ps #Containers Running
@@ -126,21 +126,21 @@ docker logs --tail 50 {container_id} #Logs progressing
 
 ![Docker logs](/images/chainlink/chainlinknode-image1.png)
 
-## Contract Setup
+## Configuración de contrato
 
-With the Oracle node running, let's configure the smart contract side of things.
+Con el nodo de Oracle en ejecución, configuremos el lado del contrato inteligente de las cosas.
 
-First, we need to retrieve the address that the Oracle node will use to send transactions and write data on-chain. To retrieve the address, log into the [ChainLink node's UI](http://localhost:6688/) (located at `http://localhost:6688/`) using the credentials from the `.api` file.
+Primero, necesitamos recuperar la dirección que el nodo de Oracle usará para enviar transacciones y escribir datos en cadena. Para recuperar la dirección, inicie sesión en la [IU del nodo ChainLink](http://localhost:6688/) (ubicada en `http://localhost:6688/`) usando las credenciales del `.api` archivo.
 
 ![Chainlink login](/images/chainlink/chainlinknode-image2.png)
 
-Go to the 'Configuration Page` and copy the node address. Use the [Moonbeam Faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/) to fund it.
+Vaya a la 'Página de configuración' y copie la dirección del nodo. Utilice el [Moonbeam Faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/)  para financiarlo.
 
 ![Chainlink address](/images/chainlink/chainlinknode-image3.png)
 
-Next, we need to deploy the Oracle contract, which is the middleware between the chain and the node. The contract emits an event with all the necessary information, which is read by the Oracle node. Then, the node fulfills the request and writes the requested data in the caller's contract.
+A continuación, necesitamos implementar el contrato de Oráculo, que es el middleware entre la cadena y el nodo. El contrato emite un evento con toda la información necesaria, que es leído por el nodo de Oráculo. Luego, el nodo cumple la solicitud y escribe los datos solicitados en el contrato de la persona que llama.
 
-The source code of the Oracle contract can be found in Chainlink's official GitHub repository [here](https://github.com/smartcontractkit/chainlink/tree/develop/evm-contracts/src/v0.6). For this example, we'll use Remix to interact with Moonbase Alpha and deploy the contract. In Remix, we can copy the following code:
+El código fuente del contrato de Oracle se puede encontrar en el repositorio oficial de GitHub de Chainlink [aquí](https://github.com/smartcontractkit/chainlink/tree/develop/evm-contracts/src/v0.6). Para este ejemplo, usaremos Remix para interactuar con Moonbase Alpha e implementar el contrato. En Remix, podemos copiar el siguiente código:
 
 ```
 pragma solidity ^0.6.6;
@@ -148,32 +148,32 @@ pragma solidity ^0.6.6;
 import "https://github.com/smartcontractkit/chainlink/evm-contracts/src/v0.6/Oracle.sol";
 ```
 
-After compiling the contract, head to the "Deploy and Run Transactions" tab, enter the Link token address and deploy the contract. Once deployed, copy the address of the contract.
+Después de compilar el contrato, diríjase a la pestaña "Implementar y ejecutar transacciones", ingrese la dirección del token de enlace e implemente el contrato. Una vez desplegado, copie la dirección del contrato.
 
 ![Deploy Oracle using Remix](/images/chainlink/chainlinknode-image4.png)
 
-Lastly, we have to bond the Oracle node and the Oracle smart contract. A node can listen to the requests sent to a certain Oracle contract, but only authorized (aka. bonded) nodes can fulfill the request with a result.
+Por último, tenemos que vincular el nodo de Oracle y el contrato inteligente de Oracle. Un nodo puede escuchar las solicitudes enviadas a un determinado contrato de Oracle, pero solo los nodos autorizados (también conocidos como vinculados) pueden cumplir la solicitud con un resultado.
 
-To set this authorization, we can use the function `setFulfillmentPermission()` from the Oracle contract. This needs two parameters:
+Para configurar esta autorización, podemos utilizar la función `setFulfillmentPermission()` del contrato de Oráculo. Esto necesita dos parámetros:
 
- - The address of the node that we want to bond to the contract (which we did in a previous step)
- - A boolean indicating the status of the bond. In this case, we set it to `true`
+ - La dirección del nodo que queremos vincular al contrato (lo que hicimos en un paso anterior)
+ - Un booleano que indica el estado del enlace. En este caso, lo configuramos en `true`
 
-We can use the instance of the contract deployed on Remix to do so, and check the Oracle node is authorized with the view function `getAuthorizationStatus()`, passing in the Oracle node address.
+Podemos usar la instancia del contrato implementada en Remix para hacerlo, y verificar que el nodo de Oracle esté autorizado con la función de visualización `getAuthorizationStatus()`, pasando la dirección del nodo de Oracle.
 
 ![Authorize Chainlink Oracle Node](/images/chainlink/chainlinknode-image5.png)
 
-## Create Job on the Oracle node
+## Crear trabajo en el nodo de Oracle
 
-The last step to have a fully configured Chainlink Oracle is to create a Job. Referring to [Chainlink’s official documentation](https://docs.chain.link/docs/job-specifications):
+El último paso para tener un Chainlink Oracle completamente configurado es crear un trabajo. Consultando [la documentación oficial de Chainlink:](https://docs.chain.link/docs/job-specifications):
 
-> A Job specifications, or specs, contain the sequential tasks that the node must perform to produce a final result. A spec contains at least one initiator and one task, which are discussed in detail below. Specs are defined using standard JSON so that they are human-readable and can be easily parsed by the Chainlink node.
+> Las especificaciones de un trabajo, o especificaciones, contienen las tareas secuenciales que el nodo debe realizar para producir un resultado final. Una especificación contiene al menos un iniciador y una tarea, que se analizan en detalle a continuación. Las especificaciones se definen utilizando JSON estándar para que sean legibles por humanos y puedan ser analizadas fácilmente por el nodo Chainlink.
 
-Seeing an Oracle as an API service, a Job here would be one of the functions that we can call and that will return a result. To create our first Job, go to the [Jobs sections of your node](http://localhost:6688/jobs) and click on "New Job."
+Al ver un Oracle como un servicio de API, un Job aquí sería una de las funciones a las que podemos llamar y que devolverá un resultado. Para crear nuestro primer trabajo, vaya a las [secciones de trabajos de su nodo](http://localhost:6688/jobs)  y haga clic en "Nuevo trabajo".
 
 ![Chainlink Oracle New Job](/images/chainlink/chainlinknode-image6.png)
 
-Next, paste the following JSON. This will create a Job that will request the current ETH price in USD. Make sure you enter your Oracle contract address (`YOUR_ORACLE_CONTRACT_ADDRESS`).
+A continuación, pegue el siguiente JSON. Esto creará un trabajo que solicitará el precio ETH actual en USD. Asegúrese de ingresar su dirección de contrato de Oráculo (`YOUR_ORACLE_CONTRACT_ADDRESS`).
 
 ```
 {
@@ -204,9 +204,9 @@ Next, paste the following JSON. This will create a Job that will request the cur
 
 ![Chainlink New Job JSON Blob](/images/chainlink/chainlinknode-image7.png)
 
-And that is it! You have fully set up a Chainlink Oracle node that is running on Moonbase Alpha.
+¡Y eso es todo! Ha configurado completamente un nodo de Chainlink Oracle que se ejecuta en Moonbase Alpha.
 
-## Test the Oracle
+## Prueba el Oracle
 
-To verify the Oracle is up and answering requests, follow our [using an Oracle](/integrations/oracles/chainlink/) tutorial. The main idea is to deploy a client contract that requests to the Oracle, and the Oracle writes the requested data into the contract's storage.
+Para verificar que Oracle esté funcionando y respondiendo solicitudes, siga nuestro tutorial de [uso de Oracle](/integrations/oracles/chainlink/). La idea principal es implementar un contrato de cliente que solicita a Oracle, y Oracle escribe los datos solicitados en el almacenamiento del contrato.
 
