@@ -1,6 +1,6 @@
 ---
 title: Tokens
-description: Como todas las plataformas de contratos inteligentes, Moonbeam Network requerirá un token de utilidad para funcionar, que se llama Glimmer (GLMR) para Polkadot y Movr (MOVR) para Kusama.
+description: Como todas las plataformas de contratos inteligentes, Moonbeam Network requerirá un token de utilidad para funcionar, que se llama Glimmer (GLMR) para Polkadot y Moonriver (MOVR) para Kusama.
 ---
 
 # Introducción
@@ -20,7 +20,7 @@ En la implementación de Moonbeam en Polkadot MainNet, este token se llamará Gl
 
 Puede encontrar más información sobre Glimmer [aquí](https://moonbeam.network/networks/moonbeam/glimmer-token/).
 
-## Movr Token
+## Moonriver Token
 
 En el despliegue de Moonbeam en Kusama (llamado Moonriver), este token se llamará MOVR, como en, "esa llamada de contrato inteligente costará 3 MOVR". El símbolo de la ficha será MOVR.
 
