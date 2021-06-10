@@ -1,84 +1,83 @@
 ---
-title: Collators
-description: Instructions on how to become a collator in the Moonbeam Network once you are running a node
+title: Alzadores
+description: Instrucciones sobre cómo convertirse en un clasificador en Moonbeam Network una vez que esté ejecutando un nodo
 ---
 
-# Run a Collator on Moonbeam
+# Ejecutar un intercalador en Moonbeam
 
 ![Collator Moonbeam Banner](/images/fullnode/collator-banner.png)
 
-## Introduction
+## Introducción
 
-Collators are members of the network that maintain the parachains they take part in. They run a full node (for both their particular parachain and the relay chain), and they produce the state transition proof for relay chain validators.
+Los intercaladores son miembros de la red que mantienen las paracaídas en las que participan. Ejecutan un nodo completo (tanto para su paracadena particular como para la cadena de relés) y producen la prueba de transición de estado para los validadores de cadenas de relés.
 
-With the release of Moonbase Alpha v6, users can spin up not only full nodes but they can also activate the `collate` feature and participate in the ecosystem as collators.
+Con el lanzamiento de Moonbase Alpha v6, los usuarios pueden activar nodos completos y activar la `collate` función y participar en el ecosistema como agrupadores.
 
-This guide will take you through the steps of spinning up your collator node, which is an extension of a full node.
+Esta guía lo guiará a través de los pasos para hacer girar su nodo intercalador, que es una extensión de un nodo completo.
 
-## Tech Requirements
+## Requisitos tecnológicos
 
-From a technical perspective, collators must meet the following requirements:
+Desde una perspectiva técnica, las alzadoras deben cumplir los siguientes requisitos:
 
- - Have a full node running with the collation options. To do so, follow [this tutorial](/node-operators/networks/full-node/) considering the specific code snippets for collators
- - Enable the telemetry server for your full node. To do so, follow [this tutorial](/node-operators/networks/telemetry/)
+ - Tener un nodo completo ejecutándose con las opciones de clasificación. Para hacerlo, siga el [tutorial completo de un nodo](/node-operators/networks/full-node/)  , considerando los fragmentos de código específicos para los clasificadores
+ - Habilite el servidor de telemetría para su nodo completo. Para hacerlo, sigue [este tutorial](/node-operators/networks/telemetry/)
 
-## Account and Staking Requirements
+## Requisitos de cuenta y participación
 
-Similar to Polkadot validators, you need to create an account (although in this case, it's an H160 account) and have a nominated stake (DEV tokens) in order to collate. The slots are currently limited to {{ networks.moonbase.collators_slots }}, but may be increased over time.  
+Al igual que los validadores de Polkadot, debe crear una cuenta (aunque en este caso, es una cuenta H160) y tener una participación nominada (tokens DEV) para poder recopilar. Actualmente, los espacios están limitados a, pero pueden aumentar con el tiempo.  
 
-Collators need to have a minimum of {{ networks.moonbase.staking.collator_min_stake }} DEV to be considered eligible (become a candidate). Only the top {{ networks.moonbase.staking.max_collators }} collators by nominated stake will be in the active set.  
+Los clasificadores deben tener un mínimo de {{ networks.moonbase.staking.collator_min_stake }} DEV para ser considerados elegibles (convertirse en candidatos). Solo los {{ networks.moonbase.staking.max_collators }} mejores clasificadores por participación nominada estarán en el grupo activo.  
 
-!!! note
-    Currently, creating or importing an account in PolkadotJS via a mnemonic seed will result in a different public address if you later try to import this account to an Ethereum wallet such as MetaMask. This is because PolkadotJS uses BIP39, whereas Ethereum uses BIP32 or BIP44. 
+!!! nota
+    Actualmente, crear o importar una cuenta en PolkadotJS a través de una semilla mnemotécnica dará como resultado una dirección pública diferente si luego intentas importar esta cuenta a una billetera Ethereum como MetaMask. Esto se debe a que PolkadotJS usa BIP39, mientras que Ethereum usa BIP32 o BIP44. 
 
-## Account in PolkadotJS
+## Cuenta en PolkadotJS
 
-A collator has an account associated with its collation activities. This account is used to identify him as a block producer and send the payouts from block rewards.
+Un clasificador tiene una cuenta asociada con sus actividades de clasificación. Esta cuenta se usa para identificarlo como un productor de bloques y enviar los pagos de las recompensas del bloque.
 
-Currently, you have two ways of proceeding in regards having an account in [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/accounts):
+Actualmente, tiene dos formas de proceder con respecto a tener una cuenta en [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/accounts):
 
- - Importing an existing (or create a new) H160 account from external wallets or services such as [MetaMask](/integrations/wallets/metamask/) and [MathWallet](/integrations/wallets/mathwallet/)
- - Create a new H160 account with [PolkadotJS](/integrations/wallets/polkadotjs/)
+ - Importar una cuenta H160 existente (o crear una nueva) desde carteras o servicios externos como [MetaMask](/integrations/wallets/metamask/) y [MathWallet](/integrations/wallets/mathwallet/)
+ - Cree una nueva cuenta H160 con [PolkadotJS](/integrations/wallets/polkadotjs/)
 
-Once you have an H160 account imported to PolkadotJS, you should see it under the "Accounts" tab. Make sure you have your public address at hand (`PUBLIC_KEY`), as it is needed to configure your [deploy your full node](/node-operators/networks/full-node/) with the collation options.
+Una vez que tenga una cuenta H160 importada a PolkadotJS, debería verla en la pestaña "Cuentas". Asegúrese de tener su dirección pública a mano (`PUBLIC_KEY`), ya que es necesaria para configurar su [implementación de su nodo completo](/node-operators/networks/full-node/) con las opciones de clasificación.
 
 ![Account in PolkadotJS](/images/fullnode/collator-polkadotjs1.png)
 
-## Become a Collator Candidate
+## Conviértase en candidato a clasificador
 
-Once your node is running, and in sync with the network, you become a collator candidate by following the steps below in [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/accounts):
+Una vez que su nodo se está ejecutando y sincronizado con la red, se convierte en un candidato de clasificador (y se une al grupo de candidatos) siguiendo los pasos a continuación en [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/accounts):
 
- 1. Navigate to the "Developers" tab and click on "Extrinsics"
- 2. Select the account you want associated with your collation activities
- 3. Confirm your collator account is funded with at least {{ networks.moonbase.staking.collator_min_stake }} DEV tokens plus some extra for transaction fees 
- 4. Select `parachainStaking` pallet under the "submit the following extrinsics" menu
- 5. Open the drop-down menu, which lists all the possible extrinsics related to staking, and select the `joinCandidates()` function
- 6. Set the bond to at least {{ networks.moonbase.staking.collator_min_stake }}, which is the minimum amount to be considered a collator candidate. Only collator bond counts for this check. Additional nominations do not count
- 7. Submit the transaction. Follow the wizard and sign the transaction using the password you set for the account
+ 1. Vaya a la pestaña "Desarrolladores" y haga clic en "Extrínsecos".
+ 2. Seleccione la cuenta que desea asociar con sus actividades de recopilación
+ 3. Confirme que su cuenta de compaginadora esté financiada con al menos {{ networks.moonbase.staking.collator_min_stake }} Tokens DEV más algunos extra por tarifas de transacción
+ 4. Seleccione la `parachainStaking` paleta en el menú "enviar los siguientes elementos extrínsecos"
+ 5. Abra el menú desplegable, que enumera todos los elementos extrínsecos posibles relacionados con el replanteo, y seleccione la `joinCandidates()` función
+ 6. Establezca la fianza en al menos {{ networks.moonbase.staking.collator_min_stake }},que es la cantidad mínima para ser considerado candidato a clasificador. Para este cheque, solo cuenta la fianza de alistador. Las nominaciones adicionales no cuentan
+ 7. Envíe la transacción. Siga el asistente y firme la transacción con la contraseña que estableció para la cuenta.
 
 ![Join Collators pool PolkadotJS](/images/fullnode/collator-polkadotjs2.png)
 
-!!! note
-    Function names and the minimum bond requirement are subject to change in future releases.
+!!! nota
+    Los nombres de las funciones y el requisito de fianza mínima están sujetos a cambios en versiones futuras.
 
-As mentioned before, only the top {{ networks.moonbase.staking.max_collators }} collators by nominated stake will be in the active set. 
+Como se mencionó anteriormente, solo los {{ networks.moonbase.staking.max_collators }} mejores clasificadores por participación nominada estarán en el conjunto activo.
 
-## Stop Collating
+## Dejar de clasificar
 
-Similar to Polkadot's `chill()` function, to leave the collator's candidate pool, follow the same steps as before but select the `leaveCandidates()` function in step 5.
+Similar a la `chill()` función de Polkadot , para salir del grupo de candidatos del clasificador, siga los mismos pasos que antes, pero seleccione la `leaveCandidates()` función en el paso 5.
 
+## Tiempos
 
-## Timings
+La siguiente tabla presenta algunos de los tiempos en lo que respecta a las diferentes acciones relacionadas con las actividades de recopilación:
 
-The following table presents some of the timings in regards to different actions related to collation activities:
-
-|                Action               |   |   Rounds  |   |   Hours  |
+|                Acción               |   |   Rondas  |   |   Horas  |
 |:-----------------------------------:|:-:|:---------:|:-:|:--------:|
-|  Join/leave collator candidates     |   |     2     |   |    4     |
-|      Add/remove nominations         |   |     1     |   |    2     |
-|Rewards payouts (after current round)|   |     2     |   |    4     |
+|  Unirse / dejar candidatos de clasificador |   |     2     |   |    4     |
+|      Agregar / eliminar nominaciones |   |     1     |   |    2     |
+|Pagos de recompensas (después de la ronda actual)|   |     2     |   |    4     |
 
 
-!!! note 
-    The values presented in the previous table are subject to change in future releases.
+!!! nota 
+    Los valores presentados en la tabla anterior están sujetos a cambios en versiones futuras.
 
