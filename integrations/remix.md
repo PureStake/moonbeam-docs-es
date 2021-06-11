@@ -1,18 +1,19 @@
 ---
 title: Remix IDE
-description: Learn how to use one of the most popular Ethereum developer tools, the Remix IDE, to interact with Moonbeam.
+description: Aprenda a utilizar una de las herramientas de desarrollo de Ethereum más populares, Remix IDE, para interactuar con Moonbeam.
 ---
 
-# Interacting with Moonbeam Using Remix
+# Interactuar con Moonbeam usando Remix
 
 ![Intro diagram](/images/integrations/integrations-remix-banner.png)
 
-## Introduction
+## Introducción
 
-Another tool developers can use to interact with Moonbeam is the [Remix IDE](https://remix.ethereum.org/), one of the most commonly used development environments for smart contracts on Ethereum. It provides a web-based solution to quickly compile and deploy Solidity and Vyper based code to either a local VM or, more interestingly, an external Web3 provider, such as MetaMask. By combining both tools, one can get started very swiftly with Moonbeam.
-## Deploying a Contract to Moonbeam
+Otra herramienta que los desarrolladores pueden usar para interactuar con Moonbeam es [Remix IDE](https://remix.ethereum.org/), uno de los entornos de desarrollo más utilizados para contratos inteligentes en Ethereum. Proporciona una solución basada en web para compilar e implementar rápidamente código basado en Solidity y Vyper en una máquina virtual local o, lo que es más interesante, en un proveedor Web3 externo, como MetaMask. Combinando ambas herramientas, uno puede comenzar muy rápidamente con Moonbeam.
 
-To demonstrate how you can leverage [Remix](https://remix.ethereum.org/) to deploy smart contracts to Moonbeam, we will use the following basic contract:
+## Implementar un contrato en Moonbeam
+
+Para demostrar cómo puede aprovechar [Remix](https://remix.ethereum.org/) para implementar contratos inteligentes en Moonbeam, usaremos el siguiente contrato básico:
 
 ```solidity
 pragma solidity ^0.7.5;
@@ -26,16 +27,17 @@ contract SimpleContract{
 }
 ```
 
-Once compiled, we can navigate to the "Deploy & Run Transactions" tab. We need first to set our environment to "Injected Web3." This uses the provider injected by MetaMask, which allows us to deploy contracts to the network it is connected to - in this case, the Moonbase Alpha TestNet. 
+Una vez compilado, podemos navegar a la pestaña "Implementar y ejecutar transacciones". Primero tenemos que configurar nuestro entorno en "Injected Web3". Esto utiliza el proveedor inyectado por MetaMask, que nos permite implementar contratos en la red a la que está conectado, en este caso, Moonbase Alpha TestNet.
 
-For this example, we'll be deploying the contract from a funded MetaMask account. You can use our [TestNet faucet](/getting-started/testnet/faucet/) to fund your account for deployments on Moonbase Alpha. Next, pass in `Test Contract` as input to our contructor function and hit deploy. A MetaMask pop-up will show the information regarding the transaction, which we'll need to sign by clicking "confirm."
+Para este ejemplo, implementaremos el contrato desde una cuenta MetaMask financiada. Puede usar nuestro [grifo TestNet](/getting-started/testnet/faucet/) para financiar su cuenta para implementaciones en Moonbase Alpha. Luego, pase `Test Contract` como entrada a nuestra función constructora y presione implementar. Una ventana emergente de MetaMask mostrará la información relacionada con la transacción, que tendremos que firmar haciendo clic en "confirmar".
 
 ![Deploying Contract](/images/remix/integrations-remix-1.png)
 
-Once the transaction is included, the contract appears in the "Deployed Contracts" section on Remix. In there, we can interact with the functions available from our contract.
+Una vez que se incluye la transacción, el contrato aparece en la sección "Contratos implementados" en Remix. Allí, podemos interactuar con las funciones disponibles en nuestro contrato.
 
 ![Interact with Contract](/images/remix/integrations-remix-2.png)
 
-## Step-by-step Tutorials
-If you are interested in a more detailed step-by-step guide, go to our specific tutorials on using [Remix on a Moonbeam development node](/getting-started/local-node/using-remix/). The steps can also be adapted to deploy on the Moonbase Alpha TestNet by [connecting MetaMask to it](/getting-started/testnet/metamask/).
+## Tutoriales paso a paso
+
+Si está interesado en una guía paso a paso más detallada, vaya a nuestros tutoriales específicos sobre el uso de [Remix en un nodo de desarrollo Moonbeam](/getting-started/local-node/using-remix/).  Los pasos también se pueden adaptar para implementar en Moonbase Alpha TestNet [conectando MetaMask a él.](/getting-started/testnet/metamask/).
 
