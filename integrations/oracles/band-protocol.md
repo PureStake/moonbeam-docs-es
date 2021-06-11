@@ -1,45 +1,49 @@
 ---
 title: Band Protocol
-description: How to use request data from a Band Protocol Oracle in your Moonbeam Ethereum DApp using smart contracts or javascript
+description: Cómo utilizar los datos de solicitud de un protocolo de banda Oracle en su DApp Moonbeam Ethereum usando contratos inteligentes o javascript
 ---
-# Band Protocol Oracle
+# Protocolo de banda Oracle
+
 
 ![Band Protocol Moonbeam Diagram](/images/band/band-banner.png)
 
-## Introduction
-Developers have two ways to fetch prices from Band’s oracle infrastructure. On one hand, they can use Band’s smart contracts on Moonbeam. Doing so, they access data that is on-chain and is updated either at regular intervals or when price slippage is more than a target amount (different for each token). On the other hand, devs can use the Javascript helper library, which uses an API endpoint to fetch the data using similar functions as those from the smart contracts, but this implementation bypasses the blockchain entirely.  This can be useful if your DApp front-end needs direct access to the data.
+## Introducción
 
-The Aggregator Contract address can be found in the following table:
+Los desarrolladores tienen dos formas de obtener precios de la infraestructura Oracle de Band. Por un lado, pueden usar los contratos inteligentes de Band en Moonbeam. Al hacerlo, acceden a los datos que están en la cadena y se actualizan a intervalos regulares o cuando el deslizamiento del precio es mayor que una cantidad objetivo (diferente para cada token). Por otro lado, los desarrolladores pueden usar la biblioteca auxiliar de Javascript, que usa un punto final de API para obtener los datos usando funciones similares a las de los contratos inteligentes, pero esta implementación omite la cadena de bloques por completo. Esto puede ser útil si su interfaz DApp necesita acceso directo a los datos.
 
-|     Network    | |         Aggregator Contract Address        |
+La dirección del contrato del agregador se puede encontrar en la siguiente tabla:
+
+|     La red    | |         Dirección del contrato del agregador       |
 |:--------------:|-|:------------------------------------------:|
 | Moonbase Alpha | | 0xDA7a001b254CD22e46d3eAB04d937489c93174C3 |
 
-## Supported Token
-Price queries with any denomination are available as long as the base and quote symbols are supported (_base_/_quote_). For example:
+## Token admitido
+Las consultas de precios con cualquier denominación están disponibles siempre que se admitan los símbolos base y de cotización (_base_/_quote_). Por ejemplo:
 
  - `BTC/USD`
  - `BTC/ETH`
  - `ETH/EUR`
 
-At the time of writing, the list of supported symbols can be found by following [this link](https://data.bandprotocol.com). There are more than 146 price pairs available to query.
+En el momento de escribir este artículo, la lista de símbolos admitidos se puede encontrar siguiendo [este enlace](https://data.bandprotocol.com). Hay más de 146 pares de precios disponibles para consultar.
 
-## Querying Prices
-As stated before, developers can leverage two methods to query prices from Band's oracle: 
+## Consultar precios
 
- - Band's smart contract on Moonbeam (deployed to Moonbase Alpha TestNet for now)
- - Javascript helper library
+Como se indicó anteriormente, los desarrolladores pueden aprovechar dos métodos para consultar precios desde el oráculo de Band:
 
-## Get Data Using Smart Contracts
-Contracts can query on-chain data, such as token prices, from Band's oracle by implementing the interface of the `StdReference` contract, which exposes the `getReferenceData` and `getReferenceDataBulk` functions.
+ - Contrato inteligente de Band en Moonbeam (implementado en Moonbase Alpha TestNet por ahora)
+ - Biblioteca auxiliar de JavaScript
 
-The first function, `getReferenceData`, takes two strings (the base and the quote symbol) as the inputs. The function queries the `StdReference` contract for the latest rates available for those two tokens. It returns a `ReferenceData` struct.
+## Obtener datos mediante contratos inteligentes
 
-The `ReferenceData` struct has the following elements:
+Los contratos pueden consultar datos en cadena, como precios de tokens, desde el oráculo de Band mediante la implementación de la interfaz del `StdReference` contrato, que expone las funciones `getReferenceData` y `getReferenceDataBulk`.
 
- - Rate: the exchange rate in terms of _base/quote_. The value returned is multiplied by 10<sup>18</sup>
- - Last updated base: the last time when the base price was updated (since UNIX epoch)
- - Last updated quote: the last time when the quoted price was updated (since UNIX epoch)
+La primera función, `getReferenceData`,toma dos cadenas (la base y el símbolo de cotización) como entradas. La función consulta el `StdReference` contrato para conocer las últimas tarifas disponibles para esos dos tokens. Devuelve una `ReferenceData` estructura.
+
+La `ReferenceData` estructura tiene los siguientes elementos:
+
+ - Tasa: la tasa de cambio en términos de _base/cotización_. . El valor devuelto se multiplica por 10<sup>18</sup>
+ - Última base actualizada: la última vez que se actualizó el precio base (desde la época de UNIX)
+ - Última cotización actualizada: la última vez que se actualizó el precio cotizado (desde la época de UNIX)
  
 ```
 struct ReferenceData {
@@ -49,15 +53,15 @@ struct ReferenceData {
 }
 ```
 
-The second function, `getReferenceDataBulk`, takes information as data arrays. For example, if we pass in `['BTC','BTC','ETH']` as base and `['USD','ETH','EUR']` as quote, the `ReferenceData`returned array contains the information regarding the following pairs:
+La segunda función, `getReferenceDataBulk`, toma información como matrices de datos. Por ejemplo, si pasamos `['BTC','BTC','ETH']`como base y `['USD','ETH','EUR']` como cita, la `ReferenceData` matriz devuelta contiene la información sobre los siguientes pares:
 
  - `BTC/USD`
  - `BTC/ETH`
  - `ETH/EUR`
 
-### Example Contract
+### Contrato de ejemplo
 
-The following smart contract code provides some simple examples of the `StdReference` contract and the `getReferenceData` function - these are not meant for production. The `IStdReference.sol` interface defines ReferenceData structure and the functions available to make the queries.
+El siguiente código de contrato inteligente proporciona algunos ejemplos simples del `StdReference` y la `getReferenceData` función; estos no están destinados a la producción. La `IStdReference.sol` interfaz define la estructura de ReferenceData y las funciones disponibles para realizar las consultas.
 
 ```sol
 pragma solidity 0.6.11;
@@ -84,14 +88,14 @@ interface IStdReference {
         returns (ReferenceData[] memory);
 }
 ```
-Next, we can use the following `DemoOracle` script. It provides four functions:
+A continuación, podemos usar el siguiente `DemoOracle` script. Proporciona cuatro funciones: 
 
- - getPrice: a _view_ function that queries a single base. In this example, the price of `BTC` quoted in `USD`
- - getMultiPrices: a _view_ function that queries multiple bases. In this example, the price of `BTC` and `ETH`, both quoted in `USD`
- - savePrice: a _public_ function that queries the _base/quote_ pair. Each element is provided as separate strings, for example `_base = "BTC", _quotes = "USD"`. This sends a transaction and modifies the `price` variable stored in the contract
- - saveMultiPrices: a _public_  function that queries each _base/quote_ pair. Each element is provided as a string array. For example, `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. This sends a transaction and modifies the `prices` array stored in the contract, which will hold the price of each pair in the same order as specified in the input
+ - getPrice: una función de _vista_ ue consulta una sola base. En este ejemplo, el precio de `BTC` cotizado en `USD`
+ - getMultiPrices: una función de _vista_ que consulta múltiples bases. En este ejemplo, el precio de `BTC` y `ETH`, ambos cotizados en `USD`
+ - savePrice: una función _pública_ que consulta el par _base/cotización_ pair. Cada elemento se proporciona como cadenas independientes, por ejemplo `_base = "BTC", _quotes = "USD"`.  Esto envía una transacción y modifica la `price` variable almacenada en el contrato.
+ - saveMultiPrices: una función _pública_ que consulta cada par _base/cotización_ pair. Cada elemento se proporciona como una matriz de cadenas. Por ejemplo `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Esto envía una transacción y modifica la `prices` matriz almacenada en el contrato, que mantendrá el precio de cada par en el mismo orden que se especifica en la entrada.
 
- When deployed, the constructor function needs the Aggregator Contract address for the target network.
+Cuando se implementa, la función de constructor necesita la dirección del contrato de agregador para la red de destino.
 
 ```sol
 pragma solidity 0.6.11;
@@ -149,9 +153,9 @@ contract DemoOracle {
 }
 ```
 
-### Try it in Moonbase Alpha
+### Pruébelo en Moonbase Alpha
 
-We've deployed a contract available in the Moonbase Alpha TestNet (at address `0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) so you can easily check the information fed from Band Protocol's oracle. To do so, you need the following interface contract:
+Hemos implementado un contrato disponible en Moonbase Alpha TestNet (en la dirección `0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) para que pueda verificar fácilmente la información proporcionada por el oráculo de Band Protocol. Para hacerlo, necesita el siguiente contrato de interfaz:
 
 ```sol
 pragma solidity 0.6.11;
@@ -164,36 +168,36 @@ interface TestInterface {
 }
 ```
 
-With it, you will have two view functions available - very similar to our previous examples:
+Con él, tendrá dos funciones de visualización disponibles, muy similares a nuestros ejemplos anteriores:
 
- - getPrice: provides the price feed for a single base/quote pair that is given as input to the function, that is, "BTC", "USD"
- - getMultiPrices: provides the price feed for a multiple base/quote pairs that are given as input to the function, that is, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR"]
+ - getPrice: getPrice: proporciona el feed de precios para un solo par base / cotización que se proporciona como entrada a la función, es decir, "BTC", "USD"
+ - getMultiPrices: proporciona el feed de precios para varios pares de base / cotización que se proporcionan como entrada a la función, es decir, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR "]
 
-For example, using [Remix](/integrations/remix/), we can easily query the `BTC/USD` price pair using this interface.
+Por ejemplo, usando [Remix](/integrations/remix/),podemos consultar fácilmente el `BTC/USD` par de precios usando esta interfaz.
 
-After creating the file and compiling the contract, head to the "Deploy and Run Transactions" tab, enter the contract address (`0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) and click on "At Address." Make sure you have set the "Environment" to "Injected Web3" so you are connected to Moonbase Alpha. 
+Después de crear el archivo y compilar el contrato, diríjase a la pestaña "Implementar y ejecutar transacciones", ingrese la dirección del contrato (`0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) y haga clic en "En la dirección". Asegúrate de haber configurado el "Entorno" en "Injected Web3" para estar conectado a Moonbase Alpha.
 
 ![Band Protocol Remix deploy](/images/band/band-demo1.png)
 
-This will create an instance of the demo contract that you can interact with. Use the functions `getPrice()` and `getMultiPrices()` to query the data of the corresponding pair.
+Esto creará una instancia del contrato de demostración con la que puede interactuar. Utilice las funciones `getPrice()` y `getMultiPrices()` para consultar los datos del par correspondiente.
 
 ![Band Protocol Remix check price](/images/band/band-demo2.png)
 
-## BandChain.js Javascript Helper Library
+## Biblioteca auxiliar de Javascript BandChain.js
 
-The helper library also supports a similar `getReferenceData` function. To get started, the library needs to be installed:
+La biblioteca auxiliar también admite una `getReferenceData` función similar . Para comenzar, es necesario instalar la biblioteca:
 
 ```
 npm install @bandprotocol/bandchain.js
 ```
 
-The library provides a constructor function that requires an endpoint to point to. This returns an instance that then enables all the necessary methods, such as the `getReferenceData` function.  When querying for information, the function accepts an array where each element is the _base/quote_ pair needed. For example:
+La biblioteca proporciona una función de constructor que requiere un punto final al que apuntar. Esto devuelve una instancia que luego habilita todos los métodos necesarios, como la `getReferenceData` función. Al solicitar información, la función acepta una matriz en la que cada elemento es el par _base/cotización_ necesario. Por ejemplo:
 
 ```
 getReferenceData(['BTC/USD', 'BTC/ETH', 'ETH/EUR'])
 ```
 
-Then, it returns an array object with the following structure:
+Luego, devuelve un objeto de matriz con la siguiente estructura:
 
 ```
 [
@@ -214,11 +218,11 @@ Then, it returns an array object with the following structure:
   }
 ]
 ```
-Where `lastUpdatedBase` and `lastUpdatedQuote` are the last time when the base and quote prices were updated respectively (since UNIX epoch).
+Donde `lastUpdatedBase` y `lastUpdatedQuote` son la última vez que se actualizaron los precios base y de cotización respectivamente (desde la época de UNIX).
 
-### Example Usage
+### Ejemplo de uso
 
-The following Javascript script provides a simple example of the `getReferenceData` function.
+El siguiente script de Javascript proporciona un ejemplo simple de la `getReferenceData` función.
 
 ```js
 const BandChain = require('@bandprotocol/bandchain.js');
@@ -234,8 +238,8 @@ const queryData = async () => {
 queryData();
 ```
 
-We can execute this code with a node, and the following `dataQuery` output should look like this:
+Podemos ejecutar este código con un nodo, y el siguiente `dataQuery` resultado debería verse así:
 
 ![Band Protocol JavaScript Library](/images/band/band-console.png)
 
-Note that compared to the request done via smart contracts, the result is given directly in the correct units.
+Tenga en cuenta que, en comparación con la solicitud realizada a través de contratos inteligentes, el resultado se proporciona directamente en las unidades correctas.
