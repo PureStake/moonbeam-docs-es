@@ -1,68 +1,68 @@
 ---
 title: Polkadot JS Apps
-description: Follow this quick tutorial to learn how to use Moonbeam’s Ethereum-standard H160 addresses with Substrate-based apps like Polkadot JS.
+description: Siga este tutorial rápido para aprender a usar las direcciones H160 estándar Ethereum de Moonbeam con aplicaciones basadas en sustrato como Polkadot JS.
 ---
 # Polkadot JS Apps
 
 ![Intro diagram](/images/polkadotjs/polkadotjs-banner.png)
 
-## Introduction
+## Introducción
 
-With the [release of the v3 upgrade](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/) for the Moonbase Alpha TestNet, we have made significant updates to the underlying account system on Moonbeam, replacing the default Substrate-style accounts and keys with Ethereum-style accounts and keys.
+Con el [lanzamiento de la actualización v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/) para Moonbase Alpha TestNet, hemos realizado actualizaciones significativas en el sistema de cuentas subyacente en Moonbeam, reemplazando las cuentas y claves predeterminadas de estilo Substrate con cuentas y claves de estilo Ethereum.
 
-The Polkadot JS Apps interface was updated as well so that it natively supports H160 addresses and ECDSA keys. So, in this tutorial lets check this new integration of Ethereum-based accounts on the Polkadot JS Apps site.
+La interfaz de Polkadot JS Apps también se actualizó para que admita de forma nativa direcciones H160 y claves ECDSA. Entonces, en este tutorial, verifiquemos esta nueva integración de cuentas basadas en Ethereum en el sitio de Polkadot JS Apps.
 
-## Connecting to Moonbase Alpha
+## Conectando a Moonbase Alpha
 
-First, we need to connect it to the Moonbase Alpha TestNet by clicking the top left corner logo and selecting Moonbase Alpha (under Test Networks).
+Primero, necesitamos conectarlo a Moonbase Alpha TestNet haciendo clic en el logo de la esquina superior izquierda y seleccionando Moonbase Alpha (bajo Test Networks).
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app1.png)
 
-After switching, the Polkadot JS site will not only connect to Moonbase Alpha, but also change its styling to make a perfect match.
+Después de cambiar, el sitio de Polkadot JS no solo se conectará a Moonbase Alpha, sino que también cambiará su estilo para hacer una combinación perfecta.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app2.png)
 
-## Creating or Importing an H160 Account
+## Creación o importación de una cuenta H160
 
-Let's see how we can create a new account, or import an already existing MetaMask account to Polkadot JS Apps. First, navigate to the accounts section, and click in the add account button.
+Veamos cómo podemos crear una nueva cuenta o importar una cuenta MetaMask ya existente a Polkadot JS Apps. Primero, navegue a la sección de cuentas y haga clic en el botón Agregar cuenta.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app3.png)
 
-This will open a wizard pop-up that will guide you through the process of adding an account to the Polkadot JS Apps interface. Make sure you click on the drop-down menu and change from Mnemonic to Raw seed, this allows you to add an account through a private key.
+Esto abrirá una ventana emergente del asistente que lo guiará a través del proceso de agregar una cuenta a la interfaz de Polkadot JS Apps. Asegúrese de hacer clic en el menú desplegable y cambiar de Mnemonic a Raw seed, esto le permite agregar una cuenta a través de una clave privada.
 
-!!! note
-    Currently, you can only create or import accounts in PolkadotJS via a private key. Doing so with the mnemonic will result in a different public address if you later try to import this account to an Ethereum wallet such as MetaMask. This is because PolkadotJS uses BIP39, whereas Ethereum uses BIP32 or BIP44.
+!!! nota
+    Actualmente, solo puede crear o importar cuentas en PolkadotJS a través de una clave privada. Hacerlo con el mnemónico dará como resultado una dirección pública diferente si luego intentas importar esta cuenta a una billetera Ethereum como MetaMask. Esto se debe a que PolkadotJS usa BIP39, mientras que Ethereum usa BIP32 o BIP44.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app4.png)
 
-Next, if you want to create a new account make sure you store the private key displayed by the wizard. If you want to import an existing account, enter your private key that you can export from MetaMask, in this case we are importing the following account:
+A continuación, si desea crear una nueva cuenta, asegúrese de almacenar la clave privada que muestra el asistente. Si desea importar una cuenta existente, ingrese su clave privada que puede exportar desde MetaMask, en este caso estamos importando la siguiente cuenta:
 
-- Private key: `28194e8ddb4a2f2b110ee69eaba1ee1f35e88da2222b5a7d6e3afa14cf7a3347`
-- Public address: `0x44236223aB4291b93EEd10E4B511B37a398DEE55` 
+- Llave privada: `28194e8ddb4a2f2b110ee69eaba1ee1f35e88da2222b5a7d6e3afa14cf7a3347`
+- Direccion publica: `0x44236223aB4291b93EEd10E4B511B37a398DEE55` 
 
-!!! note
-    Never reveal your private keys as they give direct access to your funds. The steps in this guide are for demostration purposes only. 
+!!! nota
+    Nunca revele sus claves privadas, ya que dan acceso directo a sus fondos. Los pasos de esta guía son solo para fines de demostración. 
     
-Make sure to include the prefix in the private key, i.e., `0x`. If you entered the information correctly, the corresponding public address should appear in the upper left corner of the window.
+Asegúrese de incluir el prefijo de la clave privada, es decir, `0x`. Si ingresó la información correctamente, la dirección pública correspondiente debería aparecer en la esquina superior izquierda de la ventana.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app5.png)
 
-Click next and finish the wizard by setting an account name and password. After a confirmation message, you should see in the main Accounts tab the address with the corresponding balance: in our case, Bob's address. Moreover, we can overlay the MetaMask extension to see that both balances are the same.
+Haga clic en siguiente y finalice el asistente configurando un nombre de cuenta y una contraseña. Tras un mensaje de confirmación, deberías ver en la pestaña principal de Cuentas la dirección con el saldo correspondiente: en nuestro caso, la dirección de Bob. Además, podemos superponer la extensión MetaMask para ver que ambos saldos son iguales.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app6.png)
 
-## Sending a Transaction Through Substrate's API
+## Envío de una transacción a través de la API de Substrate
 
-Now, let's demonstrate the potential of Moonbeam's Unified Accounts scheme by making a transfer through the Substrate API using the Polkadot JS Apps. Remember that we are interacting with Substrate using an Ethereum-style H160 address. To do so, we've imported another account named Charley with 5 `DEV` tokens.
+Ahora, demostremos el potencial del esquema de Cuentas Unificadas de Moonbeam haciendo una transferencia a través de la API Substrate usando Polkadot JS Apps. Recuerde que estamos interactuando con Substrate usando una dirección H160 estilo Ethereum. Para hacerlo, hemos importado otra cuenta llamada Charley con 5 `DEV` tokens.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app7.png)
 
-Next, click on Bob's send button, which opens another wizard that guides you through the process of sending a transaction. Set the send to address and the amount, which for our example is 5 DEV tokens. When ready, click on the "Make Transfer" button.
+A continuación, haga clic en el botón enviar de Bob, que abre otro asistente que lo guía a través del proceso de envío de una transacción. Establezca la dirección de envío y la cantidad, que para nuestro ejemplo son 5 tokens DEV. Cuando esté listo, haga clic en el botón "Realizar transferencia".
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app8.png)
 
-After the transaction is signed using the password, Polkadot JS will display some messages on the top right corner while it's being processed. Once confirmed, you should see the balances updated for each account.
+Una vez firmada la transacción con la contraseña, Polkadot JS mostrará algunos mensajes en la esquina superior derecha mientras se procesa. Una vez confirmado, debería ver los saldos actualizados para cada cuenta.
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app8.png)
 
-And that is it! We are excited about being able to support H160 accounts in Polkadot JS Apps, as we believe this will greatly enhance the user experience in the Moonbeam Network and its Ethereum compatibility features.
+¡Y eso es todo! Estamos entusiasmados de poder admitir cuentas H160 en Polkadot JS Apps, ya que creemos que esto mejorará en gran medida la experiencia del usuario en Moonbeam Network y sus características de compatibilidad con Ethereum.
