@@ -1,40 +1,40 @@
 ---
-title: Precompiled Contracts
-description:  Learn how to use precompiled contracts on Moonbase Alpha, the Moonbeam Network TestNet that is unique for its complete Ethereum compatibility. 
+title: Contratos precompilados
+description:  Aprenda a usar contratos precompilados en Moonbase Alpha, Moonbeam Network TestNet que es único por su completa compatibilidad con Ethereum. 
 ---
 
-# Precompiled Contracts on Moonbase Alpha
+# Contratos precompilados en Moonbase Alpha
 
-## Introduction
+## Introducción
 
-Another feature added with the [release of Moonbase Alpha v2](https://moonbeam.network/announcements/moonbase-alpha-v2-contract-events-pub-sub-capabilities/) is the inclusion of some [precompiled contracts](https://docs.klaytn.com/smart-contract/precompiled-contracts) that are natively available on Ethereum. 
+Otra característica agregada con el [lanzamiento de Moonbase Alpha v2](https://moonbeam.network/announcements/moonbase-alpha-v2-contract-events-pub-sub-capabilities/) es la inclusión de algunos [contratos precompilados](https://docs.klaytn.com/smart-contract/precompiled-contracts) que están disponibles de forma nativa en Ethereum.
 
-Five precompiles are currently included, including: ecrecover, sha256, ripemd-160, the identity function, and the modular exponentiation.
+Actualmente se incluyen cinco precompilaciones, que incluyen: ecrecover, sha256, ripemd-160, la función de identidad y la exponenciación modular.
 
-In this guide, we will explain how to use and/or verify these precompiles.
+En esta guía, explicaremos cómo usar y / o verificar estas precompilaciones.
 
-## Checking Prerequisites
+## Comprobación de requisitos previos
 
 --8<-- 'text/common/install-nodejs.md'
 
-As of writing this guide, the versions used were 15.2.1 and 7.0.8, respectively. We will also need to install the Web3 package by executing:
+En el momento de redactar esta guía, las versiones utilizadas fueron 15.2.1 y 7.0.8, respectivamente. También necesitaremos instalar el paquete Web3 ejecutando:
 
 ```
 npm install --save web3
 ```
 
-To verify the installed version of Web3, you can use the `ls` command:
+Para verificar la versión instalada de Web3, puede usar el `ls` comando:
 
 ```
 npm ls web3
 ```
-As of writing this guide, the version used was 1.3.0. We will be also using [Remix](/integrations/remix/), connecting it to the Moonbase Alpha TestNet via [MetaMask](/integrations/wallets/metamask/).
+En el momento de redactar esta guía, la versión utilizada era 1.3.0. También usaremos [Remix](/integrations/remix/), conectándolo a Moonbase Alpha TestNet a través de [MetaMask](/integrations/wallets/metamask/).
 
-## Verify Signatures with ECRECOVER
+## Verificar firmas con ECRECOVER
 
-The main function of this precompile is to verify the signature of a message. In general terms, you feed `ecrecover` the transaction's signature values and it returns an address. The signature is verified if the address returned is the same as the public address that sent the transaction.
+La función principal de esta precompilación es verificar la firma de un mensaje. En términos generales, alimenta `ecrecover` los valores de la firma de la transacción y devuelve una dirección. La firma se verifica si la dirección devuelta es la misma que la dirección pública que envió la transacción.
 
-Let's jump into a small example to showcase how to leverage this precompiled function. To do so we need to retrieve the transaction's signature values (v, r, s). Therefore, we'll sign and retrieve the signed message where these values are:
+Pasemos a un pequeño ejemplo para mostrar cómo aprovechar esta función precompilada. Para hacerlo, necesitamos recuperar los valores de la firma de la transacción (v, r, s). Por lo tanto, firmaremos y recuperaremos el mensaje firmado donde se encuentran estos valores:
 
 ```solidity
 const Web3 = require('web3');
@@ -60,7 +60,7 @@ async function signMessage(pk) {
 signMessage(pk1);
 ```
 
-This code will return the following object in the terminal:
+Este código devolverá el siguiente objeto en la terminal:
 
 ```js
 {
@@ -72,7 +72,7 @@ This code will return the following object in the terminal:
   signature: '0x44287513919034a471a7dc2b2ed121f95984ae23b20f9637ba8dff471b6719ef7d7dc30309a3baffbfd9342b97d0e804092c0aeb5821319aa732bc09146eafb41b'
 }
 ```
-With the necessary values, we can go to Remix to test the precompiled contract. Note that this can also be verified with the Web3 JS library, but in our case, we'll go to Remix to be sure that it is using the precompiled contract on the blockchain. The Solidity code we can use to verify the signature is the following:
+Con los valores necesarios, podemos ir a Remix para probar el contrato precompilado. Tenga en cuenta que esto también se puede verificar con la biblioteca Web3 JS, pero en nuestro caso, iremos a Remix para asegurarnos de que está usando el contrato precompilado en la cadena de bloques. El código de Solidez que podemos utilizar para verificar la firma es el siguiente:
 
 ```solidity
 pragma solidity ^0.7.0;
@@ -92,11 +92,11 @@ contract ECRECOVER{
 }
 ```
 
-Using the [Remix compiler and deployment](/getting-started/local-node/using-remix/) and with [MetaMask pointing to Moonbase Alpha](/getting-started/testnet/metamask/), we can deploy the contract and call the `verify()` method that returns _true_ if the address returned by `ecrecover` is equal to the address used to sign the message (related to the private key and needs to be manually set in the contract).
+Usando el [compilador y la implementación Remix](/getting-started/local-node/using-remix/) y con [MetaMask apuntando a Moonbase Alpha](/getting-started/testnet/metamask/), podemos implementar el contrato y llamar al `verify()` método que devuelve _verdadero_ si la dirección devuelta por `ecrecover` es igual a la dirección utilizada para firmar el mensaje (relacionada con la clave privada y necesita configurarse manualmente en el contrato).
 
-## Hashing with SHA256
+## Hash con SHA256
 
-This hashing function returns the SHA256 hash from the given data. To test this precompile, you can use this [online tool](https://md5calc.com/hash/sha256) to calculate the SHA256 hash of any string you want. In our case, we'll do so with `Hello World!`. We can head directly to Remix and deploy the following code, where the calculated hash is set for the `expectedHash` variable:
+Esta función hash devuelve el hash SHA256 de los datos proporcionados. Para probar esta precompilación, puede utilizar esta [herramienta en línea](https://md5calc.com/hash/sha256) para calcular el hash SHA256 de cualquier cadena que desee. En nuestro caso, lo haremos con `Hello World!`. Podemos dirigirnos directamente a Remix e implementar el siguiente código, donde se establece el hash calculado para la `expectedHash` variable:
 
 ```solidity
 pragma solidity ^0.7.0;
@@ -117,11 +117,11 @@ contract Hash256{
 }
 
 ```
-Once the contract is deployed, we can call the `checkHash()` method that returns _true_ if the hash returned by `calculateHash()` is equal to the hash provided.
+Una vez que se implementa el contrato, podemos llamar al `checkHash()` método que devuelve _verdadero_ si el hash devuelto por `calculateHash()` es igual al hash proporcionado.
 
-## Hashing with RIPEMD-160
+## Hashing con RIPEMD-160
 
-This hashing function returns a RIPEMD-160 hash from the given data. To test this precompile, you can use this [online tool](https://md5calc.com/hash/ripemd160) to calculate the RIPEMD-160 hash of any string. In our case, we'll do so again with `Hello World!`. We'll reuse the same code as before, but use the `ripemd160` function. Note that it returns a `bytes20` type variable:
+Esta función hash devuelve un hash RIPEMD-160 a partir de los datos proporcionados. Para probar esta precompilación, puede utilizar esta [herramienta en línea](https://md5calc.com/hash/ripemd160) para calcular el hash RIPEMD-160 de cualquier cadena. En nuestro caso, lo haremos de nuevo con `Hello World!`. Reutilizaremos el mismo código que antes, pero usaremos la `ripemd160` función. Tenga en cuenta que devuelve una `bytes20`variable de tipo:
 
 ```solidity
 pragma solidity ^0.7.0;
@@ -141,11 +141,11 @@ contract HashRipmd160{
     }
 }
 ```
-With the contract deployed, we can call the `checkHash()` method that returns _true_ if the hash returned by `calculateHash()` is equal to the hash provided.
+Con el contrato implementado, podemos llamar al `checkHash()` método que devuelve _verdadero_ si el hash devuelto por `calculateHash()` es igual al hash proporcionado.
 
-## The Identity Function
+## La función de identidad
 
-Also known as datacopy, this function serves as a cheaper way to copy data in memory. The Solidity compiler does not support it, so it needs to be called with inline assembly. The [following code](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-04-datacopy-data) (adapted to Solidity), can be used to call this precompiled contract. We can use this [online tool](https://web3-type-converter.onbrn.com/) to get bytes from any string, as this is the input of the method `callDataCopy()`.
+También conocida como copia de datos, esta función sirve como una forma más económica de copiar datos en la memoria. El compilador Solidity no lo admite, por lo que debe llamarse con ensamblado en línea. El [siguiente código](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-04-datacopy-data) (adaptado a Solidity), se puede utilizar para llamar a este contrato precompilado. Podemos usar esta [herramienta en línea](https://web3-type-converter.onbrn.com/) para obtener bytes de cualquier cadena, ya que esta es la entrada del método `callDataCopy()`.
 
 ```solidity
 pragma solidity ^0.7.0;
@@ -169,13 +169,13 @@ contract Identity{
     }
 }
 ```
-With the contract deployed, we can call the `callDataCopy()` method and verify if `memoryStored` matches the bytes that you pass in as an input of the function.
+Con el contrato implementado, podemos llamar al `callDataCopy()` método y verificar si `memoryStored` coincide con los bytes que pasa como entrada de la función.
 
-## Modular Exponentiation
+## Exponenciación modular
 
-This fifth precompile calculates the remainder when an integer _b_ (base) is raised to the _e_-th power (the exponent), and is divided by a positive integer _m_ (the modulus).
+Esta quinta precompilación calcula el resto cuando un entero _b_ (base) se eleva a la _e_ -ésima potencia (el exponente) y se divide por un entero positivo _m_ (el módulo).
 
-The Solidity compiler does not support it, so it needs to be called with inline assembly. The [following code](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x05-bigmodexp-base-exp-mod) was simplified to show the functionality of this precompile. 
+El compilador Solidity no lo admite, por lo que debe llamarse con ensamblado en línea. El [siguiente código](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x05-bigmodexp-base-exp-mod) se simplificó para mostrar la funcionalidad de esta precompilación. 
 
 ```solidity
 pragma solidity ^0.7.0;
@@ -213,5 +213,5 @@ contract ModularCheck {
 }
 ```
 
-You can try this in [Remix](/integrations/remix/). Use the function `verify()`, passing the base, exponent, and modulus. The function will store the value in the `checkResult` variable. 
+Puedes probar esto en [Remix](/integrations/remix/).  Usa la función `verify()`,  pasando la base, el exponente y el módulo. La función almacenará el valor en la `checkResult` variable. 
 
