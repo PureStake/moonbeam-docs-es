@@ -1,42 +1,42 @@
 ---
 title: MetaMask
-description: This guide walks you through how to connect MetaMask, an browser-based Ethereum wallet, to Moonbeam.
+description: Esta guía le explica cómo conectar MetaMask, una billetera Ethereum basada en navegador, a Moonbeam.
 ---
 
-# Interacting with Moonbeam Using MetaMask
+# Interactuando con Moonbeam usando MetaMask
 
 ![Intro diagram](/images/integrations/integrations-metamask-banner.png)
 
-## Introduction
+## Introducción
 
-Developers can leverage Moonbeam's Ethereum compatibility features to integrate tools, such as [MetaMask](https://metamask.io/), into their DApps. By doing so, they can use the injected library MetaMask provides to interact with the blockchain.
+Los desarrolladores pueden aprovechar las funciones de compatibilidad con Ethereum de Moonbeam para integrar herramientas, como [MetaMask](https://metamask.io/), en sus DApps. Al hacerlo, pueden usar la biblioteca inyectada que proporciona MetaMask para interactuar con la cadena de bloques.
 
-Currently, MetaMask can be configured to connect to two networks: a Moonbeam development node or the Moonbase Alpha TestNet.
+Actualmente, MetaMask se puede configurar para conectarse a dos redes: un nodo de desarrollo Moonbeam o Moonbase Alpha TestNet.
 
-If you already have MetaMask installed, you can easily connect MetaMask to the Moonbase Alpha TestNet:
+Si ya tiene MetaMask instalado, puede conectar fácilmente MetaMask a Moonbase Alpha TestNet:
 
 <div class="button-wrapper">
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
-!!! note
-    MetaMask will popup asking for permission to add Moonbase Alpha as a custom network. Once you approve permissions, MetaMask will switch your current network to Moonbase Alpha.
+!!! nota
+    MetaMask aparecerá pidiendo permiso para agregar Moonbase Alpha como una red personalizada. Una vez que apruebe los permisos, MetaMask cambiará su red actual a Moonbase Alpha.
 
-Learn [how to integrate a Connect MetaMask button](#integrate-metamask-into-a-dapp) into your dapp, so that users can connect to Moonbase Alpha with a simple click of a button.
+Aprenda [a integrar un botón Connect MetaMask](#integrate-metamask-into-a-dapp) en su dapp, para que los usuarios puedan conectarse a Moonbase Alpha con un simple clic de un botón.
 
-## Connect MetaMask to Moonbeam
+## Conecte MetaMask a Moonbeam
 
-Once you have [MetaMask](https://metamask.io/) installed, you can connect it to Moonbeam by clicking on the top right logo and opening the settings.
+Una vez que haya instalado [MetaMask](https://metamask.io/) puede conectarlo a Moonbeam haciendo clic en el logotipo superior derecho y abriendo la configuración.
 
 ![MetaMask3](/images/testnet/testnet-metamask3.png)
 
-Next, navigate to the Networks tab and click on the "Add Network" button.
+A continuación, vaya a la pestaña Redes y haga clic en el botón "Agregar red".
 
 ![MetaMask4](/images/testnet/testnet-metamask4.png)
 
-Here you can configure MetaMask for the following networks:
+Aquí puede configurar MetaMask para las siguientes redes:
 
-Moonbeam development node:
+Nodo de desarrollo Moonbeam:
 
 --8<-- 'text/metamask-local/development-node-details.md'
 
@@ -44,51 +44,52 @@ Moonbase Alpha TestNet:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-## Step-by-step Tutorials
+## Tutoriales paso a paso
 
-In the case that you are interested in more detailed, step-by-step guides to configure MetaMask to Moonbeam, you can go to our specific tutorials:
+En el caso de que estés interesado en guías paso a paso más detalladas para configurar MetaMask to Moonbeam, puedes acudir a nuestros tutoriales específicos:
 
- - MetaMask on a [Moonbeam development node](/getting-started/local-node/using-metamask/)
- - MetaMask on [Moonbase Alpha](/getting-started/testnet/metamask/)
+ - MetaMask en un [nodo de desarrollo Moonbeam](/getting-started/local-node/using-metamask/)
+ - MetaMask en [Moonbase Alpha](/getting-started/testnet/metamask/)
 
-## Integrate MetaMask into a DApp
+## Integre MetaMask en una DApp
 
-With the release of MetaMask's [Custom Networks API](https://consensys.net/blog/metamask/connect-users-to-layer-2-networks-with-the-metamask-custom-networks-api/), users can be prompted to add Moonbeam's Testnet, Moonbase Alpha. 
+Con el lanzamiento de la [API de redes personalizadas](https://consensys.net/blog/metamask/connect-users-to-layer-2-networks-with-the-metamask-custom-networks-api/), de MetaMask , se puede solicitar a los usuarios que agreguen Testnet de Moonbeam, Moonbase Alpha.
 
-This section will take you through the process of adding a "Connect to Moonbase Alpha" button that will prompt users to connect their MetaMask account(s) to Moonbase Alpha. Your users will no longer need to know or worry about Moonbase Alpha's network configurations and adding a custom network to MetaMask. To interact with Moonbeam from your dApp, all users will need to do is click a few buttons to connect to Moonbase Alpha and get started.
+Esta sección lo guiará a través del proceso de agregar un botón "Conectarse a Moonbase Alpha" que pedirá a los usuarios que conecten sus cuentas de MetaMask a Moonbase Alpha. Sus usuarios ya no necesitarán saber o preocuparse por las configuraciones de red de Moonbase Alpha y agregar una red personalizada a MetaMask. Para interactuar con Moonbeam desde su dApp, todo lo que los usuarios deberán hacer es hacer clic en algunos botones para conectarse a Moonbase Alpha y comenzar.
 
-MetaMask injects a global Ethereum API into websites users visit at `window.ethereum`, which allows the websites to read and request the users' blockchain data. You'll be using the Ethereum provider to walk your users through the process of adding Moonbase Alpha as a custom network. In general, you will have to:
+MetaMask inyecta una API Ethereum global en los sitios web que visitan los usuarios `window.ethereum`,lo que permite que los sitios web lean y soliciten los datos de la cadena de bloques de los usuarios. Utilizará el proveedor de Ethereum para guiar a sus usuarios a través del proceso de agregar Moonbase Alpha como una red personalizada. En general, deberás:
 
-- Check if the Ethereum provider exists and if it's MetaMask
-- Request the user's account address
-- Add Moonbase Alpha as a new chain
+- Compruebe si existe el proveedor de Ethereum y si es MetaMask
+- Solicitar la dirección de la cuenta del usuario
+- Agregue Moonbase Alpha como una nueva cadena
 
-This guide is divided into two sections. First, it'll cover adding a button that will be used to trigger MetaMask to pop-up and connect to Moonbase Alpha. The second part of the guide will create the logic for connecting the user to MetaMask. This way when you click the button you can actually test the functionality as you go through the guide.
+Esta guía se divide en dos secciones. Primero, cubrirá la adición de un botón que se usará para activar MetaMask para que aparezca y se conecte a Moonbase Alpha. La segunda parte de la guía creará la lógica para conectar al usuario a MetaMask. De esta manera, cuando hace clic en el botón, puede probar la funcionalidad a medida que avanza en la guía.
 
-### Checking Prerequisites
+### Comprobación de requisitos previos
 
-To add the Connect MetaMask button you'll need a JavaScript project and the MetaMask browser extension installed for local testing.
+Para agregar el botón Conectar MetaMask, necesitará un proyecto de JavaScript y la extensión del navegador MetaMask instalada para las pruebas locales.
 
-It's recommended to use MetaMask's `detect-provider` utility package to detect the provider injected at `window.ethereum`. The package handles detecting the provider for the MetaMask extension and MetaMask Mobile. To install the package in your JavaScript project, run:
+Se recomienda utilizar el `detect-provider` paquete de utilidades de MetaMask para detectar el proveedor inyectado en `window.ethereum`. El paquete maneja la detección del proveedor para la extensión MetaMask y MetaMask Mobile. Para instalar el paquete en su proyecto de JavaScript, ejecute:
 
 ```
 npm install @metamask/detect-provider
 ```
-### Add a Button
+### Agregar un botón
 
-You'll start off by adding a button that will be used to connect MetaMask to Moonbase Alpha. You want to start with the button so when you create the logic in the next step you can test the code as you make your way through the guide. 
+Comenzará agregando un botón que se usará para conectar MetaMask a Moonbase Alpha. Desea comenzar con el botón para que cuando cree la lógica en el siguiente paso, pueda probar el código a medida que avanza en la guía.
 
-The function we will create in the next section of the guide will be called `configureMoonbaseAlpha`. So the button on click should call `configureMoonbaseAlpha`.
+Se llamará a la función que crearemos en la siguiente sección de la guía `configureMoonbaseAlpha`. Entonces, el botón al hacer clic debería llamar `configureMoonbaseAlpha`.
 
 ```html
 <button onClick={configureMoonbaseAlpha()}>Connect to Moonbase Alpha</button>
 ```
 
-### Add Logic
+### Agregar lógica
 
-Now that you have created the button, you need to add the `configureMoonbaseAlpha` function that will be used on click. 
+Ahora que ha creado el botón, debe agregar la `configureMoonbaseAlpha` unción que se utilizará al hacer clic.
 
-1. Detect the provider at `window.ethereum` and check if it's MetaMask. If you want a simple solution you can directly access `window.ethereum`. Or you can use MetaMask's `detect-provider` package and it will detect the provider for MetaMask extension and MetaMask Mobile for you.
+1. Detecta el proveedor en `window.ethereum` y comprueba si es MetaMask. Si desea una solución simple, puede acceder directamente `window.ethereum`. O puede usar el `detect-provider` paquete de MetaMask y este detectará el proveedor de la extensión MetaMask y MetaMask Mobile por usted.
+
 ```javascript
 import detectEthereumProvider from '@metamask/detect-provider';
 
@@ -102,7 +103,8 @@ const configureMoonbaseAlpha = async () => {
 }
 ```
 
-2. Request the user's accounts by calling the `eth_requestAccounts` method. This will prompt MetaMask to pop-up and ask the user to select which accounts they would like to connect to. Behind the scenes, permissions are being checked by calling `wallet_requestPermissions`. Currently the only permissions are for `eth_accounts`. So you're ultimately verifying that you have access to the user's addresses returned from `eth_accounts`. If you're interested in learning more about the permissions system, check out [EIP-2255](https://eips.ethereum.org/EIPS/eip-2255).
+2. Solicite las cuentas del usuario llamando al `eth_requestAccounts` método. Esto hará que MetaMask aparezca y le pedirá al usuario que seleccione las cuentas a las que le gustaría conectarse. Detrás de escena, los permisos se verifican llamando `wallet_requestPermissions`. Actualmente, los únicos permisos son para `eth_accounts`.Por lo tanto, en última instancia, está verificando que tiene acceso a las direcciones de los usuarios devueltos `eth_accounts`. Si está interesado en obtener más información sobre el sistema de permisos, consulte [EIP-2255](https://eips.ethereum.org/EIPS/eip-2255).
+ 
 ```javascript
 import detectEthereumProvider from '@metamask/detect-provider';
 
@@ -122,7 +124,8 @@ const configureMoonbaseAlpha = async () => {
 <img src="/images/integrations/integrations-metamask-1.png" alt="Integrate MetaMask into a Dapp - Select account" style="width: 50%; display: block; margin-left: auto; margin-right: auto;"/>
 <img src="/images/integrations/integrations-metamask-2.png" alt="Integrate MetaMask into a Dapp - Connect account" style="width: 50%; display: block; margin-left: auto; margin-right: auto;" />
 
-3. Add Moonbase Alpha as a new chain by calling `wallet_addEthereumChain`. This will prompt the user to provide permission to add Moonbase Alpha as a custom network. 
+3. Agregue Moonbase Alpha como una nueva cadena llamando `wallet_addEthereumChain`. Esto le pedirá al usuario que otorgue permiso para agregar Moonbase Alpha como una red personalizada.
+ 
 ```javascript
 import detectEthereumProvider from '@metamask/detect-provider';
 
@@ -158,17 +161,17 @@ const configureMoonbaseAlpha = async () => {
 
 <img src="/images/integrations/integrations-metamask-3.png" alt="Integrate MetaMask into a Dapp - Add network" style="width: 50%; display: block; margin-left: auto; margin-right: auto;"/>
 
-Once the network has been successfully added, it will also prompt the user to then switch to Moonbase Alpha.
+Una vez que la red se haya agregado con éxito, también le pedirá al usuario que cambie a Moonbase Alpha.
 
 <img src="/images/integrations/integrations-metamask-4.png" alt="Integrate MetaMask into a Dapp - Switch to network" style="width: 50%; display: block; margin-left: auto; margin-right: auto;"/>
 
-So, now you should have a button that, on click, walks users through the entire process of connecting their MetaMask accounts to Moonbase Alpha. 
+Entonces, ahora debería tener un botón que, al hacer clic, guíe a los usuarios a través de todo el proceso de conexión de sus cuentas MetaMask a Moonbase Alpha.
 
 <img src="/images/integrations/integrations-metamask-5.png" alt="Integrate MetaMask into a Dapp - Account connected to Moonbase Alpha"/>
 
-### Confirm Connection
+### Confirmar conexión
 
-It's possible that you'll have logic that relies on knowing whether a user is connected to Moonbase Alpha or not. Perhaps you want to disable the button if the user is already connected. To confirm a user is connected to Moonbase Alpha, you can call `eth_chainId`, which will return the users current chain ID:
+Es posible que tenga una lógica que se base en saber si un usuario está conectado a Moonbase Alpha o no. Quizás desee deshabilitar el botón si el usuario ya está conectado. Para confirmar que un usuario está conectado a Moonbase Alpha, puede llamar `eth_chainId`, que devolverá el ID de cadena actual del usuario:
 
 ```javascript
     const chainId = await provider.request({
@@ -182,9 +185,9 @@ It's possible that you'll have logic that relies on knowing whether a user is co
     }
 ```
 
-### Listen to Account Changes
+### Escuche los cambios en la cuenta
 
-To ensure that your project or dApp is staying up to date with the latest account information, you can add the `accountsChanged` event listener that MetaMask provides. MetaMask emits this event when the return value of `eth_accounts` changes. If an address is returned, it is your user's most recent account that provided access permissions. If no address is returned, that means the user has not provided any accounts with access permissions.
+Para asegurarse de que su proyecto o dApp se mantenga actualizado con la información más reciente de la cuenta, puede agregar el `accountsChanged` edetector de eventos que proporciona MetaMask. MetaMask emite este evento cuando `eth_accounts` cambia el valor de retorno de . Si se devuelve una dirección, es la cuenta más reciente de su usuario la que proporcionó permisos de acceso. Si no se devuelve ninguna dirección, eso significa que el usuario no ha proporcionado ninguna cuenta con permisos de acceso.
 
 ```javascript
     provider.on("accountsChanged", (accounts) => {
@@ -195,9 +198,9 @@ To ensure that your project or dApp is staying up to date with the latest accoun
     })
 ```
 
-### Listen to Chain Changes
+### Escuche los cambios en la cadena
 
-To keep your project or dApp up to date with any changes to the connected chain, you'll want to subscribe to the `chainChanged` event. MetaMask emits this event every time the connected chain changes.
+Para mantener su proyecto o dApp actualizado con cualquier cambio en la cadena conectada, querrá suscribirse al `chainChanged` evento. MetaMask emite este evento cada vez que cambia la cadena conectada.
 
 ```javascript
     provider.on("chainChanged", () => {
@@ -206,4 +209,4 @@ To keep your project or dApp up to date with any changes to the connected chain,
     })
 ```
 
-MetaMask recommends reloading the page whenever the chain changes, unless there is a good reason not to, as it's important to always be in sync with chain changes.
+MetaMask recomienda volver a cargar la página cada vez que cambie la cadena, a menos que haya una buena razón para no hacerlo, ya que es importante estar siempre sincronizado con los cambios en la cadena.
