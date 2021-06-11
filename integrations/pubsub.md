@@ -1,38 +1,38 @@
 ---
-title: Events Subscription
-description: Use Ethereum-like publish-subscribe functionality to subscribe to specific events on Moonbeam's Ethereum-compatible chain.
+title: Suscripción de eventos
+description: Utilice la funcionalidad de publicación y suscripción similar a Ethereum para suscribirse a eventos específicos en la cadena compatible con Ethereum de Moonbeam.
 ---
 
-# Subscribe to Events in Moonbase Alpha
+# Suscríbete a eventos en Moonbase Alpha
 
-## Introduction
-The ability to subscribe to Ethereum-style events was added with the [release of Moonbase Alpha v2](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v2/). In this guide, we will outline the subscription types available and current limitations.
+## Introducción
+La capacidad de suscribirse a eventos de estilo Ethereum se agregó con el [lanzamiento de Moonbase Alpha v2](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v2/). En esta guía, describiremos los tipos de suscripción disponibles y las limitaciones actuales.
 
-## Checking Prerequisites
-The examples in this guide are based on an Ubuntu 18.04 environment. You will also need the following:
+## Comprobación de requisitos previos
+Los ejemplos de esta guía se basan en un entorno Ubuntu 18.04. También necesitará lo siguiente:
 
- - Have MetaMask installed and [connected to Moonbase](/getting-started/testnet/metamask/)
- - Have an account with funds. You can get this from [Mission Control](/getting-started/testnet/faucet/)
- - Deploy your own ERC-20 token on Moonbase. You can do following [our Remix tutorial](/getting-started/local-node/using-remix/), while first pointing MetaMask to Moonbase
+ - Tener MetaMask instalado y [conectado a Moonbase](/getting-started/testnet/metamask/)
+ - Tener una cuenta con fondos. Puede obtener esto de [Mission Control](/getting-started/testnet/faucet/)
+ - Implementa tu propio token ERC-20 en Moonbase. Puede hacerlo siguiendo [nuestro tutorial de Remix](/getting-started/local-node/using-remix/), mientras primero apunta MetaMask a Moonbase
 
 --8<-- 'text/common/install-nodejs.md'
 
-As of writing this guide, the versions used were 14.6.0 and 6.14.6, respectively. We will also need to install the Web3 package by executing:
+En el momento de redactar esta guía, las versiones utilizadas fueron 14.6.0 y 6.14.6, respectivamente. También necesitaremos instalar el paquete Web3 ejecutando:
 
 ```
 npm install --save web3
 ```
 
-To verify the installed version of Web3, you can use the `ls` command:
+Para verificar la versión instalada de Web3, puede usar el `ls` comando:
 
 ```
 npm ls web3
 ```
 
-As of writing this guide, the version used was 1.3.0. 
+En el momento de redactar esta guía, la versión utilizada era 1.3.0. 
 
-## Subscribing to Event Logs in Moonbase Alpha
-Any contract that follows the ERC-20 token standard emits an event related to a transfer of tokens, that is, `event Transfer(address indexed from, address indexed to, uint256 value)`. For this example, we will subscribe to the logs of such events. Using the web3.js library, we need the following piece of code:
+## Suscripción a registros de eventos en Moonbase Alpha
+Cualquier contrato que sigue el estándar token de ERC-20 emite un evento relacionado con una transferencia de fichas, es decir, `event Transfer(address indexed from, address indexed to, uint256 value)`. Para este ejemplo, nos suscribiremos a los registros de dichos eventos. Usando la biblioteca web3.js, necesitamos el siguiente código:
 
 ```js
 const Web3 = require('web3');
@@ -53,40 +53,41 @@ web3.eth.subscribe('logs', {
     });
 ```
 
-Note that we are connecting to the WebSocket endpoint of Moonbase Alpha. We use the `web3.eth.subscribe(‘logs’,  options [, callback])` method to subscribe to the logs, filtered by the given options. In our case, the options are the contract’s address where the events are emitted from and the topics used to describe the event. More information about topics can be found in [this Medium post](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378). If no topics are included, you subscribe to all events emitted by the contract. In order to only filter the Transfer event, we need to include the signature of the event, calculated as:
+Tenga en cuenta que nos estamos conectando al punto final de WebSocket de Moonbase Alpha. Usamos el `web3.eth.subscribe(‘logs’,  options [, callback])` método para suscribirnos a los registros, filtrados por las opciones dadas. En nuestro caso, las opciones son la dirección del contrato desde donde se emiten los eventos y los temas utilizados para describir el evento. Puede encontrar más información sobre temas en [esta publicación de Medium](https://medium.com/mycrypto/understanding-event-logs-on-the-ethereum-blockchain-f4ae7ba50378). Si no se incluyen temas, se suscribe a todos los eventos emitidos por el contrato. Para filtrar solo el evento Transferir, necesitamos incluir la firma del evento, calculada como:
 
 ```js
 EventSignature = keccak256(Transfer(address,address,uint256))
 ```
 
-The result of the calculation is shown in the previous code snippet. We’ll return to filtering by topics later on. The rest of the code handles the callback function. Once we execute this code, we’ll get a subscription ID, and the terminal will wait for any event through that subscription:
+El resultado del cálculo se muestra en el fragmento de código anterior. Volveremos a filtrar por temas más adelante. El resto del código maneja la función de devolución de llamada. Una vez que ejecutemos este código, obtendremos un ID de suscripción y el terminal esperará cualquier evento a través de esa suscripción:
 
 ![Subscription ID](/images/testnet/testnet-pubsub1.png)
 
-Next, an ERC-20 token transfer will be sent with the following parameters:
+A continuación, se enviará una transferencia de token ERC-20 con los siguientes parámetros:
 
- - From address: 0x44236223aB4291b93EEd10E4B511B37a398DEE55
- - To address: 0x8841701Dba3639B254D9CEe712E49D188A1e941e
- - Value (tokens): 1000000000000000000 - that is 1 with 18 zeros
+ - De la dirección: 0x44236223aB4291b93EEd10E4B511B37a398DEE55
+ - A la dirección: 0x8841701Dba3639B254D9CEe712E49D188A1e941e
+ - Valor (tokens): 1000000000000000000 - es decir, 1 con 18 ceros
 
-Once we send the transaction, the log of the event emitted by the transaction will appear in the terminal:
+Una vez enviemos la transacción, aparecerá en el terminal el log del evento emitido por la transacción:
 
 ![Log of the transfer event](/images/testnet/testnet-pubsub2.png)
 
-Let's break down the response received. Our target event sends two pieces of indexed information: the `from` and `to` addresses (in that order), which are treated like topics. The other piece of data shared by our event is the number of tokens, which is not indexed. Therefore, there is a total of three topics (the maximum is four), which correspond to the opcode LOG3:
+Analicemos la respuesta recibida. Nuestro evento de destino envía dos piezas de información indexada: las direcciones `from` y `to` (en ese orden), que se tratan como temas. El otro dato compartido por nuestro evento es el número de tokens, que no está indexado. Por tanto, hay un total de tres temas (el máximo son cuatro), que corresponden al código de operación LOG3:
 
 ![Description of LOG3](/images/testnet/testnet-pubsub3.png)
 
-Consequently, you can see that the `from` and `to` addresses are contained inside the topics returned by the logs. Ethereum addresses are 40 hex characters long (1 hex character is 4 bits, hence 160 bits or H160 format). Thus, the extra 24 zeros are needed to fill the gap to H256, which is 64 hex characters long. 
+En consecuencia, puede ver que las direcciones `from` y `to` están contenidas dentro de los temas devueltos por los registros. Las direcciones de Ethereum tienen 40 caracteres hexadecimales (1 carácter hexadecimal son 4 bits, por lo tanto, 160 bits o formato H160). Por lo tanto, se necesitan los 24 ceros adicionales para llenar el espacio hasta H256, que tiene 64 caracteres hexadecimales. 
 
-Unindexed data is returned in the `data` field of the logs, but this is encoded in bytes32/hex. To decode it we can use, for example, this [online tool](https://web3-type-converter.onbrn.com/), and verify that the `data` is in fact 1 (plus 18 zeros). 
+Los datos no indexados se devuelven en el `data` campo de los registros, pero se codifican en bytes32 / hexadecimal. Para decodificarlo podemos usar, por ejemplo, esta [herramienta en línea](https://web3-type-converter.onbrn.com/),  y verificar que `data` en realidad es 1 (más 18 ceros).
 
-If the event returns multiple unindexed values, they will be appended one after the other in the same order the event emits them. Therefore, each value is then obtained by deconstructing data into separate 32 bytes (or 64 hex character long) pieces.
+Si el evento devuelve varios valores no indexados, se agregarán uno tras otro en el mismo orden en que los emite el evento. Por lo tanto, cada valor se obtiene al deconstruir los datos en partes separadas de 32 bytes (o 64 caracteres hexadecimales).
 
-### Using Wildcards and Conditional Formatting
-In the v2 release that introduced the subscribing to logs feature, there were some limitations regarding using wildcards and conditional formatting for the topics. Nevertheless, with the release of [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), this is now possible.
+### Uso de comodines y formato condicional
 
-Using the same example as in the previous section, lets subscribe to the events of the token contract with the following code:
+En la versión v2 que introdujo la función de suscripción a registros, hubo algunas limitaciones con respecto al uso de comodines y formato condicional para los temas. Sin embargo, con el lanzamiento de [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), esto ahora es posible.
+
+Utilizando el mismo ejemplo que en la sección anterior, suscribamos los eventos del contrato del token con el siguiente código:
 
 ```js
 const Web3 = require('web3');
@@ -117,35 +118,35 @@ web3.eth
    });
 ```
 
-Here, by using the wildcard null in place for the event signature, we filter to listen to all events emitted by the contract that we subscribed to. But with this configuration, we can also use a second input field (`topic_1`) to define a filter by address as mentioned before. In the case of our subscription, we are notifying that we want to only receive events where `topic_1` is one of the addresses we are providing. Note that the addresses need to be in H256 format. For example, the address `0x44236223aB4291b93EEd10E4B511B37a398DEE55` needs to be entered as `0x00000000000000000000000044236223aB4291b93EEd10E4B511B37a398DEE55`. As before, the output of this subscription will display the event signature in `topic_0` to tell us which event was emitted by the contract.
+Aquí, al usar el comodín null en su lugar para la firma del evento, filtramos para escuchar todos los eventos emitidos por el contrato al que nos suscribimos. Pero con esta configuración, también podemos usar un segundo campo de entrada (`topic_1`) para definir un filtro por dirección como se mencionó anteriormente. En el caso de nuestra suscripción, estamos notificando que solo queremos recibir eventos donde `topic_1` esté una de las direcciones que proporcionamos. Tenga en cuenta que las direcciones deben estar en formato H256. Por ejemplo, la dirección `0x44236223aB4291b93EEd10E4B511B37a398DEE55` debe ingresarse como `0x00000000000000000000000044236223aB4291b93EEd10E4B511B37a398DEE55`. Como antes, la salida de esta suscripción mostrará la firma del evento `topic_0` para decirnos qué evento fue emitido por el contrato.
 
 ![Conditional Subscription](/images/testnet/testnet-pubsub7.png)
 
-As shown, after we provided the two addresses with conditional formatting, we received two logs with the same subscription ID. Events emitted by transactions from different addresses will not throw any logs to this subscription.
+Como se muestra, después de proporcionar las dos direcciones con formato condicional, recibimos dos registros con el mismo ID de suscripción. Los eventos emitidos por transacciones de diferentes direcciones no arrojarán ningún registro a esta suscripción.
 
-This example showed how we could subscribe to just the event logs of a specific contract, but the web3.js library provides other subscription types that we’ll go over in the following sections.
+Este ejemplo mostró cómo podríamos suscribirnos solo a los registros de eventos de un contrato específico, pero la biblioteca web3.js proporciona otros tipos de suscripción que veremos en las siguientes secciones.
 
-## Subscribe to Incoming Pending Transactions
-In order to subscribe to pending transactions, we can use the `web3.eth.subscribe(‘pendingTransactions’, [, callback])` method, implementing the same callback function to check for the response. This is much simpler than our previous example, and it returns the transaction hash of the pending transactions.
+## Suscribirse a transacciones pendientes entrantes
+Para suscribirnos a transacciones pendientes, podemos usar el `web3.eth.subscribe(‘pendingTransactions’, [, callback])` mmétodo, implementando la misma función de devolución de llamada para verificar la respuesta. Esto es mucho más simple que nuestro ejemplo anterior y devuelve el hash de transacción de las transacciones pendientes.
 
 ![Subscribe pending transactions response](/images/testnet/testnet-pubsub4.png)
 
-We can verify that this transaction hash is the same as that shown in MetaMask (or Remix).
+Podemos verificar que este hash de transacción es el mismo que se muestra en MetaMask (o Remix).
 
-## Subscribe to Incoming Block Headers
-Another type available under the Web3.js library is to subscribe to new block headers. To do so, we use the `web3.eth.subscribe('newBlockHeaders' [, callback])` method, implementing the same callback function to check for the response. This subscription provides incoming block headers and can be used to track changes in the blockchain.
+## Suscribirse a los encabezados de bloque entrantes
+Otro tipo disponible en la biblioteca Web3.js es suscribirse a nuevos encabezados de bloque. Para hacerlo, usamos el `web3.eth.subscribe('newBlockHeaders' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción proporciona encabezados de bloque entrantes y se puede usar para rastrear cambios en la cadena de bloques.
 
 ![Subscribe to block headers response](/images/testnet/testnet-pubsub5.png)
 
-Note that only one block header is shown in the image. These messages are displayed for every block produced so they can fill up the terminal quite fast.
+Tenga en cuenta que solo se muestra un encabezado de bloque en la imagen. Estos mensajes se muestran para cada bloque producido para que puedan llenar la terminal bastante rápido.
 
-## Check if a Node is Synchronized with the Network
-With pub/sub it is also possible to check whether a particular node you are subscribed to is currently synchronized with the network. For that, we can leverage the `web3.eth.subscribe(‘syncing' [, callback])` method, implementing the same callback function to check for the response. This subscription will return an object when the node is synced with the network.
+## Compruebe si un nodo está sincronizado con la red
+Con pub / sub también es posible verificar si un nodo en particular al que está suscrito está actualmente sincronizado con la red. Para eso, podemos aprovechar el `web3.eth.subscribe(‘syncing' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción devolverá un objeto cuando el nodo esté sincronizado con la red.
 
 ![Subscribe to syncing response](/images/testnet/testnet-pubsub6.png)
 
-## Current Limitations
-The pub/sub implementation in [Frontier](https://github.com/paritytech/frontier) is still in active development. This first version allows DApp developers (or users in general) to subscribe to specific event types, but there are still some limitations. You may have noticed from previous examples that some of the fields are not showing proper information with the current version released, and that is because certain properties are yet to be supported by Frontier.
+## Limitaciones actuales
 
+La implementación de pub / sub en [Frontier](https://github.com/paritytech/frontier) aún está en desarrollo activo. Esta primera versión permite a los desarrolladores de DApp (o usuarios en general) suscribirse a tipos de eventos específicos, pero aún existen algunas limitaciones. Es posible que haya notado en ejemplos anteriores que algunos de los campos no muestran la información adecuada con la versión actual publicada, y eso se debe a que Frontier aún no admite ciertas propiedades.
 
 
