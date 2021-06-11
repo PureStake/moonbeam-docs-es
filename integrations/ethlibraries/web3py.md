@@ -33,5 +33,5 @@ Según la red a la que desee conectarse, puede establecer RPC_URLlos siguientes 
 
 ## Tutoriales paso a paso
 
-Si está interesado en una guía paso a paso más detallada, consulte nuestros tutoriales específicos sobre el uso de web3.py en Moonbeam para [enviar una transacción o implementar un contrato .](/getting-started/local-node/send-transaction/) or [deploy a contract](/getting-started/local-node/deploy-contract/).
+Si está interesado en una guía paso a paso más detallada, consulte nuestros tutoriales específicos sobre el uso de web3.py en Moonbeam para [enviar una transacción](/getting-started/local-node/send-transaction/) o [implementar un contrato](/getting-started/local-node/deploy-contract/).
 
