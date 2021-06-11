@@ -1,35 +1,35 @@
 ---
 title: Moonbeam Truffle Box
-description: Start using the Moonbeam Truffle Box for a quick, preconfigured way to deploy your Solidity smart contracts on Moonbeam using Truffle.
+description: Comience a usar Moonbeam Truffle Box para una forma rápida y preconfigurada de implementar sus contratos inteligentes Solidity en Moonbeam usando Truffle.
 ---
 # Moonbeam Truffle Box
 
 ![Intro diagram](/images/integrations/integrations-trufflebox-banner.png)
 
-##Introduction
-As part of an ongoing effort to help developers that want to start working on Moonbeam, we have [launched the Moonbeam Truffle box](https://moonbeam.network/announcements/moonbeam-truffle-box-available-solidity-developers/). With it, developers will find a boilerplate setup to get started deploying smart contracts on Moonbeam quickly. With the Moonbeam Truffle box, we have also incorporated the Moonbeam Truffle plugin, which introduces some commands to run a development node in your local environment as a Docker image. This removes the process of setting up a local node (which can take up to 40 minutes when building its binary) and is a quick and easy solution to get started developing in your local environment.
+## Introducción
+Como parte de un esfuerzo continuo para ayudar a los desarrolladores que quieren comenzar a trabajar en Moonbeam, hemos [lanzado la caja Moonbeam Truffle](https://moonbeam.network/announcements/moonbeam-truffle-box-available-solidity-developers/). Con él, los desarrolladores encontrarán una configuración estándar para comenzar a implementar contratos inteligentes en Moonbeam rápidamente. Con la caja Moonbeam Truffle, también hemos incorporado el complemento Moonbeam Truffle, que introduce algunos comandos para ejecutar un nodo de desarrollo en su entorno local como una imagen de Docker. Esto elimina el proceso de configuración de un nodo local (que puede demorar hasta 40 minutos cuando se construye su binario) y es una solución rápida y fácil para comenzar a desarrollar en su entorno local.
 
-This tutorial will guide you through the process of setting up the box, using the Moonbeam Truffle plugin, and deploying contracts to both a development Moonbeam node and Moonbase Alpha using Truffle with the box base configuration.
+Este tutorial lo guiará a través del proceso de configuración de la caja, utilizando el complemento Moonbeam Truffle y la implementación de contratos tanto en un nodo de desarrollo Moonbeam como en Moonbase Alpha usando Truffle con la configuración base de la caja.
 
-!!! note
-    This guide is based on an Ubuntu 18.04 installation. At the time of writing, Node.js and npm versions used were 15.2.1 and 7.0.8 respectively. Node.js versions higher than 10.23.0 are required. We also noticed an error while installing the packages with npm version 7.0.15. You can downgrade npm by running `npm install -g npm@version`, setting the version to the one desired.
+!!! nota
+   Esta guía se basa en una instalación de Ubuntu 18.04. En el momento de escribir este artículo, las versiones de Node.js y npm utilizadas eran 15.2.1 y 7.0.8 respectivamente. Se requieren versiones de Node.js superiores a 10.23.0. También notamos un error al instalar los paquetes con la versión 7.0.15 de npm. Puede degradar npm ejecutando `npm install -g npm@version`, configurando la versión a la deseada.
 
-## Checking Prerequisites
+## Comprobación de requisitos previos
 
 --8<-- 'text/common/install-nodejs.md'
 
-As of the writing of this guide, the versions used were 15.2.1 and 7.0.8, respectively. Next, we can optionally install Truffle globally. To do so you can execute:
+En el momento de redactar esta guía, las versiones utilizadas fueron 15.2.1 y 7.0.8, respectivamente. A continuación, podemos instalar opcionalmente Truffle de forma global. Para hacerlo, puede ejecutar:
 
 
 ```
 npm install -g truffle
 ```
 
-As of the writing of this guide, the version used was 5.1.51. 
+En el momento de redactar esta guía, la versión utilizada era 5.1.51.
 
-## Downloading and Setting Up the Truffle Box
+## Descarga y configuración de Truffle Box
 
-To get started with the Moonbeam Truffle box, if you have Truffle installed globally, you can execute:
+Para comenzar con la caja Moonbeam Truffle, si tiene Truffle instalado globalmente, puede ejecutar:
 
 ```
 mkdir moonbeam-truffle-box && cd moonbeam-truffle-box
@@ -38,27 +38,27 @@ truffle unbox PureStake/moonbeam-truffle-box
 
 ![Unbox Moonbeam Truffle box](/images/trufflebox/trufflebox-07.png)
 
-Nevertheless, the box also has Truffle as a dependency in case you do not want to have it installed globally. In such a case, you can directly clone the following repository:
+Sin embargo, la caja también tiene Truffle como dependencia en caso de que no quieras tenerlo instalado globalmente. En tal caso, puede clonar directamente el siguiente repositorio:
 
 ```
 git clone https://github.com/PureStake/moonbeam-truffle-box
 cd moonbeam-truffle-box
 ``` 
 
-With the files in your local system, the next step is to install all dependencies by running:
+Con los archivos en su sistema local, el siguiente paso es instalar todas las dependencias ejecutando:
 
 ```
 npm install
 ```
 
-!!! note
-    We noticed an error while installing the packages with npm version 7.0.15. You can downgrade npm by running `npm install -g npm@version` and setting the version to the one desired. For example, 7.0.8 or 6.14.9.
+!!! nota
+    Notamos un error al instalar los paquetes con la versión 7.0.15 de npm. Puede degradar npm ejecutando `npm install -g npm@version` y configurando la versión a la deseada. Por ejemplo, 7.0.8 o 6.14.9.
 
-That concludes all prerequisites you need to use the Moonbeam Truffle box.
+Eso concluye con todos los requisitos previos que necesita para usar la caja Moonbeam Truffle.
 
-## Basic Functionalities
+## Funcionalidades básicas
 
-The box is pre-configured with two networks: `dev` (for a development node) and `moonbase` (Moonbeam TestNet). Also included, as an example, is an ERC20 token contract and a simple test script. The Solidity compiler set by default is `^0.7.0`, but this can be changed as required. If you are experienced with Truffle, this setup will feel familiar.
+La caja está preconfigurada con dos redes: `dev` (para un nodo de desarrollo) y `moonbase` (Moonbeam TestNet). También se incluye, como ejemplo, un contrato de token ERC20 y un script de prueba simple. El compilador de Solidity configurado de forma predeterminada es `^0.7.0`, pero se puede cambiar según sea necesario. Si tiene experiencia con Truffle, esta configuración le resultará familiar.
 
 ```js
 const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -107,9 +107,9 @@ module.exports = {
 };
 ```
 
-The `truffle-config.js` file also includes the private key of the genesis account for the development node. The address associated with this key holds all the tokens in this development environment. For deployments in the Moonbase Alpha TestNet, you need to provide the private key of an address that holds funds. To do so, you can create an account in MetaMask, fund it using the [TestNet faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/), and export its private key.
+El `truffle-config.js` archivo también incluye la clave privada de la cuenta de génesis para el nodo de desarrollo. La dirección asociada con esta clave contiene todos los tokens en este entorno de desarrollo. Para implementaciones en Moonbase Alpha TestNet, debe proporcionar la clave privada de una dirección que contenga fondos. Para hacerlo, puede crear una cuenta en MetaMask, financiarla usando el [grifo TestNet](https://docs.moonbeam.network/getting-started/testnet/faucet/), y exportar su clave privada.
 
-As with using Truffle in any Ethereum network, you can run the normal commands to compile, test, and deploy smart contracts in Moonbeam. For example, you can try the following commands using the included ERC20 token contract:
+Al igual que con el uso de Truffle en cualquier red Ethereum, puede ejecutar los comandos normales para compilar, probar e implementar contratos inteligentes en Moonbeam. Por ejemplo, puede probar los siguientes comandos utilizando el contrato de token ERC20 incluido:
 
 ```
 truffle compile # compiles the contract
@@ -117,14 +117,14 @@ truffle test #run the tests included in the test folder
 truffle migrate --network network_name  #deploys to the specified network
 ```
 
-Depending on the network you want to deploy the contracts to, you need to substitute network_name for either dev (to target the development node) or moonbase (to target the TestNet).
+Dependiendo de la red en la que desee implementar los contratos, debe sustituir network_name por dev (para apuntar al nodo de desarrollo) o moonbase (para apuntar a TestNet).
 
-!!! note
-    If you don't have Truffle installed globally, you can use `npx truffle` or `./node_modules/.bin/truffle` instead of `truffle` instead.
+!!! nota
+    Si no tiene Truffle instalado globalmente, puede usar `npx truffle` o `./node_modules/.bin/truffle` en `truffle` lugar de.
 
-## The Moonbeam Truffle Plugin
+## El complemento Moonbeam Truffle
 
-To set up a Moonbeam development node, you can currently follow [this tutorial](/getting-started/local-node/setting-up-a-node/). The process takes around 40 minutes in total, and you need to install Substrate and all its dependencies. The Moonbeam Truffle plugin provides a way to get started with a development node much quicker, and the only requirement is to have Docker installed (at the time of writing the Docker version used was 19.03.6). For more information on installing Docker, please visit [this page](https://docs.docker.com/get-docker/). To download the Docker image, run the following line:
+Para configurar un nodo de desarrollo Moonbeam, actualmente puede seguir [este tutorial](/getting-started/local-node/setting-up-a-node/). El proceso toma alrededor de 40 minutos en total y necesita instalar Substrate y todas sus dependencias. El complemento Moonbeam Truffle proporciona una forma de comenzar con un nodo de desarrollo mucho más rápido, y el único requisito es tener instalado Docker (en el momento de redactar este documento, la versión de Docker utilizada era la 19.03.6). Para obtener más información sobre la instalación de Docker, visite [esta página](https://docs.docker.com/get-docker/). Para descargar la imagen de Docker, ejecute la siguiente línea:
 
 ```
 truffle run moonbeam install
@@ -133,7 +133,7 @@ truffle run moonbeam install
 ![Install Moonbeam Truffle box](/images/trufflebox/trufflebox-01.png)
 
  
-Then, you have a set of commands available to control the node included in the Docker image:
+Luego, tiene un conjunto de comandos disponibles para controlar el nodo incluido en la imagen de Docker:
  
 ```
 truffle run moonbeam start
@@ -144,33 +144,33 @@ truffle run moonbeam stop
 truffle run moonbeam remove
 ```
 
-Each of the commands shown before does the following action:
+Cada uno de los comandos mostrados anteriormente realiza la siguiente acción:
 
--  Start: Starts a Moonbeam development node. This provides two RPC endpoints: 
+-  Inicio: inicia un nodo de desarrollo Moonbeam. Esto proporciona dos puntos finales RPC: 
       - HTTP: `http://127.0.0.1:9933` 
       - WS: `ws://127.0.0.1:9944`
--  Status: Tells the user if there is a Moonbeam development node running
--  Pause: Pauses the development node if it’s running
--  Unpause: Unpauses the development node if it’s paused
--  Stop: Stops the development node if it’s running. This also removes the Docker container
--  Remove: Deletes the purestake/moonbase Docker image
+-  Estado: le dice al usuario si hay un nodo de desarrollo Moonbeam en ejecución
+-  Pausa: pausa el nodo de desarrollo si se está ejecutando
+-  Despausar: reanuda el nodo de desarrollo si está en pausa.
+-  Detener: detiene el nodo de desarrollo si se está ejecutando. Esto también elimina el contenedor Docker.
+-  Eliminar: elimina la imagen de Docker purestake / moonbase
 
-You can see the output of these commands in the following image:
+Puede ver el resultado de estos comandos en la siguiente imagen:
 
 ![Install Moonbeam Truffle box](/images/trufflebox/trufflebox-02.png)
 
-If you are familiar with Docker, you can skip the plugin commands and interact with the Docker image directly.
+Si está familiarizado con Docker, puede omitir los comandos del complemento e interactuar con la imagen de Docker directamente.
 
-## Testing the Moonbeam Truffle Box
+## Probando la caja Truffle de Moonbeam
 
-The box has the minimum requirements to help you get started. Lets first compile the contracts by running:
+La caja tiene los requisitos mínimos para ayudarlo a comenzar. Primero compilemos los contratos ejecutando:
 
 ```
 truffle compile
 ``` 
 ![Compile Contracts](/images/trufflebox/trufflebox-03.png)
 
-Remember that if you have Truffle installed globally, you can skip the ./node_modules/.bin/ part in the commands. With the contract compiled, we can run the basic test included in the box (note that Ganache is used for these tests and not the Moonbeam development node):
+Recuerde que si tiene Truffle instalado globalmente, puede omitir la parte ./node_modules/.bin/ en los comandos. Con el contrato compilado, podemos ejecutar la prueba básica incluida en el cuadro (tenga en cuenta que Ganache se usa para estas pruebas y no el nodo de desarrollo Moonbeam):
 
 ```
 truffle test
@@ -178,7 +178,7 @@ truffle test
 
 ![Test Contract Moonbeam Truffle box](/images/trufflebox/trufflebox-04.png)
 
-After running the plugin install command, which downloads the Moonbeam development node Docker image, let's start the local node and deploy the token contract to our local environment:
+Después de ejecutar el comando de instalación del complemento, que descarga la imagen de Docker del nodo de desarrollo Moonbeam, iniciemos el nodo local e implementemos el contrato de token en nuestro entorno local:
 
 ```
 truffle run moonbeam start
@@ -187,7 +187,7 @@ truffle migrate --network dev
 
 ![Deploy on Dev Moonbeam Truffle box](/images/trufflebox/trufflebox-05.png)
 
-Lastly, we can deploy our token contract to Moonbase Alpha, but first, make sure you set a private key with funds in the truffle-config.js file. Once the private key is set, we can execute the migrate command pointing to the TestNet.
+Por último, podemos implementar nuestro contrato de token en Moonbase Alpha, pero primero, asegúrese de establecer una clave privada con fondos en el archivo truffle-config.js. Una vez configurada la clave privada, podemos ejecutar el comando migrate apuntando a TestNet.
 
 ```
 truffle migrate --network moonbase
@@ -195,5 +195,5 @@ truffle migrate --network moonbase
 
 ![Deploy on Moonbase Moonbeam Truffle box](/images/trufflebox/trufflebox-06.png)
 
-And that is it, you’ve used the Moonbeam Truffle box to deploy a simple ERC20 token contract in both your Moonbeam development node and Moonbase Alpha.
+Y eso es todo, ha utilizado la caja Moonbeam Truffle para implementar un contrato de token ERC20 simple tanto en su nodo de desarrollo Moonbeam como en Moonbase Alpha.
  
