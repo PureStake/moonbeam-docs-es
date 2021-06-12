@@ -1,52 +1,52 @@
 ---
-title: Using MetaMask
-description: This tutorial walks you through how to interact with a local Moonbeam node using a default installation of the MetaMask browser plug-in.
+title: Usando MetaMask
+description: Este tutorial le muestra cómo interactuar con un nodo Moonbeam local mediante una instalación predeterminada del complemento del navegador MetaMask.
 ---
 
-# Interacting with a Moonbeam Node Using MetaMask
+# Interactuar con un nodo Moonbeam usando MetaMask
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//hrpBd2-a7as' frameborder='0' allowfullscreen></iframe></div>
-<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>You can find all of the relevant code for this tutorial on the <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Puede encontrar todo el código relevante para este tutorial en la <a href="{{ config.site_url }}resources/code-snippets/">página de fragmentos de código</a></div>
 
-## Introduction
+## Introducción
 
-MetaMask can be used to connect to Moonbeam through the Moonbase Alpha TestNet or via a locally running Moonbeam development node.
+MetaMask se puede utilizar para conectarse a Moonbeam a través de Moonbase Alpha TestNet o mediante un nodo de desarrollo Moonbeam que se ejecute localmente.
 
-This guide outlines the steps needed to connect MetaMask to a self-contained Moonbeam development node in order to send tokens between accounts. If you haven’t already set up your own local dev node, refer to [this tutorial](/getting-started/local-node/setting-up-a-node/), or follow the instructions in the [GitHub repository](https://github.com/PureStake/moonbeam/).
+Esta guía describe los pasos necesarios para conectar MetaMask a un nodo de desarrollo Moonbeam autónomo para enviar tokens entre cuentas. Si aún no ha configurado su propio nodo de desarrollo local, consulte [este tutorial](/getting-started/local-node/setting-up-a-node/), o siga las instrucciones en el [repositorio de GitHub](https://github.com/PureStake/moonbeam/).
 
-!!! note
+!!! nota
     This tutorial was created using the {{ networks.development.build_tag}} tag which is based on the {{ networks.moonbase.version }} release of [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}). The Moonbeam platform and the [Frontier](https://github.com/paritytech/frontier) components it relies on for Substrate-based Ethereum compatibility are still under very active development. 
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-You can interact with Moonbeam in two ways: by using Substrate RPC endpoints or using Web3-compatible RPC endpoints. The latter endpoints are currently being served from the same RPC server as the Substrate RPCs. In this tutorial, we will use the Web3 RPC endpoints to interact with Moonbeam.
+Puede interactuar con Moonbeam de dos formas: mediante el uso de puntos finales de Substrate RPC o mediante el uso de puntos finales RPC compatibles con Web3. Los últimos puntos finales se sirven actualmente desde el mismo servidor RPC que los RPC de sustrato. En este tutorial, usaremos los puntos finales de Web3 RPC para interactuar con Moonbeam.
 
-## Install the MetaMask Extension
+## Instale la extensión MetaMask
 
-First, we start with a fresh and default [MetaMask](https://metamask.io/) installation from the Chrome store. After downloading, installing, and initializing the extension, follow the "Get Started" guide. In there, you need to create a wallet, set a password, and store your secret backup phrase (this gives direct access to your funds, so make sure to store these in a secure place). Once completed, we will import the development account:
+Primero, comenzamos con una instalación de [MetaMask](https://metamask.io/) nueva y predeterminada de la tienda Chrome. Después de descargar, instalar e inicializar la extensión, siga la guía "Comenzar". Allí, debe crear una billetera, establecer una contraseña y almacenar su frase secreta de respaldo (esto le brinda acceso directo a sus fondos, así que asegúrese de guardarlos en un lugar seguro). Una vez completado, importaremos la cuenta de desarrollo:
 
 ![Import dev account into MetaMask](/images/metamask/using-metamask-1.png)
 
-The details for the development accounts that comes pre-funded for this development node are as follows:
+Los detalles de las cuentas de desarrollo que vienen prefinanciadas para este nodo de desarrollo son los siguientes:
 
 --8<-- 'code/setting-up-node/dev-accounts.md'
 
 --8<-- 'code/setting-up-node/dev-testing-account.md'
 
-On the import screen, select “Private Key” and paste in one of the keys listed above. For this example we'll use Gerald's key:
+En la pantalla de importación, seleccione "Clave privada" y pegue una de las claves enumeradas anteriormente. Para este ejemplo usaremos la clave de Gerald:
 
 ![Paste your account key into MetaMask](/images/metamask/using-metamask-2.png)
 
-You should end up with an imported “Account 2” that looks like this:
+Debería terminar con una "Cuenta 2" importada que se ve así:
 
 ![MetaMask displaying your new Account 2](/images/metamask/using-metamask-3.png)
 
-## Connecting MetaMask to Moonbeam
+## Conectando MetaMask a Moonbeam
 
-MetaMask can be configured to connect to your local development node or to the Moonbase Alpha TestNet. 
+MetaMask se puede configurar para conectarse a su nodo de desarrollo local o al Moonbase Alpha TestNet. 
 
-To connect MetaMask to Moonbeam, navigate to Settings -> Networks -> Add Network. This is where you can configure which network you would like MetaMask to connect to, using the following network configurations:
+Para conectar MetaMask a Moonbeam, vaya a Configuración -> Redes -> Agregar red. Aquí es donde puede configurar a qué red le gustaría que se conecte MetaMask, usando las siguientes configuraciones de red:
 
-Moonbeam development node:
+Nodo de desarrollo Moonbeam:
 
 --8<-- 'text/metamask-local/development-node-details.md'
 
@@ -54,34 +54,34 @@ Moonbase Alpha TestNet:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-For the purpose of this tutorial, let's connect MetaMask to our locally running Moonbeam development node.
+Para el propósito de este tutorial, conectemos MetaMask a nuestro nodo de desarrollo Moonbeam que se ejecuta localmente.
 
 ![Enter your new network information into MetaMask](/images/metamask/using-metamask-4.png)
 
-When you hit "save" and exit the network settings screen, MetaMask should be connected to the local Moonbeam development node via its Web3 RPC, and you should see the Moonbeam dev account with a balance of 1207925.8196 DEV.
+Cuando presiona "guardar" y sale de la pantalla de configuración de red, MetaMask debe estar conectado al nodo de desarrollo local de Moonbeam a través de su Web3 RPC, y debería ver la cuenta de desarrollo de Moonbeam con un saldo de 1207925.8196 DEV.
 
 ![Your new Moonbeam account with a balance of 1207925.8196](/images/metamask/using-metamask-5.png)
 
-## Initiating a Transfer
+## Iniciar una transferencia
 
-Let’s try sending some tokens with MetaMask.
+Intentemos enviar algunos tokens con MetaMask.
 
-For simplicity, we will transfer from this dev account to the one created while setting up MetaMask. Click "Send" to initiate the transfer. Consequently, we can use the “Transfer between my accounts” option. Let’s transfer 100 tokens and leave all other settings as they are:
+Para simplificar, transferiremos de esta cuenta de desarrollo a la que se creó al configurar MetaMask. Haga clic en "Enviar" para iniciar la transferencia. En consecuencia, podemos utilizar la opción "Transferir entre mis cuentas". Transfieramos 100 tokens y dejemos todas las demás configuraciones como están:
 
 ![Initiating a token transfer](/images/metamask/using-metamask-6.png)
 
-Once you have submitted the transaction, you will see it “pending” until it is confirmed, as shown in the following image:
+Una vez que haya enviado la transacción, la verá "pendiente" hasta que se confirme, como se muestra en la siguiente imagen:
 
 ![Transaction confirmation](/images/metamask/using-metamask-7.png)
 
-Note that the Account 2 balance has been decreased by the sent amount + gas fees. Flipping over to Account 1, we see the 100 sent tokens have arrived:
+Tenga en cuenta que el saldo de la Cuenta 2 se ha reducido en la cantidad enviada + las tarifas de gas. Pasando a la Cuenta 1, vemos que han llegado los 100 tokens enviados:
 
 ![New balance in Account 1](/images/metamask/using-metamask-8.png)
 
-If you head back over to your terminal where you have your Moonbeam node running, you will begin to see blocks being authored as transactions arrive:
+Si regresa a su terminal donde tiene su nodo Moonbeam en ejecución, comenzará a ver bloques que se crean a medida que llegan las transacciones:
 
 ![Moonbeam Development Node](/images/metamask/using-metamask-9.png)
 
-!!! note
-    If you end up resetting your development node using the Substrate purge-chain command, you will need to reset your MetaMask genesis account using Settings -> Advanced -> Reset Account. This will clear the transaction history from your accounts and reset the nonce. Make sure you don’t erase anything that you want to keep!
+!!! nota
+    Si termina restableciendo su nodo de desarrollo usando el comando Substrate purge-chain, deberá restablecer su cuenta de MetaMask Genesis usando Configuración -> Avanzado -> Restablecer cuenta. Esto borrará el historial de transacciones de sus cuentas y restablecerá el nonce. ¡Asegúrate de no borrar nada que quieras conservar!
  
