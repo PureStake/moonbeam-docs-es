@@ -1,57 +1,56 @@
 ---
-title: Propose an Action
-description: How to send a proposal to be voted on Moonbeam via governance features
+title: Proponer una acción
+description: Cómo enviar una propuesta para votar en Moonbeam a través de funciones de gobernanza
 ---
 
-# Proposals
+# Propuestas
 
 ![Governance Moonbeam Banner](/images/governance/governance-proposal-banner.png)
 
-## Introduction
+## Introducción
 
-As mentioned in the [governance overview page](/governance/overview/#definitions), a proposal is a submission to the chain in which a token holder suggests for an action to be enacted by the system.
+Como se menciona en la [página de descripción general de la gobernanza](/governance/overview/#definitions),una propuesta es una presentación a la cadena en la que el titular de un token sugiere que el sistema lleve a cabo una acción.
 
-Proposals are one of the core elements of the governance system because they are the main tool for stakeholders to propose actions/changes, which other stakeholders then vote on.
+Las propuestas son uno de los elementos centrales del sistema de gobernanza porque son la principal herramienta para que las partes interesadas propongan acciones / cambios, que luego votan otras partes interesadas.
 
-In Moonbeam, users will be able to create, second, and vote on proposals using their H160 address and private key, that is, their regular Ethereum account!
+En Moonbeam, los usuarios podrán crear, segundar y votar propuestas utilizando su dirección H160 y su clave privada, es decir, su cuenta habitual de Ethereum.
 
-With the release of [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), users of the network can now submit proposals for public referenda in the TestNet. This guide outlines the process of how to create a proposal. The steps will go from its creation until it reaches public referenda. You can find a guide on how to vote on a proposal [here](/governance/voting/).
+Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0),  los usuarios de la red ahora pueden enviar propuestas para referendos públicos en TestNet. Esta guía describe el proceso de cómo crear una propuesta. Los pasos irán desde su creación hasta que llegue a referendos públicos. Puede encontrar una guía sobre cómo votar una propuesta [aquí](/governance/voting/).
 
-More information can be found in Polkadot's Wiki pages related to [Governance](https://wiki.polkadot.network/docs/en/learn-governance#council) and [Participate in Democracy](https://wiki.polkadot.network/docs/en/maintain-guides-democracy).
+Se puede encontrar más información en las páginas Wiki de Polkadot relacionadas con la [gobernanza](https://wiki.polkadot.network/docs/en/learn-governance#council) y la [participación en la democracia](https://wiki.polkadot.network/docs/en/maintain-guides-democracy).
 
-!!! note
-    This guide was done with a customized version of Moonbeam with short Launch/Enactment periods for demonstration purposes only.
+!!! nota
+   Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
-## Definitions
+## Definiciones
 
-Some of the key parameters for this guide are the following:
+Algunos de los parámetros clave de esta guía son los siguientes:
 
- - **Proposal** — action or items being proposed by users of the network
- - **Second** — other stakeholders can second (approve) a proposal if they agree with it and want to help it reach public referenda. This requires matching the deposit of the original proposer
- - **Preimage hash** — hash of the proposal to be enacted. The first step to make a proposal is to submit a preimage. The hash is just its identifier. The proposer of the preimage can be different than the user that proposes that preimage as a formal proposal
- - **Minimum preimage deposit** — minimum amount of tokens that the proposer needs to pay when submitting a preimage
- - **Minimum proposal deposit** — minimum amount of tokens that the proposer needs to bond when submitting a proposal. Tokens might be locked for an indeterminate amount of time because it is unknown when a proposal may become a referendum (if ever). This is true for tokens bonded by both the proposer and users that second the proposal
- - **Launch period** — how often new public referenda are launched
- - **Cool-off period** — duration (in blocks) in which a proposal may not be re-submitted after being vetoed
+ - **Propuesta** — acción o elementos propuestos por los usuarios de la red.
+ - **En segundo lugar** —  otras partes interesadas pueden secundar (aprobar) una propuesta si están de acuerdo con ella y quieren ayudarla a llegar a referendos públicos. Esto requiere igualar el depósito del proponente original.
+ - **Hash de preimagen** —  hash de la propuesta que se va a promulgar. El primer paso para hacer una propuesta es enviar una preimagen. El hash es solo su identificador. El proponente de la preimagen puede ser diferente al usuario que propone esa preimagen como propuesta formal.
+ - **Depósito mínimo de preimagen** —  cantidad mínima de tokens que el proponente debe pagar al enviar una preimagen
+ - **Depósito mínimo de propuesta** — cantidad mínima de tokens que el proponente debe vincular al enviar una propuesta. Los tokens pueden estar bloqueados por un período de tiempo indeterminado porque se desconoce cuándo una propuesta puede convertirse en un referéndum (si es que alguna vez lo hace). Esto es cierto para los tokens vinculados tanto por el proponente como por los usuarios que secundan la propuesta.
+ - **Período de lanzamiento** — duración (en bloques) durante la cual no se puede volver a presentar una propuesta después de haber sido vetada.
 
-Currently, for Moonbase Alpha:
+Actualmente, para Moonbase Alpha:
 
-|         Variable         |     |                                                          Value                                                          |
+|         Variable         |     |                                                          Valor                                                          |
 | :----------------------: | :-: | :---------------------------------------------------------------------------------------------------------------------: |
-|      Launch Period       |     | {{ networks.moonbase.democracy.launch_period.blocks}} blocks ({{ networks.moonbase.democracy.launch_period.days}} days) |
-|     Cool-off Period      |     |   {{ networks.moonbase.democracy.cool_period.blocks}} blocks ({{ networks.moonbase.democracy.cool_period.days}} days)   |
-| Minimum Preimage Deposit |     |                                 {{ networks.moonbase.democracy.min_preim_deposit}} DEV                                  |
-| Minimum Proposal Deposit |     |                                    {{ networks.moonbase.democracy.min_deposit}} DEV                                     |
+|     Periodo de lanzamiento       |     | {{ networks.moonbase.democracy.launch_period.blocks}} bloques ({{ networks.moonbase.democracy.launch_period.days}} dias) |
+|     Período de reflexión      |     |   {{ networks.moonbase.democracy.cool_period.blocks}} bloques ({{ networks.moonbase.democracy.cool_period.days}} dias)   |
+| Depósito mínimo de preimagen |     |                                 {{ networks.moonbase.democracy.min_preim_deposit}} DEV                                  |
+| Depósito mínimo de propuesta |     |                                    {{ networks.moonbase.democracy.min_deposit}} DEV                                     |
 
-## Roadmap of a Proposal
+## Hoja de ruta de una propuesta
 
 --8<-- 'text/governance/roadmap.md'
 
-## Proposing an Action
+## Proponer una acción
 
-This section goes over the process of creating a proposal, from a preimage until it reaches public referenda. Instead of making a generic example, this guide will actually create a real proposal that will serve as a base for this guide and others.
+En este apartado se repasa el proceso de creación de una propuesta, desde una preimagen hasta que llega a los referendos públicos. En lugar de hacer un ejemplo genérico, esta guía creará una propuesta real que servirá de base para esta guía y otras.
 
-To make a proposal in the network, you need to use the PolkadotJS Apps interface. To do so, you need import an Ethereum-style account first (H160 address), which you can do following [this guide](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). For this example, three accounts were imported and named with super original names: Alice, Bob, and Charley.
+Para hacer una propuesta en la red, debe utilizar la interfaz de PolkadotJS Apps. Para hacerlo, primero debe importar una cuenta estilo Ethereum (dirección H160), lo que puede hacer siguiendo [esta guía](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). Para este ejemplo, se importaron tres cuentas y se nombraron con nombres súper originales: Alice, Bob y Charley.
 
 ![Accounts in PolkadotJS](/images/governance/governance-proposal-1.png)
 
