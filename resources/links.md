@@ -1,6 +1,6 @@
 ---
 title: Enlaces importantes
-description: If you're new to Moonbeam or the Polkadot network, here are some important links to review, including compatible Ethereum tools.
+description: Si es nuevo en Moonbeam o en la red Polkadot, aquí hay algunos enlaces importantes para revisar, incluidas las herramientas Ethereum compatibles.
 ---
 
 # Enlaces
