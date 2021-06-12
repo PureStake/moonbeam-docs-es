@@ -39,7 +39,7 @@ Los principios rectores "soft" para el compromiso con el proceso de gobernanza d
  - Actuar en todo momento como un agente moral que considera las consecuencias de la acción (o inacción) desde un punto de vista moral.
  - Ser pacientes y generosos en nuestras interacciones con otros titulares de tokens, pero sin tolerar el lenguaje, las acciones y el comportamiento abusivos o destructivos.
 
-Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre gobernanza. Consulte sus artículos, [especialmente este].
+Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre gobernanza. Consulte sus artículos, [especialmente este]
 (https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
 
 ## Mecánicas de gobernanza on-chain
