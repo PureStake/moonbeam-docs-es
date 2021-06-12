@@ -1,42 +1,43 @@
 ---
-title: Setting Up a Node
-description: Follow this tutorial to learn how to set up your first Moonbeam node. You’ll also learn how to connect it to and control it with the Polkadot JS GUI.
+title: Configurar un nodo
+description: Siga este tutorial para aprender cómo configurar su primer nodo Moonbeam. También aprenderá cómo conectarlo y controlarlo con la GUI de Polkadot JS.
 ---
 
-# Setting Up a Moonbeam Node and Connecting to the Polkadot JS GUI
+# Configuración de un nodo Moonbeam y conexión a la GUI de Polkadot JS
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//p_0OAHSlHNM' frameborder='0' allowfullscreen></iframe></div>
-<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>You can find all of the relevant code for this tutorial on the <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Puede encontrar todo el código relevante para este tutorial en la <a href="{{ config.site_url }}resources/code-snippets/">página de fragmentos de código</a></div>
 
-## Introduction
+## Introducción
 
-This guide outlines the steps needed to create a development node for testing the Ethereum compatibility features of Moonbeam.
+Esta guía describe los pasos necesarios para crear un nodo de desarrollo para probar las características de compatibilidad de Ethereum de Moonbeam.
 
-!!! note
-    This tutorial was created using the {{ networks.development.build_tag }} tag of [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.development.build_tag }}). The Moonbeam platform and the [Frontier](https://github.com/paritytech/frontier) components it relies on for Substrate-based Ethereum compatibility are still under very active development.
+!!! nota
+    Este tutorial fue creado usando la etiqueta tutorial-v7 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/ {{ networks.development.build_tag }}). La plataforma Moonbeam y los componentes de [Frontier en los](https://github.com/paritytech/frontier) que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
+    
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-A Moonbeam development node is your own personal development environment for building and testing applications on Moonbeam. For Ethereum developers, it is comparable to Ganache. It enables you to get started quickly and easily without the overhead of a relay chain. You can spin up your node with the `--sealing` option to author blocks instantly, manually, or at a custom interval after transactions are received. By default a block will be created when a transaction is received, which is similar to Ganache's instamine feature. 
+Un nodo de desarrollo Moonbeam es su propio entorno de desarrollo personal para crear y probar aplicaciones en Moonbeam. Para los desarrolladores de Ethereum, es comparable a Ganache. Le permite comenzar rápida y fácilmente sin la sobrecarga de una cadena de relés. Puede activar su nodo con la `--sealing` opción de crear bloques de forma instantánea, manual o en un intervalo personalizado después de recibir las transacciones. De forma predeterminada, se creará un bloqueo cuando se reciba una transacción, que es similar a la función instamine de Ganache.
 
-If you follow to the end of this guide, you will have a Moonbeam development node running in your local environment, with 10 [pre-funded accounts](#pre-funded-development-accounts), and will be able to connect it to the default Polkadot JS GUI.
+Si sigue hasta el final de esta guía, tendrá un nodo de desarrollo Moonbeam ejecutándose en su entorno local, con 10 [cuentas prefinanciadas](#pre-funded-development-accounts),  y podrá conectarlo a la GUI predeterminada de Polkadot JS.
 
-There are two ways to get started running a Moonbeam node: you can use [Docker to run a pre-built binary](#getting-started-with-docker) or you can [compile the binary locally](#getting-started-with-the-binary-file) and set up a development node yourself. Using Docker is a quick and convenient way to get started as you won't have to install Substrate and all the dependencies, and you can skip the building the node process as well. It does require you to [install Docker](https://docs.docker.com/get-docker/). On the other hand, if you decide you want to go through the process of building your own development node, it could take roughly 30 minutes or longer to complete depending on your hardware.
+Hay dos formas de comenzar a ejecutar un nodo Moonbeam: puede usar [Docker para ejecutar un binario prediseñado](#getting-started-with-docker) o puede [compilar el binario localmente](#getting-started-with-the-binary-file) y configurar un nodo de desarrollo usted mismo. El uso de Docker es una forma rápida y conveniente de comenzar, ya que no tendrá que instalar Substrate y todas las dependencias, y también puede omitir el proceso de construcción del nodo. Requiere que [instales Docker](https://docs.docker.com/get-docker/). Por otro lado, si decide que desea pasar por el proceso de creación de su propio nodo de desarrollo, podría tardar aproximadamente 30 minutos o más en completarse, según su hardware.
 
-## Getting Started with Docker
+## Introducción a Docker
 
-Using Docker enables you to spin up a node in a matter of seconds. Once you have Docker installed, then you can execute the following command to download the corresponding image:
+El uso de Docker le permite activar un nodo en cuestión de segundos. Una vez que tenga Docker instalado, puede ejecutar el siguiente comando para descargar la imagen correspondiente:
 
 ```
 docker pull purestake/moonbeam:{{ networks.development.build_tag }}
 ```
 
-The tail end of the console log should look like this:
+El final del registro de la consola debería verse así:
 
 ![Docker - imaged pulled](/images/setting-up-a-node/setting-up-node-1.png)
 
-Once the Docker image is downloaded, the next step is to run the image.
+Una vez que se descarga la imagen de Docker, el siguiente paso es ejecutar la imagen.
 
-You can run the Docker image using the following:
+Puede ejecutar la imagen de Docker con lo siguiente:
 
 === "Ubuntu"
     ```
@@ -59,12 +60,11 @@ You can run the Docker image using the following:
     --dev --ws-external --rpc-external
     ```
 
-This should spin up a Moonbeam development node in instant seal mode for local testing, so that blocks are authored instantly as transactions are received.
-If successful, you should see an output showing an idle state waiting for blocks to be authored:
+Esto debería activar un nodo de desarrollo Moonbeam en modo de sello instantáneo para pruebas locales, de modo que los bloques se creen instantáneamente a medida que se reciben las transacciones. Si tiene éxito, debería ver una salida que muestra un estado inactivo esperando a que se creen los bloques:
 
 ![Docker - output shows blocks being produced](/images/setting-up-a-node/setting-up-node-2.png)
 
-For more information on some of the flags and options used in the example, check out [Common Flags and Options](#common-flags-and-options). If you want to see a complete list of all of the flags, options, and subcommands, open the help menu by running:
+Para obtener más información sobre algunas de las banderas y opciones utilizadas en el ejemplo, consulte [Opciones y banderas comunes](#common-flags-and-options). Si desea ver una lista completa de todos los indicadores, opciones y subcomandos, abra el menú de ayuda ejecutando:
 
 ```
 docker run --rm --name {{ networks.development.container_name }} \
@@ -72,14 +72,14 @@ purestake/moonbeam \
 --help
 ```
 
-To continue on with the tutorial, the next section is not necessary as you've already spun up a node with Docker. You can skip ahead to [Connecting Polkadot JS Apps to a Local Moonbeam Node](#connecting-polkadot-js-apps-to-a-local-moonbeam-node).
+Para continuar con el tutorial, la siguiente sección no es necesaria ya que ya ha activado un nodo con Docker. Puede pasar a [Conectar aplicaciones JS de Polkadot a un nodo Moonbeam local](#connecting-polkadot-js-apps-to-a-local-moonbeam-node).
 
-## Getting Started with the Binary File
+## Introducción al archivo binario
 
-!!! note
-    If you know what you are doing, you can directly download the precompiled binaries attached to each release on the [Moonbeam-release page](https://github.com/PureStake/moonbeam/releases). These will not work in all systems. For example, the binaries only work with x86-64 Linux with specific versions of dependencies. The safest way to ensure compatibility is to compile the binary in the system where it will be run from.
+!!! nota
+    Si sabe lo que está haciendo, puede descargar directamente los archivos binarios precompilados adjuntos a cada versión en la [página de versiones de Moonbeam](https://github.com/PureStake/moonbeam/releases). Estos no funcionarán en todos los sistemas. Por ejemplo, los binarios solo funcionan con Linux x86-64 con versiones específicas de dependencias. La forma más segura de garantizar la compatibilidad es compilar el binario en el sistema desde donde se ejecutará.
 
-First, start by cloning a specific tag of the Moonbeam repo that you can find here:
+Primero, comience clonando una etiqueta específica del repositorio Moonbeam que puede encontrar aquí:
 
 [https://github.com/PureStake/moonbeam/](https://github.com/PureStake/moonbeam/)
 
@@ -88,129 +88,130 @@ git clone -b {{ networks.development.build_tag }} https://github.com/PureStake/m
 cd moonbeam
 ```
 
-Next, install Substrate and all its prerequisites (including Rust) by executing:
+A continuación, instale Substrate y todos sus requisitos previos (incluido Rust) ejecutando:
 
 ```
 --8<-- 'code/setting-up-node/substrate.md'
 ```
 
-Once you have followed all of the procedures above, it's time to build the development node by running:
+Una vez que haya seguido todos los procedimientos anteriores, es hora de construir el nodo de desarrollo ejecutando:
 
 ```
 --8<-- 'code/setting-up-node/build.md'
 ```
 
-If a _cargo not found error_ shows up in the terminal, manually add Rust to your system path (or restart your system):
+Si aparece un _error de carga no encontrada_ en la terminal, agregue manualmente Rust a la ruta de su sistema (o reinicie su sistema):
 
 ```
 --8<-- 'code/setting-up-node/cargoerror.md'
 ```
 
-!!! note
-    The initial build will take a while. Depending on your hardware, you should expect approximately 30 minutes for the build process to finish.
+!!! nota
+    La construcción inicial llevará un tiempo. Dependiendo de su hardware, debe esperar aproximadamente 30 minutos para que finalice el proceso de compilación.
 
-Here is what the tail end of the build output should look like:
+Así es como debería verse el final de la salida de la compilación:
 
 ![End of build output](/images/setting-up-a-node/setting-up-node-3.png)
 
-Then, you will want to run the node in dev mode using the following command:
+Luego, querrá ejecutar el nodo en modo dev usando el siguiente comando:
 
 ```
 --8<-- 'code/setting-up-node/runnode.md'
 ```
 
-!!! note
-    For people not familiar with Substrate, the `--dev` flag is a way to run a Substrate-based node in a single node developer configuration for testing purposes. You can learn more about `--dev` in [this Substrate tutorial](https://substrate.dev/docs/en/tutorials/create-your-first-substrate-chain/interact).
+!!! nota
+    Para las personas que no están familiarizadas con Substrate, la `--dev` marca es una forma de ejecutar un nodo basado en Substrate en una configuración de desarrollador de un solo nodo con fines de prueba. Puede obtener más información `--dev` al respecto en [este tutorial de sustrato](https://substrate.dev/docs/en/tutorials/create-your-first-substrate-chain/interact).
 
-You should see an output that looks like the following, showing an idle state waiting for blocks to be produced:
+Debería ver una salida similar a la siguiente, que muestra un estado inactivo a la espera de que se produzcan bloques:
 
 ![Output shows blocks being produced](/images/setting-up-a-node/setting-up-node-4.png)
 
-For more information on some of the flags and options used in the example, check out [Common Flags and Options](#common-flags-and-options). If you want to see a complete list of all of the flags, options, and subcommands, open the help menu by running:
+Para obtener más información sobre algunas de las banderas y opciones utilizadas en el ejemplo, consulte [Opciones y banderas comunes](#common-flags-and-options).Si desea ver una lista completa de todos los indicadores, opciones y subcomandos, abra el menú de ayuda ejecutando:
 
 ```
 ./target/release/moonbeam --help
 ```
-## Connecting Polkadot JS Apps to a Local Moonbeam Node
+## Conexión de aplicaciones JS de Polkadot a un nodo Moonbeam local
 
-The development node is a Substrate-based node, so you can interact with it using standard Substrate tools. The two provided RPC endpoints are:
+El nodo de desarrollo es un nodo basado en sustrato, por lo que puede interactuar con él utilizando herramientas de sustrato estándar. Los dos puntos finales de RPC proporcionados son:
 
  - HTTP: `http://127.0.0.1:9933`
  - WS: `ws://127.0.0.1:9944` 
 
-Start by connecting to it with Polkadot JS Apps. Open a browser to: [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). This will open Polkadot JS Apps, which automatically connects to Polkadot MainNet.
+Comience conectándose a él con Polkadot JS Apps. Abra un navegador para: [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). Esto abrirá Polkadot JS Apps, que se conecta automáticamente a Polkadot MainNet.
 
 ![Polkadot JS Apps](/images/setting-up-a-node/setting-up-node-5.png)
 
-Click on the top left corner to open the menu to configure the networks, and then navigate down to open the Development sub-menu. In there, you will want to toggle the "Local Node" option, which points Polkadot JS Apps to `ws://127.0.0.1:9944`. Next, select the Switch button, and the site should connect to your Moonbeam development node.
+Haga clic en la esquina superior izquierda para abrir el menú para configurar las redes y luego navegue hacia abajo para abrir el submenú Desarrollo. Allí, querrá alternar la opción "Nodo local", que apunta a Polkadot JS Apps `ws://127.0.0.1:9944`. A continuación, seleccione el botón Cambiar y el sitio debería conectarse a su nodo de desarrollo Moonbeam.
 
 ![Select Local Node](/images/setting-up-a-node/setting-up-node-6.png)
 
-With Polkadot JS Apps connected, you will see the Moonbeam development node waiting for transactions to arrive to begin producing blocks.
+Con Polkadot JS Apps conectadas, verá el nodo de desarrollo Moonbeam esperando que lleguen las transacciones para comenzar a producir bloques.
 
 ![Select Local Node](/images/setting-up-a-node/setting-up-node-7.png)
 
-## Querying Account State
+## Consultando el estado de la cuenta
 
-With the release of [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), Moonbeam now works under a single account format, which is the Ethereum-styled H160 and is now also supported in Polkadot JS Apps. To check the balance of an address, you can simply import your account in the Accounts tab. You can find more information in the [Unified Accounts](/learn/unified-accounts/) section.
+Con el lanzamiento de [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), Moonbeam ahora funciona bajo un formato de cuenta única, que es el H160 estilo Ethereum y ahora también es compatible con Polkadot JS Apps. Para verificar el saldo de una dirección, simplemente puede importar su cuenta en la pestaña Cuentas. Puede encontrar más información en la sección [Cuentas unificadas](/learn/unified-accounts/).
  
-Nevertheless, leveraging the Ethereum full RPC capabilities of Moonbeam, you can use [MetaMask](/getting-started/local-node/using-metamask/) to check the balance of that address as well. In addition, you can also use other development tools, such as [Remix](/getting-started/local-node/using-remix/) and [Truffle](/getting-started/local-node/using-truffle/).
+Sin embargo, aprovechando las capacidades RPC completas de Ethereum de Moonbeam, también puede usar [MetaMask](/getting-started/local-node/using-metamask/) para verificar el saldo de esa dirección. Además, también puede utilizar otras herramientas de desarrollo, como [Remix](/getting-started/local-node/using-remix/) y [Truffle](/getting-started/local-node/using-truffle/).
 
-## Common Commands, Flags and Options
+## Comandos, banderas y opciones comunes
 
-### Purging the Chain
+### Purgando la Cadena
 
-When running a node via the binary file, data is stored in a local directory typically located in `~/.local/shared/moonbeam/chains/development/db`. If you want to start a fresh instance of the node, you can either delete the content of the folder, or run the following command inside the `moonbeam` folder:
+Cuando se ejecuta un nodo a través del archivo binario, los datos se almacenan en un directorio local que normalmente se encuentra en `~/.local/shared/moonbeam/chains/development/db`. Si desea iniciar una nueva instancia del nodo, puede eliminar el contenido de la carpeta o ejecutar el siguiente comando dentro de la `moonbeam` carpeta:
 
 ```
 ./target/release/moonbeam purge-chain --dev -y
 ```
 
-This will remove the data folder, note that all chain data is now lost.
+Esto eliminará la carpeta de datos, tenga en cuenta que todos los datos de la cadena ahora se pierden.
 
-If you used Docker, the data folder is related to the Docker container itself.
-### Node Flags
+Si usó Docker, la carpeta de datos está relacionada con el contenedor de Docker.
 
-Flags do not take an argument. To use a flag, add it to the end of a command. For example:
+### Banderas de nodo
+
+Las banderas no toman un argumento. Para usar una bandera, agréguela al final de un comando. Por ejemplo:
 
 ```
 --8<-- 'code/setting-up-node/runnode.md'
 ```
 
-- `--dev`: Specifies the development chain
-- `--no-telemetry`: Disable connecting to the Substrate telemetry server. For global chains, telemetry is on by default. Telemetry is unavailable if you are running a development (`--dev`) node.
-- `--tmp`: Runs a temporary node in which all of the configuration will be deleted at the end of the process
-- `--rpc-external`: Listen to all RPC interfaces
-- `--ws-external`: Listen to all Websocket interfaces
+- `--dev`: Especifica la cadena de desarrollo
+- `--no-telemetry`: Desactiva la conexión al servidor de telemetría de sustrato. Para las cadenas globales, la telemetría está activada de forma predeterminada. La telemetría no está disponible si está ejecutando un (`--dev`) nodo de desarrollo ( ).
+- `--tmp`: Ejecuta un nodo temporal en el que toda la configuración se eliminará al final del proceso.
+- `--rpc-external`: Escuche todas las interfaces RPC
+- `--ws-external`: Escuche todas las interfaces de Websocket
 
-### Node Options
+### Opciones de nodo
 
-Options accept an argument to the right side of the option. For example:
+Las opciones aceptan un argumento al lado derecho de la opción. Por ejemplo:
 
 ```
 --8<-- 'code/setting-up-node/runnodewithsealinginterval.md'
 ```
 
-- `-l <log pattern>` or `--log <log pattern>`: Sets a custom logging filter. The syntax for the log pattern is `<target>=<level>`. For example, to print all of the RPC logs, the command would look like this: `-l rpc=trace`.
-- `--sealing <interval>`: When blocks should be sealed in the dev service. Accepted arguments for interval: `instant`, `manual`, or a number representing the timer interval in milliseconds (for example, `6000` will have the node produce blocks every 6 seconds). The default is `instant`.
-- `--rpc-port <port>`: Sets the HTTP RPC server TCP port. Accepts a port as the argument.
-- `--ws-port <port>`: Sets the WebSockets RPC server TCP port. Accepts a port as the argument.
+- `-l <log pattern>` or `--log <log pattern>`: establece un filtro de registro personalizado. La sintaxis del patrón de registro es `<target>=<level>`. Por ejemplo, para imprimir todos los registros de RPC, el comando sería el siguiente: `-l rpc=trace`.
+- `--sealing <interval>`: Cuando los bloques deben sellarse en el servicio de desarrollo. Argumentos aceptados para el intervalo: `instant`, `manual`, o un número que representa el intervalo del temporizador en milisegundos (por ejemplo, `6000` tendrán el nodo producir bloques de cada 6 segundos). El valor predeterminado es `instant`.
+- `--rpc-port <port>`: Establece el puerto TCP del servidor HTTP RPC. Acepta un puerto como argumento.
+- `--ws-port <port>`: Establece el puerto TCP del servidor RPC de WebSockets. Acepta un puerto como argumento.
 
-For a complete list of flags and options, spin up your Moonbeam development node with `--help` added to the end of the command.
+Para obtener una lista completa de banderas y opciones, active su nodo de desarrollo Moonbeam con `--help` agregado al final del comando.
 
-## Advanced Flags and Options
+## Opciones y banderas avanzadas
 
 --8<-- 'text/setting-up-node/advanced-flags.md'
 
-For example, when running the binary:
+Por ejemplo, al ejecutar el binario:
 
 ```
 ./target/release/moonbeam --dev --execution=Native --ethapi=debug,trace
 ```
 
-## Pre-funded Development Accounts
+## Cuentas de desarrollo prefinanciadas
 
-Your Moonbeam development node comes with ten pre-funded accounts for development. The addresses are derived from Substrate's canonical development mnemonic: 
+Su nodo de desarrollo Moonbeam viene con diez cuentas prefinanciadas para el desarrollo. Las direcciones se derivan del mnemónico de desarrollo canónico de Substrate:
 
 ```
 bottom drive obey lake curtain smoke basket hold race lonely fit walk
@@ -218,8 +219,8 @@ bottom drive obey lake curtain smoke basket hold race lonely fit walk
 
 --8<-- 'code/setting-up-node/dev-accounts.md'
 
-Checkout the [Using MetaMask](/getting-started/local-node/using-metamask/) section to get started interacting with your accounts.
+Partida de los [MetaMask Usando](/getting-started/local-node/using-metamask/) sección para empezar a interactuar con sus cuentas.
 
-Also, included with the development node is a prefunded account used for testing purposes:
+Además, con el nodo de desarrollo se incluye una cuenta con financiación previa que se utiliza con fines de prueba:
 
 --8<-- 'code/setting-up-node/dev-testing-account.md'
