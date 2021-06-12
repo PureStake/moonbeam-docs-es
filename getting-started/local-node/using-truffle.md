@@ -1,44 +1,45 @@
 ---
-title: Using Truffle
-description: Moonbeam makes it incredibly easy to deploy a Solidity-based smart contract to a Moonbeam node using Truffle. Learn how in this tutorial.
+title: Usando Truffle
+description: Moonbeam hace que sea increíblemente fácil implementar un contrato inteligente basado en Solidity en un nodo Moonbeam usando Truffle. Aprenda cómo en este tutorial.
 ---
 
-# Interacting with Moonbeam Using Truffle
+# Interactuar con Moonbeam usando Truffle
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//RD5MefSPNeo' frameborder='0' allowfullscreen></iframe></div>
-<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>You can find all of the relevant code for this tutorial on the <a href="{{ config.site_url }}resources/code-snippets/">code snippets page</a></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Puede encontrar todo el código relevante para este tutorial en la <a href="{{ config.site_url }}resources/code-snippets/">página de fragmentos de código</a></div>
 
-## Introduction
+## Introducción
 
-This guide walks through the process of deploying a Solidity-based smart contract to a Moonbeam node using [Truffle](https://www.trufflesuite.com/), a commonly used development tool for smart contracts on Ethereum. Given Moonbeam’s Ethereum compatibility features, Truffle can be used directly with a Moonbeam node.
+Esta guía describe el proceso de implementación de un contrato inteligente basado en Solidity en un nodo Moonbeam utilizando [Truffle](https://www.trufflesuite.com/), una herramienta de desarrollo de uso común para contratos inteligentes en Ethereum. Dadas las características de compatibilidad con Ethereum de Moonbeam, Truffle se puede usar directamente con un nodo Moonbeam.
 
-!!! note
-    This tutorial was created using the {{ networks.development.build_tag}} tag which is based on the {{ networks.moonbase.version }} release of [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}). The Moonbeam platform and the [Frontier](https://github.com/paritytech/frontier) components it relies on for Substrate-based Ethereum compatibility are still under very active development.
+!!! nota
+    Este tutorial se creó utilizando la etiqueta tutorial {{ networks.development.build_tag}} que se basa en la versión {{ networks.moonbase.version }} de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}).  La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
+    
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-For this guide, you will need to have a Moonbeam development node running in `--dev` mode. This can be done by either following the steps detailed [here](/getting-started/local-node/setting-up-a-node/) or by using the [Moonbeam Truffle plugin](/integrations/trufflebox/#the-moonbeam-truffle-plugin), which we'll use in this tutorial's examples.
+Para esta guía, necesitará tener un nodo de desarrollo Moonbeam ejecutándose en `--dev` modo. Esto se puede hacer siguiendo los pasos detallados [aquí](/getting-started/local-node/setting-up-a-node/) o usando el [complemento Moonbeam Truffle](/integrations/trufflebox/#the-moonbeam-truffle-plugin), que usaremos en los ejemplos de este tutorial.
 
-## Checking Prerequisites
+## Comprobación de requisitos previos
 
 --8<-- 'text/common/install-nodejs.md'
 
 
-In addition, you can globally install Truffle by running:
+Además, puede instalar Truffle globalmente ejecutando:
 
 ```
 npm install -g truffle
 ```
 
-As of this guide's publish date, the versions used were 15.12.0, 7.6.3, and 5.2.4 respectively.
+A la fecha de publicación de esta guía, las versiones utilizadas fueron 15.12.0, 7.6.3 y 5.2.4 respectivamente.
 
-!!! note
-    For the following examples, you don't need to have Truffle globally installed, as it is included as a dependency on the Moonbeam Truffle box. If you prefer, you can run `npx truffle` or `./node_modules/.bin/truffle` instead of `truffle`.
+!!! nota
+    Para los siguientes ejemplos, no es necesario tener Truffle instalado globalmente, ya que se incluye como una dependencia en la caja Moonbeam Truffle. Si lo prefiere, puede ejecutar `npx truffle` o en `./node_modules/.bin/truffle` lugar de `truffle`.
 
-## Getting Started with Truffle
+## Empezando con Truffle
 
-To ease the process of getting started with Truffle, we have [released the Moonbeam Truffle box](https://moonbeam.network/announcements/moonbeam-truffle-box-available-solidity-developers/). This provides a boilerplate setup to speed up the rampup process to deploy contracts on Moonbeam. To read more about the box, you can visit [this link](/integrations/trufflebox/).
+Para facilitar el proceso de introducción a Truffle, hemos [lanzado la caja Moonbeam Truffle](https://moonbeam.network/announcements/moonbeam-truffle-box-available-solidity-developers/). Esto proporciona una configuración estándar para acelerar el proceso de aceleración para implementar contratos en Moonbeam. Para leer más sobre la caja, puede visitar [este enlace](/integrations/trufflebox/).
 
-To download the Moonbeam Truffle box, follow [these instructions](/integrations/trufflebox/#downloading-and-setting-up-the-truffle-box). Once inside the directoy, let's take a look at the `truffle-config.js` file (for the purpuse of this guide, some information was removed):
+Para descargar la caja Moonbeam Truffle, siga [estas instrucciones](/integrations/trufflebox/#downloading-and-setting-up-the-truffle-box).  Una vez dentro del directorio, echemos un vistazo al `truffle-config.js` archivo (para el propósito de esta guía, se eliminó parte de la información):
 
 ```js
 const HDWalletProvider = require('@truffle/hdwallet-provider');
@@ -61,13 +62,13 @@ module.exports = {
 };
 ```
 
-Note that we are using `HD-Wallet-Provider` from Truffle as the Hierarchical Deterministic wallet. Also, we've defined a `dev` network that points to the development node provider URL, and the private key of the development account, which holds all funds in the development node, is included.
+Tenga en cuenta que estamos usando `HD-Wallet-Provider` Truffle como la cartera determinista jerárquica. Además, hemos definido una `dev` red que apunta a la URL del proveedor del nodo de desarrollo y se incluye la clave privada de la cuenta de desarrollo, que contiene todos los fondos en el nodo de desarrollo.
 
-## Running a Development Node
+## Ejecución de un nodo de desarrollo
 
-To set up a Moonbeam development node, you can follow [this tutorial](/getting-started/local-node/setting-up-a-node/). The process takes around 40 minutes in total, and you need to install Substrate and all its dependencies. The Moonbeam Truffle plugin provides a way to get started with a development node much quicker, and the only requirement is to have Docker installed (at time of writing the Docker version used was 19.03.6).
+Para configurar un nodo de desarrollo Moonbeam, puede seguir [este tutorial](/getting-started/local-node/setting-up-a-node/). El proceso toma alrededor de 40 minutos en total y necesita instalar Substrate y todas sus dependencias. El complemento Moonbeam Truffle proporciona una forma de comenzar con un nodo de desarrollo mucho más rápido, y el único requisito es tener Docker instalado (en el momento de redactar este artículo, la versión de Docker utilizada era la 19.03.6).
 
-To start a Moonbeam development node in your local environment, we need to first download the corresponding Docker image:
+Para iniciar un nodo de desarrollo Moonbeam en su entorno local, primero debemos descargar la imagen de Docker correspondiente:
 
 ```
 truffle run moonbeam install
@@ -75,17 +76,17 @@ truffle run moonbeam install
 
 ![Docker image download](/images/truffle/using-truffle-1.png)
 
-Once downloaded, we can proceed to start the local node with the following command:
+Una vez descargado, podemos proceder a iniciar el nodo local con el siguiente comando:
 
 ```
 truffle run moonbeam start
 ```
 
-You will see a message indicating that the node has started, followed by both of the endpoinds available.
+Verá un mensaje que indica que el nodo se ha iniciado, seguido de los dos puntos finales disponibles.
 
 ![Moonbeam local node started](/images/truffle/using-truffle-2.png)
 
-Once you are finished using your Moonbeam development node, you can run the following lines to stop it and remove the Docker image if that is the case:
+Una vez que haya terminado de usar su nodo de desarrollo Moonbeam, puede ejecutar las siguientes líneas para detenerlo y eliminar la imagen de Docker si ese es el caso:
 
 ```
 truffle run moonbeam stop && \
@@ -94,9 +95,9 @@ truffle run moonbeam remove
 
 ![Moonbeam local node stoped and image removed](/images/truffle/using-truffle-3.png)
 
-## The Contract File
+## El archivo del contrato
 
-There is also a ERC-20 token contract included with the Truffle box:
+También hay un contrato de token ERC-20 incluido con la caja Truffle:
 
 ```solidity
 pragma solidity ^0.7.5;
@@ -113,9 +114,9 @@ contract MyToken is ERC20 {
 }
 ```
 
-This is a simple ERC-20 contract based on the OpenZepplin ERC-20 contract. It creates "MyToken" with "MYTOK" symbol and the standard 18 decimal places. Furthermore, it assigns the created initial token supply to the contract creator.
+Este es un simple contrato ERC-20 basado en el contrato OpenZepplin ERC-20. Crea "MyToken" con el símbolo "MYTOK" y los 18 decimales estándar. Además, asigna el suministro de token inicial creado al creador del contrato.
 
-If we take a look at the Truffle contract migration script under `migrations/2_deploy_contracts.js`, it contains the following:
+Si echamos un vistazo al script de migración de contratos de Truffle a continuación `migrations/2_deploy_contracts.js`, contiene lo siguiente:
 
 ```javascript
 var MyToken = artifacts.require('MyToken');
@@ -125,29 +126,29 @@ module.exports = function (deployer) {
 };
 ```
 
-"8000000000000000000000000" is the number of tokens to initially mint with the contract, i.e., 8 million with 18 decimal places.
+"8000000000000000000000000" es el número de tokens que se acuñarán inicialmente con el contrato, es decir, 8 millones con 18 decimales.
 
-## Deploying a Contract to Moonbeam Using Truffle
+## Implementar un contrato en Moonbeam usando Truffle
 
-Before we can deploy our contracts, we must compile them. (We say "contracts" because normal Truffle deployments include the `Migrations.sol` contract.) You can do this with the following command:
+Antes de que podamos implementar nuestros contratos, debemos compilarlos. (Decimos "contratos" porque las implementaciones normales de Truffle incluyen el `Migrations.sol` contrato). Puede hacer esto con el siguiente comando:
 
 ```
 truffle compile
 ```
 
-If successful, you should see output like the following:
+Si tiene éxito, debería ver un resultado como el siguiente:
 
 ![Truffle compile success message](/images/truffle/using-truffle-4.png)
 
-Now we are ready to deploy the compiled contracts. You can do this with the following command:
+Ahora estamos listos para implementar los contratos compilados. Puede hacer esto con el siguiente comando:
 
 ```
 truffle migrate --network dev
 ```
 
-If successful, you will see deployment actions, including the address of the deployed contract:
+Si tiene éxito, verá acciones de implementación, incluida la dirección del contrato implementado:
 
 ![Successful contract deployment actions](/images/truffle/using-truffle-5.png)
 
-Once you have followed the [MetaMask guide](/getting-started/local-node/using-metamask/) and [Remix guide](/getting-started/local-node/using-remix/), you will be able to take the deployed contract address that is returned and load it into MetaMask or Remix.
+Una vez que haya seguido la [guía MetaMask](/getting-started/local-node/using-metamask/) y la [guía Remix](/getting-started/local-node/using-remix/), podrá tomar la dirección de contrato implementada que se devuelve y cargarla en MetaMask o Remix.
 
