@@ -1,6 +1,6 @@
 ---
 title: Fragmentos de Código
-description: In order to make it easier to get started with Moonbeam, here are code snippets for each of the tutorials we’ve created.
+description: Para que sea más fácil comenzar con Moonbeam, aquí hay fragmentos de código para cada uno de los tutoriales que hemos creado.
 ---
 
 # Fragmentos de Código
