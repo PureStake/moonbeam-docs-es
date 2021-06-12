@@ -1,10 +1,10 @@
-Before a proposal is enacted, it must go through various steps. The general flow of a proposal is the following (some simplifications were made):
+Antes de que se promulgue una propuesta, debe pasar por varios pasos. El flujo general de una propuesta es el siguiente (se hicieron algunas simplificaciones):
 
- - Token holders must create a preimage of the proposal, which defines the action to be carried out. The submitter pays a fee-per-byte stored: the larger the preimage, the higher the fee. Once submitted, it returns a preimage hash
- - Token holders can submit the proposal using the preimage hash, locking tokens in the process. Once the submission transaction is accepted, the proposal is listed publicly
- - Once the proposal is listed, token holders can second the proposal (vouch for it) by locking the same amount of tokens the original proposal submitter locked
- - The most seconded proposal moves to public referendum
- - Once in referendum, token holders vote "Aye" or "Nay" on the proposal by locking tokens. Two factors account the vote weight: amount locked and locking period
- - If the proposal passes, it is enacted after a certain amount of time
-
+ - Los titulares de los tokens deben crear una preimagen de la propuesta, en la que se define la acción a realizar. El remitente paga una tarifa por byte almacenado: cuanto mayor es la preimagen, mayor es la tarifa. Una vez enviado, devuelve un hash de preimagen.
+ - Los titulares de tokens pueden enviar la propuesta utilizando el hash de preimagen, bloqueando los tokens en el proceso. Una vez que se acepta la transacción de envío, la propuesta se enumera públicamente
+ - Una vez que la propuesta está en la lista, los titulares de tokens pueden respaldar la propuesta (dar fe de ello) bloqueando la misma cantidad de tokens que el remitente de la propuesta original bloqueó
+ - La propuesta más secundada pasa a referéndum público
+ - Una vez en el referéndum, los poseedores de fichas votan "Sí" o "No" en la propuesta bloqueando las fichas. Dos factores tienen en cuenta el peso del voto: cantidad bloqueada y período de bloqueo
+ - Si la propuesta se aprueba, se promulga después de un cierto período de tiempo.
+ 
 ![Proposal Roadmap](/images/governance/governance-proposal-roadmap.png)
