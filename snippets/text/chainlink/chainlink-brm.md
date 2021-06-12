@@ -1,9 +1,9 @@
-An Oracle node has a set of job IDs, where each corresponds to a task that can be requested by a user, for example, fetch a price feed. To do so, the user needs to send a request through a contract, we'll name it the _Client_ contract, passing in the following information:
+Un nodo de Oracle tiene un conjunto de ID de trabajo, donde cada uno corresponde a una tarea que puede ser solicitada por un usuario, por ejemplo, buscar un feed de precios. Para ello, el usuario debe enviar una solicitud a través de un contrato, lo llamaremos contrato _Cliente_ pasando la siguiente información:
 
- - Oracle address: address of the contract deployed by the Oracle node
- - Job ID: task to be executed
- - Payment: payment in LINK tokens that the Oracle will receive for fulfiling the request
+ - Dirección de Oracle: dirección del contrato desplegado por el nodo de Oracle
+ - Job ID: tarea a ejecutar
+ - Pago: pago en tokens LINK que recibirá Oracle por atender la solicitud
 
-This request actually sends a _transferAndCall_ to the LINK token contract, which handles the payment and relays the request to the Oracle contract. Here, an event is emited with the request, which is picked up by the Oracle node. Next, the node fetches the necessary data and executes the _fulfilOracleRequest_ function, which executes a callback that stores the requested information in the Client contract. The following diagram explains this workflow.
+Esta solicitud en realidad envía un _transferAndCall_ al contrato del token LINK, que maneja el pago y transmite la solicitud al contrato de Oracle. Aquí, se emite un evento con la solicitud, que es captada por el nodo de Oracle. A continuación, el nodo obtiene los datos necesarios y ejecuta la función _fulfilOracleRequest_ que ejecuta una devolución de llamada que almacena la información solicitada en el contrato del Cliente. El siguiente diagrama explica este flujo de trabajo.
 
 ![Basic Request Diagram](/images/chainlink/chainlink-basicrequest.png)
