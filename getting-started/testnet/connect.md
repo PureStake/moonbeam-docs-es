@@ -1,16 +1,16 @@
 ---
-title: Connect
-description: The Moonbeam TestNet, nicknamed Moonbase Alpha, is the easiest way to get started with a Polkadot environment. Follow this tutorial to connect to the TestNet.
+title: Conectar
+description: Moonbeam TestNet, apodado Moonbase Alpha, es la forma más fácil de comenzar con un entorno Polkadot. Siga este tutorial para conectarse a TestNet.
 ---
 
-# Connect to Moonbase Alpha
+# Conéctese a Moonbase Alpha
 
-## Introduction
+## Introducción
 
-Moonbase Alpha has two endpoints available for users to connect to: one for HTTPS and one for WSS.
+Moonbase Alpha tiene dos puntos finales disponibles para que los usuarios se conecten: uno para HTTPS y otro para WSS.
 
 --8<-- 'text/testnet/connect.md'
 
-## Get Tokens
+## Obtener fichas
 
-To start building on Moonbase Alpha, you can get DEV tokens from our [faucet](/getting-started/testnet/faucet/).
+Para comenzar a construir en Moonbase Alpha, puede obtener tokens DEV de nuestro [faucet](/getting-started/testnet/faucet/).
