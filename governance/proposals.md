@@ -54,77 +54,77 @@ Para hacer una propuesta en la red, debe utilizar la interfaz de PolkadotJS Apps
 
 ![Accounts in PolkadotJS](/images/governance/governance-proposal-1.png)
 
-The proposal will set Bob's balance to `1500` via governance!
+La propuesta establecerá el balance de Bob en `1500` a través de la gobernanza.
 
-### Submitting a Preimage of the Proposal
+### Enviando una Preimagen de la Propuesta
 
-The first step is to submit a preimage of the proposal. This is because the storage cost of large preimages can be pretty hefty, as the preimage contains all the information regarding the proposal itself. With this configuration, one account with more funds can submit a preimage and another account can submit the proposal.
+El primer paso es enviar una pre imagen de la propuesta. Esto se debe a que el costo de almacenamiento de las preimágenes más grandes puede ser bastante elevado, ya que la pre imagen contiene toda la información concerniente a la propuesta en sí misma. Con esta configuración, una cuenta con más fondos puede enviar la pre imagen y otra cuenta puede enviar la propuesta.
 
-Everything related to governance lives under the "Democracy" tab. Once there, click on the "Submit preimage" button.
+Todo lo relacionado con la gobernanza se encuentra en la pestaña “Democracia”. Una vez ahí, seleccione el botón “Enviar preimagen”.
 
 ![Submit Preimage](/images/governance/governance-proposal-2.png)
 
-Here, you need to provide the following information:
+Aquí necesitará proveer la información siguiente:
 
- 1. Select the account from which you want to submit the preimage
- 2. Choose the pallet you want to interact with and the dispatchable function (or action) to propose. The action you choose will determine the fields that need to fill in the following steps. In this case, it is the `democracy` pallet and the `setBalance` function
- 3. Set the address of which you want to change the balance
- 4. Set the new balance that this address will hold. To read more about the types of balances, you can visit [this site](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
- 5. Copy the preimage hash. This represents the proposal. You will use this hash when submitting the actual proposal
- 6. Click the "Submit preimage" button and sign the transaction
+ 1. Seleccione la cuenta desde la que desea enviar la preimagen.
+ 2. Elija la paleta con la que desea interactuar y la función (o acción) disponible para proponer. La acción que escoja determinará los campos que debe rellenar en los siguientes pasos. En este caso, es la paleta`democracy` y la función `setBalance` 
+ 3. Establezca la dirección desde la cual desea cambiar el balance.
+ 4. Establezca el nuevo balance que esta dirección deberá mantener. Para leer más acerca de los tipos de balances, puede visitar [este link](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
+ 5. Copie el hash de la preimagen. Esto representa la propuesta. Utilizará este hash al enviar la propuesta real
+ 6. Click en el boton "Enviar preimage" y firmar la transacción.
 
 ![Fill in the Preimage Information](/images/governance/governance-proposal-3.png)
 
 !!! note
-    Make sure you copy the preimage hash, as it is necessary to submit the proposal.
+    Asegúrate de copiar el hash de la preimagen, ya que es necesario para enviar la propuesta.
 
-Note that the storage cost of the preimage is displayed at the bottom left corner of this window. After the transaction is submitted, you will see some confirmations on the top right corner of the PolkadotJS Apps interface, but nothing will have changed in the main democracy screen. However, don't worry. If the transaction is confirmed, the preimage has been submitted.
+Note que el costo de almacenamiento de la pre imagen se muestra en el botón de la esquina izquierda de esta ventana. Después de haber enviado la transacción, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de la Polkadot JS Apps, pero nada habrá cambiado en la pantalla principal correspondiente a la democracia. No obstante, no debe preocuparse. Si la transacción ha sido confirmada, la pre imagen ha sido enviada.
 
-### Submitting a Proposal
+### Enviando una propuesta
 
-Once you have committed the preimage (check the previous section), the roadmap's next major milestone is to submit the proposal related to it. To do so, in the main democracy screen, click on "Submit proposal."
+Una vez que ya ha comprometido la pre imagen (consulte la sección anterior), el siguiente hito en el roadmap es enviar la propuesta correspondiente a la misma. Para hacerlo, seleccione “enviar propuesta” en la pantalla principal de democracia.
 
 ![Submit proposal](/images/governance/governance-proposal-4.png)
 
-Here, you need to provide the following information:
+Aquí, necesitará proveer la siguiente información:
 
- 1. Select the account from which you want to submit the proposal (in this case, Alice)
- 2. Enter the preimage hash related to the proposal. In this example, it is the hash of the `setBalance` preimage from the previous section
- 3. Set the locked balance. This is the number of tokens the proposer bonds with his proposal. Remember that the proposal with the most amount of tokens locked goes to referendum. The minimum deposit is displayed just below this input tab
- 4. Click the "Submit proposal" button and sign the transaction
+ 1. Seleccione la cuenta desde la cual desea enviar la propuesta (en este caso, Alice)
+ 2. Introduzca el hash de la pre imagen correspondiente a la propuesta. En este ejemplo, es el hash de  `setBalance`, la pre imagen de la sección anterior.
+ 3. Establezca el balance a bloquear. Este es el número de tokens que el usuario que propone vincula a su propuesta. Recuerde que la propuesta con la mayor cantidad de tokens bloqueados va a referéndum. El depósito mínimo es mostrado justo debajo de esta pestaña de entrada.
+ 4. Click en el botón "Enviar propuesta" y firme la transacción.
 
 ![Fill in the Proposal Information](/images/governance/governance-proposal-5.png)
 
 !!! note
-    Tokens might be locked for an indeterminate amount of time because it is unknown when a proposal may become a referendum (if ever).
+    Los tokens pueden estar bloqueados por una cantidad de tiempo indeterminada, ya que no se puede determinar cuando una propuesta podrá convertirse en referéndum (ni si lo hará).
 
-After the transaction is submitted, you will see some confirmations on the top right corner of the PolkadotJS Apps interface. You should also see the proposal listed in the "Proposals" section, displaying the proposer and the amounts of tokens locked, and it is now ready to be seconded!
+Después que la transacción es enviada, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de Polkadot JS Apps. También debería poder ver la propuesta listada en la sección “Propuestas”, mostrándose la propuesta y la cantidad de tokens bloqueados, y ahora está lista para ser secundada.
 
 ![Proposal listed](/images/governance/governance-proposal-6.png)
 
-### Seconding a Proposal
+### Secundando una propuesta
 
-To second a proposal means that you agree with it and want to back it up with your tokens to help it reach public referenda. The amount of tokens to be locked is equal to the proposer's original deposit - no more, no less.
+El secundar una propuesta significa que está de acuerdo con ella y quiere respaldarla con sus tokens para ayudarla a alcanzar el referéndum público. La cantidad de tokens a ser bloqueados será igual al depósito de la propuesta original- ni más, ni menos.
 
 !!! note
-    A single account can second a proposal multiple times. This is by design, as an account could just send tokens to different addresses and use them to second the proposal. What counts is the number of tokens backing up a proposal, not the number of vouches it has received.
+    Una misma cuenta puede secundar una propuesta en múltiples ocasiones. Esto es por diseño, ya que una cuenta pudiera enviar tokens a diferentes direcciones y usarlas para secundar la propuesta. Lo que es tomado en cuenta, es el número de tokens respaldando la propuesta, no el número de comprobantes que ha recibido.
 
-This section outlines the steps to second the proposal made in the previous section. To do so, click the "Second" button that is available for each proposal that shows up in the proposals list.
+Esta sección describe los pasos para secundar la propuesta hecha en la sección anterior. Para hacerlo, seleccione el botón “Secundar” que está disponible para cada propuesta que se muestre en la lista de propuestas. 
 
 ![Proposal listed to Second](/images/governance/governance-proposal-7.png)
 
-Here, you need to provide the following information:
+Aquí, necesita proveer la siguiente información:
 
- 1. Select the account you want to second the proposal with (in this case, Charley)
- 2. Verify the number of tokens required to second the proposal
- 3. Click the "Second" button and sign the transaction
+ 1. Seleccione la cuenta que desea usar para secundar la propuesta (en este caso, Charly)
+ 2. Verifique el número de tokens requeridos para secundar la propuesta.
+ 3. Seleccione el botón “Second” y firme la transacción.
 
 ![Fill in Second Information](/images/governance/governance-proposal-8.png)
 
 !!! note
-    Tokens might be locked for an indeterminate amount of time because it is unknown when a proposal may become a referendum (if ever)
+Los tokens pueden estar bloqueados por una cantidad de tiempo indeterminada, ya que no se puede determinar cuando una propuesta podrá convertirse en referéndum (o si lo hará).
 
-After the transaction is submitted, you will see some confirmations on the top right corner of the PolkadotJS Apps interface. You should also see the proposal listed in the "Proposals" section, displaying the proposer and the amounts of tokens locked and listing the users that have seconded this proposal!
+Después que la transacción es enviada, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de Polkadot JS Apps. También debería poder ver la propuesta listada en la sección “Propuestas”, mostrando la propuesta y la cantidad de tokens bloqueados y enumerando los usuarios que han secundado la propuesta.
 
 ![Proposal Seconded](/images/governance/governance-proposal-9.png)
 
