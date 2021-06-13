@@ -93,119 +93,118 @@ En este caso, Alice y Bob han decidido "Vote Aye" en la propuesta con una convic
 De la votación, hay algunas conclusiones clave:
 
  - El voto ponderado de Alice es 10800 unidades. Es decir, sus 1800 fichas bloqueadas multiplicaron su convicción por x6
- - Charley's weighted vote is 80 units. That is, his 800 tokens with no locking period (only during referendum) made his conviction factor x0.1
- - Both the remaining voting period and time before the proposal is enacted (if passed) are shown on the screen
- - The overall turnout (in percentage) is just 0.21%. This is calculated as the total number of voting tokens (2600) divided by the total amount of tokens in the network (1.22M in this case)
- - Even though the turnout is quite low, the proposal is tentatively approved because of the super-majority approval. More information can be found in [this section](/governance/voting/#positive-turnout-bias)
- - It is important to write down the referendum index, as this is needed to unlock the tokens later when the locking period expires. Currently there is no way to retrieve the referendum index once it has been enacted
+ - El voto ponderado de Charley es de 80 unidades. Es decir, sus 800 fichas sin período de bloqueo (solo durante el referéndum) hicieron que su factor de convicción fuera x0.1
+ - Tanto el período de votación restante como el tiempo antes de que se promulgue la propuesta (si se aprueba) se muestran en la pantalla
+ - La participación general (en porcentaje) es solo del 0,21%. Esto se calcula como el número total de tokens de votación (2600) dividido por la cantidad total de tokens en la red (1.22M en este caso)
+ -  Aunque la participación es bastante baja, la propuesta se aprueba tentativamente debido a la aprobación de la supermayoría. Se puede encontrar más información en [esta sección](/governance/voting/#positive-turnout-bias)
+ - Es importante anotar el índice del referéndum, ya que es necesario para desbloquear los tokens más adelante cuando expire el período de bloqueo. Actualmente no hay forma de recuperar el índice de referéndum una vez que se haya promulgado
 
-After the voting period has expired, the proposal will be visible under the "Dispatch" tab if approved. In here, you can also see the time remaining until the proposal is enacted.
+Una vez que haya expirado el período de votación, la propuesta será visible en la pestaña "Dispatch" si se aprueba. Aquí también puede ver el tiempo que queda hasta que se promulgue la propuesta.
 
 ![Proposal Enactment](/images/governance/governance-vote-4.png)
 
-Remember that, for this example, the `setBalance` function was used to set Bob's balance to 1500 tokens. Once the enactment period has passed, you can go back to the "Accounts" tab to verify that the proposal was made law.
+Recuerde que, para este ejemplo, la función `setBalance` se usó para establecer el saldo de Bob en 1500 tokens. Una vez que haya pasado el período de promulgación, puede volver a la pestaña "Cuentas" para verificar que la propuesta se convirtió en ley.
 
 ![Proposal Result](/images/governance/governance-vote-5.png)
 
-### Delegate Voting
+### Votación delegada
 
-Token holders have the option to delegate their vote to another account whose opinion they trust. The account being delegated does not need to make any particular action. When they vote, the vote weight (that is, tokens times the conviction multiplier chose by the delegator) is added to its vote.
+Los titulares de tokens tienen la opción de delegar su voto a otra cuenta en cuya opinión confían. La cuenta que se delega no necesita realizar ninguna acción en particular. Cuando votan, el peso del voto (es decir, las fichas multiplicadas por el multiplicador de convicciones elegido por el delegador) se agrega a su voto.
 
-To delegate your vote, first, navigate to the "Extrinsics" menu under the "Developers" tab.
+Para delegar su voto, primero navegue al menú "Extrinsics" en la pestaña "Desarrolladores".
 
 ![Extrinsics Menu](/images/governance/governance-vote-6.png)
 
-Here, you need to provide the following information:
+Aquí, debe proporcionar la siguiente información:
 
- 1. Select the account from which you want to delegate your vote
- 2. Choose the pallet you want to interact with. In this case, it is the `democracy` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is `delegate` extrinsic
- 4. Select the account to which you want to delegate your vote
- 5. Set the vote conviction, which determines its weight (`vote_weight = tokens * conviction_multiplier`). The conviction multiplier is related to the number of enactment periods the tokens will be locked for. Consequently, the longer you are willing to lock your tokens, the stronger your vote will be weighted. You also have the option of not locking tokens at all, but vote weight is drastically reduced
- 6. Set the number of tokens you want to delegate to the account provided before
- 7. Click the "Submit Transaction" button and sign the transaction
+ 1. Seleccione la cuenta desde la que desea delegar su voto
+ 2. Elija la paleta con la que desea interactuar. En este caso, es la de "democracy"
+ 3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es "delegate"
+ 4. Seleccione la cuenta a la que desea delegar su voto
+ 5. Establece la convicción del voto, que determina su peso (`vote_weight = tokens * conviction_multiplier`). El multiplicador de convicciones está relacionado con la cantidad de períodos de promulgación durante los que se bloquearán los tokens. En consecuencia, cuanto más tiempo esté dispuesto a bloquear sus tokens, más fuerte será su voto. También tiene la opción de no bloquear tokens en absoluto, pero el peso de los votos se reduce drásticamente
+ 6. Establezca la cantidad de tokens que desea delegar a la cuenta proporcionada antes
+ 7. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
 ![Extrinsics Transaction for Delegation](/images/governance/governance-vote-7.png)
 
-In this example, Alice delegated a total weight of 1000 (1000 tokens with an x1 conviction factor) to Charley.
+En este ejemplo, Alice delegó un peso total de 1000 (1000 tokens con un factor de convicción x1) a Charley.
 
 !!! note
-    Another way to delegate votes is under the "Accounts" tab. Click on the three dots of the account from which you want to delegate your vote and fill in the information as before.
+   Otra forma de delegar votos es en la pestaña "Cuentas". Haga clic en los tres puntos de la cuenta desde la que desea delegar su voto y complete la información como antes.
 
-Once the account you have delegated your vote to votes, the total vote weight delegated will be allocated to the option that the account selected. For this example, Charley has decided to vote in favor of a proposal that is in public referendum. He voted with a total weight of 800 (800 tokens with an x1 conviction factor). But because Alice delegated 1000 vote weight to him, "Aye" votes total 1800 units.
+Una vez que la cuenta haya delegado su voto, el peso total del voto delegado se asignará a la opción que la cuenta seleccionó. Para este ejemplo, Charley ha decidido votar a favor de una propuesta que se encuentra en referéndum público. Votó con un peso total de 800 (800 fichas con un factor de convicción x1). Pero debido a que Alice le delegó 1000 votos, los votos "Sí" suman 1800 unidades.
 
 ![Total Votes with Delegation](/images/governance/governance-vote-8.png)
 
-To remove delegation, repeat the process described before, but select the `undelegate` extrinsic in step 3.
+Para eliminar la delegación, repita el proceso descrito anteriormente, pero seleccione la extrinsic `undelegate` en el paso 3.
 
-From vote delegation, there are some key takeaways:
+De la delegación de votos, hay algunas conclusiones clave:
 
- - If a token holder were to remove the vote delegation during a public referendum where the delegated votes were used, these would be removed from the tally
- - A token holder that delegated votes still has an economic buy-in. This means that if the option the delegator selected were to win, the tokens delegated are locked for the number of lock periods
- - The tokens delegated for voting are no longer part of the token holder's free balance. To read more about the types of balances, you can visit [this site](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
- - A token holder that delegated tokens can't participate in public referendum. First, the token holder must undelegate his vote
- - A token holder that delegated tokens needs to manually unlock his locked tokens after the locking period has expired. For this, it is necessary to know the referendum index
+ - Si un titular de los tokens eliminara la delegación de votos durante un referéndum público en el que se utilizaron los votos delegados, estos se eliminarían del recuento.
+ - Un titular de tokens que delegó votos todavía tiene una participación económica. Esto significa que si la opción que el delegador seleccionó fuera a ganar, los tokens delegados se bloquean por el número de períodos de bloqueo.
+ - Los tokens delegados para votar ya no forman parte del saldo libre del titular del token. Para leer más sobre los tipos de saldos, puede visitar [este sitio](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
+ - Un titular de tokens que delegó tokens no puede participar en un referéndum público. Primero, el poseedor del token debe anular la delegación de su voto.
+ - Un titular de tokens que delegó tokens debe desbloquear manualmente sus tokens bloqueados después de que el período de bloqueo haya expirado. Para ello es necesario conocer el índice de referéndum
+ - 
+### Desbloqueo de tokens
 
-### Unlocking Locked Tokens
+Cuando los poseedores de tokens votan, los tokens utilizados se bloquean y no se pueden transferir. Puede verificar si tiene tokens bloqueados en la pestaña "Cuentas", expandiendo los detalles de la cuenta de la dirección para consultar. Allí, verá diferentes tipos de saldos (puede leer más información sobre cada tipo [aquí](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). Si pasa el cursor sobre el icono junto a "democracia", se mostrará un panel de información que le indicará el estado actual de lo bloqueado. Los diferentes estados de bloqueo incluyen:
 
-When token holders vote, the tokens used are locked and cannot be transferred. You can verify if you have any locked tokens in the "Accounts" tab, expanding the address's account details to query. There, you will see different types of balances (you can read more information about each type [here](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). If you hover over the icon next to "democracy," an information panel will show telling you the current status of your lock. Different lock status includes:
-
- - Locked because of an ongoing referendum, meaning that you've used your tokens and have to wait until the referendum finishes, even if you've voted with a no-lock conviction factor
- - Locked because of the conviction multiplier selected, displaying the number of blocks and time left
- - Lock expired, meaning that you can now get your tokens back
+ - Bloqueado debido a un referéndum en curso, lo que significa que ha usado sus tokens y tiene que esperar hasta que finalice el referéndum, incluso si ha votado con un factor de convicción sin bloqueo
+ - Bloqueado debido al multiplicador de convicción seleccionado, que muestra el número de bloques y el tiempo restante
+ - Bloqueo caducado, lo que significa que ahora puede recuperar sus tokens
 
 ![Account Lock Status](/images/governance/governance-vote-9.png)
 
-Once the lock is expired, you can request your tokens back. To do so, navigate to the "Extrinsics" menu under the "Developers" tab.
+Una vez que expire el bloqueo, puede solicitar la devolución de sus tokens. Para hacerlo, navegue hasta el menú "Extrínsics" en la pestaña "Desarrolladores".
 
 ![Extrinsics Menu](/images/governance/governance-vote-10.png)
 
-Here, two different extrinsics need to be sent. First, you need to provide the following information:
+Aquí, se deben enviar dos extrínsecos diferentes. Primero, debe proporcionar la siguiente información:
 
- 1. Select the account from which you want to recover your tokens
- 2. Choose the pallet you want to interact with. In this case, it is the `democracy` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is `removeVote` extrinsic. This step is necessary to unlock the tokens. This extrinsic can be used as well to remove your vote from a referendum
- 4. Enter the referendum index. This is the number that appeared on the left-hand side in the "Democracy" tab. In this case, it is 0
- 5. Click the "Submit Transaction" button and sign the transaction
+ 1. Seleccione la cuenta de la que desea recuperar sus token
+ 2. Elija la paleta con la que desea interactuar. En este caso, es la de "democracy"
+ 3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el extrinsic `removevote`. Este paso es necesario para desbloquear los tokens. Este elemento extrínseco también se puede utilizar para eliminar su voto de un referéndum.
+ 4. ngrese el índice de referéndum. Este es el número que apareció en el lado izquierdo de la pestaña "Democracia". En este caso, es 0
+ 5. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
 ![Remove Vote Extrinsics](/images/governance/governance-vote-11.png)
 
-For the next extrinsic, you need to provide the following information:
+Para el siguiente extrínseco, debe proporcionar la siguiente información:
 
- 1. Select the account from which you want to recover your tokens
- 2. Choose the pallet you want to interact with. In this case, it is the `democracy` pallet
- 3. Choose the extrinsic method to use for the transaction. This will determine the fields that need to fill in the following steps. In this case, it is `unlock` extrinsic
- 4. Enter the target account that will receive the unlocked tokens. In this case, the tokens will be returned to Alice
- 5. Click the "Submit Transaction" button and sign the transaction
+ 1. Seleccione la cuenta de la que desea recuperar sus token
+ 2. Elija la paleta con la que desea interactuar. En este caso, es la de "democracy"
+ 3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el extrinsic`desbloquear` 
+ 4. Ingrese la cuenta de destino que recibirá los tokens desbloqueados. En este caso, los tokens se devolverán a Alice.
+ 5. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
 ![Unlock Extrinsics](/images/governance/governance-vote-12.png)
 
-Once the transaction goes through, the locked tokens should be unlocked. To double-check, you can go back to the "Accounts" tab and see that, for this example, Alice has her full balance as "transferable."
+Una vez que se realiza la transacción, los tokens bloqueados deben desbloquearse. Para volver a verificar, puede volver a la pestaña "Cuentas" y ver que, para este ejemplo, Alice tiene su saldo completo como "transferible".
 
 ![Check Balance](/images/governance/governance-vote-13.png)
 
-## Positive Turnout Bias
+## Sesgo de participación positiva
 
-Public referenda use a positive turnout bias metric, that is, a super-majority approval formula. The equation is the following:
+Los referendos públicos utilizan una métrica de sesgo de participación positiva, es decir, una fórmula de aprobación por supermayoría. La ecuación es la siguiente:
 
 ![Positive Turnout Bias](/images/governance/governance-vote-bias.png)
 
-Where:
+Dónde:
 
- - **Approve** — number of "Aye" votes (includes the conviction multiplier)
- - **Against** — number of "Nay" votes (includes the conviction multiplier)
- - **Turnout** — the total number of voting tokens (without including the conviction multiplier)
- - **Electorate** — the total number of tokens issued in the network
+ - **Aprobar** — número de votos "Aye" (incluye el multiplicador de convicciones)
+ - **En contra** — número de votos "Nay" (incluye el multiplicador de convicciones)
+ - **Participación** — el número total de fichas de votación (sin incluir el multiplicador de convicciones)
+ - **Electorado** —  el número total de tokens emitidos en la red.
 
-In the previous example, these numbers were:
+En el ejemplo anterior, estos números fueron:
 
-|  Variable  |     |         Value         |
+|  Variable  |     |         Valor         |
 | :--------: | :-: | :-------------------: |
-|  Approve   |     |   10800 (1800 x 6)    |
-|  Against   |     |    80 (800 x 0.1)     |
-|  Turnout   |     |   2600 (1800 + 800)   |
-| Electorate |     |         1.22M         |
-| **Result** |     | 1.5 < 9.8 (Aye wins!) |
+|  Aprobar   |     |   10800 (1800 x 6)    |
+|  En contra  |     |    80 (800 x 0.1)     |
+|  Participación  |     |   2600 (1800 + 800)   |
+| Electorado |     |         1.22M         |
+| **Resultado** |     | 1.5 < 9.8 (¡Aye gana!) |
 
-In short, a heavy super-majority of aye votes is required to approve a proposal at low turnouts, but as turnout increases, it becomes a simple majority.
-
+En resumen, se requiere una gran mayoría de votos aye para aprobar una propuesta con baja participación, pero a medida que aumenta la participación, se convierte en una mayoría simple.
