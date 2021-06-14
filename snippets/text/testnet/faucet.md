@@ -1,15 +1,15 @@
-Tokens on Moonbase Alpha, named DEV, will be issued on demand. Currently, there are two ways you can get access to this token: through a Discord bot, or manually.
+Los tokens en Moonbase Alpha, llamados DEV, se emitirán a pedido. Actualmente, hay dos formas de obtener acceso a este token: a través de un bot de Discord o manualmente.
 
-### Discord - Mission Control
+### Discord - Control de misión
 
-To request tokens automatically, we've created a Discord bot (named Mission Control :sunglasses:) that will automatically send a maximum of 10 DEV tokens every 24 hours (per Discord user) when you enter your address. You can check it out on our [Discord channel](https://discord.gg/PfpUATX). For more information, please visit [this site](/getting-started/testnet/faucet/).
+Para solicitar tokens automáticamente, hemos creado un bot de Discord (llamado Mission Control :sunglasses:)que enviará automáticamente un máximo de 10 tokens DEV cada 24 horas (por usuario de Discord) cuando ingrese su dirección. Puedes verlo en nuestro [canal de Discord](https://discord.gg/PfpUATX). Para obtener más información, visite [este sitio](/getting-started/testnet/faucet/).
  
-Under the category "Miscellaneous", you will find our AlphaNet bot channel. Enter the following message, replacing `<enter-address-here->` with your H160 address:
+En la categoría "Varios", encontrará nuestro canal de bot AlphaNet. Ingrese el siguiente mensaje, reemplazando `<enter-address-here->` con su dirección H160:
  
 ```
 !faucet send <enter-address-here->
 ```
 
-### Manual Procedure
+### Procedimiento manual
 
-For token requests of more than the limited account allowed by our Discord bot, contact a moderator directly via our [Discord channel](https://discord.gg/PfpUATX). We are happy to provide the tokens needed to test your applications.
+Para solicitudes de tokens de más de la cuenta limitada permitida por nuestro bot de Discord, comuníquese con un moderador directamente a través de nuestro [canal de Discord](https://discord.gg/PfpUATX). Nos complace proporcionar los tokens necesarios para probar sus aplicaciones.
