@@ -1,6 +1,6 @@
 ---
-title: Deploy a Contract
-description: Learn how to deploy unmodified and unchanged Solidity-based smart contracts to a Moonbeam node with a simple script using Web3.js, Ethers.js, or Web3.py.
+title: Implementar un contrato
+description: Aprenda a implementar contratos inteligentes basados en Solidity sin modificar y sin cambios en un nodo Moonbeam con un script simple usando Web3.js, Ethers.js o Web3.py.
 ---
 
 # Uso de bibliotecas Ethereum para implementar contratos inteligentes en Moonbeam
