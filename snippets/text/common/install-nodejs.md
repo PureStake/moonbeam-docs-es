@@ -1,8 +1,8 @@
-We need to install Node.js (we'll use v15.x) and the npm package manager. You can download directly from [Node.js](https://nodejs.org/en/download/) or in your terminal:
+Necesitamos instalar Node.js (usaremos v15.x) y el administrador de paquetes npm. Puedes descargarlo directamente desde [Node.js](https://nodejs.org/en/download/) o en tu terminal:
 
 --8<-- 'code/common/install-nodejs-commands.md'
 
-We can verify that everything is installed correctly by querying the version for each package:
+Podemos verificar que todo está instalado correctamente consultando la versión de cada paquete:
 
 ```
 node -v
