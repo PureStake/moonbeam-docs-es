@@ -3,48 +3,48 @@ title: Deploy a Contract
 description: Learn how to deploy unmodified and unchanged Solidity-based smart contracts to a Moonbeam node with a simple script using Web3.js, Ethers.js, or Web3.py.
 ---
 
-# Using Ethereum Libraries to Deploy Smart Contracts on Moonbeam
+# Uso de bibliotecas Ethereum para implementar contratos inteligentes en Moonbeam
 
 ![Ethereum Libraries Integrations Moonbeam](/images/sendtx/web3-libraries-banner.png)
 
-## Introduction
+## Introducción
 
-This guide walks through using the Solidity compiler and three different Ethereum libraries to sign and send a transaction on Moonbeam manually. The three libraries covered by this tutorial are:
+Esta guía describe el uso del compilador Solidity y tres bibliotecas Ethereum diferentes para firmar y enviar una transacción en Moonbeam manualmente. Las tres bibliotecas cubiertas por este tutorial son:
 
  - [Web3.js](https://web3js.readthedocs.io/)
  - [Ethers.js](https://docs.ethers.io/)
  - [Web3.py](https://web3py.readthedocs.io/)
 
-Besides, two other libraries will be used to compile the smart contract:
+Además, se utilizarán otras dos bibliotecas para compilar el contrato inteligente:
 
- - [Solc-js](https://www.npmjs.com/package/solc) to compile Solidity smart contracts using JavaScript
- - [Py-solc-x](https://pypi.org/project/py-solc-x/) to compile Solidity smart contracts using Python
+ - [Solc-js](https://www.npmjs.com/package/solc) para compilar contratos inteligentes Solidity usando JavaScript
+ - [Py-solc-x](https://pypi.org/project/py-solc-x/) para compilar contratos inteligentes Solidity usando Python
 
 !!! note
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-## Checking Prerequisites
+## Comprobación de requisitos previos
 
-The examples using both web3.js and ethers.js need you to install Node.js and NPM previously. For the web3.py, you need Python and PIP. As of the writing of this guide, the versions used were:
+Los ejemplos que utilizan web3.js y ethers.js necesitan que instales Node.js y NPM previamente. Para web3.py, necesita Python y PIP. En el momento de redactar esta guía, las versiones utilizadas fueron:
 
  - Node.js v15.10.0
  - NPM v7.5.3
- - Python v3.6.9 (web3 requires Python >= 3.5.3 and < 4)
+ - Python v3.6.9 (web3 requiere Python >= 3.5.3 and < 4)
  - PIP3 v9.0.1
 
-Next, create a directory to store all of the relevant files:
+A continuación, cree un directorio para almacenar todos los archivos relevantes:
 
 ```
 mkdir incrementer && cd incrementer/
 ```
 
-For the JavaScript libraries, first, you can create a simple `package.json` file (not required):
+Para las bibliotecas de JavaScript, primero, puede crear un `package.json` archivo simple (no es obligatorio):
 
 ```
 npm init --yes
 ```
 
-In the directory, install the corresponding library and the Solidity compiler (_web3.py_ and _py-solc-x_ are installed in the default directory of PIP3):
+En el directorio, instale la biblioteca correspondiente y el compilador Solidity (_web3.py_ y _py-solc-x_ están instalados en el directorio predeterminado de PIP3):
 
 === "Web3.js"
     ```
@@ -61,7 +61,7 @@ In the directory, install the corresponding library and the Solidity compiler (_
     pip3 install web3 pip3 install py-solc-x
     ```
 
-The versions used when this guide was published were
+Las versiones utilizadas cuando se publicó esta guía fueron
 
  - Web3.js v1.33 (`npm ls web3`)
  - Ethers.js v5.0.31 (`npm ls ethers`)
@@ -69,38 +69,38 @@ The versions used when this guide was published were
  - Web3.py v5.17.0 (`pip3 show web3`)
  - Py-solc-x v1.1.0 (`pip3 show py-solc-x`)
 
-The setup for this example will be relatively simple, and it'll contain the following files:
+La configuración de este ejemplo será relativamente simple y contendrá los siguientes archivos:
 
- - **_Incrementer.sol_** — the file with our Solidity code
- - **_compile.\*_** — compiles the contract with the Solidity compiler
- - **_deploy.\*_**: it will handle the deployment to our local Moonbeam node
- - **_get.\*_** — it will make a call to the node to get the current value of the number
- - **_increment.\*_** — it will make a transaction to increment the number stored on the Moonbeam node
- - **_reset.\*_** — the function to call that will reset the number stored to zero
+ - **_Incrementer.sol_** — el archivo con nuestro código de solidez
+ - **_compile.\*_** — compila el contrato con el compilador de Solidity
+ - **_deploy.\*_**: manejará la implementación en nuestro nodo Moonbeam local
+ - **_get.\*_** — hará una llamada al nodo para obtener el valor actual del número
+ - **_increment.\*_** —  hará una transacción para incrementar el número almacenado en el nodo Moonbeam
+ - **_reset.\*_** — la función a llamar que reiniciará el número almacenado a cero
 
-## The Contract File
+## El archivo del contrato
 
-The contract used is a simple incrementer, arbitrarily named _Incrementer.sol_, which you can find [here](/snippets/code/web3-contract-local/Incrementer.sol). The Solidity code is the following:
+El contrato utilizado es un simple incrementador, arbitrariamente llamado _Incrementer.sol_, que puede encontrar [aquí](/snippets/code/web3-contract-local/Incrementer.sol). El código de Solidez es el siguiente:
 
 ```solidity
 --8<-- 'code/web3-contract-local/Incrementer.sol'
 ```
 
-The `constructor` function, which runs when the contract is deployed, sets the initial value of the number variable stored on-chain (default is 0). The `increment` function adds the `_value` provided to the current number, but a transaction needs to be sent, which modifies the stored data. Lastly, the `reset` function resets the stored value to zero.
+La `constructor` función, que se ejecuta cuando se implementa el contrato, establece el valor inicial de la variable numérica almacenada en la cadena (el valor predeterminado es 0). La `increment` función agrega el `_value` proporcionado al número actual, pero es necesario enviar una transacción que modifica los datos almacenados. Por último, la `reset` función restablece el valor almacenado a cero.
 
-!!! note
-    This contract is a simple example for illustration purposes only and does not handle values wrapping around.
+!!! nota
+    Este contrato es un ejemplo simple solo con fines ilustrativos y no maneja valores envueltos.
 
-## Compiling the Contract
+## Compilación del contrato
 
-The only purpose of the compile file is to use the Solidity compiler to output the bytecode and interface (ABI) our contract. You can find the code snippet for each library here (they were arbitrarily named `compile.*`):
+El único propósito del archivo de compilación es utilizar el compilador Solidity para generar el código de bytes y la interfaz (ABI) de nuestro contrato. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `compile.*`):
 
  - Web3.js: [_compile.js_](/snippets/code/web3-contract-local/compile.js)
  - Ethers.js: [_compile.js_](/snippets/code/web3-contract-local/compile.js)
  - Web3.py: [_compile.py_](/snippets/code/web3py-contract/compile.py)
 
-!!! note
-    The compile file for both JavaScript libraries is the same as they share the JavaScript bindings for the Solidity compiler (same package)
+!!! nota
+    El archivo de compilación para ambas bibliotecas de JavaScript es el mismo, ya que comparten los enlaces de JavaScript para el compilador de Solidity (mismo paquete)
 
 === "Web3.js"
     ```
@@ -119,32 +119,32 @@ The only purpose of the compile file is to use the Solidity compiler to output t
 
 ### Web3.js and Ethers.js
 
-In the first part of [the script](/snippets/code/web3-contract-local/compile.js), the contract's path is fetched, and its content read.
+En la primera parte del [the script](/snippets/code/web3-contract-local/compile.js), se busca la ruta del contrato y se lee su contenido.
 
-Next, the Solidity compiler's input object is built, and it is passed as input to the `solc.compile` function.
+A continuación, se crea el objeto de entrada del compilador Solidity y se pasa como entrada a la `solc.compile` función.
 
-Lastly, extract the data of the `Incrementer` contract of the `Incrementer.sol` file, and export it so that the deployment script can use it.
+Por último, extrae los datos del `Incrementer` contrato del `Incrementer.sol` archivo y expórtalo para que el script de implementación pueda utilizarlo.
 
 ### Web3.py
 
-In the first part of [the script](/snippets/code/web3py-contract/compile.py), the contract file is compiled using the `solcx.compile_files` function. Note that the contract file is in the same directory as the compile script.
+En la primera parte del [the script](/snippets/code/web3py-contract/compile.py), el archivo del contrato se compila utilizando la `solcx.compile_files` función. Tenga en cuenta que el archivo del contrato está en el mismo directorio que el script de compilación.
 
 !!! note
-    When running the `compile.py` you might be get an error stating that `Solc` needs to be installed. If so, uncomment the line in the file that executes `solcx.install_solc()` and rerun the compile file again with `python3 compile.py`. More information can be found in [this link](https://pypi.org/project/py-solc-x/).
+    Al ejecutar el, `compile.py` es posible que obtenga un error que indique que `Solc` debe instalarse. Si es así, elimine el comentario de la línea del archivo que se ejecuta `solcx.install_solc()` y vuelva a ejecutar el archivo de compilación con `python3 compile.py`. Puede encontrar más información en [este enlace](https://pypi.org/project/py-solc-x/).
 
-Next, and wrapping up the script, the contract data is exported. In this example, only the interface (ABI) and bytecode were defined.
+A continuación, y finalizando el script, se exportan los datos del contrato. En este ejemplo, solo se definieron la interfaz (ABI) y el código de bytes.
 
-## Deploying the Contract
+## Implementar el contrato
 
-Regardless of the library, the strategy to deploy the compiled smart contract is somewhat similar. A contract instance is created using its interface (ABI) and bytecode. From this instance, a deployment function is used to send a signed transaction that deploys the contract. You can find the code snippet for each library here (they were arbitrarily named `deploy.*`):
+Independientemente de la biblioteca, la estrategia para implementar el contrato inteligente compilado es algo similar. Se crea una instancia de contrato utilizando su interfaz (ABI) y su código de bytes. Desde esta instancia, se utiliza una función de implementación para enviar una transacción firmada que implementa el contrato. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `deploy.*`):
 
  - Web3.js: [_deploy.js_](/snippets/code/web3-contract-local/deploy.js)
  - Ethers.js: [_deploy.js_](/snippets/code/ethers-contract-local/deploy.js)
  - Web3.py: [_deploy.py_](/snippets/code/web3py-contract/deploy.py)
 
-For simplicity, the deploy file is composed of two sections. In the first section ("Define Provider & Variables"), the library to use and the ABI and bytecode of the contract are imported. Also, the provider and account from (with the private key) are defined. Note that `providerRPC` has both the standard development node RPC endpoint and the one for [Moonbase Alpha](/networks/testnet/).
+Para simplificar, el archivo de implementación se compone de dos secciones. En la primera sección ("Definir proveedor y variables"), se importan la biblioteca a utilizar y el ABI y el código de bytes del contrato. Además, se definen el proveedor y la cuenta de (con la clave privada). Tenga en cuenta que `providerRPC` tiene el punto final RPC del nodo de desarrollo estándar y el de [Moonbase Alpha](/networks/testnet/).
 
-The second section ("Deploy Contract") outlines the actual contract deployment part. Note that for this example, the initial value of the `number` variable was set to 5. Some of the key takeaways are discussed next.
+La segunda sección ("Implementar contrato") describe la parte real de implementación del contrato. Tenga en cuenta que para este ejemplo, el valor inicial de la `number` variable se estableció en 5. Algunas de las conclusiones clave se analizan a continuación.
 
 === "Web3.js"
     ```
@@ -161,56 +161,56 @@ The second section ("Deploy Contract") outlines the actual contract deployment p
     --8<-- 'code/web3py-contract/deploy.py'
     ```
 
-!!! note
-    The _deploy.\*_ script provides the contract address as an output. This comes in handy, as it is used for the contract interaction files.
+!!! nota
+   El script _deploy.\*_ Proporciona la dirección del contrato como salida. Esto resulta útil, ya que se utiliza para los archivos de interacción del contrato.
 
 ### Web3.js
 
-In the first part of [the script](/snippets/code/web3-contract-local/deploy.js), the `web3` instance (or provider) is created using the `Web3` constructor with the provider RPC. By changing the provider RPC given to the constructor, you can choose which network you want to send the transaction to.
+En la primera parte del [script](/snippets/code/web3-contract-local/deploy.js), la `web3` instancia (o proveedor) se crea usando el `Web3` onstructor con el proveedor RPC. Al cambiar el proveedor de RPC proporcionado al constructor, puede elegir a qué red desea enviar la transacción.
 
-The private key, and the public address associated with it, are defined for signing the transaction and logging purposes. Only the private key is required. Also, the contract's bytecode and interface (ABI) are fetched from the compile's export.
+La clave privada y la dirección pública asociada a ella se definen para firmar la transacción y con fines de registro. Solo se requiere la clave privada. Además, el código de bytes y la interfaz (ABI) del contrato se obtienen de la exportación de la compilación.
 
-In the second section, a contract instance is created by providing the ABI. Next, the `deploy` function is used, which needs the bytecode and arguments of the constructor function. This will generate the constructor transaction object.
+En la segunda sección, se crea una instancia de contrato proporcionando el ABI. A continuación, `deploy` se utiliza la función, que necesita el código de bytes y los argumentos de la función constructora. Esto generará el objeto de transacción del constructor.
 
-Afterwards, the constructor transaction can be signed using the `web3.eth.accounts.signTransaction()` method. The data field corresponds to the bytecode, and the constructor input arguments are encoded together. Note that the value of gas is obtained using `estimateGas()` option inside the constructor transaction.
+Posteriormente, la transacción del constructor se puede firmar usando el `web3.eth.accounts.signTransaction()` método. El campo de datos corresponde al código de bytes y los argumentos de entrada del constructor se codifican juntos. Tenga en cuenta que el valor del gas se obtiene mediante la  `estimateGas()` opción dentro de la transacción del constructor.
 
-Lastly, the signed transaction is sent, and the contract's address is displayed in the terminal.
+Por último, se envía la transacción firmada y la dirección del contrato se muestra en el terminal.
 
 ### Ethers.js
 
-In the first part of [the script](/snippets/code/ethers-contract-local/deploy.js), different networks can be specified with a name, RPC URL (required), and chain ID. The provider (similar to the `web3` instance) is created with the `ethers.providers.StaticJsonRpcProvider` method. An alternative is to use the `ethers.providers.JsonRpcProvide(providerRPC)` method, which only requires the provider RPC endpoint address. But this might created compatibility issues with individual project specifications.
+En la primera parte del [script](/snippets/code/ethers-contract-local/deploy.js), se pueden especificar diferentes redes con un nombre, URL de RPC (obligatorio) e ID de cadena. El proveedor (similar a la `web3` instancia) se crea con el `ethers.providers.StaticJsonRpcProvider` método. Una alternativa es utilizar el `ethers.providers.JsonRpcProvide(providerRPC)` método, que solo requiere la dirección de punto final RPC del proveedor. Pero esto podría crear problemas de compatibilidad con especificaciones de proyectos individuales.
 
-The private key is defined to create a wallet instance, which also requires the provider from the previous step. The wallet instance is used to sign transactions. Also, the contract's bytecode and interface (ABI) are fetched from the compile's export.
+La clave privada se define para crear una instancia de billetera, que también requiere el proveedor del paso anterior. La instancia de billetera se usa para firmar transacciones. Además, el código de bytes y la interfaz (ABI) del contrato se obtienen de la exportación de la compilación.
 
-In the second section, a contract instance is created with `ethers.ContractFactory()`, providing the ABI, bytecode, and wallet. Thus, the contract instance already has a signer. Next, the `deploy` function is used, which needs the constructor input arguments. This will send the transaction for contract deployment. To wait for a transaction receipt you can use the `deployed()` method of the contract deployment transaction.
+En la segunda sección, se crea una instancia de contrato con `ethers.ContractFactory()`,la ABI, el código de bytes y la billetera. Por lo tanto, la instancia del contrato ya tiene un firmante. A continuación, `deploy` se utiliza la función, que necesita los argumentos de entrada del constructor. Esto enviará la transacción para la implementación del contrato. Para esperar el recibo de la transacción, puede utilizar el  `deployed()` método de la transacción de implementación del contrato.
 
-Lastly, the contract's address is displayed in the terminal.
+Por último, la dirección del contrato se muestra en la terminal.
 
 ### Web3.py
 
-In the first part of [the script](/snippets/code/web3py-contract/deploy.py), the `web3` instance (or provider) is created using the `Web3(Web3.HTTPProvider(provider_rpc))` method with the provider RPC. By changing the provider RPC, you can choose which network you want to send the transaction to.
+En la primera parte del [script](/snippets/code/web3py-contract/deploy.py), la `web3` instancia (o proveedor) se crea usando el`Web3(Web3.HTTPProvider(provider_rpc))` método con el proveedor RPC. Al cambiar el proveedor RPC, puede elegir a qué red desea enviar la transacción.
 
-The private key and the public address associated with it are defined for signing the transaction and establishing the from address.
+La clave privada y la dirección pública asociada a ella se definen para firmar la transacción y establecer la dirección de remitente.
 
-In the second section, a contract instance is created with `web3.eth.contract()`, providing the ABI and bytecode imported from the compile file. Next, the constructor transaction can be built using the `constructor().buildTransaction()` method of the contract instance. Note that inside the `constructor()`, you need to specify the constructor input arguments. The `from` account needs to be outlined as well. Make sure to use the one associated with the private key. Also, the transaction count can be obtained with the `web3.eth.getTransactionCount(address)` method.
+En la segunda sección, se crea una instancia de contrato con `web3.eth.contract()`, proporcionando la ABI y el código de bytes importados del archivo de compilación. A continuación, la transacción del constructor se puede construir utilizando el `constructor().buildTransaction()` método de la instancia del contrato. Tenga en cuenta que dentro de `constructor()`, debe especificar los argumentos de entrada del constructor. La `from` cuenta también debe describirse. Asegúrese de utilizar el asociado con la clave privada. Además, el recuento de transacciones se puede obtener con el `web3.eth.getTransactionCount(address)` método.
 
-The constructor transaction can be signed using `web3.eth.account.signTransaction()`, passing the constructor transaction and the private key.
+La transacción del constructor se puede firmar usando `web3.eth.account.signTransaction()`, pasando la transacción del constructor y la clave privada.
 
-Lastly, the signed transaction is sent, and the contract's address is displayed in the terminal.
+Por último, se envía la transacción firmada y la dirección del contrato se muestra en el terminal.
 
-## Reading from the Contract (Call Methods)
+## Lectura del contrato (métodos de llamada)
 
-Call methods are the type of interaction that don't modify the contract's storage (change variables), meaning no transaction needs to be sent.
+Los métodos de llamada son el tipo de interacción que no modifica el almacenamiento del contrato (cambiar variables), lo que significa que no es necesario enviar ninguna transacción.
 
-Let's overview the _get.\*_ file (the simplest of them all), which fetches the current value stored in the contract. You can find the code snippet for each library here (they were arbitrarily named `get.*`):
+Repasemos el archivo _get.\*_ (El más simple de todos), que recupera el valor actual almacenado en el contrato. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `get.*`):
 
  - Web3.js: [_get.js_](/snippets/code/web3-contract-local/get.js)
  - Ethers.js: [_get.js_](/snippets/code/ethers-contract-local/get.js)
  - Web3.py: [_get.py_](/snippets/code/web3py-contract/get.py)
 
-For simplicity, the get file is composed of two sections. In the first section ("Define Provider & Variables"), the library to use and the ABI of the contract are imported. Also, the provider and the contract's address are defined. Note that `providerRPC` has both the standard development node RPC endpoint and the one for [Moonbase Alpha](/networks/testnet/).
+Para simplificar, el archivo get se compone de dos secciones. En la primera sección ("Definir proveedor y variables"), se importan la biblioteca a utilizar y el ABI del contrato. Además, se define el proveedor y la dirección del contrato. Tenga en cuenta que `providerRPC` tiene el punto final RPC del nodo de desarrollo estándar y el de [Moonbase Alpha](/networks/testnet/).
 
-The second section ("Call Function") outlines the actual call to the contract. Regardless of the library, a contract instance is created (linked to the contract's address), from which the call method is queried. Some of the key takeaways are discussed next.
+La segunda sección ("Función de llamada") describe la llamada real al contrato. Independientemente de la biblioteca, se crea una instancia de contrato (vinculada a la dirección del contrato), desde la cual se consulta el método de llamada. Algunas de las conclusiones clave se analizan a continuación.
 
 === "Web3.js"
     ```
@@ -229,47 +229,47 @@ The second section ("Call Function") outlines the actual call to the contract. R
 
 ### Web3.js
 
-In the first part of [the script](/snippets/code/web3-contract-local/get.js), the `web3` instance (or provider) is created using the `Web3` constructor with the provider RPC. By changing the provider RPC given to the constructor, you can choose which network you want to send the transaction to.
+En la primera parte del [script](/snippets/code/web3-contract-local/get.js), la `web3` instancia (o proveedor) se crea usando el `Web3` constructor con el proveedor RPC. Al cambiar el proveedor de RPC proporcionado al constructor, puede elegir a qué red desea enviar la transacción.
 
-The contract's interface (ABI) and address are needed as well to interact with it.
+La interfaz del contrato (ABI) y la dirección también son necesarias para interactuar con él.
 
-In the second section, a contract instance is created with `web3.eth.Contract()` by providing the ABI and address. Next, the method to call can be queried with the `contract.methods.methodName(_input).call()` function, replacing `contract`, `methodName` and `_input` with the contract instance, function to call, and input of the function (if necessary). This promise, when resolved, will return the value requested.
+En la segunda sección, se crea una instancia de contrato `web3.eth.Contract()` proporcionando la ABI y la dirección. A continuación, el método para llamada se puede consultar con la  `contract.methods.methodName(_input).call()`función, en sustitución `contract`, `methodName` y `_input` con la instancia de contrato, la función de llamada y entrada de la función (si es necesario). Esta promesa, cuando se resuelva, devolverá el valor solicitado.
 
-Lastly, the value is displayed in the terminal.
+Por último, el valor se muestra en la terminal.
 
 ### Ethers.js
 
-In the first part of [the script](/snippets/code/ethers-contract-local/get.js), different networks can be specified with a name, RPC URL (required), and chain ID. The provider (similar to the `web3` instance) is created with the `ethers.providers.StaticJsonRpcProvider` method. An alternative is to use the `ethers.providers.JsonRpcProvide(providerRPC)` method, which only requires the provider RPC endpoint address. But this might created compatibility issues with individual project specifications.
+En la primera parte del [script](/snippets/code/ethers-contract-local/get.js), se pueden especificar diferentes redes con un nombre, URL de RPC (obligatorio) e ID de cadena. El proveedor (similar a la `web3` instancia) se crea con el `ethers.providers.StaticJsonRpcProvider`método. Una alternativa es utilizar el `ethers.providers.JsonRpcProvide(providerRPC)` método, que solo requiere la dirección de punto final RPC del proveedor. Pero esto podría crear problemas de compatibilidad con especificaciones de proyectos individuales.
 
-The contract's interface (ABI) and address are needed as well to interact with it.
+La interfaz del contrato (ABI) y la dirección también son necesarias para interactuar con él.
 
-In the second section, a contract instance is created with `ethers.Contract()`, providing its address, ABI, and the provider. Next, the method to call can be queried with the `contract.methodName(_input)` function, replacing `contract` `methodName`, and `_input` with the contract instance, function to call, and input of the function (if necessary). This promise, when resolved, will return the value requested.
+En la segunda sección, se crea una instancia de contrato con `ethers.Contract()`, proporcionando su dirección, ABI y el proveedor. A continuación, el método a llamar se puede consultar con la `contract.methodName(_input)` función, reemplazando `contract` `methodName`, y `_input` con la instancia del contrato, la función a llamar y la entrada de la función (si es necesario). Esta promesa, cuando se resuelva, devolverá el valor solicitado.
 
-Lastly, the value is displayed in the terminal.
+Por último, el valor se muestra en la terminal.
 
 ### Web3.py
 
-In the first part of [the script](/snippets/code/web3py-contract/get.py), the `web3` instance (or provider) is created using the `Web3(Web3.HTTPProvider(provider_rpc))` method with the provider RPC. By changing the provider RPC, you can choose which network you want to send the transaction to.
+En la primera parte del [script](/snippets/code/web3py-contract/get.py), la `web3` instancia (o proveedor) se crea usando el `Web3(Web3.HTTPProvider(provider_rpc))` método con el proveedor RPC. Al cambiar el proveedor RPC, puede elegir a qué red desea enviar la transacción.
 
-The contract's interface (ABI) and address are needed as well to interact with it.
+La interfaz del contrato (ABI) y la dirección también son necesarias para interactuar con él.
 
-In the second section, a contract instance is created with `web3.eth.contract()` by providing the ABI and address. Next, the method to call can be queried with the `contract.functions.method_name(input).call()` function, replacing `contract`, `method_name` and `input` with the contract instance, function to call, and input of the function (if necessary). This returns the value requested.
+En la segunda sección, se crea una instancia de contrato `web3.eth.contract()` proporcionando la ABI y la dirección. A continuación, el método para llamada se puede consultar con la  `contract.functions.method_name(input).call()` función, en sustitución `contract`, `method_name` y `input` con la instancia de contrato, la función de llamada y entrada de la función (si es necesario). Esto devuelve el valor solicitado.
 
-Lastly, the value is displayed in the terminal.
+Por último, el valor se muestra en la terminal.
 
-## Interacting with the Contract (Send Methods)
+## Interacción con el contrato (métodos de envío)
 
-Send methods are the type of interaction that modify the contract's storage (change variables), meaning a transaction needs to be signed and sent.
+Los métodos de envío son el tipo de interacción que modifica el almacenamiento del contrato (cambiar variables), lo que significa que una transacción debe firmarse y enviarse.
 
-First, let's overview the _increment.\*_ file, which increments the current number stored in the contract by a given value. You can find the code snippet for each library here (they were arbitrarily named `increment.*`):
+Primero, repasemos el archivo _increment.\*_ Que incrementa el número actual almacenado en el contrato por un valor dado. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `increment.*`):
 
  - Web3.js: [_increment.js_](/snippets/code/web3-contract-local/increment.js)
  - Ethers.js: [_increment.js_](/snippets/code/ethers-contract-local/increment.js)
  - Web3.py: [_increment.py_](/snippets/code/web3py-contract/increment.py)
 
-For simplicity, the increment file is composed of two sections. In the first section ("Define Provider & Variables"), the library to use and the ABI of the contract are imported. The provider, the contract's address, and the value of the `increment` function are also defined. Note that `providerRPC` has both the standard development node RPC endpoint and the one for [Moonbase Alpha](/networks/testnet/).
+Para simplificar, el archivo de incremento se compone de dos secciones. En la primera sección ("Definir proveedor y variables"), se importan la biblioteca a utilizar y el ABI del contrato. `increment` También se definen el proveedor, la dirección del contrato y el valor de la función. Tenga en cuenta que `providerRPC` tiene el punto final RPC del nodo de desarrollo estándar y el de [Moonbase Alpha](/networks/testnet/).
 
-The second section ("Send Function") outlines the actual function to be called with the transaction. Regardless of the library, a contract instance is created (linked to the contract's address), from which the function to be used is queried.
+La segunda sección ("Función de envío") describe la función real que se llamará con la transacción. Independientemente de la biblioteca, se crea una instancia de contrato (vinculada a la dirección del contrato), desde la cual se consulta la función a utilizar.
 
 === "Web3.js"
     ```
@@ -286,13 +286,13 @@ The second section ("Send Function") outlines the actual function to be called w
     --8<-- 'code/web3py-contract/increment.py'
     ```
 
-The second file to interact with the contract is the _reset.\*_ file, which resets the number stored in the contract to zero. You can find the code snippet for each library here (they were arbitrarily named `reset.*`):
+El segundo archivo que interactúa con el contrato es el archivo _reset.\*_ file, Que pone a cero el número almacenado en el contrato. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `reset.*`):
 
  - Web3.js: [_reset.js_](/snippets/code/web3-contract-local/reset.js)
  - Ethers.js: [_reset.js_](/snippets/code/ethers-contract-local/reset.js)
  - Web3.py: [_reset.py_](/snippets/code/web3py-contract/reset.py)
 
-Each file's structure is very similar to his _increment.\*_ counterpart for each library. The main difference is the method being called.
+La estructura de cada archivo es muy similar a su contraparte _increment.\*_ Para cada biblioteca. La principal diferencia es el método que se llama.
 
 === "Web3.js"
     ```
@@ -311,45 +311,45 @@ Each file's structure is very similar to his _increment.\*_ counterpart for each
 
 ### Web3.js
 
-In the first part of the script ([increment](/snippets/code/web3-contract-local/increment.js) or [reset](/snippets/code/web3-contract-local/reset.js) files), the `web3` instance (or provider) is created using the `Web3` constructor with the provider RPC. By changing the provider RPC given to the constructor, you can choose which network you want to send the transaction to.
+En la primera parte del script ([incrementar](/snippets/code/web3-contract-local/increment.js) o [restablecer](/snippets/code/web3-contract-local/reset.js) archivos), la `web3` instancia (o proveedor) se crea usando el `Web3` constructor con el proveedor RPC. Al cambiar el proveedor de RPC proporcionado al constructor, puede elegir a qué red desea enviar la transacción.
 
-The private key, and the public address associated with it, are defined for signing the transaction and logging purposes. Only the private key is required. Also, the contract's interface (ABI) and address are needed to interact with it. If necessary, you can define any variable required as input to the function you are going to interact with.
+La clave privada y la dirección pública asociada a ella se definen para firmar la transacción y con fines de registro. Solo se requiere la clave privada. Además, la interfaz del contrato (ABI) y la dirección son necesarias para interactuar con él. Si es necesario, puede definir cualquier variable requerida como entrada a la función con la que va a interactuar.
 
-In the second section, a contract instance is created with `web3.eth.Contract()` by providing the ABI and address. Next, you can build the transaction object with the `contract.methods.methodName(_input)` function, replacing `contract`, `methodName` and `_input` with the contract instance, function to call, and input of the function (if necessary).
+En la segunda sección, se crea una instancia de contrato `web3.eth.Contract()` proporcionando la ABI y la dirección. A continuación, se puede construir el objeto transacción con la  `contract.methods.methodName(_input)` función, en sustitución `contract`, `methodName` y `_input` on la instancia contrato, función a llamar, y la entrada de la función (si es necesario).
 
-Afterwards, the transaction can be signed using the `web3.eth.accounts.signTransaction()` method. The data field corresponds to the transaction object from the previous step. Note that the value of gas is obtained using `estimateGas()` option inside the transaction object.
+Posteriormente, la transacción se puede firmar mediante el `web3.eth.accounts.signTransaction()` método. El campo de datos corresponde al objeto de transacción del paso anterior. Tenga en cuenta que el valor del gas se obtiene mediante la `estimateGas()` opción dentro del objeto de transacción.
 
-Lastly, the signed transaction is sent, and the transaction hash is displayed in the terminal.
+Por último, se envía la transacción firmada y el hash de la transacción se muestra en el terminal.
 
 ### Ethers.js
 
-In the first part of the script ([increment](/snippets/code/ethers-contract-local/increment.js) or [reset](/snippets/code/ethers-contract-local/reset.js) files), different networks can be specified with a name, RPC URL (required), and chain ID. The provider (similar to the `web3` instance) is created with the `ethers.providers.StaticJsonRpcProvider` method. An alternative is to use the `ethers.providers.JsonRpcProvide(providerRPC)` method, which only requires the provider RPC endpoint address. But this might created compatibility issues with individual project specifications.
+En la primera parte del script ([incrementar](/snippets/code/ethers-contract-local/increment.js) o [ restablecer](/snippets/code/ethers-contract-local/reset.js) archivos), se pueden especificar diferentes redes con un nombre, URL RPC (obligatorio) e ID de cadena. El proveedor (similar a la `web3` instancia) se crea con el`ethers.providers.StaticJsonRpcProvider` método. Una alternativa es utilizar el `ethers.providers.JsonRpcProvide(providerRPC)` método, que solo requiere la dirección de punto final RPC del proveedor. Pero esto podría crear problemas de compatibilidad con especificaciones de proyectos individuales.
 
-The private key is defined to create a wallet instance, which also requires the provider from the previous step. The wallet instance is used to sign transactions. Also, the contract's interface (ABI) and address are needed to interact with it. If necessary, you can define any variable required as input to the function you are going to interact with.
+La clave privada se define para crear una instancia de billetera, que también requiere el proveedor del paso anterior. La instancia de billetera se usa para firmar transacciones. Además, la interfaz del contrato (ABI) y la dirección son necesarias para interactuar con él. Si es necesario, puede definir cualquier variable requerida como entrada a la función con la que va a interactuar.
 
-In the second section, a contract instance is created with `ethers.Contract()`, providing its address, ABI, and wallet. Thus, the contract instance already has a signer. Next, transaction corresponding to a specific function can be send with the `contract.methodName(_input)` function, replacing `contract`, `methodName` and `_input` with the contract instance, function to call, and input of the function (if necessary). To wait for a transaction receipt, you can use the `wait()` method of the contract deployment transaction.
+En la segunda sección, se crea una instancia de contrato con `ethers.Contract()`, proporcionando su dirección, ABI y billetera. Por lo tanto, la instancia del contrato ya tiene un firmante. A continuación, la transacción correspondiente a una función específica se puede enviar con la `contract.methodName(_input)` función, en sustitución `contract`, `methodName` y `_input` con la instancia de contrato, la función de llamada y entrada de la función (si es necesario). Para esperar el recibo de una transacción, puede utilizar el `wait()` método de la transacción de implementación del contrato.
 
-Lastly, the transaction hash is displayed in the terminal.
+Por último, el hash de la transacción se muestra en la terminal.
 
 ### Web3.py
 
-In the first part of the script ([increment](/snippets/code/web3py-contract/increment.py) or [reset](/snippets/code/web3py-contract/reset.py) files), the `web3` instance (or provider) is created using the `Web3(Web3.HTTPProvider(provider_rpc))` method with the provider RPC. By changing the provider RPC, you can choose which network you want to send the transaction to.
+En la primera parte del script ([incrementar](/snippets/code/web3py-contract/increment.py) o [restablecer](/snippets/code/web3py-contract/reset.py) archivos), la `web3` instancia (o proveedor) se crea usando el `Web3(Web3.HTTPProvider(provider_rpc))` método con el proveedor RPC. Al cambiar el proveedor RPC, puede elegir a qué red desea enviar la transacción.
 
-The private key and the public address associated with it are defined for signing the transaction and establishing the from address. Also, the contract's interface (ABI) and address are needed as well to interact with it.
+La clave privada y la dirección pública asociada a ella se definen para firmar la transacción y establecer la dirección de remitente. Además, la interfaz del contrato (ABI) y la dirección también son necesarias para interactuar con él.
 
-In the second section, a contract instance is created with `web3.eth.contract()` by providing the ABI and address. Next, you can build the transaction object with the `contract.functions.methodName(_input).buildTransaction` function, replacing `contract`, `methodName` and `_input` with the contract instance, function to call, and input of the function (if necessary). Inside `buildTransaction()`, the `from` account needs to be outlined. Make sure to use the one associated with the private key. Also, the transaction count can be obtained with the `web3.eth.getTransactionCount(address)` method.
+En la segunda sección, se crea una instancia de contrato `web3.eth.contract()` proporcionando la ABI y la dirección. A continuación, se puede construir el objeto transacción con la `contract.functions.methodName(_input).buildTransaction` función, en sustitución `contract`, `methodName` y `_input` con la instancia contrato, función a llamar, y la entrada de la función (si es necesario). En `buildTransaction()`, el interior , la `from` cuenta debe describirse. Asegúrese de utilizar el asociado con la clave privada. Además, el recuento de transacciones se puede obtener con el  `web3.eth.getTransactionCount(address)` método.
 
-The transaction can be signed using `web3.eth.account.signTransaction()`, passing the transaction object of the previous step and the private key.
+La transacción se puede firmar utilizando `web3.eth.account.signTransaction()`, pasando el objeto de transacción del paso anterior y la clave privada.
 
-Lastly, the transaction hash is displayed in the terminal.
+Por último, el hash de la transacción se muestra en la terminal.
 
-## Running the Scripts
+## Ejecución de los scripts
 
-For this section, the code shown before was adapted to target a development node, which you can run by following [this tutorial](/getting-started/local-node/setting-up-a-node/). Also, each transaction was sent from the pre-funded account that comes with the node:
+Para esta sección, el código que se mostró anteriormente se adaptó para apuntar a un nodo de desarrollo, que puede ejecutar siguiendo [este tutorial](/getting-started/local-node/setting-up-a-node/). Además, cada transacción se envió desde la cuenta prefinanciada que viene con el nodo:
 
 --8<-- 'text/metamask-local/dev-account.md'
 
-First, deploy the contract by running (note that the directory was renamed for each library):
+Primero, implemente el contrato ejecutando (tenga en cuenta que se cambió el nombre del directorio para cada biblioteca):
 
 === "Web3.js"
     ```
@@ -366,7 +366,7 @@ First, deploy the contract by running (note that the directory was renamed for e
     python3 deploy.py
     ```
 
-This will deploy the contract and return the address:
+Esto desplegará el contrato y devolverá la dirección:
 
 === "Web3.js"
     ![Deploy Contract Web3js](/images/deploycontract/contract-deploy-web3js.png)
@@ -377,7 +377,7 @@ This will deploy the contract and return the address:
 === "Web3.py"
     ![Deploy Contract Web3py](/images/deploycontract/contract-deploy-web3py.png)
 
-Next, run the increment file. You can use the get file to verify the value of the number stored in the contract before and after increment it:
+A continuación, ejecute el archivo de incremento. Puede usar el archivo get para verificar el valor del número almacenado en el contrato antes y después de incrementarlo:
 
 === "Web3.js"
     ```
@@ -409,7 +409,7 @@ Next, run the increment file. You can use the get file to verify the value of th
     python3 get.py
     ```
 
-This will display the value before the increment transaction, the hash of the transaction, and the value after:
+Esto mostrará el valor antes de la transacción de incremento, el hash de la transacción y el valor después de:
 
 === "Web3.js"
     ![Increment Contract Web3js](/images/deploycontract/contract-increment-web3js.png)
@@ -420,7 +420,7 @@ This will display the value before the increment transaction, the hash of the tr
 === "Web3.py"
     ![Increment Contract Web3py](/images/deploycontract/contract-increment-web3py.png)
 
-Lastly, run the reset file. Once again, you can use the get file to verify the value of the number stored in the contract before and after resetting it:
+Por último, ejecute el archivo de reinicio. Una vez más, puede usar el archivo get para verificar el valor del número almacenado en el contrato antes y después de restablecerlo:
 
 === "Web3.js"
     ```
@@ -452,7 +452,7 @@ Lastly, run the reset file. Once again, you can use the get file to verify the v
     python3 get.py
     ```
 
-This will display the value before the reset transaction, the hash of the transaction, and the value after:
+Esto mostrará el valor antes de la transacción de reinicio, el hash de la transacción y el valor después de:
 
 === "Web3.js"
     ![Reset Contract Web3js](/images/deploycontract/contract-reset-web3js.png)
