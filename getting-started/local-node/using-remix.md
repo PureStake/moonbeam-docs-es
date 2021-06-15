@@ -17,7 +17,7 @@ Esta guía describe el proceso de creación e implementación de un contrato int
 !!! nota
     Este tutorial se creó utilizando la etiqueta tutorial-v7 que se basa en la versión v0.7.0 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}) . La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo.
 
-Esta guía asume que tiene un nodo Moonbeam local ejecutándose en `--dev` modo y que tiene una instalación de [MetaMask](https://metamask.io/) configurada para usar este nodo local. Puede encontrar instrucciones para ejecutar un nodo Moonbeam local [aquí](/getting-started/local-node/setting-up-a-node/)e instrucciones para conectar MetaMask a él [aquí](/getting-started/local-node/using-metamask/).
+Esta guía asume que tiene un nodo Moonbeam local ejecutándose en `--dev` modo y que tiene una instalación de [MetaMask](https://metamask.io/) configurada para usar este nodo local. Puede encontrar instrucciones para ejecutar un nodo Moonbeam local [aquí](/getting-started/local-node/setting-up-a-node/) instrucciones para conectar MetaMask a él [aquí](/getting-started/local-node/using-metamask/).
 
 ## Comprobación de requisitos previos
 
