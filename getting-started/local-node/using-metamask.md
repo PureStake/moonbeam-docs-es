@@ -15,7 +15,8 @@ MetaMask se puede utilizar para conectarse a Moonbeam a través de Moonbase Alph
 Esta guía describe los pasos necesarios para conectar MetaMask a un nodo de desarrollo Moonbeam autónomo para enviar tokens entre cuentas. Si aún no ha configurado su propio nodo de desarrollo local, consulte [este tutorial](/getting-started/local-node/setting-up-a-node/), o siga las instrucciones en el [repositorio de GitHub](https://github.com/PureStake/moonbeam/).
 
 !!! nota
-    This tutorial was created using the {{ networks.development.build_tag}} tag which is based on the {{ networks.moonbase.version }} release of [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}). The Moonbeam platform and the [Frontier](https://github.com/paritytech/frontier) components it relies on for Substrate-based Ethereum compatibility are still under very active development. 
+    Este tutorial se creó utilizando la etiqueta tutorial-v7 que se basa en la versión v0.7.0 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0). La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustrato aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
+    
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
 Puede interactuar con Moonbeam de dos formas: mediante el uso de puntos finales de Substrate RPC o mediante el uso de puntos finales RPC compatibles con Web3. Los últimos puntos finales se sirven actualmente desde el mismo servidor RPC que los RPC de sustrato. En este tutorial, usaremos los puntos finales de Web3 RPC para interactuar con Moonbeam.
