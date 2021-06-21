@@ -39,8 +39,7 @@ Los principios rectores "soft" para el compromiso con el proceso de gobernanza d
  - Actuar en todo momento como un agente moral que considera las consecuencias de la acción (o inacción) desde un punto de vista moral.
  - Ser pacientes y generosos en nuestras interacciones con otros titulares de tokens, pero sin tolerar el lenguaje, las acciones y el comportamiento abusivos o destructivos.
 
-Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre gobernanza. Consulte sus artículos, [especialmente este]
-(https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
+Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre gobernanza. Consulte sus artículos, [especialmente este](https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
 
 ## Mecánicas de gobernanza on-chain
 
@@ -64,11 +63,11 @@ Los parámetros de votación se establecen actualmente de la siguiente manera:
 
 |             Variable             |     |                         Valor                         |
 | :------------------------------: | :-: | :---------------------------------------------------: |
-|     Período de votación     |     |     {{ networks.moonbase.democracy.vote_period.blocks}} bloques ({{ networks.moonbase.democracy.vote_period.days}} días)     |
-|        Período de votación acelerada        |     |     {{ networks.moonbase.democracy.fast_vote_period.blocks}} bloques ({{ networks.moonbase.democracy.fast_vote_period.days}} día)     | | 
-|          Período de promulgación           |     |     {{ networks.moonbase.democracy.enact_period.blocks}} bloques ({{ networks.moonbase.democracy.enact_period.days}} día)  |
-| Período Cool-off |     |     {{ networks.moonbase.democracy.cool_period.blocks}} bloques ({{ networks.moonbase.democracy.cool_period.days}} días)  |
-|              Depósito mínimo              |     | {{ networks.moonbase.democracy.min_deposit }} GLMR |
+|     Período de votación     |     |     36000 bloques (5 días)     |
+|        Período de votación acelerada        |     |     1200 bloques (4 horas)     | 
+|          Período de promulgación           |     |     7200 bloques (1 día)  |
+| Período Cool-off |     |    50400 bloques (7 días)  |
+|              Depósito mínimo              |     | 4 GLMR |
 
 **Votaciones que pueden ser Canceladas:**
 
