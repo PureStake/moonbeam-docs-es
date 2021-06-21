@@ -26,7 +26,7 @@ Cada fuente de datos tiene un ID de trabajo adjunto. Por ejemplo:
 |       2      | |            BTC             |
 |       3      | |      Acciones de Microsoft      |
 
-Puede verificar las ID de trabajo para cada fuente de datos en el siguiente enlace . Los feeds de precios se actualizan cada 5 minutos. Puede encontrar más información en el [sitio web de documentación de Razor] [https://docs.razor.network/].
+Puede verificar las ID de trabajo para cada fuente de datos en el siguiente enlace . Los feeds de precios se actualizan cada 5 minutos. Puede encontrar más información en el [sitio web de documentación de Razor](https://docs.razor.network/).
 
 ## Obtener datos del contrato puente
 
