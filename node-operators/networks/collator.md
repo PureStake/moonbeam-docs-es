@@ -61,7 +61,7 @@ Una vez que su nodo se está ejecutando y sincronizado con la red, se convierte 
 !!! nota
     Los nombres de las funciones y el requisito de fianza mínima están sujetos a cambios en versiones futuras.
 
-Como se mencionó anteriormente, solo los {{ networks.moonbase.staking.max_collators }} mejores clasificadores por participación nominada estarán en el conjunto activo.
+Como se mencionó anteriormente, solo los 32 mejores clasificadores por participación nominada estarán en el conjunto activo.
 
 ## Dejar de clasificar
 
