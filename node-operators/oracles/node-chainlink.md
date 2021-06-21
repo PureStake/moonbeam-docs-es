@@ -104,7 +104,7 @@ Establezca una dirección de correo electrónico y otra contraseña. Por último
 echo "{THIRD_PASSWORD}" > ~/.chainlink-moonbeam/.password
 ```
 
-Ahora que hemos terminado de crear todos los archivos necesarios, podemos lanzar los contenedores con el siguiente comando ((los usuarios de MacOs pueden reemplazar `--network host \` with `-p 6688:6688`):
+Ahora que hemos terminado de crear todos los archivos necesarios, podemos lanzar los contenedores con el siguiente comando (los usuarios de MacOs pueden reemplazar `--network host \` por `-p 6688:6688`):
 
 ```
 docker run -d --name chainlink_oracle_node \
