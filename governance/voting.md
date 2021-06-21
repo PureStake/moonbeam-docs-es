@@ -39,9 +39,9 @@ Actualmente, para Moonbase Alpha:
 
 |        Variable         |     |                                                         Valor                                                         |
 | :---------------------: | :-: | :-------------------------------------------------------------------------------------------------------------------: |
-|       Período de votación       |     |  {{ networks.moonbase.democracy.vote_period.blocks}} bloques ({{ networks.moonbase.democracy.vote_period.days}} dias)  |
-|      Promulgar período       |     | {{ networks.moonbase.democracy.enact_period.blocks}} bloques ({{ networks.moonbase.democracy.enact_period.days}} dias) |
-| Número máximo de votos |     |                                      {{ networks.moonbase.democracy.max_votes}}                                       |
+|       Período de votación       |     |  36000 bloques (5 dias)  |
+|      Promulgar período       |     | 7200 bloques (1 dias) |
+| Número máximo de votos |     |                                      100                                       |
 
 ## Hoja de ruta de una propuesta
 
