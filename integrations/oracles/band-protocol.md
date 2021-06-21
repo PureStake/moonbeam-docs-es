@@ -37,11 +37,11 @@ Como se indicó anteriormente, los desarrolladores pueden aprovechar dos método
 
 Los contratos pueden consultar datos en cadena, como precios de tokens, desde el oráculo de Band mediante la implementación de la interfaz del `StdReference` contrato, que expone las funciones `getReferenceData` y `getReferenceDataBulk`.
 
-La primera función, `getReferenceData`,toma dos cadenas (la base y el símbolo de cotización) como entradas. La función consulta el `StdReference` contrato para conocer las últimas tarifas disponibles para esos dos tokens. Devuelve una `ReferenceData` estructura.
+La primera función, `getReferenceData`, toma dos cadenas (la base y el símbolo de cotización) como entradas. La función consulta el `StdReference` contrato para conocer las últimas tarifas disponibles para esos dos tokens. Devuelve una `ReferenceData` estructura.
 
 La `ReferenceData` estructura tiene los siguientes elementos:
 
- - Tasa: la tasa de cambio en términos de _base/cotización_. . El valor devuelto se multiplica por 10<sup>18</sup>
+ - Tasa: la tasa de cambio en términos de _base/cotización_. El valor devuelto se multiplica por 10<sup>18</sup>
  - Última base actualizada: la última vez que se actualizó el precio base (desde la época de UNIX)
  - Última cotización actualizada: la última vez que se actualizó el precio cotizado (desde la época de UNIX)
  
@@ -189,12 +189,14 @@ La biblioteca auxiliar también admite una `getReferenceData` función similar .
 
 ```
 npm install @bandprotocol/bandchain.js
+
 ```
 
 La biblioteca proporciona una función de constructor que requiere un punto final al que apuntar. Esto devuelve una instancia que luego habilita todos los métodos necesarios, como la `getReferenceData` función. Al solicitar información, la función acepta una matriz en la que cada elemento es el par _base/cotización_ necesario. Por ejemplo:
 
 ```
 getReferenceData(['BTC/USD', 'BTC/ETH', 'ETH/EUR'])
+
 ```
 
 Luego, devuelve un objeto de matriz con la siguiente estructura:
