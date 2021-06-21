@@ -13,7 +13,7 @@ description: Siga este tutorial para aprender cómo configurar su primer nodo Mo
 Esta guía describe los pasos necesarios para crear un nodo de desarrollo para probar las características de compatibilidad de Ethereum de Moonbeam.
 
 !!! nota
-    Este tutorial fue creado usando la etiqueta tutorial-v7 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/ {{ networks.development.build_tag }}). La plataforma Moonbeam y los componentes de [Frontier en los](https://github.com/paritytech/frontier) que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
+    Este tutorial fue creado usando la etiqueta tutorial-v7 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/tutorial-v7). La plataforma Moonbeam y los componentes de [Frontier en los](https://github.com/paritytech/frontier) que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
     
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
