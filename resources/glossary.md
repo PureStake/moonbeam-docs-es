@@ -1,6 +1,6 @@
 ---
 title: Glosario
-description: We've compiled a glossary of terms related to Polkadot that'll make it easier to learn more about the ecosystem.
+description: Hemos compilado un glosario de términos relacionados con Polkadot que facilitará el aprendizaje sobre el ecosistema.
 ---
 
 # Glosario
