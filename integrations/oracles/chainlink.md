@@ -100,16 +100,16 @@ Actualmente, el nodo de Oracle tiene un conjunto de ID de trabajo para diferente
 
 |  Base / Cotización |     |                 Referencia de ID de trabajo                  |
 | :----------: | --- | :-----------------------------------------------: |
-|  BTC to USD  |     |  {{ networks.moonbase.chainlink.basic.btc_usd }}  |
-|  ETH to USD  |     |  {{ networks.moonbase.chainlink.basic.eth_usd }}  |
-|  DOT to USD  |     |  {{ networks.moonbase.chainlink.basic.dot_usd }}  |
-|  KSM to USD  |     |  {{ networks.moonbase.chainlink.basic.ksm_usd }}  |
-| AAVE to USD  |     | {{ networks.moonbase.chainlink.basic.aave_usd }}  |
-| ALGO to USD  |     | {{ networks.moonbase.chainlink.basic.algo_usd }}  |
-| BAND to USD  |     | {{ networks.moonbase.chainlink.basic.band_usd }}  |
-| LINK to USD  |     | {{ networks.moonbase.chainlink.basic.link_usd }}  |
-| SUSHI to USD |     | {{ networks.moonbase.chainlink.basic.sushi_usd }} |
-|  UNI to USD  |     |  {{ networks.moonbase.chainlink.basic.uni_usd }}  |
+|  BTC to USD  |     |  82ceee2897824a0e8b014ed4ed2ab31e  |
+|  ETH to USD  |     |  60160cdd0e10489681967e9d7ef4c927  |
+|  DOT to USD  |     |  6f6371a780324b90aaf195a0d39c723c  |
+|  KSM to USD  |     |  30a1686f657249f4b6ab01e384b2beaa  |
+| AAVE to USD  |     |  541b8f7db7374d78b38285ef1b8bfacc  |
+| ALGO to USD  |     |  cdb48696e2314133a1dc8ea27922dd24  |
+| BAND to USD  |     |  6b0983e0cb6d4aca908b615302a9d672  |
+| LINK to USD  |     |  aad8dbdb0c1840ab905728d85117b681  |
+| SUSHI to USD |     |  b4b07d0fc218455caaff2223a05ec208  |
+|  UNI to USD  |     |  22b567acabdb419abe8136a2bab6ade8  |
 
 Sigamos adelante y usemos el contrato de interfaz con el `BTC to USD` ID de trabajo en [Remix](/integrations/remix/).
 
@@ -181,16 +181,16 @@ Actualmente, existe un contrato de consumo para los siguientes pares de precios:
 
 |  Base / Cotización  |     |                     Contrato de consumo                    |
 | :----------: | --- | :-------------------------------------------------------: |
-|  BTC to USD  |     |  {{ networks.moonbase.chainlink.feed.consumer.btc_usd }}  |
-|  ETH to USD  |     |  {{ networks.moonbase.chainlink.feed.consumer.eth_usd }}  |
-|  DOT to USD  |     |  {{ networks.moonbase.chainlink.feed.consumer.dot_usd }}  |
-|  KSM to USD  |     |  {{ networks.moonbase.chainlink.feed.consumer.ksm_usd }}  |
-| AAVE to USD  |     | {{ networks.moonbase.chainlink.feed.consumer.aave_usd }}  |
-| ALGO to USD  |     | {{ networks.moonbase.chainlink.feed.consumer.algo_usd }}  |
-| BAND to USD  |     | {{ networks.moonbase.chainlink.feed.consumer.band_usd }}  |
-| LINK to USD  |     | {{ networks.moonbase.chainlink.feed.consumer.link_usd }}  |
-| SUSHI to USD |     | {{ networks.moonbase.chainlink.feed.consumer.sushi_usd }} |
-|  UNI to USD  |     |  {{ networks.moonbase.chainlink.feed.consumer.uni_usd }}  |
+|  BTC to USD  |     |  0x86f11CffCB1A86Ecb79643FCa1a3C666a61F84Fd  |
+|  ETH to USD  |     |  0xE33691Ba3cF532D4025cF0f47679eFe430d4A618  |
+|  DOT to USD  |     |  0x235A40b872e543b6238df7Ff55E2D8eCAE80a6bd  |
+|  KSM to USD  |     |  0x9Df2E2179ddb4D9197451946104068e08eD3E49F  |
+| AAVE to USD  |     |  0xD1e52C81FD72fFc6dA3bF083297E6C37852E93DA  |
+| ALGO to USD  |     |  0x0183d1C98442510DD7aaB0E2d09863c47FFF4dF1  |
+| BAND to USD  |     |  0x124A3EE742737BC30307d1F82c5406bf79aBa4d6  |
+| LINK to USD  |     |  0xC58B34ea686Db2d567835de7AB58fC678b6f186A  |
+| SUSHI to USD |     |  0x21B52fFF227cD9F425E817f9E1eaA0eB8cd647e1  |
+|  UNI to USD  |     |  0x5Cd72748F94a8597f563D92687A8D2A5074b10E5  |
 
 Sigamos adelante y usemos el contrato de interfaz para obtener el precio del `BTC to USD` uso de [Remix](/integrations/remix/).
 
