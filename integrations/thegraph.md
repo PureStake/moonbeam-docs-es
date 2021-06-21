@@ -68,7 +68,7 @@ npx graph codegen --output-dir src/types/
 
 El `codegen` comando también se puede ejecutar usando `yarn codegen`.
 
-Para este ejemplo, el contrato se implementó en `{{ networks.moonbase.thegraph.lotto_contract }}`. Puede encontrar más información sobre cómo implementar un contrato con Hardhat en nuestro [tutorial de integraciones](/integrations/hardhat/). Además, el archivo "README" en el [repositorio de Moonloto](https://github.com/PureStake/moonlotto-subgraph) tiene los pasos necesarios para compilar e implementar el contrato si es necesario.
+Para este ejemplo, el contrato se implementó en `0x44ddD2EC5BE2A7f3e4A465C21600bE8df644093f`. Puede encontrar más información sobre cómo implementar un contrato con Hardhat en nuestro [tutorial de integraciones](/integrations/hardhat/). Además, el archivo "README" en el [repositorio de Moonloto](https://github.com/PureStake/moonlotto-subgraph) tiene los pasos necesarios para compilar e implementar el contrato si es necesario.
 
 ### Estructura básica de los subgrafos
 
