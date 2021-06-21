@@ -13,7 +13,7 @@ description: Moonbeam hace que sea increíblemente fácil implementar un contrat
 Esta guía describe el proceso de implementación de un contrato inteligente basado en Solidity en un nodo Moonbeam utilizando [Truffle](https://www.trufflesuite.com/), una herramienta de desarrollo de uso común para contratos inteligentes en Ethereum. Dadas las características de compatibilidad con Ethereum de Moonbeam, Truffle se puede usar directamente con un nodo Moonbeam.
 
 !!! nota
-    Este tutorial se creó utilizando la etiqueta tutorial {{ networks.development.build_tag}} que se basa en la versión {{ networks.moonbase.version }} de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/{{ networks.moonbase.version }}).  La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
+    Este tutorial se creó utilizando la etiqueta tutorial-v7 que se basa en la versión v0.7.0 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0). La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
     
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
