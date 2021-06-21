@@ -19,7 +19,7 @@ Moonbeam proporciona dos conjuntos diferentes de exploradores: uno para consulta
 
 ### Expedición (nodo de desarrollo - TestNet)
 
-En [este enlace](https://moonbeam-explorer.netlify.app/) se puede encontrar una versión del Explorador de [expediciones con](https://github.com/etclabscore/expedition) el tema Moonbeam. 
+En [este enlace](https://moonbeam-explorer.netlify.app/) se puede encontrar una versión del Explorador de [expediciones](https://github.com/etclabscore/expedition) con el tema Moonbeam. 
 
 De forma predeterminada, el explorador está conectado a Moonbase Alpha TestNet. Sin embargo, puede conectarlo siguiendo los siguientes pasos:
 
