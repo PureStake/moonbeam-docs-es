@@ -37,10 +37,10 @@ Actualmente, para Moonbase Alpha:
 
 |         Variable         |     |                                                          Valor                                                          |
 | :----------------------: | :-: | :---------------------------------------------------------------------------------------------------------------------: |
-|     Periodo de lanzamiento       |     | {{ networks.moonbase.democracy.launch_period.blocks}} bloques ({{ networks.moonbase.democracy.launch_period.days}} dias) |
-|     Período de reflexión      |     |   {{ networks.moonbase.democracy.cool_period.blocks}} bloques ({{ networks.moonbase.democracy.cool_period.days}} dias)   |
-| Depósito mínimo de preimagen |     |                                 {{ networks.moonbase.democracy.min_preim_deposit}} DEV                                  |
-| Depósito mínimo de propuesta |     |                                    {{ networks.moonbase.democracy.min_deposit}} DEV                                     |
+|     Periodo de lanzamiento       |     | 7200 bloques (1 dias) |
+|     Período de reflexión      |     |   50400 bloques (7 dias)   |
+| Depósito mínimo de preimagen |     |                                 0,004 DEV                                  |
+| Depósito mínimo de propuesta |     |                                   4 DEV                                     |
 
 ## Hoja de ruta de una propuesta
 
