@@ -125,8 +125,8 @@ Si desea ejecutar su contrato de Cliente pero utiliza nuestro nodo de Oracle, pu
 
 |  tipo de contrato  |     |                      Habla a                      |
 | :-------------: | --- | :-----------------------------------------------: |
-| Oracle Contract |     | {{ networks.moonbase.chainlink.oracle_contract }} |
-|   LINK Token    |     |  {{ networks.moonbase.chainlink.link_contract }}  |
+| Contrato de Oracle |     | 0x1d693d883BeAeE16edD0D7588D6a9f7E1967E798 |
+|   Token LINK   |     |  0xa36085F69e2889c224210F603D836748e7dC0088  |
 
 Recuerde que el pago del token LINK se establece en cero.
 
