@@ -1,6 +1,6 @@
 ---
 title: Código Fuente 
-description: Moonbeam is an open source project in the Polkadot ecosystem, with publicly available and auditable source code.
+description: Moonbeam es un proyecto de código abierto en el ecosistema Polkadot, con código fuente auditable y disponible públicamente.
 ---
 
 # Código fuente de Moonbeam
