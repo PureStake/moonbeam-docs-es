@@ -121,7 +121,7 @@ Puede eliminar su nominación de un clasificador específico navegando al menú 
  1. Seleccione la cuenta de la que desea eliminar su nominación
  2. Elija la paleta con la que desea interactuar. En este caso, es el `parachainStaking` palet
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el `revokeNomination` extrínseco
- 4. Establezca la dirección del clasificador de la que desea eliminar su nominación. En este caso, se establece en `{{ networks.moonbase.staking.collators.address2 }}`
+ 4. Establezca la dirección del clasificador de la que desea eliminar su nominación. En este caso, se establece en `0x62d2e7324f9274fac3893a59aff8e944a323a495`
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
 ![Staking Revoke Nomination Extrinsic](/images/staking/staking-stake-7.png)
