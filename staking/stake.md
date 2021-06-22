@@ -69,8 +69,8 @@ Esta sección repasa el proceso de nominación de clasificadores. El tutorial ut
 
 |  Variable  |     |                      Habla a                      |
 | :--------: | :-: | :------------------------------------------------: |
-| Clasificador 1 |     | {{ networks.moonbase.staking.collators.address1 }} |
-| Clasificador 2 |     | {{ networks.moonbase.staking.collators.address2 }} |
+| Clasificador 1 |     | 0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce |
+| Clasificador 2 |     | 0x62d2e7324f9274fac3893a59aff8e944a323a495 |
 
 Para acceder a las funciones de replanteo, debe utilizar la interfaz de PolkadotJS Apps. Para hacerlo, primero debe importar / crear una cuenta estilo Ethereum (dirección H160), lo que puede hacer siguiendo [esta guía](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account).
 
@@ -85,7 +85,7 @@ Para designar un clasificador, proporcione la siguiente información:
  1. Seleccione la cuenta desde la que desea apostar sus tokens
  2. Elija la paleta con la que desea interactuar. En este caso, es el `parachainStaking` palet
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el `nominate` extrínseco
- 4. Establezca la dirección del clasificador que desea nominar. En este caso, se establece en `{{ networks.moonbase.staking.collators.address1 }}`
+ 4. Establezca la dirección del clasificador que desea nominar. En este caso, se establece en `0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce`
  5. Establezca la cantidad de tokens que desea apostar
  6. Haga clic en el botón "Enviar transacción" y firme la transacción.
  
@@ -108,7 +108,7 @@ Aquí, proporcione la siguiente información:
 
 En la respuesta, debería ver su cuenta (en este caso, la cuenta de Alice) con una lista de las nominaciones. Cada nominación contiene la dirección de destino del clasificador y la cantidad.
 
-Puede seguir los mismos pasos que se describen para designar otros clasificadores en la red. Por ejemplo, Alice también nominó `{{ networks.moonbase.staking.collators.address2 }}` as well.
+Puede seguir los mismos pasos que se describen para designar otros clasificadores en la red. Por ejemplo, Alice también nominó `0x62d2e7324f9274fac3893a59aff8e944a323a495`.
 
 ## Cómo detener las nominaciones
 
