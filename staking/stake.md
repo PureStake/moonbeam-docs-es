@@ -58,7 +58,7 @@ Aquí, proporcione la siguiente información:
  
 Cada extrínseco proporciona una respuesta diferente:
 
- - **selectedCandidates** — devuelve el conjunto activo actual de clasificadores, es decir, los {{ networks.moonbase.staking.max_collators }} clasificadores principales por tokens totales apostados (incluidas las nominaciones)
+ - **selectedCandidates** — devuelve el conjunto activo actual de clasificadores, es decir, los 32 clasificadores principales por tokens totales apostados (incluidas las nominaciones)
  - **candidatePool** — devuelve la lista actual de todos los clasificadores, incluidos los que no están en el conjunto activo.
 
 ![Staking Account](/images/staking/staking-stake-11.png)
