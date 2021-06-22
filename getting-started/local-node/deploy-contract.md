@@ -1,9 +1,9 @@
 ---
-title: Implementar un contrato
-description: Aprenda a implementar contratos inteligentes basados en Solidity sin modificar y sin cambios en un nodo Moonbeam con un script simple usando Web3.js, Ethers.js o Web3.py.
+title: Desplegar un Contrato
+description: Aprenda a desplegar contratos inteligentes basados en Solidity sin modificar y sin cambios en un nodo Moonbeam con un script simple usando Web3.js, Ethers.js o Web3.py.
 ---
 
-# Uso de bibliotecas Ethereum para implementar contratos inteligentes en Moonbeam
+# Uso de bibliotecas Ethereum para desplegar contratos inteligentes en Moonbeam
 
 ![Ethereum Libraries Integrations Moonbeam](/images/sendtx/web3-libraries-banner.png)
 
@@ -88,7 +88,7 @@ El contrato utilizado es un simple incrementador, arbitrariamente llamado _Incre
 
 La `constructor` función, que se ejecuta cuando se implementa el contrato, establece el valor inicial de la variable numérica almacenada en la cadena (el valor predeterminado es 0). La `increment` función agrega el `_value` proporcionado al número actual, pero es necesario enviar una transacción que modifica los datos almacenados. Por último, la `reset` función restablece el valor almacenado a cero.
 
-!!! nota
+!!! note
     Este contrato es un ejemplo simple solo con fines ilustrativos y no maneja valores envueltos.
 
 ## Compilación del contrato
@@ -99,7 +99,7 @@ El único propósito del archivo de compilación es utilizar el compilador Solid
  - Ethers.js: [_compile.js_](/snippets/code/web3-contract-local/compile.js)
  - Web3.py: [_compile.py_](/snippets/code/web3py-contract/compile.py)
 
-!!! nota
+!!! note
     El archivo de compilación para ambas bibliotecas de JavaScript es el mismo, ya que comparten los enlaces de JavaScript para el compilador de Solidity (mismo paquete)
 
 === "Web3.js"
@@ -134,9 +134,9 @@ En la primera parte del [the script](/snippets/code/web3py-contract/compile.py),
 
 A continuación, y finalizando el script, se exportan los datos del contrato. En este ejemplo, solo se definieron la interfaz (ABI) y el código de bytes.
 
-## Implementar el contrato
+## Desplegar el contrato
 
-Independientemente de la biblioteca, la estrategia para implementar el contrato inteligente compilado es algo similar. Se crea una instancia de contrato utilizando su interfaz (ABI) y su código de bytes. Desde esta instancia, se utiliza una función de implementación para enviar una transacción firmada que implementa el contrato. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `deploy.*`):
+Independientemente de la biblioteca, la estrategia para desplegar el contrato inteligente compilado es algo similar. Se crea una instancia de contrato utilizando su interfaz (ABI) y su código de bytes. Desde esta instancia, se utiliza una función de implementación para enviar una transacción firmada que implementa el contrato. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `deploy.*`):
 
  - Web3.js: [_deploy.js_](/snippets/code/web3-contract-local/deploy.js)
  - Ethers.js: [_deploy.js_](/snippets/code/ethers-contract-local/deploy.js)
@@ -144,7 +144,7 @@ Independientemente de la biblioteca, la estrategia para implementar el contrato 
 
 Para simplificar, el archivo de implementación se compone de dos secciones. En la primera sección ("Definir proveedor y variables"), se importan la biblioteca a utilizar y el ABI y el código de bytes del contrato. Además, se definen el proveedor y la cuenta de (con la clave privada). Tenga en cuenta que `providerRPC` tiene el punto final RPC del nodo de desarrollo estándar y el de [Moonbase Alpha](/networks/testnet/).
 
-La segunda sección ("Implementar contrato") describe la parte real de implementación del contrato. Tenga en cuenta que para este ejemplo, el valor inicial de la `number` variable se estableció en 5. Algunas de las conclusiones clave se analizan a continuación.
+La segunda sección ("Desplegar contrato") describe la parte real del despliegue del contrato. Tenga en cuenta que para este ejemplo, el valor inicial de la `number` variable se estableció en 5. Algunas de las conclusiones clave se analizan a continuación.
 
 === "Web3.js"
     ```
@@ -161,7 +161,7 @@ La segunda sección ("Implementar contrato") describe la parte real de implement
     --8<-- 'code/web3py-contract/deploy.py'
     ```
 
-!!! nota
+!!! note
    El script _deploy.\*_ Proporciona la dirección del contrato como salida. Esto resulta útil, ya que se utiliza para los archivos de interacción del contrato.
 
 ### Web3.js

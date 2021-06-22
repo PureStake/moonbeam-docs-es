@@ -1,5 +1,5 @@
 ---
-title: Suscripción de eventos
+title: Suscripción a Eventos
 description: Utilice la funcionalidad de publicación y suscripción similar a Ethereum para suscribirse a eventos específicos en la cadena compatible con Ethereum de Moonbeam.
 ---
 
@@ -134,7 +134,7 @@ Para suscribirnos a transacciones pendientes, podemos usar el `web3.eth.subscrib
 Podemos verificar que este hash de transacción es el mismo que se muestra en MetaMask (o Remix).
 
 ## Suscribirse a los encabezados de bloque entrantes
-Otro tipo disponible en la biblioteca Web3.js es suscribirse a nuevos encabezados de bloque. Para hacerlo, usamos el `web3.eth.subscribe('newBlockHeaders' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción proporciona encabezados de bloque entrantes y se puede usar para rastrear cambios en la cadena de bloques.
+Otro tipo disponible en la biblioteca Web3.js es suscribirse a nuevos encabezados de bloque. Para hacerlo, usamos el `web3.eth.subscribe('newBlockHeaders' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción proporciona encabezados de bloque entrantes y se puede usar para rastrear cambios en la blockchain.
 
 ![Subscribe to block headers response](/images/testnet/testnet-pubsub5.png)
 

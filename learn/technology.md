@@ -7,11 +7,11 @@ description: Moonbeam se construye utilizando Rust y el marco Substrate, lo que 
 
 ## La pila de desarrollo Moonbeam
 
-Moonbeam es una plataforma de cadena de bloques de contrato inteligente construida en el lenguaje de programación Rust utilizando el marco Substrate.  
+Moonbeam es una plataforma de blockchain de contrato inteligente construida en el lenguaje de programación Rust utilizando el marco Substrate.  
 
 ### Lenguaje de programación Rust
 
-Rust es un buen lenguaje para implementar una cadena de bloques, ya que tiene un alto rendimiento como C y C ++, pero tiene características de seguridad de memoria integradas que se aplican en el momento de la compilación, lo que evita muchos errores comunes y problemas de seguridad que pueden surgir de C y C ++ implementaciones.
+Rust es un buen lenguaje para implementar una blockchain, ya que tiene un alto rendimiento como C y C ++, pero tiene características de seguridad de memoria integradas que se aplican en el momento de la compilación, lo que evita muchos errores comunes y problemas de seguridad que pueden surgir de C y C ++ implementaciones.
 
 ### Marco de sustrato
 
@@ -21,10 +21,10 @@ Moonbeam aprovecha múltiples paletas de marcos de sustrato existentes para prop
 
 ## Tiempo de ejecución de Blockchain
 
-El tiempo de ejecución principal de Moonbeam especifica la función de transición de estado y el comportamiento de la cadena de bloques Moonbeam. El tiempo de ejecución de Moonbeam se construye usando [FRAME](/resources/glossary/#substrate-frame-pallets). Incluye varios palets estándar así como varios personalizados. El tiempo de ejecución se compila en un binario [WebAssembly (Wasm)](/resources/glossary/#webassemblywasm) y en un binario nativo. Estas versiones compiladas se ejecutarán en la cadena de retransmisión de Polkadot y en los entornos de nodo Moonbeam.
+El tiempo de ejecución principal de Moonbeam especifica la función de transición de estado y el comportamiento de la blockchain Moonbeam. El tiempo de ejecución de Moonbeam se construye usando [FRAME](/resources/glossary/#substrate-frame-pallets). Incluye varios palets estándar así como varios personalizados. El tiempo de ejecución se compila en un binario [WebAssembly (Wasm)](/resources/glossary/#webassemblywasm) y en un binario nativo. Estas versiones compiladas se ejecutarán en la cadena de retransmisión de Polkadot y en los entornos de nodo Moonbeam.
 
-!!! Nota
-    Las paletas de marco de sustrato son una colección de módulos basados en Rust que brindan la funcionalidad que se requiere al construir una cadena de bloques. WebAssembly es un estándar abierto que define un formato de código binario portátil. Es compatible con diferentes lenguajes de programación, compiladores y navegadores. Encuentre más definiciones [en nuestro glosario](/resources/glossary/).
+!!! note
+    Las paletas de marco de sustrato son una colección de módulos basados en Rust que brindan la funcionalidad que se requiere al construir una blockchain. WebAssembly es un estándar abierto que define un formato de código binario portátil. Es compatible con diferentes lenguajes de programación, compiladores y navegadores. Encuentre más definiciones [en nuestro glosario](/resources/glossary/).
 
 Algunas de las paletas de marco de sustrato clave utilizadas en el tiempo de ejecución de Moonbeam incluyen:
 
@@ -36,12 +36,12 @@ Algunas de las paletas de marco de sustrato clave utilizadas en el tiempo de eje
  - **Democracia** — funcionalidad para la votación pública ponderada de los titulares de tokens.
  - **Ejecutivo** — capa de orquestación que envía llamadas a otros módulos en tiempo de ejecución.
  - **Índices** — compatibilidad con nombres cortos fáciles de usar para direcciones de cuentas.
- - **Sistema** — proporciona tipos de bajo nivel, almacenamiento y funciones de cadena de bloques.
- - **Tesorería** — tesorería en cadena que se puede utilizar para financiar bienes públicos como una ranura paracadena.
+ - **Sistema** — proporciona tipos de bajo nivel, almacenamiento y funciones de blockchain.
+ - **Tesorería** — tesorería en cadena que se puede utilizar para financiar bienes públicos como una ranura parachain.
 
 Moonbeam también utiliza la biblioteca Cumulus para proporcionar integración a la cadena de relés Polkadot.
 
-Además de estas paletas de marco de sustrato, implementaremos módulos con funcionalidad específica de Moonbeam, incluida la mecánica y las recompensas de la alzadora y otros componentes básicos del desarrollador.
+Además de estas paletas de marco de sustrato, implementaremos módulos con funcionalidad específica de Moonbeam, incluida la mecánica y las recompensas de la collator y otros componentes básicos del desarrollador.
 
 ## Arquitectura de compatibilidad de Ethereum
 

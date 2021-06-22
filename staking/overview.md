@@ -1,5 +1,5 @@
 ---
-title: Descripción general
+title: Descripción General
 description: Moonbeam proporciona funciones de staking en las que los titulares de tokens nominan a los collators con sus tokens y obtienen recompensas.
 ---
 
@@ -9,7 +9,7 @@ description: Moonbeam proporciona funciones de staking en las que los titulares 
 
 ## Introducción
 
-Moonbeam utiliza un mecanismo de producción de bloques basado en [el modelo Proof-of-Stake de Polkadot](https://wiki.polkadot.network/docs/en/learn-consensus) donde hay collators y validators. Los [Collators](https://wiki.polkadot.network/docs/en/learn-collator) mantienen la parachain (en este caso, Moonbeam) mediante la recopilación de transacciones de los usuarios y la producción de pruebas de transición de estados para los [validators](https://wiki.polkadot.network/docs/en/learn-validator) de la Relay Chain.
+Moonbeam utiliza un mecanismo de producción de bloques basado en [el modelo Proof-of-Stake de Polkadot](https://wiki.polkadot.network/docs/learn-consensus) donde hay collators y validators. Los [Collators](https://wiki.polkadot.network/docs/learn-collator) mantienen la parachain (en este caso, Moonbeam) mediante la recopilación de transacciones de los usuarios y la producción de pruebas de transición de estados para los [validators](https://wiki.polkadot.network/docs/learn-validator) de la Relay Chain.
 
 El conjunto de collators (nodos que producen bloques) se selecciona en función de su stake en la red. Y aquí es donde entra el Staking.
 

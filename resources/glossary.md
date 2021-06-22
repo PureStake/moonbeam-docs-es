@@ -21,11 +21,11 @@ Es el mecanismo utilizado por Polkadot para seleccionar su conjunto de validaci�
 
 ### Parachains
 
-Es una cadena de bloques que tiene una ranura y que está conectada a Polkadot. Las parachains reciben seguridad compartida de Polkadot y la capacidad de interacción con otras parachains de la red Polkadot. Deben bloquear DOT, el token de la cadena de relevos nativo, para asegurar una ranura por un período de tiempo determinado (hasta dos años).
+Es una blockchain que tiene una ranura y que está conectada a Polkadot. Las parachains reciben seguridad compartida de Polkadot y la capacidad de interacción con otras parachains de la red Polkadot. Deben bloquear DOT, el token de la cadena de relevos nativo, para asegurar una ranura por un período de tiempo determinado (hasta dos años).
 
 ### Parathreads
 
-Es una cadena de bloques que se puede conectar a Polkadot. Las parathreads son capaces de interactuar con otros miembros de la red Polkadot, pero compiten bloque por bloque por la finalización de bloque (en DOT). Compiten con otras parathreads por la finalización de bloque, lo cual significa que se seleccionará el bloque con mayor oferta para ser finalizado en dicha ronda.
+Es una blockchain que se puede conectar a Polkadot. Las parathreads son capaces de interactuar con otros miembros de la red Polkadot, pero compiten bloque por bloque por la finalización de bloque (en DOT). Compiten con otras parathreads por la finalización de bloque, lo cual significa que se seleccionará el bloque con mayor oferta para ser finalizado en dicha ronda.
 
 ### Polkadot
 

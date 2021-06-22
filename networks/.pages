@@ -1,4 +1,4 @@
-title: Networks
+title: Redes
 arrange:
   - overview.md 
-  - testnet.md
+  - moonbase.md

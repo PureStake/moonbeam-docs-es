@@ -1,5 +1,5 @@
 ---
-title: Depurar y rastrear
+title: Depurar y Rastrear
 description: Aprenda a aprovechar la API de depuración de Geth y el módulo OpenEthereum Trace en Moonbeam
 ---
 

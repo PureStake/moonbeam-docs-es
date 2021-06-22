@@ -1,6 +1,6 @@
 ---
 title: Compatibilidad con Eth
-description: Puede parecer abrumador pasar a una paracadena de Polkadot si estás acostumbrado a Ethereum. Esto es lo que puede esperar cuando utilice Moonbeam por primera vez.
+description: Puede parecer abrumador pasar a una parachain de Polkadot si estás acostumbrado a Ethereum. Esto es lo que puede esperar cuando utilice Moonbeam por primera vez.
 ---
 
 # Compatibilidad con Ethereum
@@ -11,7 +11,7 @@ Si bien Moonbeam se esfuerza por ser compatible con la API Web3 y EVM de Ethereu
 
 Primero, Moonbeam usa un mecanismo de consenso basado en Proof of Stake, lo que significa que los conceptos de Proof of Work, como dificultad, tíos, hashrate, etc., generalmente no tienen significado dentro de Moonbeam. Para las API que devuelven valores relacionados con la Prueba de trabajo de Ethereum, devolvemos valores predeterminados. Es casi seguro que los contratos existentes de Ethereum que dependen de componentes internos de Prueba de trabajo (por ejemplo, contratos de grupo de minería) no funcionarán como se esperaba en Moonbeam.
 
-Otra diferencia significativa entre Moonbeam y Ethereum es que Moonbeam incluye un amplio conjunto de funciones de gobernanza en cadena basadas en la funcionalidad Substrate. Estos módulos de gobernanza en cadena incluyen funciones para impulsar actualizaciones de la propia cadena de bloques en función de la votación ponderada por tokens.
+Otra diferencia significativa entre Moonbeam y Ethereum es que Moonbeam incluye un amplio conjunto de funciones de gobernanza en cadena basadas en la funcionalidad Substrate. Estos módulos de gobernanza en cadena incluyen funciones para impulsar actualizaciones de la propia blockchain en función de la votación ponderada por tokens.
 
 ## Lo que permanece igual
 

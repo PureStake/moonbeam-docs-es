@@ -1,5 +1,5 @@
 ---
-title: Enviar una transacción
+title: Enviar una Transacción
 description: Aprenda a crear y enviar transacciones en la red compatible con Ethereum de Moonbeam con un script simple usando web3.js, ethers.js o web3.py.
 ---
 
@@ -15,7 +15,7 @@ Esta guía describe el uso de tres bibliotecas Ethereum diferentes para firmar y
  - [Ethers.js](https://docs.ethers.io/)
  - [Web3.py](https://web3py.readthedocs.io/)
 
-!!! nota
+!!! note
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
 ## Comprobación de requisitos previos

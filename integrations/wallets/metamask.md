@@ -9,7 +9,7 @@ description: Esta guía le explica cómo conectar MetaMask, una billetera Ethere
 
 ## Introducción
 
-Los desarrolladores pueden aprovechar las funciones de compatibilidad con Ethereum de Moonbeam para integrar herramientas, como [MetaMask](https://metamask.io/), en sus DApps. Al hacerlo, pueden usar la biblioteca inyectada que proporciona MetaMask para interactuar con la cadena de bloques.
+Los desarrolladores pueden aprovechar las funciones de compatibilidad con Ethereum de Moonbeam para integrar herramientas, como [MetaMask](https://metamask.io/), en sus DApps. Al hacerlo, pueden usar la biblioteca inyectada que proporciona MetaMask para interactuar con la blockchain.
 
 Actualmente, MetaMask se puede configurar para conectarse a dos redes: un nodo de desarrollo Moonbeam o Moonbase Alpha TestNet.
 
@@ -19,7 +19,7 @@ Si ya tiene MetaMask instalado, puede conectar fácilmente MetaMask a Moonbase A
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
-!!! nota
+!!! note
     MetaMask aparecerá pidiendo permiso para agregar Moonbase Alpha como una red personalizada. Una vez que apruebe los permisos, MetaMask cambiará su red actual a Moonbase Alpha.
 
 Aprenda [a integrar un botón Connect MetaMask](#integrate-metamask-into-a-dapp) en su dapp, para que los usuarios puedan conectarse a Moonbase Alpha con un simple clic de un botón.
@@ -57,7 +57,7 @@ Con el lanzamiento de la [API de redes personalizadas](https://consensys.net/blo
 
 Esta sección lo guiará a través del proceso de agregar un botón "Conectarse a Moonbase Alpha" que pedirá a los usuarios que conecten sus cuentas de MetaMask a Moonbase Alpha. Sus usuarios ya no necesitarán saber o preocuparse por las configuraciones de red de Moonbase Alpha y agregar una red personalizada a MetaMask. Para interactuar con Moonbeam desde su dApp, todo lo que los usuarios deberán hacer es hacer clic en algunos botones para conectarse a Moonbase Alpha y comenzar.
 
-MetaMask inyecta una API Ethereum global en los sitios web que visitan los usuarios `window.ethereum`,lo que permite que los sitios web lean y soliciten los datos de la cadena de bloques de los usuarios. Utilizará el proveedor de Ethereum para guiar a sus usuarios a través del proceso de agregar Moonbase Alpha como una red personalizada. En general, deberás:
+MetaMask inyecta una API Ethereum global en los sitios web que visitan los usuarios `window.ethereum`,lo que permite que los sitios web lean y soliciten los datos de la blockchain de los usuarios. Utilizará el proveedor de Ethereum para guiar a sus usuarios a través del proceso de agregar Moonbase Alpha como una red personalizada. En general, deberás:
 
 - Compruebe si existe el proveedor de Ethereum y si es MetaMask
 - Solicitar la dirección de la cuenta del usuario

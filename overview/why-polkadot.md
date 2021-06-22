@@ -1,5 +1,5 @@
 ---
-title: Por qué Polkadot
+title: Por Qué Polkadot
 description: Moonbeam se basa en el Marco  de Desarrollo Substrate y está conectado a la red Polkadot, lo que le da velocidad y seguridad a la plataforma.
 ---
 # Por qué nos basamos en Polkadot

@@ -1,5 +1,5 @@
 ---
-title: Votar una propuesta
+title: Votar una Propuesta
 description: Cómo votar una propuesta para que se apruebe o rechace en Moonbeam a través de funciones de gobernanza
 ---
 
@@ -17,9 +17,9 @@ En Moonbeam, los usuarios podrán crear, segundar y votar propuestas utilizando 
 
 Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), los usuarios de la red ahora pueden enviar propuestas para referendos públicos y votar sobre ellas. Esta guía describe cómo votar sobre una propuesta que ha llegado a un referéndum público. Puede encontrar una guía sobre cómo enviar una propuesta [aquí](/governance/proposals/).
 
-Puede encontrar más información relacionada con la [gobernanza](https://wiki.polkadot.network/docs/en/learn-governance) y la [participación en la democracia](https://wiki.polkadot.network/docs/en/maintain-guides-democracy) en las páginas Wiki de Polkadot.
+Puede encontrar más información relacionada con la [gobernanza](https://wiki.polkadot.network/docs/learn-governance) y la [participación en la democracia](https://wiki.polkadot.network/docs/maintain-guides-democracy) en las páginas Wiki de Polkadot.
 
-!!! nota
+!!! note
     Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 ## Definiciones
@@ -83,7 +83,7 @@ Aquí, debe proporcionar la siguiente información:
 
 ![Vote Submission](/images/governance/governance-vote-2.png)
 
-!!! nota
+!!! note
    Los períodos de bloqueo que se muestran en la imagen anterior no deben tomarse como referencia. Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 En este caso, Alice y Bob han decidido "Vote Aye" en la propuesta con una convicción de `6x`. Por otro lado, Charley ha decidido "Vote No" en la propuesta, pero optó por no bloquear ningún token (sus tokens solo se bloquean durante la duración del referéndum), por lo que su condena fue `0.1x`.Con tales distribuciones de votos, los resultados parciales se pueden ver en la pestaña principal "Democracia".
@@ -142,13 +142,13 @@ De la delegación de votos, hay algunas conclusiones clave:
 
  - Si un titular de los tokens eliminara la delegación de votos durante un referéndum público en el que se utilizaron los votos delegados, estos se eliminarían del recuento.
  - Un titular de tokens que delegó votos todavía tiene una participación económica. Esto significa que si la opción que el delegador seleccionó fuera a ganar, los tokens delegados se bloquean por el número de períodos de bloqueo.
- - Los tokens delegados para votar ya no forman parte del saldo libre del titular del token. Para leer más sobre los tipos de saldos, puede visitar [este sitio](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
+ - Los tokens delegados para votar ya no forman parte del saldo libre del titular del token. Para leer más sobre los tipos de saldos, puede visitar [este sitio](https://wiki.polkadot.network/docs/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
  - Un titular de tokens que delegó tokens no puede participar en un referéndum público. Primero, el poseedor del token debe anular la delegación de su voto.
  - Un titular de tokens que delegó tokens debe desbloquear manualmente sus tokens bloqueados después de que el período de bloqueo haya expirado. Para ello es necesario conocer el índice de referéndum
  - 
 ### Desbloqueo de tokens
 
-Cuando los poseedores de tokens votan, los tokens utilizados se bloquean y no se pueden transferir. Puede verificar si tiene tokens bloqueados en la pestaña "Cuentas", expandiendo los detalles de la cuenta de la dirección para consultar. Allí, verá diferentes tipos de saldos (puede leer más información sobre cada tipo [aquí](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). Si pasa el cursor sobre el icono junto a "democracia", se mostrará un panel de información que le indicará el estado actual de lo bloqueado. Los diferentes estados de bloqueo incluyen:
+Cuando los poseedores de tokens votan, los tokens utilizados se bloquean y no se pueden transferir. Puede verificar si tiene tokens bloqueados en la pestaña "Cuentas", expandiendo los detalles de la cuenta de la dirección para consultar. Allí, verá diferentes tipos de saldos (puede leer más información sobre cada tipo [aquí](https://wiki.polkadot.network/docs/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). Si pasa el cursor sobre el icono junto a "democracia", se mostrará un panel de información que le indicará el estado actual de lo bloqueado. Los diferentes estados de bloqueo incluyen:
 
  - Bloqueado debido a un referéndum en curso, lo que significa que ha usado sus tokens y tiene que esperar hasta que finalice el referéndum, incluso si ha votado con un factor de convicción sin bloqueo
  - Bloqueado debido al multiplicador de convicción seleccionado, que muestra el número de bloques y el tiempo restante

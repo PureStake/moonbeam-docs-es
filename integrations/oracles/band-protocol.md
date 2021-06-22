@@ -9,7 +9,7 @@ description: Cómo utilizar los datos de solicitud de un protocolo de banda Orac
 
 ## Introducción
 
-Los desarrolladores tienen dos formas de obtener precios de la infraestructura Oracle de Band. Por un lado, pueden usar los contratos inteligentes de Band en Moonbeam. Al hacerlo, acceden a los datos que están en la cadena y se actualizan a intervalos regulares o cuando el deslizamiento del precio es mayor que una cantidad objetivo (diferente para cada token). Por otro lado, los desarrolladores pueden usar la biblioteca auxiliar de Javascript, que usa un punto final de API para obtener los datos usando funciones similares a las de los contratos inteligentes, pero esta implementación omite la cadena de bloques por completo. Esto puede ser útil si su interfaz DApp necesita acceso directo a los datos.
+Los desarrolladores tienen dos formas de obtener precios de la infraestructura Oracle de Band. Por un lado, pueden usar los contratos inteligentes de Band en Moonbeam. Al hacerlo, acceden a los datos que están en la cadena y se actualizan a intervalos regulares o cuando el deslizamiento del precio es mayor que una cantidad objetivo (diferente para cada token). Por otro lado, los desarrolladores pueden usar la biblioteca auxiliar de Javascript, que usa un punto final de API para obtener los datos usando funciones similares a las de los contratos inteligentes, pero esta implementación omite la blockchain por completo. Esto puede ser útil si su interfaz DApp necesita acceso directo a los datos.
 
 La dirección del contrato del agregador se puede encontrar en la siguiente tabla:
 

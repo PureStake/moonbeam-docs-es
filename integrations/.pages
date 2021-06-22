@@ -1,14 +1,16 @@
-title: Integrations
-arrange:
+title: Integraciones
+nav:
   - bridges
   - ethlibraries
+  - indexers
+  - openzeppelin
   - oracles
   - wallets
   - explorers.md
   - remix.md
   - trufflebox.md
   - hardhat.md
-  - thegraph.md
+  - waffle-mars.md
   - pubsub.md
   - debug-trace.md
   - precompiles.md

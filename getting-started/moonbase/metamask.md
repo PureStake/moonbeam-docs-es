@@ -15,7 +15,7 @@ Si ya tiene MetaMask instalado, puede conectarlo fácilmente a la red de prueba 
     <a href="#" class="md-button connectMetaMask">Conectar MetaMask</a>
 </div>
 
-!!! nota
+!!! note
     MetaMask aparecerá pidiendo permiso para agregar Moonbase Alpha como una red personalizada. Una vez que apruebe los permisos, MetaMask cambiará su red actual a Moonbase Alpha.
     
 ## Crear una billetera

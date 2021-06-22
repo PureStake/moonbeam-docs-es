@@ -1,5 +1,5 @@
 ---
-title: Exploradores de bloques
+title: Exploradores de Bloques
 description: Una descripción general de los exploradores de bloques disponibles actualmente que pueden usarse para navegar por las capas de Substrato y Ethereum de Moonbeam TestNet.
 ---
 # Exploradores de bloques
@@ -8,11 +8,11 @@ description: Una descripción general de los exploradores de bloques disponibles
 
 ## Introducción 
 
-Los exploradores de bloques pueden considerarse motores de búsqueda para la cadena de bloques. Permiten a los usuarios buscar información como saldos, contratos y transacciones. Los exploradores de bloques más avanzados incluso ofrecen capacidades de indexación, que les permiten proporcionar un conjunto completo de información, como tokens ERC20 en la red. Incluso podrían ofrecer servicios de API para acceder a él a través de servicios externos.
+Los exploradores de bloques pueden considerarse motores de búsqueda para la blockchain. Permiten a los usuarios buscar información como saldos, contratos y transacciones. Los exploradores de bloques más avanzados incluso ofrecen capacidades de indexación, que les permiten proporcionar un conjunto completo de información, como tokens ERC20 en la red. Incluso podrían ofrecer servicios de API para acceder a él a través de servicios externos.
 
 Moonbeam proporciona dos conjuntos diferentes de exploradores: uno para consultar la API de Ethereum y otro para la API de sustrato.
 
-!!! nota
+!!! note
     Si está utilizando Brave Browser y su explorador no se conecta a la instancia de Moonbeam a la que lo está apuntando, intente deshabilitar Brave Shield.
 
 ## API de Ethereum

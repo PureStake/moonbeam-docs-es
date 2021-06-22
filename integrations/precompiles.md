@@ -1,5 +1,5 @@
 ---
-title: Contratos precompilados
+title: Contratos Precompilados
 description:  Aprenda a usar contratos precompilados en Moonbase Alpha, Moonbeam Network TestNet que es único por su completa compatibilidad con Ethereum. 
 ---
 
@@ -72,7 +72,7 @@ Este código devolverá el siguiente objeto en la terminal:
   signature: '0x44287513919034a471a7dc2b2ed121f95984ae23b20f9637ba8dff471b6719ef7d7dc30309a3baffbfd9342b97d0e804092c0aeb5821319aa732bc09146eafb41b'
 }
 ```
-Con los valores necesarios, podemos ir a Remix para probar el contrato precompilado. Tenga en cuenta que esto también se puede verificar con la biblioteca Web3 JS, pero en nuestro caso, iremos a Remix para asegurarnos de que está usando el contrato precompilado en la cadena de bloques. El código de Solidez que podemos utilizar para verificar la firma es el siguiente:
+Con los valores necesarios, podemos ir a Remix para probar el contrato precompilado. Tenga en cuenta que esto también se puede verificar con la biblioteca Web3 JS, pero en nuestro caso, iremos a Remix para asegurarnos de que está usando el contrato precompilado en la blockchain. El código de Solidez que podemos utilizar para verificar la firma es el siguiente:
 
 ```solidity
 pragma solidity ^0.7.0;

@@ -1,9 +1,9 @@
 ---
-title: Mapa vial
+title: Hoja de Ruta
 description: Moonbeam lanzó su primera TestNet en septiembre de 2020, con una BetaNet en Kusama y MainNet en Polkadot a principios de 2021.
 ---
 
-# Mapa vial
+# Hoja de ruta
 
 Moonbeam aún está siendo desarrollado de manera activa. 
 

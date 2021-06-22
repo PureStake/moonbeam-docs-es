@@ -63,7 +63,7 @@ Ahora, puede crear los tipos de TypeScript para The Graph ejecutando:
 npx graph codegen --output-dir src/types/
 ```
 
-!!! nota
+!!! note
     La creación de los tipos requiere que tenga los archivos ABI especificados en el `subgraph.yaml`archivo. Este repositorio de muestra ya tiene el archivo, pero generalmente se obtiene después de compilar el contrato. Consulte el [Moonlotto repo](https://github.com/PureStake/moonlotto-subgraph) para obtener más información.
 
 El `codegen` comando también se puede ejecutar usando `yarn codegen`.
@@ -72,7 +72,7 @@ Para este ejemplo, el contrato se implementó en `0x44ddD2EC5BE2A7f3e4A465C21600
 
 ### Estructura básica de los subgrafos
 
-En términos generales, los Subgraphs definen los datos que The Graph indexará de la cadena de bloques y la forma en que se almacenan. Los subgrafos tienden a tener algunos de los siguientes archivos:
+En términos generales, los Subgraphs definen los datos que The Graph indexará de la blockchain y la forma en que se almacenan. Los subgrafos tienden a tener algunos de los siguientes archivos:
 
  - **subgraph.yaml** — es un archivo YAML que contiene el [manifiesto del Subgraph](https://thegraph.com/docs/define-a-subgraph#the-subgraph-manifest),  es decir, información relacionada con los contratos inteligentes que indexa el Subgraph.
  - **schema.graphql** — es un archivo de [esquema GraphQL](https://thegraph.com/docs/define-a-subgraph#the-graphql-schema) que define el almacén de datos para el Subgraph que se está creando y su estructura. Está escrito usando el [esquema de definición de la interfaz GraphQL.](https://graphql.org/learn/schema/#type-language)
@@ -174,7 +174,7 @@ dataSources:
 
 ### Mapeos
 
-Los archivos de asignaciones son los que transforman los datos de la cadena de bloques en entidades definidas en el archivo de esquema. Cada controlador de eventos dentro del `subgraph.yaml` archivo debe tener una función posterior en el mapeo.
+Los archivos de asignaciones son los que transforman los datos de la blockchain en entidades definidas en el archivo de esquema. Cada controlador de eventos dentro del `subgraph.yaml` archivo debe tener una función posterior en el mapeo.
 
 El archivo de mapeo utilizado para el ejemplo de Lotería se puede encontrar en [este enlace](https://github.com/PureStake/moonlotto-subgraph/blob/main/src/mapping.ts).
 
@@ -233,10 +233,10 @@ Si va a utilizar la API Graph (servicio alojado), debe:
  - Vaya a su tablero y anote el token de acceso
  - Cree su subgrafo a través del botón "Agregar subgrafo" en el sitio Graph Explorer. Anote el nombre del subgrafo
 
-!!! nota
+!!! note
     Todos los pasos se pueden encontrar en [este enlace](https://thegraph.com/docs/deploy-a-subgraph).
  
-Si usa un nodo gráfico local, puede crear su subgrafo ejecutando el siguiente código:
+Si usa un nodo de TheGraph local, puede crear su subgrafo ejecutando el siguiente código:
 
 ```
 npx graph create <username>/<subgraphName> --node <graph-node>
@@ -246,7 +246,7 @@ Dónde:
 
  - **nombre de usuario** — se refiere al nombre de usuario relacionado con el subgrafo que se está creando
  - **subgraphName** — se refiere al nombre de Subgraph
- - **graph-node** — se refiere a la URL del servicio alojado que se utilizará. Normalmente, para un nodo Graph local es `http://127.0.0.1:8020`
+ - **graph-node** — se refiere a la URL del servicio alojado que se utilizará. Normalmente, para un nodo de TheGraph local es `http://127.0.0.1:8020`
 
 Una vez creado, puede implementar su Subgraph ejecutando el siguiente comando con los mismos parámetros que antes:
 
@@ -261,9 +261,9 @@ Dónde:
 
  - **nombre de usuario** — se refiere al nombre de usuario utilizado al crear el subgrafo
  - **subraphName** — se refiere al nombre de subgrafo definido al crear el subgrafo
- - **ifps-url**  — hace referencia a la URL de IFPS. Si usa la API Graph, puede usar `https://api.thegraph.com/ipfs/`. Para su nodo Graph local, el valor predeterminado `http://localhost:5001`
- - **graph-node** — se refiere a la URL del servicio alojado que se utilizará. Si usa la API Graph, puede usar `https://api.thegraph.com/deploy/`.  Para su nodo Graph local, el valor predeterminado es `http://localhost:8020`
- - **token de acceso** —  se refiere al token de acceso para usar la API Graph. Si está utilizando un nodo gráfico local, este parámetro no es necesario
+ - **ifps-url**  — hace referencia a la URL de IFPS. Si usa la API Graph, puede usar `https://api.thegraph.com/ipfs/`. Para su nodo de TheGraph local, el valor predeterminado `http://localhost:5001`
+ - **graph-node** — se refiere a la URL del servicio alojado que se utilizará. Si usa la API Graph, puede usar `https://api.thegraph.com/deploy/`.  Para su nodo de TheGraph local, el valor predeterminado es `http://localhost:8020`
+ - **token de acceso** —  se refiere al token de acceso para usar la API Graph. Si está utilizando un nodo de TheGraph local, este parámetro no es necesario
 
 Los registros del comando anterior deberían tener un aspecto similar a:
 

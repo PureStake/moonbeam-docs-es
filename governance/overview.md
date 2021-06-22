@@ -53,7 +53,7 @@ Algunos de los componentes principales de este modelo de gobernanza incluyen:
  - **Comité Técnico**: un grupo de personas elegidas por el Consejo que tienen derechos especiales de voto. Al igual que en Polkadot y Kusama, el Comité Técnico tiene la capacidad (junto con el Consejo) de acelerar la votación y la implementación de referendos de emergencia en circunstancias urgentes. Se puede crear un referéndum acelerado junto con los referéndum activos existentes. Es decir, un referéndum de emergencia no sustituye a los referéndum actualmente activos.
  - **Tesorería** —  colección de fondos que se pueden gastar mediante la presentación de una propuesta junto con un depósito. Las propuestas de gasto deben ser aprobadas por el consejo. Las propuestas rechazadas darán lugar a que el proponente pierda su depósito.
 
-Vea [esta descripción general en el sitio web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) y [esta publicación de wiki](https://wiki.polkadot.network/docs/en/learn-governance) para obtener más detalles sobre cómo estas paletas de marco de Substrate implementan la gobernanza en cadena.
+Vea [esta descripción general en el sitio web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) y [esta publicación de wiki](https://wiki.polkadot.network/docs/learn-governance) para obtener más detalles sobre cómo estas paletas de marco de Substrate implementan la gobernanza en cadena.
 
 ## Derechos de voto del Consejo y del Comité Técnico
 

@@ -11,7 +11,7 @@ Como parte de un esfuerzo continuo para ayudar a los desarrolladores que quieren
 
 Este tutorial lo guiará a través del proceso de configuración de la caja, utilizando el complemento Moonbeam Truffle y la implementación de contratos tanto en un nodo de desarrollo Moonbeam como en Moonbase Alpha usando Truffle con la configuración base de la caja.
 
-!!! nota
+!!! note
    Esta guía se basa en una instalación de Ubuntu 18.04. En el momento de escribir este artículo, las versiones de Node.js y npm utilizadas eran 15.2.1 y 7.0.8 respectivamente. Se requieren versiones de Node.js superiores a 10.23.0. También notamos un error al instalar los paquetes con la versión 7.0.15 de npm. Puede degradar npm ejecutando `npm install -g npm@version`, configurando la versión a la deseada.
 
 ## Comprobación de requisitos previos
@@ -51,7 +51,7 @@ Con los archivos en su sistema local, el siguiente paso es instalar todas las de
 npm install
 ```
 
-!!! nota
+!!! note
     Notamos un error al instalar los paquetes con la versión 7.0.15 de npm. Puede degradar npm ejecutando `npm install -g npm@version` y configurando la versión a la deseada. Por ejemplo, 7.0.8 o 6.14.9.
 
 Eso concluye con todos los requisitos previos que necesita para usar la caja Moonbeam Truffle.
@@ -119,7 +119,7 @@ truffle migrate --network network_name  #deploys to the specified network
 
 Dependiendo de la red en la que desee implementar los contratos, debe sustituir network_name por dev (para apuntar al nodo de desarrollo) o moonbase (para apuntar a TestNet).
 
-!!! nota
+!!! note
     Si no tiene Truffle instalado globalmente, puede usar `npx truffle` o `./node_modules/.bin/truffle` en `truffle` lugar de.
 
 ## El complemento Moonbeam Truffle

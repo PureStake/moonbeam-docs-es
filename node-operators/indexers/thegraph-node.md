@@ -1,5 +1,5 @@
 ---
-title: Nodo gráfico
+title: Nodo de TheGraph
 description: Cree API utilizando el protocolo de indexación Graph en Moonbeam
 ---
 
@@ -9,16 +9,16 @@ description: Cree API utilizando el protocolo de indexación Graph en Moonbeam
 
 ## Introducción
 
-Un nodo Graph obtiene eventos de una cadena de bloques para actualizar de manera determinista un almacén de datos que luego se puede consultar a través de un punto final GraphQL.
+Un nodo de TheGraph obtiene eventos de una blockchain para actualizar de manera determinista un almacén de datos que luego se puede consultar a través de un punto final GraphQL.
 
-Hay dos formas de configurar un nodo Graph: puede usar Docker para ejecutar una imagen todo en uno o puede ejecutar su [implementación de Rust](https://github.com/graphprotocol/graph-node). Los pasos descritos en esta guía solo cubrirán la alternativa de Docker, ya que es más conveniente y puede configurar un nodo Graph muy rápidamente.
+Hay dos formas de configurar un nodo de TheGraph: puede usar Docker para ejecutar una imagen todo en uno o puede ejecutar su [implementación de Rust](https://github.com/graphprotocol/graph-node). Los pasos descritos en esta guía solo cubrirán la alternativa de Docker, ya que es más conveniente y puede configurar un nodo de TheGraph muy rápidamente.
 
-!!! nota
+!!! note
     Los pasos descritos en esta guía se han probado en entornos MacOs y basados ​​en Ubuntu 18.04, y deberán adaptarse en consecuencia para otros sistemas.
 
 ## Comprobación de requisitos previos
 
-Antes de sumergirse en la configuración de un nodo gráfico, debe tener lo siguiente instalado en su sistema:
+Antes de sumergirse en la configuración de un nodo de TheGraph, debe tener lo siguiente instalado en su sistema:
 
  - [Docker](https://docs.docker.com/get-docker/)
  - [Docker Compose](https://docs.docker.com/compose/install/)
@@ -29,7 +29,7 @@ Además, debe tener un nodo en ejecución con la `--ethapi=trace` opción habili
  - **Nodo de desarrollo Moonbeam** — ejecute su propia instancia Moonbeam en su entorno privado. Para hacerlo, puede seguir [esta guía](/getting-started/local-node/setting-up-a-node/). Asegúrese de consultar la [sección de banderas avanzadas](/getting-started/local-node/setting-up-a-node/#advanced-flags-and-options)
  - **Nodo Moonbase Alpha** — ejecute un nodo completo de TestNet y acceda a sus propios puntos finales privados. Para hacerlo, puede seguir [esta guía](/node-operators/networks/full-node/). Asegúrese de consultar la [sección de banderas avanzadas](/node-operators/networks/full-node/#advanced-flags-and-options)
 
-En esta guía, un nodo Graph se ejecuta contra un nodo completo Moonbase Alpha con la `--ethapi=trace` bandera.
+En esta guía, un nodo de TheGraph se ejecuta contra un nodo completo Moonbase Alpha con la `--ethapi=trace` bandera.
 
 ## Ejecución de un nodo de gráfico
 
@@ -50,7 +50,7 @@ El final de los registros del comando anterior debería tener un aspecto similar
 
 ![Graph Node setup](/images/thegraph/thegraphnode-images1.png)
 
-Una vez que todo está configurado, debe modificar el "entorno Ethereum" dentro del `docker-compose.yml` archivo, de modo que apunte al punto final del nodo contra el que está ejecutando este nodo gráfico. Tenga en cuenta que el `setup.sh` archivo detecta `Host IP` y escribe su valor, por lo que deberá modificarlo en consecuencia.
+Una vez que todo está configurado, debe modificar el "entorno Ethereum" dentro del `docker-compose.yml` archivo, de modo que apunte al punto final del nodo contra el que está ejecutando este nodo de TheGraph. Tenga en cuenta que el `setup.sh` archivo detecta `Host IP` y escribe su valor, por lo que deberá modificarlo en consecuencia.
 
 ```
 ethereum: 'mbase:http://localhost:9933'
@@ -99,7 +99,7 @@ services:
       - ./data/postgres:/var/lib/postgresql/data
 ```
 
-Por último, para ejecutar el nodo Graph, simplemente ejecute el siguiente comando:
+Por último, para ejecutar el nodo de TheGraph, simplemente ejecute el siguiente comando:
 
 ```
 docker-compose up
@@ -107,8 +107,8 @@ docker-compose up
 
 ![Graph Node compose up](/images/thegraph/thegraphnode-images2.png)
 
-Después de un tiempo, debería ver los registros relacionados con la sincronización del nodo Graph con el último bloque disponible en la red:
+Después de un tiempo, debería ver los registros relacionados con la sincronización del nodo de TheGraph con el último bloque disponible en la red:
 
 ![Graph Node logs](/images/thegraph/thegraphnode-images3.png)
 
-¡Y eso es todo! Tiene un nodo Graph ejecutándose en Moonbase Alpha TestNet. No dude en adaptar este ejemplo también a un nodo de desarrollo Moonbeam.
+¡Y eso es todo! Tiene un nodo de TheGraph ejecutándose en Moonbase Alpha TestNet. No dude en adaptar este ejemplo también a un nodo de desarrollo Moonbeam.

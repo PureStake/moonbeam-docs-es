@@ -1,5 +1,5 @@
 ---
-title: Proponer una acción
+title: Proponer una Acción
 description: Cómo enviar una propuesta para votar en Moonbeam a través de funciones de gobernanza
 ---
 
@@ -17,9 +17,9 @@ En Moonbeam, los usuarios podrán crear, segundar y votar propuestas utilizando 
 
 Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0),  los usuarios de la red ahora pueden enviar propuestas para referendos públicos en TestNet. Esta guía describe el proceso de cómo crear una propuesta. Los pasos irán desde su creación hasta que llegue a referendos públicos. Puede encontrar una guía sobre cómo votar una propuesta [aquí](/governance/voting/).
 
-Se puede encontrar más información en las páginas Wiki de Polkadot relacionadas con la [gobernanza](https://wiki.polkadot.network/docs/en/learn-governance#council) y la [participación en la democracia](https://wiki.polkadot.network/docs/en/maintain-guides-democracy).
+Se puede encontrar más información en las páginas Wiki de Polkadot relacionadas con la [gobernanza](https://wiki.polkadot.network/docs/learn-governance#council) y la [participación en la democracia](https://wiki.polkadot.network/docs/maintain-guides-democracy).
 
-!!! nota
+!!! note
    Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 ## Definiciones
@@ -69,7 +69,7 @@ Aquí necesitará proveer la información siguiente:
  1. Seleccione la cuenta desde la que desea enviar la preimagen.
  2. Elija la paleta con la que desea interactuar y la función (o acción) disponible para proponer. La acción que escoja determinará los campos que debe rellenar en los siguientes pasos. En este caso, es la paleta`democracy` y la función `setBalance` 
  3. Establezca la dirección desde la cual desea cambiar el balance.
- 4. Establezca el nuevo balance que esta dirección deberá mantener. Para leer más acerca de los tipos de balances, puede visitar [este link](https://wiki.polkadot.network/docs/en/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
+ 4. Establezca el nuevo balance que esta dirección deberá mantener. Para leer más acerca de los tipos de balances, puede visitar [este link](https://wiki.polkadot.network/docs/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
  5. Copie el hash de la preimagen. Esto representa la propuesta. Utilizará este hash al enviar la propuesta real
  6. Click en el boton "Enviar preimage" y firmar la transacción.
 

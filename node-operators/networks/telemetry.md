@@ -13,12 +13,12 @@ Con el lanzamiento de Moonbase Alpha v6, puede activar un nodo que se conecta a 
 
 Esta guía proporcionará los pasos necesarios para habilitar el servidor de telemetría para su nodo Moonbase Alpha.
 
-!!! nota
+!!! note
     Los pasos descritos en esta guía son para una instancia de telemetría diferente a la telemetría estándar de Polkadot habilitada de forma predeterminada (puede ejecutar nodos sin telemetría mediante el uso de la `--no-telemetry` marca). Los pasos descritos en esta guía son obligatorios solo para los nodos de clasificación.
     
 ## Resumen del exportador de telemetría
 
-Moonbeam ejecutará un servidor de telemetría que recopila las métricas de Prometheus de todos los nodos de paracadena de Moonbeam en la red. Ejecutar esto será de gran ayuda para nosotros durante nuestra fase de desarrollo.
+Moonbeam ejecutará un servidor de telemetría que recopila las métricas de Prometheus de todos los nodos de parachain de Moonbeam en la red. Ejecutar esto será de gran ayuda para nosotros durante nuestra fase de desarrollo.
 
 El exportador de métricas puede ejecutarse como un sidecar de Kubernetes o como un binario local si está ejecutando una VM. Enviará datos a nuestros servidores, por lo que no es necesario que habilite ningún puerto de entrada para este servicio.
 
@@ -96,7 +96,7 @@ Una vez que todo funcione bien, puede actualizar los comandos para que se ejecut
 
 ## Exportador de telemetría con Systemd
 
-Ejecutaremos dos instancias del perro guardián del nodo de Gantree: una para la paracadena y otra para la cadena de relés.
+Ejecutaremos dos instancias del perro guardián del nodo de Gantree: una para la parachain y otra para la cadena de relés.
 
 ### Información de configuración requerida
 

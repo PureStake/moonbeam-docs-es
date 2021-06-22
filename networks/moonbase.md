@@ -1,5 +1,5 @@
 ---
-title: TestNet
+title: Moonbase Alpha
 description: Una descripción general de la configuración actual de Moonbeam TestNet, Moonbase Alpha e información sobre cómo comenzar a construir sobre ella usando Solidity.
 ---
 
@@ -51,14 +51,14 @@ Están disponibles las siguientes funciones:
         * Soporte para transacciones Ethereum sin ChainId
 
 ??? release v5 "_Enero de 2021_"      
-    - Se agregó una versión personalizada de la [paleta Staking ](https://wiki.polkadot.network/docs/en/learn-staking) (solo para fines de prueba y desarrollo)
+    - Se agregó una versión personalizada de la [paleta Staking ](https://wiki.polkadot.network/docs/learn-staking) (solo para fines de prueba y desarrollo)
     - Se agregó soporte para consultar transacciones pendientes mientras están en el pool.
     - Se corrigieron algunos problemas sobre eventos pasados y otras correcciones menores relacionadas con los contratos inteligentes
     - Varias mejoras internas que incluyen una optimización del tiempo de ejecución de EVM, lo que lo hace entre 15 y 50 veces más rápido
     - Soporte para los contratos precompilados [modexp](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x05-bigmodexp-base-exp-mod)
 
 ??? release v6 "_Febrero de 2021_"      
-    - Lanzamiento público de la  [paleta de Staking](https://wiki.polkadot.network/docs/en/learn-staking) personalizada. Ahora los titulares de tokens pueden nominar a los collators y ganar recompensas
+    - Lanzamiento público de la  [paleta de Staking](https://wiki.polkadot.network/docs/learn-staking) personalizada. Ahora los titulares de tokens pueden nominar a los collators y ganar recompensas
     - Añadida la [paleta de Democracia](https://github.com/paritytech/substrate/tree/HEAD/frame/democracy). Los titulares de tokens pueden [enviar propuestas](/governance/proposals/) y [votar sobre ellas](/governance/voting/)
     - Actualizado a la última versión de [Frontier RPC](https://github.com/paritytech/frontier), que aumenta la eficiencia de ejecución de EVM en un factor de 5
     - El límite de gas(fees) se ha elevado a 15M por bloque, con un límite de 13M por transacción.

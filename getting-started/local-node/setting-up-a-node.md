@@ -1,5 +1,5 @@
 ---
-title: Configurar un nodo
+title: Configurar un Nodo
 description: Siga este tutorial para aprender cómo configurar su primer nodo Moonbeam. También aprenderá cómo conectarlo y controlarlo con la GUI de Polkadot JS.
 ---
 
@@ -12,7 +12,7 @@ description: Siga este tutorial para aprender cómo configurar su primer nodo Mo
 
 Esta guía describe los pasos necesarios para crear un nodo de desarrollo para probar las características de compatibilidad de Ethereum de Moonbeam.
 
-!!! nota
+!!! note
     Este tutorial fue creado usando la etiqueta tutorial-v7 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/tutorial-v7). La plataforma Moonbeam y los componentes de [Frontier en los](https://github.com/paritytech/frontier) que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
     
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
@@ -76,7 +76,7 @@ Para continuar con el tutorial, la siguiente sección no es necesaria ya que ya 
 
 ## Introducción al archivo binario
 
-!!! nota
+!!! note
     Si sabe lo que está haciendo, puede descargar directamente los archivos binarios precompilados adjuntos a cada versión en la [página de versiones de Moonbeam](https://github.com/PureStake/moonbeam/releases). Estos no funcionarán en todos los sistemas. Por ejemplo, los binarios solo funcionan con Linux x86-64 con versiones específicas de dependencias. La forma más segura de garantizar la compatibilidad es compilar el binario en el sistema desde donde se ejecutará.
 
 Primero, comience clonando una etiqueta específica del repositorio Moonbeam que puede encontrar aquí:
@@ -106,7 +106,7 @@ Si aparece un _error de carga no encontrada_ en la terminal, agregue manualmente
 --8<-- 'code/setting-up-node/cargoerror.md'
 ```
 
-!!! nota
+!!! note
     La construcción inicial llevará un tiempo. Dependiendo de su hardware, debe esperar aproximadamente 30 minutos para que finalice el proceso de compilación.
 
 Así es como debería verse el final de la salida de la compilación:
@@ -119,7 +119,7 @@ Luego, querrá ejecutar el nodo en modo dev usando el siguiente comando:
 --8<-- 'code/setting-up-node/runnode.md'
 ```
 
-!!! nota
+!!! note
     Para las personas que no están familiarizadas con Substrate, la `--dev` marca es una forma de ejecutar un nodo basado en Substrate en una configuración de desarrollador de un solo nodo con fines de prueba. Puede obtener más información `--dev` al respecto en [este tutorial de sustrato](https://substrate.dev/docs/en/tutorials/create-your-first-substrate-chain/interact).
 
 Debería ver una salida similar a la siguiente, que muestra un estado inactivo a la espera de que se produzcan bloques:

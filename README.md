@@ -1,13 +1,13 @@
 ---
 title: Home
-description: Bienvenido al sitio web de documentación de la plataforma de contrato inteligente Moonbeam, una paracadena en Polkadot que es totalmente compatible con Ethereum.
+description: Bienvenido al sitio web de documentación de la plataforma de contrato inteligente Moonbeam, una parachain en Polkadot que es totalmente compatible con Ethereum.
 ---
 
 # Bienvenido a Moonbeam
 
 ![Main Page Banner](/images/main-banner.png)
 
-Este sitio proporciona documentación para Moonbeam, una paracadena de contrato inteligente en la red Polkadot que es totalmente compatible con Ethereum. Aquí encontrará información técnica y de alto nivel para desarrolladores, comparadores, usuarios finales y otros participantes de la red Moonbeam.
+Este sitio proporciona documentación para Moonbeam, una parachain de contrato inteligente en la red Polkadot que es totalmente compatible con Ethereum. Aquí encontrará información técnica y de alto nivel para desarrolladores, comparadores, usuarios finales y otros participantes de la red Moonbeam.
 
 Este sitio crecerá y se perfeccionará con el tiempo a medida que se desarrolle Moonbeam. Le damos la bienvenida a unirse a la comunidad Moonbeam y contribuir a este sitio y al proyecto.
 
@@ -15,7 +15,7 @@ Este sitio crecerá y se perfeccionará con el tiempo a medida que se desarrolle
 
 ## ¿Qué es Moonbeam? 
 
-Moonbeam es una cadena de bloques orientada a desarrolladores que se esfuerza por proporcionar compatibilidad con la cadena de herramientas y la red para desarrolladores de Ethereum existentes. Para ello, proporciona una implementación EVM completa, una API compatible con Web3 y puentes que conectan Moonbeam a las redes Ethereum existentes. Esto permite a los desarrolladores implementar contratos inteligentes Solidity y frontends DApp existentes en Moonbeam con cambios mínimos.
+Moonbeam es una blockchain orientada a desarrolladores que se esfuerza por proporcionar compatibilidad con la cadena de herramientas y la red para desarrolladores de Ethereum existentes. Para ello, proporciona una implementación EVM completa, una API compatible con Web3 y puentes que conectan Moonbeam a las redes Ethereum existentes. Esto permite a los desarrolladores implementar contratos inteligentes Solidity y frontends DApp existentes en Moonbeam con cambios mínimos.
 
 Moonbeam también será un parachain en la red Polkadot. Eso significa que obtendrá seguridad compartida de la cadena de retransmisión de Polkadot y podrá integrarse con otras cadenas que estén conectadas a Polkadot (una vez que esa funcionalidad esté disponible en Polkadot).
 

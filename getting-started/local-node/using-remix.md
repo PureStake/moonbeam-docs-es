@@ -14,7 +14,7 @@ Remix es uno de los entornos de desarrollo más utilizados para contratos inteli
 
 Esta guía describe el proceso de creación e implementación de un contrato inteligente basado en Solidity en un nodo de desarrollo Moonbeam utilizando [Remix IDE](https://remix.ethereum.org/). 
 
-!!! nota
+!!! note
     Este tutorial se creó utilizando la etiqueta tutorial-v7 que se basa en la versión v0.7.0 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0) . La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustratos aún se encuentran en un desarrollo muy activo.
 
 Esta guía asume que tiene un nodo Moonbeam local ejecutándose en `--dev` modo y que tiene una instalación de [MetaMask](https://metamask.io/) configurada para usar este nodo local. Puede encontrar instrucciones para ejecutar un nodo Moonbeam local [aquí](/getting-started/local-node/setting-up-a-node/) instrucciones para conectar MetaMask a él [aquí](/getting-started/local-node/using-metamask/).
@@ -29,7 +29,7 @@ Y debe tener una instalación de MetaMask conectada a su nodo de desarrollo Moon
 
 ![MetaMask installation with a balance](/images/remix/using-remix-2.png)
 
-!!! nota
+!!! note
    ¡Asegúrese de estar conectado a su nodo Moonbeam y no a otra red!
 
 ## Introducción a Remix
@@ -82,7 +82,7 @@ Se le pedirá en MetaMask que confirme la transacción de implementación del co
 
 ![Confirm the transaction message](/images/remix/using-remix-9.png)
 
-!!! nota
+!!! note
     Si tiene problemas para implementar algún contrato específico, puede intentar aumentar manualmente el límite de gas. Puede hacer esto en Configuración -> Avanzado -> Controles de gas avanzados = ACTIVADO.
 
 Después de presionar confirmar y la implementación se completa, verá la transacción en la lista de MetaMask. El contrato aparecerá en Contratos implementados en Remix.

@@ -1,5 +1,5 @@
 ---
-title: Descripción general
+title: Descripción General
 description: Una descripción general de las redes planificadas para Moonbeam, una parachain de smart contract compatible con Ethereum en Polkadot.
 ---
 
@@ -30,9 +30,9 @@ Sin embargo, esperamos implementar Moonbeam como una parachain en Rococo TestNet
 
 ## Moonriver
 
-Moonbeam se lanzará como una parachain en la red Kusama, antes de la implementación en Polkadot MainNet ([más detaslles aquí](https://www.purestake.com/news/moonbeam-on-kusama/)). Esto requiere que la funcionalidad de parachain esté activa en Kusama.
+Moonbeam se lanzará como una parachain en la red Kusama, antes de la implementación en Polkadot MainNet ([más detalles aquí](https://www.purestake.com/news/moonbeam-on-kusama/)). Esto requiere que la funcionalidad de parachain esté activa en Kusama.
 
-Planeamos ejecutar las funciones relacionadas a la Parachain, tales como el [Crowdloan](https://wiki.polkadot.network/docs/en/learn-crowdloans), [XCMP](https://wiki.polkadot.network/docs/en/learn-crosschain), y [SPREE](https://wiki.polkadot.network/docs/en/learn-spree) en Moonriver a medida que esas funciones estén disponibles.
+Planeamos ejecutar las funciones relacionadas a la Parachain, tales como el [Crowdloan](https://wiki.polkadot.network/docs/learn-crowdloans), [XCMP](https://wiki.polkadot.network/docs/learn-crosschain), y [SPREE](https://wiki.polkadot.network/docs/learn-spree) en Moonriver a medida que esas funciones estén disponibles.
 
 ## Moonbeam Polkadot MainNet
 
