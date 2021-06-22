@@ -38,9 +38,9 @@ Hay muchos aspectos extrínsecos relacionados con el palé de replanteo, por lo 
 !!! nota
     Los extrínsecos pueden cambiar en el futuro a medida que se actualice la paleta de replanteo
     
- - **nominar** — dos entradas: dirección del clasificador a nominar y monto. Extrínseco para nominar a un clasificador. La cantidad debe ser de al menos {{ networks.moonbase.staking.min_nom_amount }} tokens
+ - **nominar** — dos entradas: dirección del clasificador a nominar y monto. Extrínseco para nominar a un clasificador. La cantidad debe ser de al menos 5 tokens
  - **leaveNominators** — sin entradas. Extrínseco para dejar el conjunto de nominadores. En consecuencia, todas las nominaciones en curso serán revocadas.
- - **nominatorBondLess** — dos entradas: dirección de un intercalador designado y monto. Extrínseco para reducir la cantidad de tokens apostados para un clasificador ya nominado. La cantidad no debe disminuir el total total apostado por debajo de {{ networks.moonbase.staking.min_nom_stake }} tokens.
+ - **nominatorBondLess** — dos entradas: dirección de un intercalador designado y monto. Extrínseco para reducir la cantidad de tokens apostados para un clasificador ya nominado. La cantidad no debe disminuir el total total apostado por debajo de 5 tokens.
  - **nominatorBondMore** — dos entradas: dirección de un clasificador designado y monto. Extrínseco para aumentar la cantidad de tokens apostados para un clasificador ya nominado
  - **revokeNomination** — una entrada: dirección de un clasificador designado. Extrínseco para eliminar una nominación existente
 
