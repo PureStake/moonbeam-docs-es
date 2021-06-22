@@ -25,11 +25,11 @@ Actualmente, para Moonbase Alpha:
 
 |             Variable             |     |                         Valor                        |
 | :------------------------------: | :-: | :---------------------------------------------------: |
-|     Participación mínima de nominación	     |     |     {{ networks.moonbase.staking.min_nom_stake }}     |
-|        Nominación mínima        |     |     {{ networks.moonbase.staking.min_nom_amount}}     | | Maximum nominators per collators |     |     {{ networks.moonbase.staking.max_nom_per_col }}   |
-| Máximo de alzadores por nominador  |     |     {{ networks.moonbase.staking.max_col_per_nom }}   |
-|              Redondo               |     | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
-|          Duración del bono           |     |     {{ networks.moonbase.staking.bond_lock }} rounds  |
+|     Participación mínima de nominación	     |     |     5     |
+|        Nominación mínima        |     |     5    | 
+| Máximo de alzadores por nominador |     |     25     |
+|              Redondo               |     | 300 bloques (1 hora) |
+|          Duración del bono           |     |     2 rondas  |
 
 ## Definiciones de extrínsecos
 
