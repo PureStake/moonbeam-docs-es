@@ -23,12 +23,12 @@ Actualmente, para Moonbase Alpha
 
 |             Variable             |     |                                                  Valor                                                  |
 | :------------------------------: | :-: | :-----------------------------------------------------------------------------------------------------: |
-|     Stake Mínimo del Nominador    |     |                          {{ networks.moonbase.staking.min_nom_stake }} tokens                           |
-|        Nominación Mínima     |     |                          {{ networks.moonbase.staking.min_nom_amount}} tokens                           |
-| Máximos de nominadores por collators |     |                             {{ networks.moonbase.staking.max_nom_per_col }}                             |
-| Máximo de collators por nominador  |     |                             {{ networks.moonbase.staking.max_col_per_nom }}                             |
-|              Ronda               |     | {{ networks.moonbase.staking.round_blocks }} bloques ({{ networks.moonbase.staking.round_hours }} horas) |
-|          Duración del Bond           |     |                            {{ networks.moonbase.staking.bond_lock }} rondas                             |
+|     Stake Mínimo del Nominador    |     |                          5 tokens                           |
+|        Nominación Mínima     |     |                          5 tokens                           |
+| Máximos de nominadores por collators |     |                             10                             |
+| Máximo de collators por nominador  |     |                             25                             |
+|              Ronda               |     | 300 bloques (1 hora) |
+|          Duración del Bond           |     |                            2 rondas                             |
 
 ## Distribución de recompensas
 
