@@ -69,8 +69,8 @@ Esta sección repasa el proceso de nominación de clasificadores. El tutorial ut
 
 |  Variable  |     |                      Habla a                      |
 | :--------: | :-: | :------------------------------------------------: |
-| Clasificador 1 |     | 0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce |
-| Clasificador 2 |     | 0x62d2e7324f9274fac3893a59aff8e944a323a495 |
+| Collator 1 |     | 0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce |
+| Collator 2 |     | 0x62d2e7324f9274fac3893a59aff8e944a323a495 |
 
 Para acceder a las funciones de replanteo, debe utilizar la interfaz de PolkadotJS Apps. Para hacerlo, primero debe importar / crear una cuenta estilo Ethereum (dirección H160), lo que puede hacer siguiendo [esta guía](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account).
 
