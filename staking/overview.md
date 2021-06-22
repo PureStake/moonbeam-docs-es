@@ -32,7 +32,7 @@ Actualmente, para Moonbase Alpha
 
 ## Distribución de recompensas
 
-Al final de cada ronda ({{ networks.moonbase.staking.round_blocks }} bloques), los collators son recompensados por su trabajo de {{ networks.moonbase.staking.bond_lock }} rondas atras.
+Al final de cada ronda (300 bloques), los collators son recompensados por su trabajo de 2 rondas atras.
 
 Cuando los collators se unen al grupo, establecen una comisión para cobrar a sus nominadores por el servicio que brindan. Por lo tanto, la distribución de recompensas es la siguiente:
 
