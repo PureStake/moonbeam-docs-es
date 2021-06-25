@@ -1,6 +1,6 @@
 ---
-title: Contracts & Libraries
-description:  Learn how to create common OpenZeppelin contracts with their Contracts Wizard easily and how to deploy them on Moonbeam thanks to its Ethereum compatibility features
+title: Contratos y Bibliotecas
+description:  Aprenda cómo crear contratos comunes de OpenZeppelin con su Contracts Wizard fácilmente y cómo desplegarlos en Moonbeam gracias a sus características de compatibilidad con Ethereum compatibility features
 ---
 
 # Contratos y bibliotecas de OpenZeppelin
