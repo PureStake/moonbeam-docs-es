@@ -3,7 +3,7 @@ title: Ledger
 description: Esta guía le muestra cómo usar su billetera de hardware Ledger para firmar transacciones en Moonbeam, aprovechando sus características de compatibilidad con Ethereum
 ---
 
-# Cartera de hardware de Ledger
+# Cartera de hardware Ledger
 
 ![Intro diagram](/images/ledger/ledger-banner.png)
 
