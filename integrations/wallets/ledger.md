@@ -7,7 +7,7 @@ description: Esta guía le muestra cómo usar su billetera de hardware Ledger pa
 
 ![Intro diagram](/images/ledger/ledger-banner.png)
 
-## Introdución 
+## Introducción 
 
 Las carteras de hardware proporcionan una forma más segura de almacenar fondos criptográficos porque la clave privada (utilizada para firmar transacciones) se almacena fuera de línea. Ledger ofrece dos soluciones de billetera de hardware en el momento de escribir este artículo: Ledger Nano S y Ledger Nano X.
 
