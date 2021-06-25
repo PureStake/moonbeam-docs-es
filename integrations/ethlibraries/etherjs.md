@@ -1,6 +1,6 @@
 ---
 title: Ethers.js
-description: Siga este tutorial para aprender a usar la biblioteca Ethereum EtherJS para implementar contratos inteligentes Solidity en Moonbeam.
+description: Siga este tutorial para aprender a usar la biblioteca Ethereum EtherJS para desplegar contratos inteligentes Solidity en Moonbeam.
 ---
 # Biblioteca de JavaScript de Ethers.js
 
