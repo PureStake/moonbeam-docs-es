@@ -1,37 +1,37 @@
 ---
 title: Defender
-description:  Learn how to use OpenZeppelin Defender to manage smart contracts securely on Moonbeam, thanks to its Ethereum compatibility features
+description:  Aprenda a usar OpenZeppelin Defender para administrar contratos inteligentes de forma segura en Moonbeam, gracias a sus funciones de compatibilidad con Ethereum
 ---
 
 # OpenZeppelin Defender
 
 ![OpenZeppelin Defender Banner](/images/openzeppelin/ozdefender-banner.png)
 
-## Introduction
+## Introducción
 
-OpenZeppelin Defender is a web-based application that allows developers to perform and automate smart contract operations in a secure way. Defender offers different components:
+OpenZeppelin Defender es una aplicación basada en web que permite a los desarrolladores realizar y automatizar operaciones de contratos inteligentes de forma segura. Defender ofrece diferentes componentes:
 
- - [**Admin**](https://docs.openzeppelin.com/defender/admin) — to automate and secure all your smart contract operations such as access controls, upgrades, and pausing
- - [**Relay**](https://docs.openzeppelin.com/defender/relay) — to build with a private and secure transaction infrastructure with the implementation of private relayers
- - [**Autotasks**](https://docs.openzeppelin.com/defender/autotasks) — to create automated scripts to interact with your smart contracts
- - [**Sentinel**](https://docs.openzeppelin.com/defender/sentinel) — to monitor your smart contract's events, functions, and transactions, and receive notifications via email
- - [**Advisor**](https://docs.openzeppelin.com/defender/advisor) — to learn and implement best practices around development, testing, monitoring, and operations
+ - [**Admin**](https://docs.openzeppelin.com/defender/admin) — para automatizar y asegurar todas sus operaciones de contratos inteligentes, como controles de acceso, actualizaciones y pausas.
+ - [**Relay**](https://docs.openzeppelin.com/defender/relay) — para construir con una infraestructura de transacciones privada y segura con la implementación de retransmisores privados.
+ - [**Autotasks**](https://docs.openzeppelin.com/defender/autotasks) — para crear scripts automatizados para interactuar con sus contratos inteligentes
+ - [**Sentinel**](https://docs.openzeppelin.com/defender/sentinel) — para monitorear los eventos, funciones y transacciones de su contrato inteligente, y recibir notificaciones por correo electrónico.
+ - [**Advisor**](https://docs.openzeppelin.com/defender/advisor) — para aprender e implementar las mejores prácticas en torno al desarrollo, las pruebas, la supervisión y las operaciones.
 
-OpenZeppelin Defender can now be used on the Moonbase Alpha TestNet. This guide will show you how to get started with Defender and demo the Admin component to pause a smart contract. You can find more information in regards to the other components in the links mentioned above.
+OpenZeppelin Defender ahora se puede utilizar en Moonbase Alpha TestNet. Esta guía le mostrará cómo comenzar con Defender y hacer una demostración del componente Admin para pausar un contrato inteligente. Puede encontrar más información sobre los otros componentes en los enlaces mencionados anteriormente.
 
-For more information, the OpenZeppelin team has written a great [documentation site](https://docs.openzeppelin.com/defender/) for Defender.
+Para obtener más información, el equipo de OpenZeppelin ha escrito un excelente [doc site](https://docs.openzeppelin.com/defender/) para Defender.
 
-## Getting Started with Defender on Moonbase Alpha
+## Empezando con Defender en Moonbase Alpha
 
-This section goes through the steps for getting started with OpenZeppelin Defender on Moonbase Alpha.
+Esta sección describe los pasos para comenzar con OpenZeppelin Defender en Moonbase Alpha.
  
-### Checking Prerequisites
+### Comprobación de requisitos previos
 
-The steps described in this section assume you have [MetaMask](https://metamask.io/) installed and connected to the Moonbase Alpha TestNet. If you haven't connected MetaMask to the TestNet, check out our [MetaMask integration guide](/integrations/wallets/metamask/).
+Los pasos descritos en esta sección asumen que tiene [MetaMask](https://metamask.io/)  instalado y conectado a Moonbase Alpha TestNet. Si no ha conectado MetaMask a TestNet, consulte nuestra [guía de integración de MetaMask](/integrations/wallets/metamask/).
 
-In addition, you need to sign up for a free OpenZeppelin Defender account, which you can do on the main [Defender website](https://defender.openzeppelin.com/).
+Además, debe registrarse para obtener una cuenta gratuita de OpenZeppelin Defender, lo que puede hacer en el [website de Defender](https://defender.openzeppelin.com/).
 
-The contract used in this guide is an extension of the `Box.sol` contract used in the [upgrading smart contracts guide](https://docs.openzeppelin.com/learn/upgrading-smart-contracts), from the OpenZeppelin documentation. Also, the contract was made upgradable and [pausable](https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable) to take full advantage of the Admin component. You can deploy your contract using the following code and following the [upgrading smart contracts guide](https://docs.openzeppelin.com/learn/upgrading-smart-contracts):
+El contrato utilizado en esta guía es una extensión del contrato `Box.sol` utilizado en la [guía de actualización de contratos inteligentes](https://docs.openzeppelin.com/learn/upgrading-smart-contracts),de la documentación de OpenZeppelin. Además, el contrato se actualizó y se [pausó](https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable) para aprovechar al máximo el componente Admin. Puede implementar su contrato utilizando el siguiente código y siguiendo la [guía de actualización de contratos inteligentes](https://docs.openzeppelin.com/learn/upgrading-smart-contracts):
 
 ```sol
 // SPDX-License-Identifier: MIT
@@ -73,72 +73,74 @@ contract PausableBox is Initializable, PausableUpgradeable, OwnableUpgradeable {
 }
 ```
 
-### Connecting Defender to Moonbase Alpha
+### Conectando Defender a Moonbase Alpha
 
-Once you have an OpenZeppelin Defender account, log into the [Defender App](https://defender.openzeppelin.com/). In the main screen, with MetaMask [connected to Moonbase Alpha](/getting-started/moonbase/metamask/) click on the top right corner "Connect wallet" button:
+Una vez que tenga una cuenta OpenZeppelin Defender, inicie sesión en la [Defender App](https://defender.openzeppelin.com/). En la pantalla principal, con MetaMask [conectado a Moonbase Alpha](/getting-started/moonbase/metamask/) haga clic en el botón "Conectar billetera" de la esquina superior derecha:
 
 ![OpenZeppelin Defender Connect](/images/openzeppelin/ozdefender-images1.png)
 
-If successful, you should see your address and a text stating "Connected to Moonbase Alpha."
+Si tiene éxito, debería ver su dirección y un texto que diga "Conectado a Moonbase Alpha".
 
-## Using the Admin Component
+## Usando el Componente Admin 
 
-This section goes through the steps for getting started with OpenZeppelin Defender Admin component to manage smart contracts on Moonbase Alpha.
+Esta sección describe los pasos para comenzar con el componente Admin de OpenZeppelin Defender para administrar contratos inteligentes en Moonbase Alpha.
 
-### Importing your Contract
+### Importando su contrato
 
-The first step to using Defender Admin is to add the contract you want to manage. To do so, click on the "Add contract" button near the top right corner. This will take you to the "import contract" screen, where you need to:
+El primer paso para usar Defender Admin es agregar el contrato que desea administrar. Para hacerlo, haga clic en el botón "Agregar contrato" cerca de la esquina superior derecha. Esto lo llevará a la pantalla "importar contrato", donde debe:
 
- 1. Set a contract name. This is only for display purposes
- 2. Select the network where the contract that you want to manage is deployed. This is particularly useful when a contract is deployed with the same address to multiple networks. For this example, enter `Moonbase Alpha`
- 3. Enter the contract address
- 4. Paste the contract ABI. This can be obtained either in [Remix](/integrations/remix/) or in the `.json` file generally created after the compilation process (for example, in Truffle or HardHat)
- 5. Check that the contract features were detected correctly
- 6. Once you've checked all the information, click on the "Add" button
+
+ 1. Establezca un nombre de contrato. Esto es solo para fines de visualización.
+ 2. Seleccione la red donde se implementa el contrato que desea administrar. Esto es particularmente útil cuando se implementa un contrato con la misma dirección en varias redes. Para este ejemplo, ingrese `Moonbase Alpha`
+ 3. Ingrese la dirección del contrato
+ 4. Pega el contrato ABI. Esto se puede obtener en [Remix](/integrations/remix/) o en el archivo `.json` generalmente creado después del proceso de compilación (por ejemplo, en Truffle o HardHat)
+ 5. Verifique que las características del contrato se hayan detectado correctamente
+ 6. Una vez que haya verificado toda la información, haga clic en el botón "Agregar"
 
 ![OpenZeppelin Defender Admin Add Contract](/images/openzeppelin/ozdefender-images2.png)
 
-If everything was successfully imported, you should see your contract in the Admin component main screen:
+Si todo se importó correctamente, debería ver su contrato en la pantalla principal del componente Admin:
 
 ![OpenZeppelin Defender Admin Contract Added](/images/openzeppelin/ozdefender-images3.png)
 
-### Create a Contract Proposal
+### Crear una propuesta de contrato
 
-Proposals are actions to be carried out in the contract. At the time of writing, there are three main proposals/actions that can take place:
+Las propuestas son acciones a realizar en el contrato. En el momento de redactar este artículo, hay tres propuestas / acciones principales que pueden llevarse a cabo:
 
-- **Pause** — available if the pause feature is detected. Pauses token transfers, minting and burning
-- **Upgrade** — available if the upgrade feature is detected. Allows for a contract to be [upgraded via a proxy contract](https://docs.openzeppelin.com/learn/upgrading-smart-contracts)
-- **Admin action** — call to any function in the managed contract
+- **Pause** — disponible si se detecta la función de pausa. Pausa las transferencias, la acuñación y la quema de tokens
+- **Upgrade** — disponible si se detecta la función de actualización. Permite [actualizar un contrato a través de un contrato proxy](https://docs.openzeppelin.com/learn/upgrading-smart-contracts)
+- **Admin action** — llamada a cualquier función en el contrato administrado
 
-In this case, a new proposal is created to pause the contract. To do so, take the following steps:
+En este caso, se crea una nueva propuesta para pausar el contrato. Para hacerlo, siga los siguientes pasos:
 
- 1. Click on the "New proposal" button to see all the available options
- 2. Click on "Pause"
+ 1. Haga click en el botón "Nueva propuesta" para ver todas las opciones disponibles
+ 2. Haga click en "Pausa"
 
 ![OpenZeppelin Defender Admin Contract New Pause Proposal](/images/openzeppelin/ozdefender-images4.png)
 
-This will open the proposal page, where all the details regarding the proposal need to be filled in. In this example, you need to provide the following information:
+Esto abrirá la página de la propuesta, donde se deben completar todos los detalles relacionados con la propuesta. En este ejemplo, debe proporcionar la siguiente información:
 
- 1. Admin account address. You can also leave this field empty if you want to run the action from your current wallet (if it has all the necessary permissions)
- 2. Title of the proposal
- 3. Description of the proposal. In here, you should provide as much detail as possible for other members/managers of the contract (if using a MultiSig wallet)
- 4. Click on "Create pause proposal"
+ 1. Dirección de la cuenta de administrador. También puede dejar este campo vacío si desea ejecutar la acción desde su billetera actual (si tiene todos los permisos necesarios)
+ 2. Título de la propuesta
+ 3. Descripción de la propuesta. Aquí, debe proporcionar tantos detalles como sea posible para otros miembros / gerentes del contrato (si usa una billetera MultiSig)
+ 4. Haga click en "Crear propuesta de pausa".
 
 ![OpenZeppelin Defender Admin Contract Pause Proposal Details](/images/openzeppelin/ozdefender-images5.png)
 
-Once the proposal is successfully created, it should be listed in the contract's admin dashboard.
+Una vez que la propuesta se crea correctamente, debe aparecer en el panel de administración del contrato.
+
 
 ![OpenZeppelin Defender Admin Contract Proposal List](/images/openzeppelin/ozdefender-images6.png)
 
-### Approve a Contract Proposal
+### Aprobar una propuesta de contrato
 
-With the contract proposal created, the next step is to approve and execute it. To do so, go to the proposal and click on "Approve and Execute." 
+Con la propuesta de contrato creada, el siguiente paso es aprobarla y ejecutarla. Para hacerlo, vaya a la propuesta y haga clic en "Aprobar y ejecutar".
 
 ![OpenZeppelin Defender Admin Contract Proposal Pause Approve](/images/openzeppelin/ozdefender-images7.png)
 
 
-This will initiate a transaction that needs to be signed using MetaMask, after which the proposal state should change to "Executed (confirmation pending)." Once the transaction is processed, the status should show "Executed."
+Esto iniciará una transacción que debe firmarse con MetaMask, después de lo cual el estado de la propuesta debe cambiar a "Ejecutado (confirmación pendiente)". Una vez que se procesa la transacción, el estado debe mostrar "Ejecutado".
 
 ![OpenZeppelin Defender Admin Contract Proposal Pause Executed](/images/openzeppelin/ozdefender-images8.png)
 
-You can also see that the contract's status has changed from "Running" to "Paused." Great! You now know how to use the Admin component to manage your smart contracts. 
+También puede ver que el estado del contrato ha cambiado de "En ejecución" a "En pausa". ¡Estupendo! Ahora sabe cómo usar el componente Admin para administrar sus contratos inteligentes.
