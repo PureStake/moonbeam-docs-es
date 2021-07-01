@@ -3,11 +3,11 @@ title: Waffle & Mars
 description: Aprenda a usar Waffle y Mars para escribir, compilar, probar e implementar contratos inteligentes de Ethereum en Moonbeam.
 ---
 
-# Using Waffle & Mars on Moonbeam
+# Usando Waffle & Mars en Moonbeam
 
 ![Waffle and Mars on Moonbeam](/images/waffle-mars/waffle-mars-banner.png)
 
-## Introduction
+## Introducción
 
 [Waffle](https://getwaffle.io/)  es una biblioteca para compilar y probar contratos inteligentes, y [Mars](https://github.com/EthWorks/Mars) es un administrador de implementación. Juntos, Waffle y Mars se pueden usar para escribir, compilar, probar e implementar contratos inteligentes de Ethereum. Dado que Moonbeam es compatible con Ethereum, Waffle y Mars se pueden usar para implementar contratos inteligentes en un nodo de desarrollo Moonbeam o Moonbase Alpha TestNet.
 
