@@ -1,107 +1,124 @@
 ---
-title: Ejecutar un Nodo
-description: Cómo ejecutar un nodo Parachain completo para Moonbeam Network para tener su RPC Endpoint o producir bloques
+title: Run a Node
+description: How to run a full Parachain node for the Moonbeam Network to have your RPC Endpoint or produce blocks
 ---
 
-# Ejecutar un nodo en Moonbeam
+# Run a Node on Moonbeam
 
 ![Full Node Moonbeam Banner](/images/fullnode/fullnode-banner.png)
 
-## Introducción
+## Introduction
 
-Con el lanzamiento de Moonbase Alpha v6, puede activar un nodo que se conecta a Moonbase Alpha TestNet, se sincroniza con un bootnode, proporciona acceso local a sus puntos finales de RPC e incluso crea bloques en la parachain.
+Running a full node on a Moonbeam-based network allows you to connect to the network, sync with a bootnode, obtain local access to RPC endpoints, author blocks on the parachain, and more.
 
-En nuestro TestNet, la cadena de retransmisión está alojada y gestionada por PureStake. Pero a medida que avanza el desarrollo, también habrá implementaciones en Kusama y luego en Polkadot. Así es como se nombrarán estos próximos entornos y el nombre de sus [archivos de especificación de cadena](https://substrate.dev/docs/en/knowledgebase/integrate/chain-spec) correspondientes:
+There are multiple deployments of Moonbeam, including the Moonbase Alpha TestNet, Moonriver on Kusama, and eventually there will be Moonbeam on Polkadot. Here's how these environments are named and their corresponding [chain specification file](https://substrate.dev/docs/en/knowledgebase/integrate/chain-spec) names:
 
-|    La red     |     | Alojado por |     |   Nombre de cadena    |
+|    Network     |     | Hosted By |     |   Chain Name    |
 | :------------: | :-: | :-------: | :-: | :-------------: |
-| Moonbase Alpha |     | PureStake |     |    alphanet     |
-|   Moonriver    |     |  Kusama   |     | _no disponible_ |
-|    Moonbeam    |     | Polkadot  |     | _no disponible_ |
+| Moonbase Alpha |     | PureStake |     |    {{ networks.moonbase.chain_spec }}     |
+|   Moonriver    |     |  Kusama   |     |    {{ networks.moonriver.chain_spec }}    |
+|    Moonbeam    |     | Polkadot  |     | _not available_ |
 
-Esta guía está destinada a personas con experiencia en la ejecución de cadenas basadas en [Substrate](https://substrate.dev/). Ejecutar un parachain es similar a ejecutar un nodo Substrate con algunas diferencias. Un nodo de parachain de sustrato ejecutará dos procesos: uno para sincronizar la cadena de relés y otro para sincronizar la parachain. Como tal, muchas cosas se duplican, por ejemplo, el directorio de la base de datos, los puertos utilizados, las líneas de registro y más.
-
-!!! note
-    Moonbase Alpha todavía se considera un Alphanet, y, como tal , no tendrá un tiempo de actividad del 100%. La parachain se purgará de vez en cuando. Durante el desarrollo de su aplicación, asegúrese de implementar un método para volver a implementar sus contratos y cuentas en una nueva parachain rápidamente. Las purgas de cadenas se anunciarán a través de nuestro [canal de Discord con](https://discord.gg/PfpUATX) al menos 24 horas de anticipación.
-
-## Requisitos
-
-Las especificaciones mínimas recomendadas para ejecutar un nodo se muestran en la siguiente tabla. Para nuestras implementaciones de Kusama y Polkadot MainNet, los requisitos de disco serán mayores a medida que la red crezca.
-
-|  Componente   |     | Requisito                                                                                                                |
-| :----------: | :-: | :------------------------------------------------------------------------------------------------------------------------- |
-|   **CPU**    |     | 8 núcleos (más rápido por velocidad de núcleo)                                                                      |
-|   **RAM**    |     | 16 GB (fase de desarrollo inicial, aún no optimizado)                                                                        |
-|   **SSD**    |     | 50 GB  (para empezar en nuestro TestNet)                                                                                            |
-| **Cortafuegos** |     | El puerto P2P debe estar abierto al tráfico entrante:<br>&nbsp; &nbsp; -  Origen: Cualquiera<br>&nbsp; &nbsp; - Destino: 30333, 30334 TCP |
+This guide is meant for people with experience compiling [Substrate](https://substrate.dev/) based blockchain nodes. A parachain node is similar to a typical Substrate node, but there are some differences. A Substrate parachain node will is a bigger build because it contains code to run the parachain itself, as well as code to sync the relay chain, and facilitate communication between the two. As such, this build is quite large and may take over 30 min and require 32GB of memory.
 
 !!! note
-    Si no ve un `Imported` mensaje (sin la `[Relaychain]` etiqueta) cuando ejecuta un nodo, es posible que deba volver a verificar la configuración de su puerto.
+    Moonbase Alpha is still considered an Alphanet, and as such _will not_ have 100% uptime. The parachain _will_ be purged from time to time. During the development of your application, make sure you implement a method to redeploy your contracts and accounts to a fresh parachain quickly. Chain purges will be announced via our [Discord channel](https://discord.gg/PfpUATX) at least 24 hours in advance.
 
-## Puertos en ejecución
+## Requirements
 
-Como se indicó anteriormente, los nodos de retransmisión / parachain escucharán en varios puertos. Los puertos de sustrato predeterminados se utilizan en la parachain, mientras que la cadena de relés escuchará en el siguiente puerto superior.
+The minimum specs recommended to run a node are shown in the following table. For our Kusama and Polkadot MainNet deployments, disk requirements will be higher as the network grows.
 
-Los únicos puertos que deben estar abiertos para el tráfico entrante son los designados para P2P.
+=== "Moonbase Alpha"
+    |  Component   |     | Requirement                                                                                                                |
+    | :----------: | :-: | :------------------------------------------------------------------------------------------------------------------------- |
+    |   **CPU**    |     | 8 Cores (Fastest per core speed)                                                                      |
+    |   **RAM**    |     | 16 GB                                                                         |
+    |   **SSD**    |     | 50 GB (to start)                                                                                            |
+    | **Firewall** |     | P2P port must be open to incoming traffic:<br>&nbsp; &nbsp; - Source: Any<br>&nbsp; &nbsp; - Destination: 30333, 30334 TCP |
 
-### Puertos predeterminados para un nodo completo de Parachain
+=== "Moonriver"
+    |  Component   |     | Requirement                                                                                                                |
+    | :----------: | :-: | :------------------------------------------------------------------------------------------------------------------------- |
+    |   **CPU**    |     | 8 Cores (Fastest per core speed)                                                                      |
+    |   **RAM**    |     | 16 GB                                                                         |
+    |   **SSD**    |     | 300 GB (to start)                                                                              |
+    | **Firewall** |     | P2P port must be open to incoming traffic:<br>&nbsp; &nbsp; - Source: Any<br>&nbsp; &nbsp; - Destination: 30333, 30334 TCP |
 
-|  Descripción   |     |                Puerto                 |
+
+!!! note
+    If you don't see an `Imported` message (without the `[Relaychain]` tag) when running a node, you might need to double-check your port configuration.
+
+## Running Ports
+
+As stated before, the relay/parachain nodes will listen on multiple ports. The default Substrate ports are used in the parachain, while the relay chain will listen on the next higher port.
+
+The only ports that need to be open for incoming traffic are those designated for P2P.
+
+### Default Ports for a Parachain Full-Node
+
+|  Description   |     |                Port                 |
 | :------------: | :-: | :---------------------------------: |
 |    **P2P**     |     | {{ networks.parachain.p2p }} (TCP)  |
 |    **RPC**     |     |    {{ networks.parachain.rpc }}     |
 |     **WS**     |     |     {{ networks.parachain.ws }}     |
-| **Prometeo** |     | {{ networks.parachain.prometheus }} |
+| **Prometheus** |     | {{ networks.parachain.prometheus }} |
 
-### Puertos predeterminados de la cadena de relés incorporada
+### Default Ports of Embedded Relay Chain
 
-|  Descripción   |     |                 Puerto                  |
+|  Description   |     |                 Port                  |
 | :------------: | :-: | :-----------------------------------: |
 |    **P2P**     |     | {{ networks.relay_chain.p2p }} (TCP)  |
 |    **RPC**     |     |    {{ networks.relay_chain.rpc }}     |
 |     **WS**     |     |     {{ networks.relay_chain.ws }}     |
-| **Prometeo** |     | {{ networks.relay_chain.prometheus }} |
+| **Prometheus** |     | {{ networks.relay_chain.prometheus }} |
 
-## Instrucciones de instalación: Docker
+## Installation Instructions - Docker
 
-Un nodo Moonbase Alpha se puede activar rápidamente usando Docker. Para obtener más información sobre la instalación de Docker, visite [esta página](https://docs.docker.com/get-docker/). En el momento de redactar este artículo, la versión de Docker utilizada era la 19.03.6.
+A Moonbeam node can be spun up quickly using Docker. For more information on installing Docker, please visit [this page](https://docs.docker.com/get-docker/). At the time of writing, the Docker version used was 19.03.6. When connecting to Moonriver on Kusama, it will take a few days to completely sync the embedded Kusama relay chain. Make sure that your system meets the [requirements](#requirements).
 
-Primero, cree un directorio local para almacenar los datos de la cadena:
+Create a local directory to store the chain data:
 
-```
-mkdir {{ networks.moonbase.node_directory }}
-```
+=== "Moonbase Alpha"
+    ```
+    mkdir {{ networks.moonbase.node_directory }}
+    ```
 
-A continuación, configure los permisos necesarios para un usuario específico o actual (reemplace `DOCKER_USER` por el usuario real que ejecutará el `docker` comando):
+=== "Moonriver"
+    ```
+    mkdir {{ networks.moonriver.node_directory }}
+    ```
 
-```
-# chown to a specific user
-chown DOCKER_USER {{ networks.moonbase.node_directory }}
+Next, make sure you set the ownership and permissions accordingly for the local directory that stores the chain data. In this case, set the necessary permissions either for a specific or current user (replace `DOCKER_USER` for the actual user that will run the `docker` command):
 
-# chown to current user
-sudo chown -R $(id -u):$(id -g) {{ networks.moonbase.node_directory }}
-```
+=== "Moonbase Alpha"
+    ```
+    # chown to a specific user
+    chown DOCKER_USER {{ networks.moonbase.node_directory }}
 
-!!! note
-    Asegúrese de establecer la propiedad y los permisos correspondientes para el directorio local que almacena los datos de la cadena.
+    # chown to current user
+    sudo chown -R $(id -u):$(id -g) {{ networks.moonbase.node_directory }}
+    ```
 
-Ahora, ejecute el comando docker run. Tenga en cuenta que tiene que:
+=== "Moonriver"
+    ```
+    # chown to a specific user
+    chown DOCKER_USER {{ networks.moonriver.node_directory }}
 
- - Reemplazar `YOUR-NODE-NAME` en dos lugares diferentes.
- - Para collators, reemplácelo `PUBLIC_KEY` la dirección pública que se asociará con las actividades de clasificación.
+    # chown to current user
+    sudo chown -R $(id -u):$(id -g) {{ networks.moonriver.node_directory }}
+    ```
 
-!!! note
-    Si está configurando un nodo de clasificación, asegúrese de seguir los fragmentos de código para "collator".
+Now, execute the docker run command. If you are setting up a collator node, make sure to follow the code snippets for "Collator". Note that you have to replace `YOUR-NODE-NAME` in two different places.
 
-### Nodo completo
+### Full Node
 
-=== "Ubuntu"
+=== "Moonbase Alpha"
     ```
     docker run --network="host" -v "{{ networks.moonbase.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
+    purestake/moonbeam:{{ networks.moonbase.parachain_release_tag }} \
     --base-path=/data \
-    --chain alphanet \
+    --chain {{ networks.moonbase.chain_spec }} \
     --name="YOUR-NODE-NAME" \
     --execution wasm \
     --wasm-execution compiled \
@@ -112,13 +129,13 @@ Ahora, ejecute el comando docker run. Tenga en cuenta que tiene que:
     --name="YOUR-NODE-NAME (Embedded Relay)"
     ```
 
-=== "MacOS"
+=== "Moonriver"
     ```
-    docker run -p {{ networks.parachain.rpc }}:{{ networks.parachain.rpc }} -p {{ networks.parachain.ws }}:{{ networks.parachain.ws }} -v "{{ networks.moonbase.node_directory }}:/data" \
+    docker run --network="host" -v "{{ networks.moonriver.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
+    purestake/moonbeam:{{ networks.moonriver.parachain_release_tag }} \
     --base-path=/data \
-    --chain alphanet \
+    --chain {{ networks.moonriver.chain_spec }} \
     --name="YOUR-NODE-NAME" \
     --execution wasm \
     --wasm-execution compiled \
@@ -131,13 +148,13 @@ Ahora, ejecute el comando docker run. Tenga en cuenta que tiene que:
 
 ### Collator
 
-=== "Ubuntu"
+=== "Moonbase Alpha"
     ```
     docker run --network="host" -v "{{ networks.moonbase.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
+    purestake/moonbeam:{{ networks.moonbase.parachain_release_tag }} \
     --base-path=/data \
-    --chain alphanet \
+    --chain {{ networks.moonbase.chain_spec }} \
     --name="YOUR-NODE-NAME" \
     --validator \
     --execution wasm \
@@ -149,13 +166,13 @@ Ahora, ejecute el comando docker run. Tenga en cuenta que tiene que:
     --name="YOUR-NODE-NAME (Embedded Relay)"
     ```
 
-=== "MacOS"
+=== "Moonriver"
     ```
-    docker run -p {{ networks.parachain.rpc }}:{{ networks.parachain.rpc }} -p {{ networks.parachain.ws }}:{{ networks.parachain.ws }} -v "{{ networks.moonbase.node_directory }}:/data" \
+    docker run --network="host" -v "{{ networks.moonriver.node_directory }}:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    purestake/moonbeam:{{ networks.moonbase.parachain_docker_tag }} \
+    purestake/moonbeam:{{ networks.moonriver.parachain_release_tag }} \
     --base-path=/data \
-    --chain alphanet \
+    --chain {{ networks.moonriver.chain_spec }} \
     --name="YOUR-NODE-NAME" \
     --validator \
     --execution wasm \
@@ -165,108 +182,128 @@ Ahora, ejecute el comando docker run. Tenga en cuenta que tiene que:
     -- \
     --pruning archive \
     --name="YOUR-NODE-NAME (Embedded Relay)"
+    ```
 
-Una vez que Docker extrae las imágenes necesarias, se iniciará el nodo completo de Moonbase Alpha, mostrando mucha información, como la especificación de la cadena, el nombre del nodo, el rol, el estado de génesis y más:
+If you're using MacOS, you can find all the code snippets [here](/snippets/text/full-node/macos-node/).
+
+Once Docker pulls the necessary images, your full Moonbeam (or Moonriver) node will start, displaying lots of information, such as the chain specification, node name, role, genesis state, and more:
 
 ![Full Node Starting](/images/fullnode/fullnode-docker1.png)
 
 !!! note
-    Si tiene problemas con la telemetría predeterminada, puede agregar la marca `--no-telemetry` para ejecutar el nodo completo sin la telemetría activada.
+    If you want to run an RPC endpoint, to connect polkadot.js.org, or to run your own application, use the flags `--unsafe-rpc-external` and/or `--unsafe-ws-external` to run the full node with external access to the RPC ports.  More details are available by running `moonbeam --help`.  
 
 !!! note
-    Puede especificar un puerto Prometheus personalizado con la `--prometheus-port XXXX` bandera (reemplazando `XXXX` con el número de puerto real). Esto es posible tanto para la parachain como para la cadena de relés integrada.
+    You can specify a custom Prometheus port with the `--prometheus-port XXXX` flag (replacing `XXXX` with the actual port number). This is possible for both the parachain and embedded relay chain.
 
-El comando anterior habilitará todos los puertos expuestos necesarios para el funcionamiento básico, incluidos los puertos P2P y Prometheus (telemetría). Este comando es compatible para usar con la telemetría del Watchdog del nodo de Gantree. Si desea exponer puertos específicos, habilítelos en la línea de comando de ejecución de Docker como se muestra a continuación. Sin embargo, hacerlo evitará que el contenedor Gantree Node Watchdog (telemetría) acceda al contenedor Moonbeam, así que no haga esto cuando ejecute un collator a menos que comprenda las [redes de la ventana acoplable.](https://docs.docker.com/network/).
+The command above will enable all exposed ports required for basic operation, including the P2P, and Prometheus (telemetry) ports. This command is compatible to use with the Gantree Node Watchdog telemetry. If you want to expose specific ports, enable those on the Docker run command line as shown below. However, doing so will block the Gantree Node Watchdog (telemetry) container from accessing the moonbeam container, so don't do this when running a collator unless you understand [docker networking](https://docs.docker.com/network/).
 
 ```
 docker run -p {{ networks.relay_chain.p2p }}:{{ networks.relay_chain.p2p }} -p {{ networks.parachain.p2p }}:{{ networks.parachain.p2p }} -p {{ networks.parachain.rpc }}:{{ networks.parachain.rpc }} -p {{ networks.parachain.ws }}:{{ networks.parachain.ws }} #rest of code goes here
 ```
 
-Durante el proceso de sincronización, verá mensajes tanto de la cadena de relés incorporada como de la parachain (sin etiqueta). Estos mensajes muestran un bloque de destino (TestNet) y un mejor bloque (estado sincronizado del nodo local).
+During the syncing process, you will see messages from both the embedded relay chain and the parachain (without a tag). These messages display a target block (live network state) and a best block (local node synced state).
 
 ![Full Node Starting](/images/fullnode/fullnode-docker2.png)
 
-Una vez sincronizado, ¡tiene un nodo de Moonbase Alpha TestNet ejecutándose localmente!
-
-## Instrucciones de instalación: binario
-
-Esta sección pasa por el proceso de compilar el binario y ejecutar un nodo completo Moonbeam como un servicio systemd. Los siguientes pasos se probaron en una instalación de Ubuntu 18.04. Moonbase Alpha puede funcionar con otras versiones de Linux, pero Ubuntu es actualmente la única versión probada.
-
-### Compilando el binario
-
-Los siguientes comandos construirán la última versión de Moonbeam parachain.
-
-Primero, comencemos clonando el repositorio moonbeam.
-
-```
-git clone https://github.com/PureStake/moonbeam
-cd moonbeam
-```
-
-Echemos un vistazo a la última versión:
-
-```
-git checkout tags/$(git tag | tail -1)
-```
-
-A continuación, instale Substrate y todos sus requisitos previos, incluido Rust, ejecutando:
-
-```
---8<-- 'code/setting-up-node/substrate.md'
-```
-
-Por último, compile el binario de parachain:
-
-```
-cargo build --release
-```
-
-![Compiling Binary](/images/fullnode/fullnode-binary1.png)
-
-Si aparece un _error de carga no encontrada_ en la terminal, agregue manualmente Rust a la ruta de su sistema o reinicie su sistema:
-
-```
---8<-- 'code/setting-up-node/cargoerror.md'
-```
-
-### Ejecución del servicio Systemd
-
-Los siguientes comandos configurarán todo lo relacionado con la ejecución del servicio.
-
-Primero, creemos una cuenta de servicio para ejecutar el servicio:
-
-```
-adduser moonbase_service --system --no-create-home
-```
-
-A continuación, cree un directorio para almacenar el binario y los datos y establezca los permisos necesarios:
-
-```
-mkdir {{ networks.moonbase.node_directory }}
-chown moonbase_service {{ networks.moonbase.node_directory }}
-```
-
 !!! note
-   Asegúrese de establecer la propiedad y los permisos correspondientes para el directorio local que almacena los datos de la cadena.
+    It will take a few days to completely sync the embedded Kusama relay chain. Make sure that your system meets the [requirements](#requirements). 
 
-Ahora, copie el binario construido en la última sección a la carpeta creada:
+If you followed the installation instructions for Moonbase Alpha, once synced, you will have a node of the Moonbase Alpha TestNet running locally!
 
-```
-cp ./target/release/{{ networks.moonbase.binary_name }} {{ networks.moonbase.node_directory }}
-```
+If you followed the installation instructions for Moonriver, once synced, you will be connected to peers and see blocks being produced on the Moonriver network! Note that in this case you need to also sync to the Kusama relay chain, which might take a few days.
 
-El siguiente paso es crear el archivo de configuración systemd. Tenga en cuenta que tiene que:
+## Installation Instructions - Binary
 
- - Reemplazar `YOUR-NODE-NAME` en dos lugares diferentes
- - Verifique que el binario esté en la ruta correcta como se describe a continuación (_ExecStart_)
- - Vuelva a verificar la ruta base si ha utilizado un directorio diferente
- - Para collators, reemplace `PUBLIC-KEY` la clave pública de su dirección Ethereum H160 creada anteriormente
- - Nombra el archivo `/etc/systemd/system/moonbeam.service`
+This section goes through the process of using the release binary and running a Moonbeam full node as a systemd service. The following steps were tested on an Ubuntu 18.04 installation. Moonbeam may work with other Linux flavors, but Ubuntu is currently the only tested version.
 
-!!! note
-    Si está configurando un nodo de clasificación, asegúrese de seguir los fragmentos de código para "collator".
+To manually build the binaries yourself, check out the [Compile Moonbeam Binary](/node-operators/networks/compile-binary) guide.
 
-=== "Nodo completo"
+### Use the Release Binary
+
+There are a couple ways to get started with the Moonbeam binary. You can compile the binary yourself, but the whole process can take around 30 minutes to install the dependencies and build the binary. If you're interested in going this route, check out the [Compile the Binary](/) page of our documentation.
+
+Or you can use the [release binary](https://github.com/PureStake/moonbeam/releases) to get started right away.
+
+Use `wget` to grab the latest release binary:
+
+
+=== "Moonbase Alpha"
+    ```
+    wget https://github.com/PureStake/moonbeam/releases/download/{{ networks.moonbase.parachain_release_tag }}/moonbeam
+    ```
+
+=== "Moonriver"
+    ```
+    wget https://github.com/PureStake/moonbeam/releases/download/{{ networks.moonriver.parachain_release_tag }}/moonbeam
+    ``` 
+
+To verify that you have downloaded the correct version, you can run `sha256sum moonbeam` in your terminal, you should receive the following output:
+
+=== "Moonbase Alpha"
+    ```
+    {{ networks.moonbase.parachain_sha256sum }}
+    ```
+
+=== "Moonriver"
+    ```
+    {{ networks.moonriver.parachain_sha256sum }}
+    ```
+
+Once you've retrieved the binary, you can use it to run the systemd service.
+
+### Running the Systemd Service
+
+The following commands will set up everything regarding running the service.
+
+First, let's create a service account to run the service:
+
+=== "Moonbase Alpha"
+    ```
+    adduser moonbase_service --system --no-create-home
+    ```
+
+=== "Moonriver"
+    ```
+    adduser moonriver_service --system --no-create-home
+    ```
+
+Next, create a directory to store the binary and data. Make sure you set the ownership and permissions accordingly for the local directory that stores the chain data.:
+
+=== "Moonbase Alpha"
+    ```
+    mkdir {{ networks.moonbase.node_directory }}
+    chown moonbase_service {{ networks.moonbase.node_directory }}
+    ```
+
+=== "Moonriver"
+    ```
+    mkdir {{ networks.moonriver.node_directory }}
+    chown moonriver_service {{ networks.moonriver.node_directory }}
+    ```
+
+Now, copy the binary built in the last section to the created folder. If you [compiled the binary](/node-operators/networks/compile-binary/) yourself, you'll need to copy the binary in the target directory (`./target/release/{{ networks.moonbase.binary_name }}`). Otherwise, copy the Moonbeam binary in the root:
+
+=== "Moonbase Alpha"
+    ```
+    cp ./{{ networks.moonbase.binary_name }} {{ networks.moonbase.node_directory }}
+    ```
+
+=== "Moonriver"
+    ```
+    cp ./{{ networks.moonriver.binary_name }} {{ networks.moonriver.node_directory }}
+    ```
+
+The next step is to create the systemd configuration file. If you are setting up a collator node, make sure to follow the code snippets for "Collator". Note that you have to:
+
+ - Replace `YOUR-NODE-NAME` in two different places
+ - Double-check that the binary is in the proper path as described below (_ExecStart_)
+ - Double-check the base path if you've used a different directory
+ - Name the file `/etc/systemd/system/moonbeam.service`
+
+#### Full Node
+
+=== "Moonbase Alpha"
     ```
     [Unit]
     Description="Moonbase Alpha systemd service"
@@ -288,7 +325,7 @@ El siguiente paso es crear el archivo de configuración systemd. Tenga en cuenta
          --pruning=archive \
          --state-cache-size 1 \
          --base-path {{ networks.moonbase.node_directory }} \
-         --chain alphanet \
+         --chain {{ networks.moonbase.chain_spec }} \
          --name "YOUR-NODE-NAME" \
          -- \
          --port {{ networks.relay_chain.p2p }} \
@@ -301,7 +338,43 @@ El siguiente paso es crear el archivo de configuración systemd. Tenga en cuenta
     WantedBy=multi-user.target
     ```
 
-=== "Collator"
+=== "Moonriver"
+    ```
+    [Unit]
+    Description="Moonriver systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+    
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=moonriver_service
+    SyslogIdentifier=moonriver
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart={{ networks.moonriver.node_directory }}/{{ networks.moonriver.binary_name }} \
+         --port {{ networks.parachain.p2p }} \
+         --rpc-port {{ networks.parachain.rpc }} \
+         --ws-port {{ networks.parachain.ws }} \
+         --pruning=archive \
+         --state-cache-size 1 \
+         --base-path {{ networks.moonriver.node_directory }} \
+         --chain {{ networks.moonriver.chain_spec }} \
+         --name "YOUR-NODE-NAME" \
+         -- \
+         --port {{ networks.relay_chain.p2p }} \
+         --rpc-port {{ networks.relay_chain.rpc }} \
+         --ws-port {{ networks.relay_chain.ws }} \
+         --pruning=archive \
+         --name="YOUR-NODE-NAME (Embedded Relay)"
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+#### Collator
+
+=== "Moonbase Alpha"
     ```
     [Unit]
     Description="Moonbase Alpha systemd service"
@@ -324,7 +397,7 @@ El siguiente paso es crear el archivo de configuración systemd. Tenga en cuenta
          --pruning=archive \
          --state-cache-size 1 \
          --base-path {{ networks.moonbase.node_directory }} \
-         --chain alphanet \
+         --chain {{ networks.moonbase.chain_spec }} \
          --name "YOUR-NODE-NAME" \
          -- \
          --port {{ networks.relay_chain.p2p }} \
@@ -337,58 +410,77 @@ El siguiente paso es crear el archivo de configuración systemd. Tenga en cuenta
     WantedBy=multi-user.target
     ```
 
-!!! note
-    Si tiene problemas con la telemetría predeterminada, puede agregar la marca `--no-telemetry` para ejecutar el nodo completo sin la telemetría activada.
-    
-!!! note
-    Puede especificar un puerto Prometheus personalizado con la `--promethues-port XXXX` bandera (reemplazando `XXXX` con el número de puerto real). Esto es posible tanto para la parachain como para la cadena de relés integrada.
+=== "Moonriver"
+    ```
+    [Unit]
+    Description="Moonriver systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
 
-¡Casi llegamos! Regístrese e inicie el servicio ejecutando:
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=moonriver_service
+    SyslogIdentifier=moonriver
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart={{ networks.moonriver.node_directory }}/{{ networks.moonriver.binary_name }} \
+         --validator \
+         --port {{ networks.parachain.p2p }} \
+         --rpc-port {{ networks.parachain.rpc }} \
+         --ws-port {{ networks.parachain.ws }} \
+         --pruning=archive \
+         --state-cache-size 1 \
+         --base-path {{ networks.moonriver.node_directory }} \
+         --chain {{ networks.moonriver.chain_spec }} \
+         --name "YOUR-NODE-NAME" \
+         -- \
+         --port {{ networks.relay_chain.p2p }} \
+         --rpc-port {{ networks.relay_chain.rpc }} \
+         --ws-port {{ networks.relay_chain.ws }} \
+         --pruning=archive \
+         --name="YOUR-NODE-NAME (Embedded Relay)"
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+!!! note
+    You can specify a custom Prometheus port with the `--promethues-port XXXX` flag (replacing `XXXX` with the actual port number). This is possible for both the parachain and embedded relay chain.
+
+Almost there! Register and start the service by running:
 
 ```
 systemctl enable moonbeam.service
 systemctl start moonbeam.service
 ```
 
-Y, por último, verifique que el servicio se esté ejecutando:
+And lastly, verify the service is running:
 
 ```
 systemctl status moonbeam.service
 ```
 
-![Service Status](/images/fullnode/fullnode-binary2.png)
+![Service Status](/images/fullnode/fullnode-binary1.png)
 
-También puede verificar los registros ejecutando:
+You can also check the logs by executing:
 
 ```
 journalctl -f -u moonbeam.service
 ```
 
-![Service Logs](/images/fullnode/fullnode-binary3.png)
+![Service Logs](/images/fullnode/fullnode-binary2.png)
 
-## Opciones y banderas avanzadas
+## Advanced Flags and Options
 
 --8<-- 'text/setting-up-node/advanced-flags.md'
 
-## Actualización del cliente
+## Updating the Client
 
-A medida que continúa el desarrollo de Moonbeam, a veces será necesario actualizar el software de su nodo. Los operadores de nodos serán notificados en nuestro [canal de Discord](https://discord.gg/PfpUATX) cuando las actualizaciones estén disponibles y si son necesarias (algunas actualizaciones de clientes son opcionales). El proceso de actualización es sencillo y es el mismo para un nodo completo o un collator.
+As Moonbeam development continues, it will sometimes be necessary to upgrade your node software. Node operators will be notified on our [Discord channel](https://discord.gg/PfpUATX) when upgrades are available and whether they are necessary (some client upgrades are optional). The upgrade process is straightforward and is the same for a full node or collator.
 
-Primero, detenga el contenedor docker o el servicio systemd:
-
-```
-sudo docker stop `CONTAINER_ID`
-# or
-sudo systemctl stop moonbeam
-```
-
-Luego, instale la nueva versión repitiendo los pasos descritos anteriormente, asegurándose de que está utilizando la última etiqueta disponible. Después de la actualización, puede volver a iniciar el servicio.
-
-### Purgando la Cadena
-
-Ocasionalmente, Moonbase Alpha podría purgarse y reiniciarse en torno a actualizaciones importantes. Como siempre, los operadores de nodos serán notificados con anticipación (a través de nuestro [canal Discord](https://discord.gg/PfpUATX)) si esta actualización va acompañada de una purga. También puede purgar su nodo si su directorio de datos individual se corrompe.
-
-Para hacerlo, primero detenga el contenedor de la ventana acoplable o el servicio systemd:
+First, stop the docker container or systemd service:
 
 ```
 sudo docker stop `CONTAINER_ID`
@@ -396,43 +488,58 @@ sudo docker stop `CONTAINER_ID`
 sudo systemctl stop moonbeam
 ```
 
-A continuación, elimine el contenido de la carpeta donde se almacenan los datos de la cadena (tanto para la cadena parachain como para la cadena de retransmisión):
+Then, install the new version by repeating the steps described before, making sure that you are using the latest tag available. After updating, you can start the service again.
+
+### Purging the Chain
+
+Occasionally Moonbase Alpha might be purged and reset around major upgrades. As always, node operators will be notified in advance (via our [Discord channel](https://discord.gg/PfpUATX)) if this upgrade is accompanied by a purge. You can also purge your node if your individual data directory becomes corrupted.
+
+To do so, first stop the docker container or systemd service:
+
+```
+sudo docker stop `CONTAINER_ID`
+# or
+sudo systemctl stop moonbeam
+```
+
+Next, remove the content of the folder where the chain data is stored (both for the parachain and relay chain):
 
 ```
 sudo rm -rf {{ networks.moonbase.node_directory }}/*
 ```
 
-Por último, instale la versión más reciente repitiendo los pasos descritos anteriormente, asegurándose de que está utilizando la última etiqueta disponible. Si es así, puede iniciar un nuevo nodo con un directorio de datos nuevo.
+Lastly, install the newest version by repeating the steps described before, making sure you are using the latest tag available. If so, you can start a new node with a fresh data directory.
 
-## Telemetría
+## Telemetry
 
-Para habilitar el servidor de telemetría de su nodo Moonbase Alpha, puede seguir [este tutorial](/node-operators/networks/telemetry/).
+To enable your Moonbase Alpha or Moonriver node's telemetry server, you can follow [this tutorial](/node-operators/networks/telemetry/).
 
-No es necesario ejecutar telemetría en un nodo completo. Sin embargo, es un requisito para los collators.
+Running telemetry on a full node is not necessary. However, it is a requirement to do so for collators.
 
-Además, puede ver la información actual de telemetría Moonbase Alpha visitando [este enlace](https://telemetry.polkadot.io/#list/Moonbase%20Alpha).
+Also, you can check out current [Moonbase Alpha telemetry](https://telemetry.polkadot.io/#list/Moonbase%20Alpha) and [Moonriver telemetry](https://telemetry.polkadot.io/#list/Moonriver) data.
 
-## Registros y resolución de problemas
+## Logs and Troubleshooting
 
-Verá registros tanto de la cadena de relés como de la parachain. La cadena de relés tendrá el prefijo `[Relaychain]`, mientras que la parachain no tiene prefijo.
+You will see logs from both the relay chain as well as the parachain. The relay chain will be prefixed by `[Relaychain]`, while the parachain has no prefix.
 
-### Puertos P2P no abiertos
+### P2P Ports Not Open
 
-Si no ve un `Imported`mensaje (sin la `[Relaychain]` etiqueta), debe verificar la configuración del puerto P2P. El puerto P2P debe estar abierto al tráfico entrante.
+If you don't see an `Imported` message (without the `[Relaychain]` tag), you need to check the P2P port configuration. P2P port must be open to incoming traffic.
 
-### En sintonía
+### In Sync
 
-Ambas cadenas deben estar sincronizadas en todo momento, y debería ver los mensajes `Imported` o `Idle` y tener pares conectados.
+Both chains must be in sync at all times, and you should see either `Imported` or `Idle` messages and have connected peers.
 
-### Génesis no coincide
+### Genesis Mismatching
 
-Moonbase Alpha TestNet a menudo se actualiza. En consecuencia, es posible que vea el siguiente mensaje:
+The Moonbase Alpha TestNet is often upgraded. Consequently, you may see the following message:
 
 ```
 DATE [Relaychain] Bootnode with peer id `ID` is on a different
 chain (our genesis: GENESIS_ID theirs: OTHER_GENESIS_ID)
 ```
 
-Por lo general, esto significa que está ejecutando una versión anterior y deberá actualizarla.
+This typically means that you are running an older version and will need to upgrade.
 
-Anunciamos las actualizaciones (y la purga de la cadena correspondiente) a través de nuestro [canal de Discord con](https://discord.gg/PfpUATX) al menos 24 horas de anticipación.
+We announce the upgrades (and corresponding chain purge) via our [Discord channel](https://discord.gg/PfpUATX) at least 24 hours in advance.
+
