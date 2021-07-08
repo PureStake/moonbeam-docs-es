@@ -13,7 +13,7 @@ Un nodo de TheGraph obtiene eventos de una blockchain para actualizar de manera 
 
 Hay dos formas de configurar un nodo de TheGraph: puede usar Docker para ejecutar una imagen todo en uno o puede ejecutar su [implementación de Rust](https://github.com/graphprotocol/graph-node). Los pasos descritos en esta guía solo cubrirán la alternativa de Docker, ya que es más conveniente y puede configurar un nodo de TheGraph muy rápidamente.
 
-!!! note
+!!! nota
     Los pasos descritos en esta guía se han probado en entornos MacOs y basados ​​en Ubuntu 18.04, y deberán adaptarse en consecuencia para otros sistemas.
 
 ## Comprobación de requisitos previos

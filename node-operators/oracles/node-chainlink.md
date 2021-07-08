@@ -13,7 +13,7 @@ Como red abierta y sin permisos, cualquiera puede optar por operar un Oracle que
 
 Este artículo proporciona una descripción general con respecto a la configuración de un Oracle Chainlink en Moonbase Alpha.
 
-!!! note
+!!! nota
     Los ejemplos proporcionados son solo para fines de demostración. Las contraseñas **DEBEN** administrarse de forma segura y nunca almacenarse en texto plano. Estos ejemplos asumen un entorno basado en Ubuntu 18.04, pero se incluyen llamadas para MacOs. Esta guía es solo para una configuración de desarrollo, no la use para un entorno de producción.
 
 ## Modelo de solicitud básico
@@ -71,7 +71,7 @@ docker run -d --name chainlink_postgres_db \
 
 Asegúrese de reemplazarlo  `{YOU_PASSWORD_HERE}` con una contraseña real.
 
-!!! note
+!!! nota
     Recordatorio, no almacene ninguna contraseña de producción en un archivo de texto sin formato. Los ejemplos proporcionados son solo para fines de demostración.
 
 Docker procederá a descargar las imágenes necesarias si no se encuentran disponibles. Ahora, necesitamos crear un archivo de entorno para Chainlink en el directorio recién creado. Este archivo se lee en la creación del contenedor Chainlink. Los usuarios de MacOs pueden reemplazar `localhost` por `host.docker.internal`.

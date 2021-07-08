@@ -1,17 +1,17 @@
 ---
-title: Precompilación de Staking 
-description:Demostración de la interfaz de precompilación solidity de Moonbeam Parachain Staking Ethereum 
+title: Precompilado de Staking 
+description: Demostración de la interfaz de precompilación solidity de Moonbeam Parachain Staking Ethereum 
 ---
 
-# Precompilación de Staking 
+# Precompilado de Staking 
 
 ![Staking Moonbeam Banner](/images/staking/staking-precompile-banner.png)
 
 ## Introducción
 
-Recientemente debutó una paleta delegada de proof of stake llamada [Parachain-Staking](https://github.com/PureStake/moonbeam/tree/master/pallets/parachain-staking/src), que permite a los poseedores de tokens (nominadores) expresar exactamente a qué candidatos a collators les gustaría apoyar y con qué cantidad de stake.  El diseño de la paleta Parachain-Staking es tal que impone riesgo / recompensa compartido en la cadena entre delegadores y collators.
+Recientemente debutó una pallet de proof of stake llamada [Parachain-Staking](https://github.com/PureStake/moonbeam/tree/master/pallets/parachain-staking/src), que permite a los poseedores de tokens (nominadores) expresar exactamente a qué candidatos a collators les gustaría apoyar y con qué cantidad de stake.  El diseño de la pallet Parachain-Staking es tal que impone riesgo / recompensa compartido en la cadena entre delegadores y collators.
 
-El módulo Staking está codificado en Rust y es parte de una paleta que normalmente no es accesible desde el lado Ethereum de Moonbeam. Sin embargo, una precompilación de Staking  permite a los desarrolladores acceder a las funciones de staking utilizando la API de Ethereum en un contrato precompilado ubicado en la dirección `{{networks.moonbase.staking.precompile_address}}`. La precompilación de Staking se lanzó por primera vez en el [lanzamiento de Moonbase Alpha v8](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v8/).
+El módulo Staking está codificado en Rust y es parte de una pallet que normalmente no es accesible desde el lado Ethereum de Moonbeam. Sin embargo, una precompilación de Staking  permite a los desarrolladores acceder a las funciones de staking utilizando la API de Ethereum en un contrato precompilado ubicado en la dirección `{{networks.moonbase.staking.precompile_address}}`. La precompilación de Staking se lanzó por primera vez en el [lanzamiento de Moonbase Alpha v8](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v8/).
 
 ## La interfaz Solidity de Parachain-Staking 
 
@@ -42,7 +42,7 @@ El siguiente ejemplo se demuestra en Moonbase Alpha, sin embargo, es compatible 
  - Tener MetaMask instalado y [conectado a Moonbase Alpha](/getting-started/moonbase/metamask/)
  - Tener una cuenta con más de `{{networks.moonbase.staking.min_nom_stake}}` tokens. Puede obtener esto de [Mission Control](/getting-started/moonbase/faucet/)
 
-!!! note
+!!! nota
     El siguiente ejemplo requiere más que `{{networks.moonbase.staking.min_nom_stake}}` debido al monto mínimo de nominación más las tarifas de gas. Si necesita mas que lo dispuesto por la faucet, comuníquese con nosotros en Discord y estaremos encantados de ayudarlo. 
 
 ### Remix Set Up
@@ -89,7 +89,7 @@ Para verificar que su nominación fue exitosa, puede verificar el estado de la c
 
 #### Verificar el estado del nominador
 1. Para verificar que su nominación fue exitosa, diríjase a [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/chainstate) y navegue a Desarrollador -> Estado de la cadena
-2. Seleccione la paleta "parachainStaking" 
+2. Seleccione la pallet "parachainStaking" 
 3. Seleccione el query "nominatorState" 
 4. Haga clic en el botón "Más" para devolver los resultados y verificar su nominación
 

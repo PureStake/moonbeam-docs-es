@@ -21,7 +21,7 @@ Hay múltiples despliegues de Moonbeam, incluyendo Moonbase Alpha TestNet, Moonr
 
 Esta guía está destinada a personas con experiencia en la compilación de nodos de blockchain basados en sustrato[Substrate](https://substrate.dev/). A parachain node is similar to a typical Substrate node, but there are some differences. Un nodo de parachain es similar a un nodo de sustrato típico, pero existen algunas diferencias. Un nodo de parachain de sustrato es una compilación más grande porque contiene código para ejecutar el parachain en sí, así como código para sincronizar la cadena de retransmisión y facilitar la comunicación entre los dos. Como tal, esta compilación es bastante grande y puede tardar más de 30 minutos y requiere 32 GB de memoria.
 
-!!! note
+!!! nota
     Moonbase Alpha todavía se considera un Alphanet y, como tal , _no_ tendrá un tiempo de actividad del 100%. La parachain _se_ purgará de vez en cuando. Durante el desarrollo de su aplicación, asegúrese de implementar un método para volver a desplegar sus contratos y cuentas en una nueva parachain rápidamente. Las purgas de cadenas se anunciarán a través de nuestro [canal de Discord](https://discord.gg/PfpUATX) con al menos 24 horas de anticipación.
 
 ## Requisitos
@@ -45,7 +45,7 @@ Las especificaciones mínimas recomendadas para ejecutar un nodo se muestran en 
     | **Firewall** |     | El puerto P2P debe estar abierto al tráfico entrante:<br>&nbsp; &nbsp; - Origen: Any<br>&nbsp; &nbsp; - Destino: 30333, 30334 TCP |
 
 
-!!! note
+!!! nota
     Si no ve un `Imported` mensaje (sin la `[Relaychain]` etiqueta) cuando ejecuta un nodo, es posible que deba volver a verificar la configuración de su puerto.
 
 ## Puertos en ejecución
@@ -74,7 +74,7 @@ Los únicos puertos que deben estar abiertos para el tráfico entrante son los d
 
 ## Instrucciones de instalación: Docker
 
-Un nodo Moonbeam se puede activar rápidamente usando Docker. Para obtener más información sobre la instalación de Docker, visite [esta página](https://docs.docker.com/get-docker/). En el momento de escribir este artículo, la versión de Docker utilizada era la 19.03.6. Cuando se conecte a Moonriver en Kusama, llevará unos días sincronizar completamente la cadena de relés Kusama incorporada. Asegúrese de que su sistema cumpla con los [requisitos](#requirements).
+Un nodo Moonbeam se puede activar rápidamente usando Docker. Para obtener más información sobre la instalación de Docker, visite [esta página](https://docs.docker.com/get-docker/). En el momento de escribir este artículo, la versión de Docker utilizada era la 19.03.6. Cuando se conecte a Moonriver en Kusama, llevará unos días sincronizar completamente la cadena de relés Kusama incorporada. Asegúrese de que su sistema cumpla con los [requisitos](#requisitos).
 
 Cree un directorio local para almacenar los datos de la cadena:
 
@@ -190,11 +190,11 @@ Una vez que Docker extrae las imágenes necesarias, se iniciará su nodo complet
 
 ![Full Node Starting](/images/fullnode/fullnode-docker1.png)
 
-!!! note
+!!! nota
     Si desea ejecutar un punto final RPC, conectar polkadot.js.org o ejecutar su propia aplicación, use los indicadores `--unsafe-rpc-external` y / o  `--unsafe-ws-external` ejecute el nodo completo con acceso externo a los puertos RPC. Más detalles están disponibles ejecutando `moonbeam --help`.  
 
-!!! note
-   Puede especificar un puerto Prometheus personalizado con la `--prometheus-port XXXX` bandera (reemplazando `XXXX` con el número de puerto real). Esto es posible tanto para la parachain como para la cadena de relés integrada.
+!!! nota
+    Puede especificar un puerto Prometheus personalizado con la `--prometheus-port XXXX` bandera (reemplazando `XXXX` con el número de puerto real). Esto es posible tanto para la parachain como para la cadena de relés integrada.
 
 El comando anterior habilitará todos los puertos expuestos necesarios para el funcionamiento básico, incluidos los puertos P2P y Prometheus (telemetría). Este comando es compatible para usar con la telemetría del Watchdog del nodo de Gantree. Si desea exponer puertos específicos, habilítelos en la línea de comando de ejecución de Docker como se muestra a continuación. Sin embargo, hacerlo evitará que el contenedor Gantree Node Watchdog (telemetría) acceda al contenedor Moonbeam, así que no haga esto cuando ejecute un collator a menos que comprenda las [docker networking](https://docs.docker.com/network/).
 
@@ -206,8 +206,8 @@ Durante el proceso de sincronización, verá mensajes tanto de la cadena de rel�
 
 ![Full Node Starting](/images/fullnode/fullnode-docker2.png)
 
-!!! note
-    Llevará unos días sincronizar completamente la cadena de relés de Kusama incorporada. Asegúrese de que su sistema cumpla con los [requisitos](#requirements). 
+!!! nota
+    Llevará unos días sincronizar completamente la cadena de relés de Kusama incorporada. Asegúrese de que su sistema cumpla con los [requisitos](#requisitos). 
 
 Si siguió las instrucciones de instalación para Moonbase Alpha, una vez sincronizado, tendrá un nodo de Moonbase Alpha TestNet ejecutándose localmente.
 
@@ -446,7 +446,7 @@ El siguiente paso es crear el archivo de configuración systemd. Si está config
     WantedBy=multi-user.target
     ```
 
-!!! note
+!!! nota
     Puede especificar un puerto Prometheus personalizado con la `--prometheus-port XXXX` bandera (reemplazando `XXXX` con el número de puerto real). Esto es posible tanto para la paracadena como para la cadena de relés integrada.
 
 ¡Casi llegamos! Regístrese e inicie el servicio ejecutando:

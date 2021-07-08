@@ -19,7 +19,7 @@ Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/
 
 Puede encontrar más información relacionada con la [gobernanza](https://wiki.polkadot.network/docs/learn-governance) y la [participación en la democracia](https://wiki.polkadot.network/docs/maintain-guides-democracy) en las páginas Wiki de Polkadot.
 
-!!! note
+!!! nota
     Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 ## Definiciones
@@ -83,7 +83,7 @@ Aquí, debe proporcionar la siguiente información:
 
 ![Vote Submission](/images/governance/governance-vote-2.png)
 
-!!! note
+!!! nota
    Los períodos de bloqueo que se muestran en la imagen anterior no deben tomarse como referencia. Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 En este caso, Alice y Bob han decidido "Vote Aye" en la propuesta con una convicción de `6x`. Por otro lado, Charley ha decidido "Vote No" en la propuesta, pero optó por no bloquear ningún token (sus tokens solo se bloquean durante la duración del referéndum), por lo que su condena fue `0.1x`.Con tales distribuciones de votos, los resultados parciales se pueden ver en la pestaña principal "Democracia".
@@ -118,7 +118,7 @@ Para delegar su voto, primero navegue al menú "Extrinsics" en la pestaña "Desa
 Aquí, debe proporcionar la siguiente información:
 
  1. Seleccione la cuenta desde la que desea delegar su voto
- 2. Elija la paleta con la que desea interactuar. En este caso, es la de "democracy"
+ 2. Elija la pallet con la que desea interactuar. En este caso, es la de "democracy"
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es "delegate"
  4. Seleccione la cuenta a la que desea delegar su voto
  5. Establece la convicción del voto, que determina su peso (`vote_weight = tokens * conviction_multiplier`). El multiplicador de convicciones está relacionado con la cantidad de períodos de promulgación durante los que se bloquearán los tokens. En consecuencia, cuanto más tiempo esté dispuesto a bloquear sus tokens, más fuerte será su voto. También tiene la opción de no bloquear tokens en absoluto, pero el peso de los votos se reduce drásticamente
@@ -129,7 +129,7 @@ Aquí, debe proporcionar la siguiente información:
 
 En este ejemplo, Alice delegó un peso total de 1000 (1000 tokens con un factor de convicción x1) a Charley.
 
-!!! note
+!!! nota
    Otra forma de delegar votos es en la pestaña "Cuentas". Haga clic en los tres puntos de la cuenta desde la que desea delegar su voto y complete la información como antes.
 
 Una vez que la cuenta haya delegado su voto, el peso total del voto delegado se asignará a la opción que la cuenta seleccionó. Para este ejemplo, Charley ha decidido votar a favor de una propuesta que se encuentra en referéndum público. Votó con un peso total de 800 (800 fichas con un factor de convicción x1). Pero debido a que Alice le delegó 1000 votos, los votos "Sí" suman 1800 unidades.
@@ -163,7 +163,7 @@ Una vez que expire el bloqueo, puede solicitar la devolución de sus tokens. Par
 Aquí, se deben enviar dos extrínsecos diferentes. Primero, debe proporcionar la siguiente información:
 
  1. Seleccione la cuenta de la que desea recuperar sus token
- 2. Elija la paleta con la que desea interactuar. En este caso, es la de "democracy"
+ 2. Elija la pallet con la que desea interactuar. En este caso, es la de "democracy"
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el extrinsic `removevote`. Este paso es necesario para desbloquear los tokens. Este elemento extrínseco también se puede utilizar para eliminar su voto de un referéndum.
  4. ngrese el índice de referéndum. Este es el número que apareció en el lado izquierdo de la pestaña "Democracia". En este caso, es 0
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.
@@ -173,7 +173,7 @@ Aquí, se deben enviar dos extrínsecos diferentes. Primero, debe proporcionar l
 Para el siguiente extrínseco, debe proporcionar la siguiente información:
 
  1. Seleccione la cuenta de la que desea recuperar sus token
- 2. Elija la paleta con la que desea interactuar. En este caso, es la de "democracy"
+ 2. Elija la pallet con la que desea interactuar. En este caso, es la de "democracy"
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el extrinsic`desbloquear` 
  4. Ingrese la cuenta de destino que recibirá los tokens desbloqueados. En este caso, los tokens se devolverán a Alice.
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.

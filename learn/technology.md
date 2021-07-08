@@ -17,16 +17,16 @@ Rust es un buen lenguaje para implementar una blockchain, ya que tiene un alto r
 
 Substrate proporciona un amplio conjunto de herramientas para crear cadenas de bloques, incluido un entorno de ejecución en tiempo de ejecución que habilita una función de transición de estado genérica y un conjunto de módulos conectables que proporcionan implementaciones de varios subsistemas de cadenas de bloques.
 
-Moonbeam aprovecha múltiples paletas de marcos de sustrato existentes para proporcionar servicios y funcionalidad clave de blockchain, incluidas las estructuras de datos centrales de blockchain, redes peer-to-peer, mecanismos de consenso, cuentas, activos y saldos. Las paletas personalizadas y la lógica en el tiempo de ejecución implementan el comportamiento y la funcionalidad específicos de Moonbeam, como la integración de token entre cadenas. Para los pallets apalancados, Moonbeam se esforzará por permanecer lo más cerca posible del código base de Substrate ascendente e incorporará correcciones de errores, mejoras y nuevas funciones de Substrate de manera continua.
+Moonbeam aprovecha múltiples pallets de marcos de sustrato existentes para proporcionar servicios y funcionalidad clave de blockchain, incluidas las estructuras de datos centrales de blockchain, redes peer-to-peer, mecanismos de consenso, cuentas, activos y saldos. Las pallets personalizadas y la lógica en el tiempo de ejecución implementan el comportamiento y la funcionalidad específicos de Moonbeam, como la integración de token entre cadenas. Para los pallets apalancados, Moonbeam se esforzará por permanecer lo más cerca posible del código base de Substrate ascendente e incorporará correcciones de errores, mejoras y nuevas funciones de Substrate de manera continua.
 
 ## Tiempo de ejecución de Blockchain
 
 El tiempo de ejecución principal de Moonbeam especifica la función de transición de estado y el comportamiento de la blockchain Moonbeam. El tiempo de ejecución de Moonbeam se construye usando [FRAME](/resources/glossary/#substrate-frame-pallets). Incluye varios palets estándar así como varios personalizados. El tiempo de ejecución se compila en un binario [WebAssembly (Wasm)](/resources/glossary/#webassemblywasm) y en un binario nativo. Estas versiones compiladas se ejecutarán en la cadena de retransmisión de Polkadot y en los entornos de nodo Moonbeam.
 
-!!! note
-    Las paletas de marco de sustrato son una colección de módulos basados en Rust que brindan la funcionalidad que se requiere al construir una blockchain. WebAssembly es un estándar abierto que define un formato de código binario portátil. Es compatible con diferentes lenguajes de programación, compiladores y navegadores. Encuentre más definiciones [en nuestro glosario](/resources/glossary/).
+!!! nota
+    Las pallets de marco de sustrato son una colección de módulos basados en Rust que brindan la funcionalidad que se requiere al construir una blockchain. WebAssembly es un estándar abierto que define un formato de código binario portátil. Es compatible con diferentes lenguajes de programación, compiladores y navegadores. Encuentre más definiciones [en nuestro glosario](/resources/glossary/).
 
-Algunas de las paletas de marco de sustrato clave utilizadas en el tiempo de ejecución de Moonbeam incluyen:
+Algunas de las pallets de marco de sustrato clave utilizadas en el tiempo de ejecución de Moonbeam incluyen:
 
  - **Saldos** — soporte para cuentas, saldos y transferencias.
  - **EVM** —  implementación completa de EVM basada en Rust basada en SputnikVM. Proporciona la lógica de transición de estado para contratos inteligentes basados en Moonbeam.
@@ -41,7 +41,7 @@ Algunas de las paletas de marco de sustrato clave utilizadas en el tiempo de eje
 
 Moonbeam también utiliza la biblioteca Cumulus para proporcionar integración a la cadena de relés Polkadot.
 
-Además de estas paletas de marco de sustrato, implementaremos módulos con funcionalidad específica de Moonbeam, incluida la mecánica y las recompensas de la collator y otros componentes básicos del desarrollador.
+Además de estas pallets de marco de sustrato, implementaremos módulos con funcionalidad específica de Moonbeam, incluida la mecánica y las recompensas de la collator y otros componentes básicos del desarrollador.
 
 ## Arquitectura de compatibilidad de Ethereum
 

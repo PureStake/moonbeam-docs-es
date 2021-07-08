@@ -43,7 +43,7 @@ Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre g
 
 ## Mecánicas de gobernanza on-chain
 
-El proceso de gobernanza "hard" para Moonbeam será impulsado por un proceso on-chain y aprovechará las paletas de Democracia, Consejo y Tesorería de [Substrate](/resources/glossary/#substrate-frame-pallets), de forma similar a como se rigen Kusama y la Relay Chain de Polkadot. La intención general de estos módulos es permitir que la mayoría de los tokens de la red determinen los resultados de las decisiones clave en la red. Estos puntos de decisión vienen en forma de votaciones ponderadas sobre los referendos propuestos.
+El proceso de gobernanza "hard" para Moonbeam será impulsado por un proceso on-chain y aprovechará las pallets de Democracia, Consejo y Tesorería de [Substrate](/resources/glossary/#substrate-frame-pallets), de forma similar a como se rigen Kusama y la Relay Chain de Polkadot. La intención general de estos módulos es permitir que la mayoría de los tokens de la red determinen los resultados de las decisiones clave en la red. Estos puntos de decisión vienen en forma de votaciones ponderadas sobre los referendos propuestos.
 
 Algunos de los componentes principales de este modelo de gobernanza incluyen:
 
@@ -53,7 +53,7 @@ Algunos de los componentes principales de este modelo de gobernanza incluyen:
  - **Comité Técnico**: un grupo de personas elegidas por el Consejo que tienen derechos especiales de voto. Al igual que en Polkadot y Kusama, el Comité Técnico tiene la capacidad (junto con el Consejo) de acelerar la votación y la implementación de referendos de emergencia en circunstancias urgentes. Se puede crear un referéndum acelerado junto con los referéndum activos existentes. Es decir, un referéndum de emergencia no sustituye a los referéndum actualmente activos.
  - **Tesorería** —  colección de fondos que se pueden gastar mediante la presentación de una propuesta junto con un depósito. Las propuestas de gasto deben ser aprobadas por el consejo. Las propuestas rechazadas darán lugar a que el proponente pierda su depósito.
 
-Vea [esta descripción general en el sitio web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) y [esta publicación de wiki](https://wiki.polkadot.network/docs/learn-governance) para obtener más detalles sobre cómo estas paletas de marco de Substrate implementan la gobernanza en cadena.
+Vea [esta descripción general en el sitio web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) y [esta publicación de wiki](https://wiki.polkadot.network/docs/learn-governance) para obtener más detalles sobre cómo estas pallets de marco de Substrate implementan la gobernanza en cadena.
 
 ## Derechos de voto del Consejo y del Comité Técnico
 

@@ -15,7 +15,7 @@ Esta guía describe el uso de tres bibliotecas Ethereum diferentes para firmar y
  - [Ethers.js](https://docs.ethers.io/)
  - [Web3.py](https://web3py.readthedocs.io/)
 
-!!! note
+!!! nota
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
 ## Comprobación de requisitos previos

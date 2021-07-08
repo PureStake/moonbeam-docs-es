@@ -328,7 +328,7 @@ Recuerde, realizará la implementación en Moonbase Alpha y deberá utilizar las
 
 --8<-- 'text/testnet/testnet-details.md'
 
-La implementación se dividirá en tres secciones: [generar artefactos](#generate-artifacts), [crear un script de implementación](#create-a-deployment-script), y [implementar con Mars](#deploy-with-mars). 
+La implementación se dividirá en tres secciones: [generar artefactos](#generar-artefactos), [crear-una secuencia-de-comandos-de-implementacion](#crear-una-secuencia-de-comandos-de-implementación), y [implementar con Mars](#desplegar-con-mars). 
 
 ### Generar artefactos
 
@@ -416,4 +416,4 @@ Si tiene éxito, debería ver los detalles sobre su transacción, incluido su ha
 
 ## Proyecto de ejemplo
 
-Si desea ver un ejemplo completo de un proyecto de Waffle y Marte en Moonbeam, consulte el ejemplo de rayo de [moonbeam-waffle-mars-example](https://github.com/EthWorks/moonbeam-waffle-mars-example) creado por el equipo detrás de Waffle y Marte, EthWorks.
+Si desea ver un ejemplo completo de un proyecto de Waffle y Marte en Moonbeam, consulte el ejemplo de [moonbeam-waffle-mars-example](https://github.com/EthWorks/moonbeam-waffle-mars-example) creado por el equipo detrás de Waffle y Marte, EthWorks.

@@ -13,7 +13,7 @@ Desde Moonbase Alpha v6 y el reciente lanzamiento de Moonriver, puede activar un
 
 Esta guía proporcionará los pasos necesarios para habilitar el servidor de telemetría para su nodo basado en Moonbeam.
 
-!!! note
+!!! nota
     Los pasos descritos en esta guía son para una instancia de telemetría diferente a la telemetría estándar de Polkadot habilitada de forma predeterminada (puede ejecutar nodos sin telemetría mediante el uso de la `--no-telemetry` marca). Los pasos descritos en esta guía son obligatorios solo para los nodos de collator.
 
 ## Resumen del exportador de telemetría

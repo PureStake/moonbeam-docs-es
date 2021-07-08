@@ -20,10 +20,10 @@ Moonbeam utiliza el [Nimbus Parachain Consensus Framework](/learn/consensus/). E
 
 Esta guía lo llevará a través de los siguientes pasos:
 
-- **[Requisitos técnicos](#technical-requirements)** — le muestra los criterios que debe cumplir desde una perspectiva técnica
- - **[Cuentas y requisitos de participación](#accounts-and-staking-requirements)** — pasa por el proceso de configuración de su cuenta y tokens de bonos para convertirse en un candidato de collator
- - **[Generar claves de sesión](#generate-session-keys)** — explica cómo generar claves de sesión, que se utilizan para mapear su ID de autor con su cuenta H160.
- - **[Asignar ID de autor a su cuenta](#map-author-id-to-your-account)** — describe los pasos para asignar su clave de sesión pública a su cuenta H160, donde se pagarán las recompensas en bloque
+- **[Requisitos técnicos](#requerimientos-tecnicos)** — le muestra los criterios que debe cumplir desde una perspectiva técnica
+ - **[Cuentas y requisitos de participación](#cuentas-y-requisitos-de-participacion)** — pasa por el proceso de configuración de su cuenta y tokens de bonos para convertirse en un candidato de collator
+ - **[Generar claves de sesión](#claves-de-sesion)** — explica cómo generar claves de sesión, que se utilizan para mapear su ID de autor con su cuenta H160.
+ - **[Asignar ID de autor a su cuenta](#asignar-id-de-autor-a-su-cuenta)** — describe los pasos para asignar su clave de sesión pública a su cuenta H160, donde se pagarán las recompensas en bloque
 
 ## Requerimientos técnicos
 
@@ -83,17 +83,17 @@ Una vez que su nodo se está ejecutando y sincronizado con la red, se convierte 
  4. Seleccione la `parachainStaking` pallet en el menú "enviar los siguientes elementos extrinsics"
  5. Abra el menú desplegable, que enumera todos los elementos extrinsics posibles relacionados con el staking, y seleccione la `joinCandidates()` función
  6. Establezca el vínculo en al menos {{ networks.moonbase.staking.collator_min_stake }} tokens DEV, que es la cantidad mínima para ser considerado candidato a  collator en Moonbase Alpha. Para este cheque, solo cuenta la fianza de alistador. Las nominaciones adicionales no cuentan
- 7. Establezca el recuento de candidatos como el tamaño del pool de candidatos. Para saber cómo recuperar este valor, consulte [esta sección](#get-the-size-of-the-candidate-pool)
+ 7. Establezca el recuento de candidatos como el tamaño del pool de candidatos. Para saber cómo recuperar este valor, consulte [esta sección](#obtenga-el-tamano-del-pool-de-candidatos)
  8. Envíe la transacción. Siga el asistente y firme la transacción con la contraseña que estableció para la cuenta.
  
  ![Join Collators pool PolkadotJS](/images/fullnode/collator-polkadotjs3.png)
 
-!!! note
+!!! nota
     Los nombres de las funciones y el requisito de fianza mínima están sujetos a cambios en versiones futuras.
 
 Como se mencionó anteriormente, solo los mejores collators de {{ networks.moonbase.staking.max_collators }} por participación nominada estarán en el conjunto activo.
 
-### Stop Collating
+### Dejar de ser candidato
 
 Similar a la `chill()` función de Polkadot , para salir del pool de candidatos del collator's, siga los mismos pasos que antes, pero seleccione la `leaveCandidates()` función en el paso 5.
 
@@ -108,7 +108,7 @@ La siguiente tabla presenta algunos de los tiempos con respecto a las diferentes
 |Pagos de recompensas (después de la ronda actual)|   |     2     |   |    4     |
 
 
-!!! note 
+!!! nota 
      Los valores presentados en la tabla anterior están sujetos a cambios en versiones futuras.
      
 ## Claves de sesión
@@ -156,7 +156,7 @@ El módulo también agrega las siguientes llamadas RPC (estado de cadena):
  
 ### Mapping Extrinsic
 
-Para asignar su ID de autor a su cuenta, debe estar dentro del [pool de candidatos ](#become-a-collator-candidate).Una vez que sea candidato a collator , debe enviar un mapeo extrinsic (transacción). Tenga en cuenta que esto vinculará {{ networks.moonbase.staking.collator_map_bond }}  tokens DEV, y esto es por ID de autor registrado. Para hacerlo, siga los siguientes pasos:
+Para asignar su ID de autor a su cuenta, debe estar dentro del [pool de candidatos ](#conviertase-en-candidato-a-collator).Una vez que sea candidato a collator , debe enviar un mapeo extrinsic (transacción). Tenga en cuenta que esto vinculará {{ networks.moonbase.staking.collator_map_bond }}  tokens DEV, y esto es por ID de autor registrado. Para hacerlo, siga los siguientes pasos:
 
  1. Dirígete a la pestaña "Desarrollador"
  2. Seleccione la opción "Extrinsics"
@@ -168,7 +168,7 @@ Para asignar su ID de autor a su cuenta, debe estar dentro del [pool de candidat
 
 ![Author ID Mapping to Account Extrinsic](/images/fullnode/collator-polkadotjs4.png)
 
-Si la transacción es exitosa, verá una notificación de confirmación en su pantalla. Por el contrario, asegúrese de unirse al [pool de candidatos](#become-a-collator-candidate).
+Si la transacción es exitosa, verá una notificación de confirmación en su pantalla. Por el contrario, asegúrese de unirse al [pool de candidatos](#conviertase-en-candidato-a-collator).
 
 ![Author ID Mapping to Account Extrinsic Successful](/images/fullnode/collator-polkadotjs5.png)
 

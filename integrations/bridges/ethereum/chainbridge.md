@@ -79,7 +79,7 @@ Esta guía repasará dos ejemplos diferentes del uso del puente para transferir 
     {{ networks.moonbase.chainbridge.ERC721_handler }}
 ```
 
-!!! note
+!!! nota
     El contrato puente, el contrato de manipulador ERC-20 y las direcciones del contrato de manipulador ERC-721 enumeradas anteriormente son aplicables tanto para Kovan como para Rinkeby.
 
 ### Transferencia de token ERC-20
@@ -113,7 +113,7 @@ Para probar el puente con este token ERC-20 de muestra, debemos realizar los sig
  - Aprobar el contrato del manejador como gastador para devolver los tokens
  - Utilice el contrato puente modificado para enviar tokens desde la Cadena de destino a la Cadena de origen
 
-!!! note
+!!! nota
     Recuerde que los tokens se transferirán solo si el contrato del controlador tiene suficiente margen para gastar tokens en nombre del propietario. Si el proceso falla, verifique la asignación.
 
 Enviemos algunos tokens ERC20S de **Moonbase Alpha** a **Kovan**. Si desea probarlo con Rinkeby, los pasos y direcciones son los mismos. Para ello, usaremos [Remix](/integrations/remix/). Primero, podemos usar la siguiente interfaz para interactuar con este contrato y acuñar los tokens:
@@ -209,7 +209,7 @@ Puede verificar su saldo agregando el token a [MetaMask](/integrations/wallets/m
 
 Recuerda que también puedes acuñar tokens ERC20S en Kovan y enviarlos a Moonbase Alpha. Para aprobar a un gastador o aumentar su asignación, puede utilizar la `increaseAllowance()` función de la interfaz proporcionada. Para verificar la asignación del contrato de administrador en el contrato de token ERC20, puede usar la `allowance()` función de la interfaz.
 
-!!! note
+!!! nota
     Los tokens se transferirán solo si el contrato del controlador tiene suficiente asignación para gastar tokens en nombre del propietario. Si el proceso falla, verifique la asignación.
 
 ### Transferencia de token ERC-721
@@ -335,7 +335,7 @@ Puede verificar su saldo agregando el token a [MetaMask](/integrations/wallets/m
 
 Recuerde que los tokens ERC721M solo se pueden minar en Moonbase Alpha y luego estarán disponibles para enviar y recibir a Kovan o Rinkeby. Es importante verificar siempre la asignación proporcionada al contrato de manipulador en el contrato de token ERC721 correspondiente. Puede aprobar el contrato de administrador para enviar tokens en su nombre utilizando la `approve()`función proporcionada en la interfaz. Puede verificar la aprobación de cada uno de sus ID de token con la `getApproved()` función.
 
-!!! note
+!!! nota
     Los tokens se transferirán solo si se aprueba el contrato de administrador para transferir tokens en nombre del propietario. Si el proceso falla, verifique la aprobación.
 
 ### Manejador genérico

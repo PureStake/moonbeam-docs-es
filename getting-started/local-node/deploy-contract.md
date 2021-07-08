@@ -20,7 +20,7 @@ Además, se utilizarán otras dos bibliotecas para compilar el contrato intelige
  - [Solc-js](https://www.npmjs.com/package/solc) para compilar contratos inteligentes Solidity usando JavaScript
  - [Py-solc-x](https://pypi.org/project/py-solc-x/) para compilar contratos inteligentes Solidity usando Python
 
-!!! note
+!!! nota
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
 ## Comprobación de requisitos previos
@@ -88,7 +88,7 @@ El contrato utilizado es un simple incrementador, arbitrariamente llamado _Incre
 
 La `constructor` función, que se ejecuta cuando se implementa el contrato, establece el valor inicial de la variable numérica almacenada en la cadena (el valor predeterminado es 0). La `increment` función agrega el `_value` proporcionado al número actual, pero es necesario enviar una transacción que modifica los datos almacenados. Por último, la `reset` función restablece el valor almacenado a cero.
 
-!!! note
+!!! nota
     Este contrato es un ejemplo simple solo con fines ilustrativos y no maneja valores envueltos.
 
 ## Compilación del contrato
@@ -99,7 +99,7 @@ El único propósito del archivo de compilación es utilizar el compilador Solid
  - Ethers.js: [_compile.js_](/snippets/code/web3-contract-local/compile.js)
  - Web3.py: [_compile.py_](/snippets/code/web3py-contract/compile.py)
 
-!!! note
+!!! nota
     El archivo de compilación para ambas bibliotecas de JavaScript es el mismo, ya que comparten los enlaces de JavaScript para el compilador de Solidity (mismo paquete)
 
 === "Web3.js"
@@ -129,7 +129,7 @@ Por último, extrae los datos del `Incrementer` contrato del `Incrementer.sol` a
 
 En la primera parte del [the script](/snippets/code/web3py-contract/compile.py), el archivo del contrato se compila utilizando la `solcx.compile_files` función. Tenga en cuenta que el archivo del contrato está en el mismo directorio que el script de compilación.
 
-!!! note
+!!! nota
     Al ejecutar el, `compile.py` es posible que obtenga un error que indique que `Solc` debe instalarse. Si es así, elimine el comentario de la línea del archivo que se ejecuta `solcx.install_solc()` y vuelva a ejecutar el archivo de compilación con `python3 compile.py`. Puede encontrar más información en [este enlace](https://pypi.org/project/py-solc-x/).
 
 A continuación, y finalizando el script, se exportan los datos del contrato. En este ejemplo, solo se definieron la interfaz (ABI) y el código de bytes.
@@ -161,7 +161,7 @@ La segunda sección ("Desplegar contrato") describe la parte real del despliegue
     --8<-- 'code/web3py-contract/deploy.py'
     ```
 
-!!! note
+!!! nota
    El script _deploy.\*_ Proporciona la dirección del contrato como salida. Esto resulta útil, ya que se utiliza para los archivos de interacción del contrato.
 
 ### Web3.js

@@ -29,7 +29,7 @@ En el momento de redactar este documento, se utilizaron las siguientes versiones
  - Ledger Nano X firmware v1.3.0
  - Ethereum app v1.8.5
 
-Además, necesitará MetaMask como intermediario entre su dispositivo Ledger y Moonbase Alpha. Asegúrese de que su MetaMask esté [conectada a Moonbase Alpha](/integrations/wallets/metamask/).Los usuarios de Chrome (versión 91) necesitan algunos pasos adicionales, que [se detallan en este tutorial](#chrome-browser).  El uso de Firefox resultará en una experiencia mucho más simple / directa.
+Además, necesitará MetaMask como intermediario entre su dispositivo Ledger y Moonbase Alpha. Asegúrese de que su MetaMask esté [conectada a Moonbase Alpha](/integrations/wallets/metamask/).Los usuarios de Chrome (versión 91) necesitan algunos pasos adicionales, que [se detallan en este tutorial](#navegador-chrome).  El uso de Firefox resultará en una experiencia mucho más simple / directa.
 
 
 Tenga en cuenta que su dispositivo Ledger firmará transacciones en cualquier red MetaMask a la que esté conectado.
@@ -53,7 +53,7 @@ En la siguiente pantalla, se le pedirá que seleccione qué billetera de hardwar
 
 ![Cartera de hardware MetaMask Select Ledger](/images/ledger/ledger-images2.png)
 
-Si MetaMask pudo conectarse correctamente a su dispositivo Ledger, debería ver una lista de cinco cuentas de estilo Ethereum. Por el contrario, verifique que Ledger Live esté cerrado, que haya conectado su dispositivo Ledger a la computadora, lo haya desbloqueado y que la aplicación Ethereum esté abierta. Si está utilizando Chrome, consulte estos [pasos adicionales](#chrome-browser).
+Si MetaMask pudo conectarse correctamente a su dispositivo Ledger, debería ver una lista de cinco cuentas de estilo Ethereum. Por el contrario, verifique que Ledger Live esté cerrado, que haya conectado su dispositivo Ledger a la computadora, lo haya desbloqueado y que la aplicación Ethereum esté abierta. Si está utilizando Chrome, consulte estos [pasos adicionales](#navegador-chrome).
 
 De esta lista de cinco cuentas de Ethereum, siga los siguientes pasos:
 
@@ -67,7 +67,7 @@ Si ha importado su cuenta de estilo Ledger Ethereum con éxito, debería verla e
 
 ![MetaMask importó correctamente la cuenta del libro mayor](/images/ledger/ledger-images4.png)
 
-Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Ledger y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#signing-a-transaction-using-your-ledger).
+Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Ledger y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#firmar-una-transaccion-con-ledger).
 
 ### Navegador Chrome
 
@@ -81,9 +81,9 @@ Además, en MetaMask, deben habilitar el soporte de Ledger Live. Para hacerlo, s
 
 Con esta función habilitada, MetaMask abrirá Ledger Live cuando intente conectarse a su dispositivo Ledger. Puede leer más sobre esto en esta [publicación de blog de MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet).
 
-## Firmar una transacción Ledger
+## Firmar una transacción con Ledger
 
-Si ha importado con éxito [su cuenta de Ledger a MetaMask](#importing-your-ledger-account-to-metamask),  está listo para firmar transacciones en Moonbeam usando su dispositivo Ledger. Este tutorial le mostrará cómo enviar una transacción simple en Moonbase Alpha TestNet, pero se aplica a otras redes del ecosistema Moonbeam.
+Si ha importado con éxito [su cuenta de Ledger a MetaMask](#importacion-de-su-ledger-a-metamask), está listo para firmar transacciones en Moonbeam usando su dispositivo Ledger. Este tutorial le mostrará cómo enviar una transacción simple en Moonbase Alpha TestNet, pero se aplica a otras redes del ecosistema Moonbeam.
 
 Primero, asegúrese de que su cuenta de Ledger esté [financiada con tokens DEV](/getting-started/moonbase/faucet/). A continuación, haga clic en el botón "Enviar".
 
@@ -100,7 +100,7 @@ Como lo haría en una transacción estándar, configure la dirección del destin
  6. Si está de acuerdo con todos los detalles de la transacción, apruebe. Esto firmará la transacción y hará que MetaMask la envíe. Por el contrario, pase a la siguiente pantalla
  7. Si no está de acuerdo con todos los detalles de la transacción, rechácela. Esto cancelará la transacción y MetaMask la marcará como fallida
 
-!!! note
+!!! nota
     En el momento de escribir este artículo, el nombre del token siempre se muestra como `ETH`.  Tenga en cuenta que el token que se está manejando es el correspondiente a la red a la que está conectado MetaMask.
 
 
@@ -123,7 +123,7 @@ Sin embargo, si desea utilizar su billetera de hardware Ledger para transaccione
  3. Busque la página "Datos del contrato". Debe indicar "NO permitido" en la parte inferior.
  4. Seleccione / valide la opción para cambiar su valor a "Permitido"
 
-!!! note
+!!! nota
     Esta opción es necesaria para usar su dispositivo Ledger para interactuar con los contratos de token ERC20 que podrían vivir dentro del ecosistema Moonbeam.
 
 ![Libro mayor de MetaMask Permitir contratos Tx](/images/ledger/ledger-images8.png)

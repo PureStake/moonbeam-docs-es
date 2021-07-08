@@ -127,7 +127,7 @@ Para este ejemplo, se desplegará un token ERC721 en Moonbase Alpha. El código 
 
 El contrato de token de mintable ERC721 OpenZeppelin proporciona una `mint` función que solo puede ser invocada por el propietario del contrato. De forma predeterminada, el propietario es la dirección de despliegue del contrato.
 
-Al igual que con el [contrato ERC20](#deploying-an-erc20-token), el primer paso es ir a [Remix](https://remix.ethereum.org/) y crear un nuevo archivo. Para este ejemplo, el nombre del archivo será `ERC721.sol`.
+Al igual que con el [contrato ERC20](#despliegue-de-un-token-erc20), el primer paso es ir a [Remix](https://remix.ethereum.org/) y crear un nuevo archivo. Para este ejemplo, el nombre del archivo será `ERC721.sol`.
 
 A continuación, deberá escribir el contrato inteligente y compilarlo. Para este ejemplo, se utiliza el siguiente código:
 
@@ -193,7 +193,7 @@ El contrato de token ERC1155 de OpenZeppelin proporciona una `_mint` función qu
 
 El primer paso es ir a [Remix](https://remix.ethereum.org/) y crear un nuevo archivo. Para este ejemplo, el nombre del archivo será `ERC1155.sol`.
 
-Como se muestra para el [token ERC20](#deploying-an-erc20-token), deberá escribir el contrato inteligente y compilarlo. Para este ejemplo, se utiliza el siguiente código:
+Como se muestra para el [token ERC20](#despliegue-de-un-token-erc20), deberá escribir el contrato inteligente y compilarlo. Para este ejemplo, se utiliza el siguiente código:
 
 ```sol
 pragma solidity ^0.8.0;

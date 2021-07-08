@@ -29,8 +29,8 @@ Moonbase Alpha tiene la siguiente configuración:
 Están disponibles las siguientes funciones:
 
 ??? release v1 "_Septiembre de 2020_"
-    - Producción de bloques Ethereum totalmente emulada en substrate (paleta Ethereum).
-    - Funciones despachables para interactuar con la implementación de Rust EVM ([paleta EVM](https://docs.rs/pallet-evm/2.0.1/pallet_evm/)
+    - Producción de bloques Ethereum totalmente emulada en substrate (pallet Ethereum).
+    - Funciones despachables para interactuar con la implementación de Rust EVM ([pallet EVM](https://docs.rs/pallet-evm/2.0.1/pallet_evm/)
     - Soporte nativo de Ethereum RPC (Web3) en Substrate ([Frontier](https://github.com/paritytech/frontier)). Esto proporciona compatibilidad con las herramientas de desarrollo de Ethereum como MetaMask, Remix y Truffle.
 
 ??? release v2 "_Octubre de 2020_"
@@ -51,15 +51,15 @@ Están disponibles las siguientes funciones:
         * Soporte para transacciones Ethereum sin ChainId
 
 ??? release v5 "_Enero de 2021_"      
-    - Se agregó una versión personalizada de la [paleta Staking ](https://wiki.polkadot.network/docs/learn-staking) (solo para fines de prueba y desarrollo)
+    - Se agregó una versión personalizada de la [pallet Staking ](https://wiki.polkadot.network/docs/learn-staking) (solo para fines de prueba y desarrollo)
     - Se agregó soporte para consultar transacciones pendientes mientras están en el pool.
     - Se corrigieron algunos problemas sobre eventos pasados y otras correcciones menores relacionadas con los contratos inteligentes
     - Varias mejoras internas que incluyen una optimización del tiempo de ejecución de EVM, lo que lo hace entre 15 y 50 veces más rápido
     - Soporte para los contratos precompilados [modexp](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x05-bigmodexp-base-exp-mod)
 
 ??? release v6 "_Febrero de 2021_"      
-    - Lanzamiento público de la  [paleta de Staking](https://wiki.polkadot.network/docs/learn-staking) personalizada. Ahora los titulares de tokens pueden nominar a los collators y ganar recompensas
-    - Añadida la [paleta de Democracia](https://github.com/paritytech/substrate/tree/HEAD/frame/democracy). Los titulares de tokens pueden [enviar propuestas](/governance/proposals/) y [votar sobre ellas](/governance/voting/)
+    - Lanzamiento público de la  [pallet de Staking](https://wiki.polkadot.network/docs/learn-staking) personalizada. Ahora los titulares de tokens pueden nominar a los collators y ganar recompensas
+    - Añadida la [pallet de Democracia](https://github.com/paritytech/substrate/tree/HEAD/frame/democracy). Los titulares de tokens pueden [enviar propuestas](/governance/proposals/) y [votar sobre ellas](/governance/voting/)
     - Actualizado a la última versión de [Frontier RPC](https://github.com/paritytech/frontier), que aumenta la eficiencia de ejecución de EVM en un factor de 5
     - El límite de gas(fees) se ha elevado a 15M por bloque, con un límite de 13M por transacción.
 
@@ -85,7 +85,7 @@ Para obtener más detalles sobre las actualizaciones de Moonbase Alpha, consulte
 
 Características que pueden implementarse en el futuro:
 
- - Funciones de tesorería con la [paleta de Tesorería](https://github.com/paritytech/substrate/tree/master/frame/treasury))
+ - Funciones de tesorería con la [pallet de Tesorería](https://github.com/paritytech/substrate/tree/master/frame/treasury))
 
 ## Cómo empezar
 

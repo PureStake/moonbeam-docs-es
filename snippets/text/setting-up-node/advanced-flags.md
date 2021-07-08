@@ -8,7 +8,7 @@ Las funciones mencionadas anteriormente se pueden activar utilizando las siguien
  - `--ethapi=debug`: habilita la API de depuración de Geth para la llamada RPC `debug_traceTransaction` 
  - `--ethapi=trace`: habilita el módulo de seguimiento OpenEthereum para la llamada RPC `trace_filter` 
 
-!!! note
+!!! nota
     Las funciones de depuración / seguimiento aún se están desarrollando activamente. Debido a que estas solicitudes exigen mucho CPU, se recomienda ejecutar el nodo con el indicado `--execution=Native`. Esto utilizará el tiempo de ejecución nativo incluido como parte del ejecutable del nodo en lugar del binario Wasm almacenado en la cadena.
 
 Puede combinar ambos indicadores al ejecutar un nodo.

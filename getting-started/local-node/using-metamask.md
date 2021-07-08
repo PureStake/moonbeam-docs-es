@@ -14,7 +14,7 @@ MetaMask se puede utilizar para conectarse a Moonbeam a través de Moonbase Alph
 
 Esta guía describe los pasos necesarios para conectar MetaMask a un nodo de desarrollo Moonbeam autónomo para enviar tokens entre cuentas. Si aún no ha configurado su propio nodo de desarrollo local, consulte [este tutorial](/getting-started/local-node/setting-up-a-node/), o siga las instrucciones en el [repositorio de GitHub](https://github.com/PureStake/moonbeam/).
 
-!!! note
+!!! nota
     Este tutorial se creó utilizando la etiqueta tutorial-v7 que se basa en la versión v0.7.0 de [Moonbase Alpha](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0). La plataforma Moonbeam y los componentes de [Frontier](https://github.com/paritytech/frontier) en los que se basa para la compatibilidad con Ethereum basada en sustrato aún se encuentran en un desarrollo muy activo. Los ejemplos de esta guía asumen que tiene un entorno basado en MacOS o Ubuntu 18.04 y deberá adaptarse en consecuencia para Windows.
     
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
@@ -83,6 +83,6 @@ Si regresa a su terminal donde tiene su nodo Moonbeam en ejecución, comenzará 
 
 ![Moonbeam Development Node](/images/metamask/using-metamask-9.png)
 
-!!! note
+!!! nota
     Si termina restableciendo su nodo de desarrollo usando el comando Substrate purge-chain, deberá restablecer su cuenta de MetaMask Genesis usando Configuración -> Avanzado -> Restablecer cuenta. Esto borrará el historial de transacciones de sus cuentas y restablecerá el nonce. ¡Asegúrate de no borrar nada que quieras conservar!
  

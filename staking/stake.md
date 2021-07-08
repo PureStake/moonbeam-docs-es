@@ -35,8 +35,8 @@ Actualmente, para Moonbase Alpha:
 
 Hay muchos aspectos extrínsecos relacionados con el pallet de replanteo, por lo que no todos se tratan en esta guía. Sin embargo, esta lista define todos los aspectos extrínsecos asociados con el proceso de nominación:
 
-!!! note
-    Los extrínsecos pueden cambiar en el futuro a medida que se actualice la paleta de replanteo
+!!! nota
+    Los extrínsecos pueden cambiar en el futuro a medida que se actualice la pallet de replanteo
     
  - **nominar** — dos entradas: dirección del collator a nominar y monto. Extrínseco para nominar a un collator. La cantidad debe ser de al menos 5 tokens
  - **leaveNominators** — sin entradas. Extrínseco para dejar el conjunto de nominadores. En consecuencia, todas las nominaciones en curso serán revocadas.
@@ -83,7 +83,7 @@ Actualmente, se debe acceder a todo lo relacionado con el replanteo a través de
 Para designar un collator, proporcione la siguiente información:
 
  1. Seleccione la cuenta desde la que desea apostar sus tokens
- 2. Elija la paleta con la que desea interactuar. En este caso, es el `parachainStaking` palet
+ 2. Elija la pallet con la que desea interactuar. En este caso, es el `parachainStaking` palet
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el `nominate` extrínseco
  4. Establezca la dirección del collator que desea nominar. En este caso, se establece en `0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce`
  5. Establezca la cantidad de tokens que desea apostar
@@ -99,7 +99,7 @@ Para verificar una nominación, puede navegar hasta "Estado de la cadena" en la 
 
 Aquí, proporcione la siguiente información:
 
- 1. Elija la paleta con la que desea interactuar. En este caso, es el `parachainStaking` palet
+ 1. Elija la pallet con la que desea interactuar. En este caso, es el `parachainStaking` palet
  2. Elija el estado a consultar. En este caso, es el `nominators` estado
  3. Asegúrate de deshabilitar el control deslizante "opción de inclusión".
  4. Envíe la consulta de estado haciendo clic en el botón "+"
@@ -119,7 +119,7 @@ Este ejemplo es una continuación de la sección anterior y se supone que tiene 
 Puede eliminar su nominación de un collator específico navegando al menú "Extrínsecos" en la pestaña "Desarrollador". Aquí, proporcione la siguiente información:
 
  1. Seleccione la cuenta de la que desea eliminar su nominación
- 2. Elija la paleta con la que desea interactuar. En este caso, es el `parachainStaking` palet
+ 2. Elija la pallet con la que desea interactuar. En este caso, es el `parachainStaking` palet
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el `revokeNomination` extrínseco
  4. Establezca la dirección del collator de la que desea eliminar su nominación. En este caso, se establece en `0x62d2e7324f9274fac3893a59aff8e944a323a495`
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.
@@ -130,7 +130,7 @@ Una vez que se confirma la transacción, puede verificar que su nominación fue 
 
 Aquí, proporcione la siguiente información:
 
- 1. Elija la paleta con la que desea interactuar. En este caso, es el `parachainStaking` palet
+ 1. Elija la pallet con la que desea interactuar. En este caso, es el `parachainStaking` palet
  2. Elija el estado a consultar. En este caso, es el `nominatorState` estado
  3. Asegúrate de deshabilitar el control deslizante "incluir opciones".
  4. Envíe la consulta de estado haciendo clic en el botón "+"

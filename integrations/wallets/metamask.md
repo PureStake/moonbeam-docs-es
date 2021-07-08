@@ -19,10 +19,10 @@ Si ya tiene MetaMask instalado, puede conectar fácilmente MetaMask a Moonbase A
     <a href="#" class="md-button connectMetaMask">Connect MetaMask</a>
 </div>
 
-!!! note
+!!! nota
     MetaMask aparecerá pidiendo permiso para agregar Moonbase Alpha como una red personalizada. Una vez que apruebe los permisos, MetaMask cambiará su red actual a Moonbase Alpha.
 
-Aprenda [a integrar un botón Connect MetaMask](#integrate-metamask-into-a-dapp) en su dapp, para que los usuarios puedan conectarse a Moonbase Alpha con un simple clic de un botón.
+Aprenda [a integrar un botón Connect MetaMask](#integra-metamask-en-una-dapp) en su dapp, para que los usuarios puedan conectarse a Moonbase Alpha con un simple clic de un botón.
 
 ## Conecte MetaMask a Moonbeam
 
@@ -51,7 +51,7 @@ En el caso de que estés interesado en guías paso a paso más detalladas para c
  - MetaMask en un [nodo de desarrollo Moonbeam](/getting-started/local-node/using-metamask/)
  - MetaMask en [Moonbase Alpha](/getting-started/testnet/metamask/)
 
-## Integre MetaMask en una DApp
+## Integra MetaMask en una DApp
 
 Con el lanzamiento de la [API de redes personalizadas](https://consensys.net/blog/metamask/connect-users-to-layer-2-networks-with-the-metamask-custom-networks-api/), de MetaMask , se puede solicitar a los usuarios que agreguen Testnet de Moonbeam, Moonbase Alpha.
 

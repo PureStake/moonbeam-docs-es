@@ -12,7 +12,7 @@ Los exploradores de bloques pueden considerarse motores de búsqueda para la blo
 
 Moonbeam proporciona dos conjuntos diferentes de exploradores: uno para consultar la API de Ethereum y otro para la API de sustrato.
 
-!!! note
+!!! nota
     Si está utilizando Brave Browser y su explorador no se conecta a la instancia de Moonbeam a la que lo está apuntando, intente deshabilitar Brave Shield.
 
 ## API de Ethereum

@@ -80,11 +80,11 @@ Si ha importado su cuenta de estilo Trezor Ethereum con éxito, debería verla e
 
 ![MetaMask importó correctamente la cuenta de Trezor](/images/trezor/trezor-images8.png)
 
-Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Trezor y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#signing-a-transaction-using-your-trezor).
+Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Trezor y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#firmar-una-transaccion-con-su-trezor).
 
 ## Firmar una transacción con su Trezor
 
-Si ha importado con éxito [su cuenta de Trezor a MetaMask](#importing-your-trezor-account-to-metamask), está listo para firmar transacciones en Moonbeam usando su dispositivo Trezor. Este tutorial le mostrará cómo enviar una transacción simple en Moonbase Alpha TestNet, pero se aplica a otras redes del ecosistema Moonbeam.
+Si ha importado con éxito [su cuenta de Trezor a MetaMask](#importar-su-cuenta-de-trezor-a-metamask), está listo para firmar transacciones en Moonbeam usando su dispositivo Trezor. Este tutorial le mostrará cómo enviar una transacción simple en Moonbase Alpha TestNet, pero se aplica a otras redes del ecosistema Moonbeam.
 
 Primero, asegúrese de que su cuenta de Trezor esté [financiada con tokens DEV](/getting-started/moonbase/faucet/). A continuación, haga clic en el botón "Enviar".
 
@@ -101,7 +101,7 @@ Como lo haría en una transacción estándar, configure la dirección del destin
  2. Una vez que se hayan verificado todos los detalles, mantenga presionado el botón para confirmar
 
 
-!!! note
+!!! nota
     En el momento de escribir este artículo, el nombre del token para todas las redes relacionadas con Moonbeam siempre se muestra como UNKN. Tenga en cuenta que el token que se está manejando es el correspondiente a la red a la que está conectado MetaMask.
 
 

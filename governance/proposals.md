@@ -19,7 +19,7 @@ Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/
 
 Se puede encontrar más información en las páginas Wiki de Polkadot relacionadas con la [gobernanza](https://wiki.polkadot.network/docs/learn-governance#council) y la [participación en la democracia](https://wiki.polkadot.network/docs/maintain-guides-democracy).
 
-!!! note
+!!! nota
    Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 ## Definiciones
@@ -67,7 +67,7 @@ Todo lo relacionado con la gobernanza se encuentra en la pestaña “Democracia�
 Aquí necesitará proveer la información siguiente:
 
  1. Seleccione la cuenta desde la que desea enviar la preimagen.
- 2. Elija la paleta con la que desea interactuar y la función (o acción) disponible para proponer. La acción que escoja determinará los campos que debe rellenar en los siguientes pasos. En este caso, es la paleta`democracy` y la función `setBalance` 
+ 2. Elija la pallet con la que desea interactuar y la función (o acción) disponible para proponer. La acción que escoja determinará los campos que debe rellenar en los siguientes pasos. En este caso, es la pallet`democracy` y la función `setBalance` 
  3. Establezca la dirección desde la cual desea cambiar el balance.
  4. Establezca el nuevo balance que esta dirección deberá mantener. Para leer más acerca de los tipos de balances, puede visitar [este link](https://wiki.polkadot.network/docs/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)
  5. Copie el hash de la preimagen. Esto representa la propuesta. Utilizará este hash al enviar la propuesta real
@@ -75,7 +75,7 @@ Aquí necesitará proveer la información siguiente:
 
 ![Fill in the Preimage Information](/images/governance/governance-proposal-3.png)
 
-!!! note
+!!! nota
     Asegúrate de copiar el hash de la preimagen, ya que es necesario para enviar la propuesta.
 
 Note que el costo de almacenamiento de la pre imagen se muestra en el botón de la esquina izquierda de esta ventana. Después de haber enviado la transacción, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de la Polkadot JS Apps, pero nada habrá cambiado en la pantalla principal correspondiente a la democracia. No obstante, no debe preocuparse. Si la transacción ha sido confirmada, la pre imagen ha sido enviada.
@@ -95,7 +95,7 @@ Aquí, necesitará proveer la siguiente información:
 
 ![Fill in the Proposal Information](/images/governance/governance-proposal-5.png)
 
-!!! note
+!!! nota
     Los tokens pueden estar bloqueados por una cantidad de tiempo indeterminada, ya que no se puede determinar cuando una propuesta podrá convertirse en referéndum (ni si lo hará).
 
 Después que la transacción es enviada, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de Polkadot JS Apps. También debería poder ver la propuesta listada en la sección “Propuestas”, mostrándose la propuesta y la cantidad de tokens bloqueados, y ahora está lista para ser secundada.
@@ -106,7 +106,7 @@ Después que la transacción es enviada, podrá ver algunas confirmaciones en la
 
 El secundar una propuesta significa que está de acuerdo con ella y quiere respaldarla con sus tokens para ayudarla a alcanzar el referéndum público. La cantidad de tokens a ser bloqueados será igual al depósito de la propuesta original- ni más, ni menos.
 
-!!! note
+!!! nota
     Una misma cuenta puede secundar una propuesta en múltiples ocasiones. Esto es por diseño, ya que una cuenta pudiera enviar tokens a diferentes direcciones y usarlas para secundar la propuesta. Lo que es tomado en cuenta, es el número de tokens respaldando la propuesta, no el número de comprobantes que ha recibido.
 
 Esta sección describe los pasos para secundar la propuesta hecha en la sección anterior. Para hacerlo, seleccione el botón “Secundar” que está disponible para cada propuesta que se muestre en la lista de propuestas. 
@@ -121,7 +121,7 @@ Aquí, necesita proveer la siguiente información:
 
 ![Fill in Second Information](/images/governance/governance-proposal-8.png)
 
-!!! note
+!!! nota
 Los tokens pueden estar bloqueados por una cantidad de tiempo indeterminada, ya que no se puede determinar cuando una propuesta podrá convertirse en referéndum (o si lo hará).
 
 Después que la transacción es enviada, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de Polkadot JS Apps. También debería poder ver la propuesta listada en la sección “Propuestas”, mostrando la propuesta y la cantidad de tokens bloqueados y enumerando los usuarios que han secundado la propuesta.
