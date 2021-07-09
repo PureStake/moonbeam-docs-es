@@ -32,7 +32,7 @@ Desde una perspectiva técnica, las collators deben cumplir los siguientes requi
  - Tener un nodo completo ejecutándose con las opciones de collation. Para hacerlo, siga el [tutorial completo de un nodo](/node-operators/networks/full-node/), considerando los fragmentos de código específicos para los collators
  - Habilite el servidor de telemetría para su nodo completo. Para hacerlo, siga el [tutorial de telemetría](/node-operators/networks/telemetry/)
  
- ## Cuentas y requisitos de participación
+## Cuentas y requisitos de participación
  
 Al igual que los validadores Polkadot, debe crear una cuenta. Para Moonbeam, esta es una cuenta H160 o básicamente una cuenta estilo Ethereum de la que tiene las claves privadas. Además, necesita una participación nominada (tokens DEV) para recopilar. Actualmente, los espacios están limitados a {{ networks.moonbase.collators_slots }} pero pueden aumentar con el tiempo.  
 
@@ -56,7 +56,7 @@ Una vez que tenga una cuenta H160 importada a PolkadotJS, debería verla en la p
 
 ### Obtenga el tamaño del Pool de candidatos
 
-Primero, debe obtener el `candidatePool` tamaño (esto puede cambiar a través de la gobernanza), ya que deberá enviar este parámetro en una transacción posterior. Para hacerlo, deberá ejecutar el siguiente fragmento de código JavaScript desde [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/js):
+Primero, debe obtener el tamaño del `candidatePool` (esto puede cambiar a través de la gobernanza), ya que deberá enviar este parámetro en una transacción posterior. Para hacerlo, deberá ejecutar el siguiente fragmento de código JavaScript desde [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/js):
 
 ```js
 // Simple script to get candidate pool size
