@@ -38,6 +38,8 @@ Actualmente, hemos probado Moonbeam con las siguientes carteras:
 
  - [MetaMask](/integrations/wallets/metamask/)
  - [MathWallet](/integrations/wallets/mathwallet/)
+ - [Ledger](/integrations/wallets/ledger/)
+ - [Trezor](/integrations/wallets/trezor/)
 
 Sin embargo, cualquier billetera que funcione con una red personalizada de Ethereum también debería funcionar con Moonbeam.
 
