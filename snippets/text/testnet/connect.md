@@ -43,3 +43,11 @@ wss://wss.testnet.moonbeam.network
 ### ID de cadena
 
 Para la base lunar Alfa TestNet el ID de cadena es: `1287`.
+
+### Relay Chain
+
+Para conectarse a la relay chain de Moonbase Alpha, manejada por PureStake, puedes utilizar el siguiente punto de acceso WS:
+
+```
+wss://wss-relay.testnet.moonbeam.network
+```
