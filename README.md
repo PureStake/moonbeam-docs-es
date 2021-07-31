@@ -15,7 +15,7 @@ Este sitio crecerá y se perfeccionará con el tiempo a medida que se desarrolle
 
 ---
 
-## ¿Qué es Moonbeam? {: #what-is-moonbeam? } 
+## ¿Qué es Moonbeam? {: #what-is-moonbeam } 
 
 Moonbeam es una blockchain orientada a desarrolladores que se esfuerza por proporcionar compatibilidad con la cadena de herramientas y la red para desarrolladores de Ethereum existentes. Para ello, proporciona una implementación EVM completa, una API compatible con Web3 y puentes que conectan Moonbeam a las redes Ethereum existentes. Esto permite a los desarrolladores implementar contratos inteligentes Solidity y frontends DApp existentes en Moonbeam con cambios mínimos.
 
