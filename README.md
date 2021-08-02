@@ -76,22 +76,22 @@ Actualmente, tenemos una implementación de puente en pleno funcionamiento que c
 
 ## Cómo interactuar con la comunidad Moonbeam {: #how-to-engage-with-the-moonbeam-community } 
 
-### :fontawesome-brands-discord:  Discord {: #:fontawesomebrandsdiscord:-discord } 
+### :fontawesome-brands-discord:  Discord {: #fontawesome-brands-discord-discord } 
 Las instrucciones para nuestro TestNet y otras conversaciones centradas en el desarrollo se encuentran en nuestro [canal de Discord](https://discord.gg/PfpUATX).
 
-### :moonbeam-element:  Element {: #:moonbeamelement:-element } 
+### :moonbeam-element:  Element {: #moonbeam-element-element } 
 Se fomentan las discusiones técnicas y el soporte en nuestra sala Element (anteriormente Riot) que se puede encontrar [aquí](https://app.element.io/#/room/#moonbeam:matrix.org).
 
-### :fontawesome-brands-telegram-plane:  Telegram {: #:fontawesomebrandstelegramplane:-telegram }  
+### :fontawesome-brands-telegram-plane:  Telegram {: #fontawesome-brands-telegram-plane-telegram } 
 La información general y otros temas no técnicos se pueden discutir en nuestro grupo de Telegram [aquí](https://t.me/Moonbeam_Official).
 
-### :fontawesome-brands-twitter:  Twitter {: #:fontawesomebrandstwitter:-twitter } 
+### :fontawesome-brands-twitter:  Twitter {: #fontawesome-brands-twitter-twitter } 
 Síganos en Twitter para recibir actualizaciones periódicas: [@MoonbeamNetwork](https://twitter.com/MoonbeamNetwork).
 
-### :fontawesome-brands-youtube:  YouTube {: #:fontawesomebrandsyoutube:-youtube }  
+### :fontawesome-brands-youtube:  YouTube {: #fontawesome-brands-youtube-youtube }  
 Para videos tutoriales y contenido relacionado, suscríbase a nuestro canal de YouTube [aquí](https://www.youtube.com/c/MoonbeamNetwork).
 
-### :fontawesome-solid-envelope:  Boletin informativo {: #:fontawesomesolidenvelope:-newsletter }  
+### :fontawesome-solid-envelope:  Boletin informativo {: #fontawesome-solid-envelope-newsletter }  
 Enviamos un boletín mensual con actualizaciones del proyecto al que puede suscribirse [aquí](https://moonbeam.network/newsletter/).
 
 ## Acerca de este sitio  {: #about-this-site } 

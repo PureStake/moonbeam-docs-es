@@ -54,7 +54,7 @@ Como se indicó anteriormente, los nodos de retransmisión / parachain escuchar�
 
 Los únicos puertos que deben estar abiertos para el tráfico entrante son los designados para P2P.
 
-### Puertos predeterminados para un nodo completo de Parachain {: #default-ports-for-a-parachain-fullnode } 
+### Puertos predeterminados para un nodo completo de Parachain {: #default-ports-for-a-parachain-full-node } 
 
 |  Descripción   |     |                Puerto                 |
 | :------------: | :-: | :---------------------------------: |

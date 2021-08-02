@@ -41,7 +41,7 @@ Los principios rectores "soft" para el compromiso con el proceso de gobernanza d
 
 Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre gobernanza. Consulte sus artículos, [especialmente este](https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
 
-## Mecánicas de gobernanza on-chain {: #onchain-governance-mechanics } 
+## Mecánicas de gobernanza on-chain {: #on-chain-governance-mechanics } 
 
 El proceso de gobernanza "hard" para Moonbeam será impulsado por un proceso on-chain y aprovechará las pallets de Democracia, Consejo y Tesorería de [Substrate](/resources/glossary/#substrate-frame-pallets), de forma similar a como se rigen Kusama y la Relay Chain de Polkadot. La intención general de estos módulos es permitir que la mayoría de los tokens de la red determinen los resultados de las decisiones clave en la red. Estos puntos de decisión vienen en forma de votaciones ponderadas sobre los referendos propuestos.
 

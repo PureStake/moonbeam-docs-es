@@ -81,7 +81,7 @@ Esta guía repasará dos ejemplos diferentes del uso del puente para transferir 
 !!! nota
     El contrato puente, el contrato de manipulador ERC-20 y las direcciones del contrato de manipulador ERC-721 enumeradas anteriormente son aplicables tanto para Kovan como para Rinkeby.
 
-### Transferencia de token ERC-20 {: #erc20-token-transfer } 
+### Transferencia de token ERC-20 {: #erc-20-token-transfer } 
 
 Los tokens ERC-20 que quieran moverse a través del puente deben ser registrados por los retransmisores en el contrato de manipulador. Por lo tanto, para probar el puente, implementamos un token ERC-20 (ERC20S) donde cualquier usuario puede acuñar 5 tokens:
 
@@ -211,7 +211,7 @@ Recuerda que también puedes acuñar tokens ERC20S en Kovan y enviarlos a Moonba
 !!! nota
     Los tokens se transferirán solo si el contrato del controlador tiene suficiente asignación para gastar tokens en nombre del propietario. Si el proceso falla, verifique la asignación.
 
-### Transferencia de token ERC-721 {: #erc721-token-transfer } 
+### Transferencia de token ERC-721 {: #erc-721-token-transfer } 
 
 Al igual que en nuestro ejemplo anterior, los contratos de tokens ERC-721 deben ser registrados por los retransmisores para permitir la transferencia a través del puente. Por lo tanto, hemos personalizado un contrato de token ERC-721 para que cualquier usuario pueda acuñar un token para probar el puente. Sin embargo, como cada token no es fungible y, en consecuencia, es único, la función de menta solo está disponible en el contrato de token de la cadena de origen y no en el contrato de destino. En otras palabras, los tokens ERC-721M solo se pueden acuñar en Moonbase Alpha y luego transferirse a Rinkeby o Kovan. El siguiente diagrama explica el flujo de trabajo de este ejemplo, donde es importante resaltar que se mantienen el ID del token y los metadatos.
 

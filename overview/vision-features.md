@@ -15,7 +15,7 @@ La integración cross-chain o cadena cruzadas de Moonbeam se logra, convirtiénd
 
 Hay tres públicos principales que pueden beneficiarse más de la funcionalidad de cadena cruzada de Moonbeam:
 
-### Proyectos existentes basados en Ethereum {: #existing-ethereumbased-projects } 
+### Proyectos existentes basados en Ethereum {: #existing-ethereum-based-projects } 
 
 Los proyectos que luchan con los desafíos de costo y escalabilidad en Ethereum pueden usar Moonbeam para:
 

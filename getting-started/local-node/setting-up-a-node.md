@@ -209,7 +209,7 @@ Por ejemplo, al ejecutar el binario:
 ./target/release/moonbeam --dev --execution=Native --ethapi=debug,trace
 ```
 
-## Cuentas de desarrollo prefinanciadas {: #prefunded-development-accounts } 
+## Cuentas de desarrollo prefinanciadas {: #pre-funded-development-accounts } 
 
 Su nodo de desarrollo Moonbeam viene con diez cuentas prefinanciadas para el desarrollo. Las direcciones se derivan del mnemónico de desarrollo canónico de Substrate:
 

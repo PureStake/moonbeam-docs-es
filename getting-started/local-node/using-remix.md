@@ -95,7 +95,7 @@ Profundice en el contrato en "Contratos implementados". Al hacer clic en el nomb
 
 ![Interact with the contract from Remix](/images/remix/using-remix-11.png)
 
-## Interactuar con un ERC-20 basado en Moonbeam de MetaMask {: #interacting-with-a-moonbeambased-erc20-from-metamask } 
+## Interactuar con un ERC-20 basado en Moonbeam de MetaMask {: #interacting-with-a-moonbeam-based-erc-20-from-metamask } 
 
 Ahora, abra MetaMask para agregar los tokens ERC-20 recién implementados. Antes de hacerlo, asegúrese de haber copiado la dirección del contrato de Remix. De vuelta en MetaMask, haga clic en "Agregar token" como se muestra a continuación. Asegúrese de estar en la cuenta que implementó el contrato de token.
 

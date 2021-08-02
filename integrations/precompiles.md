@@ -119,7 +119,7 @@ contract Hash256{
 ```
 Una vez que se implementa el contrato, podemos llamar al `checkHash()` método que devuelve _verdadero_ si el hash devuelto por `calculateHash()` es igual al hash proporcionado.
 
-## Hashing con RIPEMD-160 {: #hashing-with-ripemd160 } 
+## Hashing con RIPEMD-160 {: #hashing-with-ripemd-160 } 
 
 Esta función hash devuelve un hash RIPEMD-160 a partir de los datos proporcionados. Para probar esta precompilación, puede utilizar esta [herramienta en línea](https://md5calc.com/hash/ripemd160) para calcular el hash RIPEMD-160 de cualquier cadena. En nuestro caso, lo haremos de nuevo con `Hello World!`. Reutilizaremos el mismo código que antes, pero usaremos la `ripemd160` función. Tenga en cuenta que devuelve una `bytes20`variable de tipo:
 
