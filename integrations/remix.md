@@ -37,7 +37,7 @@ Una vez que se incluye la transacción, el contrato aparece en la sección "Cont
 
 ![Interact with Contract](/images/remix/integrations-remix-2.png)
 
-## Tutoriales paso a paso {: #stepbystep-tutorials } 
+## Tutoriales paso a paso {: #step-by-step-tutorials } 
 
 Si está interesado en una guía paso a paso más detallada, vaya a nuestros tutoriales específicos sobre el uso de [Remix en un nodo de desarrollo Moonbeam](/getting-started/local-node/using-remix/).  Los pasos también se pueden adaptar para implementar en Moonbase Alpha TestNet [conectando MetaMask a él.](/getting-started/testnet/metamask/).
 

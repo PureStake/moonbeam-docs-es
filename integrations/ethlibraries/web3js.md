@@ -32,7 +32,7 @@ Según la red a la que desee conectarse, puede establecer `RPC_URL` los siguient
  - Nodo de desarrollo Moonbeam:  `http://127.0.0.1:9933`
  - Moonbase Alpha TestNet: `https://rpc.testnet.moonbeam.network`
 
-## Tutoriales paso a paso {: #stepbystep-tutorials } 
+## Tutoriales paso a paso {: #step-by-step-tutorials } 
 
 Si está interesado en una guía paso a paso más detallada, consulte nuestros tutoriales específicos sobre el uso de web3.js en Moonbeam para [enviar una transacción](/getting-started/local-node/send-transaction/) o [implementar un contrato](/getting-started/local-node/deploy-contract/).
 

@@ -44,7 +44,7 @@ Moonbase Alpha TestNet:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-## Tutoriales paso a paso {: #stepbystep-tutorials } 
+## Tutoriales paso a paso {: #step-by-step-tutorials } 
 
 En el caso de que estés interesado en guías paso a paso más detalladas para configurar MetaMask to Moonbeam, puedes acudir a nuestros tutoriales específicos:
 
