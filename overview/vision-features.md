@@ -11,11 +11,11 @@ Las plataformas de contratos inteligentes existentes están diseñadas para dar 
 
 La integración cross-chain o cadena cruzadas de Moonbeam se logra, convirtiéndose en una [parachain](/resources/glossary/#parachains) en la red Polkadot.  La [red Polkadot](/resources/glossary/#polkadot) proporciona integración y conectividad entre parachains que están conectadas a la red y a otras cadenas no basadas en Polkadot, como Ethereum y Bitcoin, a través de puentes. 
 
-## Quién se beneficia de Moonbeam
+## Quién se beneficia de Moonbeam {: #who-benefits-from-moonbeam } 
 
 Hay tres públicos principales que pueden beneficiarse más de la funcionalidad de cadena cruzada de Moonbeam:
 
-### Proyectos existentes basados en Ethereum
+### Proyectos existentes basados en Ethereum {: #existing-ethereumbased-projects } 
 
 Los proyectos que luchan con los desafíos de costo y escalabilidad en Ethereum pueden usar Moonbeam para:
 
@@ -23,7 +23,7 @@ Los proyectos que luchan con los desafíos de costo y escalabilidad en Ethereum 
  - Implementar un enfoque híbrido, donde las aplicaciones viven en Ethereum y Moonbeam simultáneamente.  
  - Extender su alcance a la red Polkadot y otras cadenas que están conectadas a Polkadot.  
 
-### Proyectos del ecosistema Polkadot
+### Proyectos del ecosistema Polkadot {: #polkadot-ecosystem-projects } 
 
 Los proyectos que necesitan la funcionalidad de contrato inteligente pueden usar Moonbeam para:
 
@@ -31,15 +31,14 @@ Los proyectos que necesitan la funcionalidad de contrato inteligente pueden usar
  - Agregar una nueva funcionalidad que es necesaria pero no está incluida enla  [Relay Chain de Polkadot](/resources/glossary/#relay-chain). Por ejemplo, podrían crear un lugar donde los equipos puedan financiar colectivamente sus proyectos, implementar lockdrops y procesar otras transacciones financieras más complejas que las proporcionadas por la funcionalidad básica de [Substrate](/resources/glossary/#substrate) functionality.  
  - Aprovechar la extensa y madura cadena de herramientas de desarrollo de Ethereum. 
 
-### Desarrolladores de nuevas DApps
+### Desarrolladores de nuevas DApps {: #developers-of-new-dapps } 
 
 Las personas y los equipos que quieran intentar construir sobre Polkadot pueden usar Moonbeam para:
 
  - Aprovechar la funcionalidad especializada de las parachains de Polkadot mientras llega a los activos y usuarios de otras cadenas. 
  - Componer la funcionalidad de las parachains de Polkadot utilizando Moonbeam como una capa de integración ligera que agrega los servicios de red antes de presentarlos a los usuarios finales. La implementación de un servicio compuesto utilizando integraciones predefinidas en una plataforma de contrato inteligente será mucho más rápido y fácil (en muchos casos) que crear un runtime de Substrate completo y realizar las integraciones usted mismo.
 
-
-## Funciones y características clave
+## Funciones y características clave {: #key-features-and-functionality } 
 
 Moonbeam logra estos objetivos con las siguientes características clave:
 

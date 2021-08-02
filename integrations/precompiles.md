@@ -5,7 +5,7 @@ description:  Aprenda a usar contratos precompilados en Moonbase Alpha, Moonbeam
 
 # Contratos precompilados en Moonbase Alpha
 
-## Introducción
+## Introducción {: #introduction } 
 
 Otra característica agregada con el [lanzamiento de Moonbase Alpha v2](https://moonbeam.network/announcements/moonbase-alpha-v2-contract-events-pub-sub-capabilities/) es la inclusión de algunos [contratos precompilados](https://docs.klaytn.com/smart-contract/precompiled-contracts) que están disponibles de forma nativa en Ethereum.
 
@@ -13,7 +13,7 @@ Actualmente se incluyen cinco precompilaciones, que incluyen: ecrecover, sha256,
 
 En esta guía, explicaremos cómo usar y / o verificar estas precompilaciones.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 --8<-- 'text/common/install-nodejs.md'
 
@@ -30,7 +30,7 @@ npm ls web3
 ```
 En el momento de redactar esta guía, la versión utilizada era 1.3.0. También usaremos [Remix](/integrations/remix/), conectándolo a Moonbase Alpha TestNet a través de [MetaMask](/integrations/wallets/metamask/).
 
-## Verificar firmas con ECRECOVER
+## Verificar firmas con ECRECOVER {: #verify-signatures-with-ecrecover } 
 
 La función principal de esta precompilación es verificar la firma de un mensaje. En términos generales, alimenta `ecrecover` los valores de la firma de la transacción y devuelve una dirección. La firma se verifica si la dirección devuelta es la misma que la dirección pública que envió la transacción.
 
@@ -94,7 +94,7 @@ contract ECRECOVER{
 
 Usando el [compilador y la implementación Remix](/getting-started/local-node/using-remix/) y con [MetaMask apuntando a Moonbase Alpha](/getting-started/testnet/metamask/), podemos implementar el contrato y llamar al `verify()` método que devuelve _verdadero_ si la dirección devuelta por `ecrecover` es igual a la dirección utilizada para firmar el mensaje (relacionada con la clave privada y necesita configurarse manualmente en el contrato).
 
-## Hash con SHA256
+## Hash con SHA256 {: #hashing-with-sha256 } 
 
 Esta función hash devuelve el hash SHA256 de los datos proporcionados. Para probar esta precompilación, puede utilizar esta [herramienta en línea](https://md5calc.com/hash/sha256) para calcular el hash SHA256 de cualquier cadena que desee. En nuestro caso, lo haremos con `Hello World!`. Podemos dirigirnos directamente a Remix e implementar el siguiente código, donde se establece el hash calculado para la `expectedHash` variable:
 
@@ -119,7 +119,7 @@ contract Hash256{
 ```
 Una vez que se implementa el contrato, podemos llamar al `checkHash()` método que devuelve _verdadero_ si el hash devuelto por `calculateHash()` es igual al hash proporcionado.
 
-## Hashing con RIPEMD-160
+## Hashing con RIPEMD-160 {: #hashing-with-ripemd160 } 
 
 Esta función hash devuelve un hash RIPEMD-160 a partir de los datos proporcionados. Para probar esta precompilación, puede utilizar esta [herramienta en línea](https://md5calc.com/hash/ripemd160) para calcular el hash RIPEMD-160 de cualquier cadena. En nuestro caso, lo haremos de nuevo con `Hello World!`. Reutilizaremos el mismo código que antes, pero usaremos la `ripemd160` función. Tenga en cuenta que devuelve una `bytes20`variable de tipo:
 
@@ -143,7 +143,7 @@ contract HashRipmd160{
 ```
 Con el contrato implementado, podemos llamar al `checkHash()` método que devuelve _verdadero_ si el hash devuelto por `calculateHash()` es igual al hash proporcionado.
 
-## La función de identidad
+## La función de identidad {: #the-identity-function } 
 
 También conocida como copia de datos, esta función sirve como una forma más económica de copiar datos en la memoria. El compilador Solidity no lo admite, por lo que debe llamarse con ensamblado en línea. El [siguiente código](https://docs.klaytn.com/smart-contract/precompiled-contracts#address-0x-04-datacopy-data) (adaptado a Solidity), se puede utilizar para llamar a este contrato precompilado. Podemos usar esta [herramienta en línea](https://web3-type-converter.onbrn.com/) para obtener bytes de cualquier cadena, ya que esta es la entrada del método `callDataCopy()`.
 
@@ -171,7 +171,7 @@ contract Identity{
 ```
 Con el contrato implementado, podemos llamar al `callDataCopy()` método y verificar si `memoryStored` coincide con los bytes que pasa como entrada de la función.
 
-## Exponenciación modular
+## Exponenciación modular {: #modular-exponentiation } 
 
 Esta quinta precompilación calcula el resto cuando un entero _b_ (base) se eleva a la _e_ -ésima potencia (el exponente) y se divide por un entero positivo _m_ (el módulo).
 

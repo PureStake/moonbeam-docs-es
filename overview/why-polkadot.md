@@ -6,15 +6,13 @@ description: Moonbeam se basa en el Marco  de Desarrollo Substrate y está conec
 
 Después de una extensa investigación, decidimos construir Moonbeam usando el [Marco de Desarrollo Substrate](/resources/glossary/#substrate) y desplegar Moonbeam como una [parachain](/resources/glossary/#parachains) en la [red Polkadot](/resources/glossary/#polkadot).
 
-
-## Marco de Desarrollo Blockchain - Substrate
+## Marco de Desarrollo Blockchain - Substrate {: #substrate-blockchain-framework } 
 
 Substrate  es un buen ajuste técnico para Moonbeam. Al construir sobre este marco, podemos aprovechar la amplia funcionalidad que Substrate incluye lista para usar, en lugar de construirla nosotros mismos. Esto incluye redes peer-to-peer, mecanismos de consenso, funcionalidad de gobernanza, una implementación de EVM y más.
 
 En general, el uso de Substrate reducirá drásticamente el tiempo y el esfuerzo de implementación necesarios para implementar Moonbeam. Substrate permite un alto grado de personalización, que es necesario para lograr nuestros objetivos de compatibilidad con Ethereum. Y, al utilizar Rust, nos beneficiamos tanto de las garantías de seguridad como de las mejoras en el rendimiento.
- 
 
-## Red y ecosistema de Polkadot
+## Red y ecosistema de Polkadot {: #polkadot-network-and-ecosystem } 
 
 La red Polkadot también se adapta bien a Moonbeam. Como parachain en Polkadot, Moonbeam podrá integrarse directamente y - mover tokens entre -  cualquier otra parachain y parathreads en la red.
 

@@ -6,13 +6,13 @@ description: Moonbeam ahora usa el sistema de cuentas H160 basado en Ethereum de
 
 ![Intro diagram](/images/learn/unifiedaccounts-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Con el [lanzamiento de la actualización v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/) para Moonbase Alpha TestNet, hemos realizado actualizaciones significativas en el sistema de cuentas subyacente en Moonbeam, reemplazando las cuentas y claves predeterminadas de estilo Substrate con cuentas y claves de estilo Ethereum.
 
 La interfaz de Polkadot JS Apps también se actualizó para que admita de forma nativa direcciones H160 y claves ECDSA. Puede consultar [este tutorial](/integrations/wallets/polkadotjs/) para obtener más información sobre esta integración.
 
-## Blockchain compatible con sustrato EVM
+## Blockchain compatible con sustrato EVM {: #substrate-evm-compatible-blockchain } 
 
 Cualquier parachain en el ecosistema de Polkadot puede ofrecer una implementación completa de EVM, lo que brinda la posibilidad de ejecutar contratos inteligentes basados en Solidity con cambios mínimos o nulos. El sustrato hace posible esta integración: simplemente conecte el [pallet EVM](https://docs.rs/pallet-evm/2.0.1/pallet_evm/) en su tiempo de ejecución para el soporte de EVM, y el [pallet Ethereum con Frontier](https://github.com/paritytech/frontier) para tener compatibilidad con Ethereum RPC. La disponibilidad de estos módulos de código abierto que Moonbeam ha desarrollado con Parity ha llevado a múltiples paracaídas a ofrecer compatibilidad con Ethereum en sus cadenas.
 
@@ -26,7 +26,7 @@ El siguiente diagrama ilustra esta configuración.
 
 Esto puede crear fricciones y una mala experiencia de usuario para Alice. Primero, tiene que mover tokens a su dirección H256 asignada a H160 para poder realizar transacciones e implementar contratos a través del EVM. En segundo lugar, también necesita mantener un saldo en su otra dirección H256 (para la que tiene una clave privada diferente) para usar las funciones basadas en sustrato. En resumen, Alice necesita un mínimo de dos claves privadas para tener lo mejor de ambos mundos.
 
-## Cuentas unificadas de Moonbeam
+## Cuentas unificadas de Moonbeam {: #moonbeam-unified-accounts } 
 
 El objetivo de Moonbeam es crear un entorno totalmente compatible con Ethereum en Polkadot con la mejor experiencia de usuario posible. Esto se extiende más allá del conjunto de características base de Ethereum, con características adicionales como gobernanza en cadena, participación e integraciones entre cadenas.
 

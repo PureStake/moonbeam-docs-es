@@ -7,7 +7,7 @@ description: Esta guía le explica cómo conectar MetaMask, una billetera Ethere
 
 ![Intro diagram](/images/integrations/integrations-metamask-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Los desarrolladores pueden aprovechar las funciones de compatibilidad con Ethereum de Moonbeam para integrar herramientas, como [MetaMask](https://metamask.io/), en sus DApps. Al hacerlo, pueden usar la biblioteca inyectada que proporciona MetaMask para interactuar con la blockchain.
 
@@ -24,7 +24,7 @@ Si ya tiene MetaMask instalado, puede conectar fácilmente MetaMask a Moonbase A
 
 Aprenda [a integrar un botón Connect MetaMask](#integra-metamask-en-una-dapp) en su dapp, para que los usuarios puedan conectarse a Moonbase Alpha con un simple clic de un botón.
 
-## Conecte MetaMask a Moonbeam
+## Conecte MetaMask a Moonbeam {: #connect-metamask-to-moonbeam } 
 
 Una vez que haya instalado [MetaMask](https://metamask.io/) puede conectarlo a Moonbeam haciendo clic en el logotipo superior derecho y abriendo la configuración.
 
@@ -44,14 +44,14 @@ Moonbase Alpha TestNet:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-## Tutoriales paso a paso
+## Tutoriales paso a paso {: #stepbystep-tutorials } 
 
 En el caso de que estés interesado en guías paso a paso más detalladas para configurar MetaMask to Moonbeam, puedes acudir a nuestros tutoriales específicos:
 
  - MetaMask en un [nodo de desarrollo Moonbeam](/getting-started/local-node/using-metamask/)
  - MetaMask en [Moonbase Alpha](/getting-started/testnet/metamask/)
 
-## Integra MetaMask en una DApp
+## Integra MetaMask en una DApp {: #integrate-metamask-into-a-dapp } 
 
 Con el lanzamiento de la [API de redes personalizadas](https://consensys.net/blog/metamask/connect-users-to-layer-2-networks-with-the-metamask-custom-networks-api/), de MetaMask , se puede solicitar a los usuarios que agreguen Testnet de Moonbeam, Moonbase Alpha.
 
@@ -65,7 +65,7 @@ MetaMask inyecta una API Ethereum global en los sitios web que visitan los usuar
 
 Esta guía se divide en dos secciones. Primero, cubrirá la adición de un botón que se usará para activar MetaMask para que aparezca y se conecte a Moonbase Alpha. La segunda parte de la guía creará la lógica para conectar al usuario a MetaMask. De esta manera, cuando hace clic en el botón, puede probar la funcionalidad a medida que avanza en la guía.
 
-### Comprobación de requisitos previos
+### Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Para agregar el botón Conectar MetaMask, necesitará un proyecto de JavaScript y la extensión del navegador MetaMask instalada para las pruebas locales.
 
@@ -74,7 +74,7 @@ Se recomienda utilizar el `detect-provider` paquete de utilidades de MetaMask pa
 ```
 npm install @metamask/detect-provider
 ```
-### Agregar un botón
+### Agregar un botón {: #add-a-button } 
 
 Comenzará agregando un botón que se usará para conectar MetaMask a Moonbase Alpha. Desea comenzar con el botón para que cuando cree la lógica en el siguiente paso, pueda probar el código a medida que avanza en la guía.
 
@@ -84,7 +84,7 @@ Se llamará a la función que crearemos en la siguiente sección de la guía `co
 <button onClick={configureMoonbaseAlpha()}>Connect to Moonbase Alpha</button>
 ```
 
-### Agregar lógica
+### Agregar lógica {: #add-logic } 
 
 Ahora que ha creado el botón, debe agregar la `configureMoonbaseAlpha` unción que se utilizará al hacer clic.
 
@@ -169,7 +169,7 @@ Entonces, ahora debería tener un botón que, al hacer clic, guíe a los usuario
 
 <img src="/images/integrations/integrations-metamask-5.png" alt="Integrate MetaMask into a Dapp - Account connected to Moonbase Alpha"/>
 
-### Confirmar conexión
+### Confirmar conexión {: #confirm-connection } 
 
 Es posible que tenga una lógica que se base en saber si un usuario está conectado a Moonbase Alpha o no. Quizás desee deshabilitar el botón si el usuario ya está conectado. Para confirmar que un usuario está conectado a Moonbase Alpha, puede llamar `eth_chainId`, que devolverá el ID de cadena actual del usuario:
 
@@ -185,7 +185,7 @@ Es posible que tenga una lógica que se base en saber si un usuario está conect
     }
 ```
 
-### Escuche los cambios en la cuenta
+### Escuche los cambios en la cuenta {: #listen-to-account-changes } 
 
 Para asegurarse de que su proyecto o dApp se mantenga actualizado con la información más reciente de la cuenta, puede agregar el `accountsChanged` edetector de eventos que proporciona MetaMask. MetaMask emite este evento cuando `eth_accounts` cambia el valor de retorno de . Si se devuelve una dirección, es la cuenta más reciente de su usuario la que proporcionó permisos de acceso. Si no se devuelve ninguna dirección, eso significa que el usuario no ha proporcionado ninguna cuenta con permisos de acceso.
 
@@ -198,7 +198,7 @@ Para asegurarse de que su proyecto o dApp se mantenga actualizado con la informa
     })
 ```
 
-### Escuche los cambios en la cadena
+### Escuche los cambios en la cadena {: #listen-to-chain-changes } 
 
 Para mantener su proyecto o dApp actualizado con cualquier cambio en la cadena conectada, querrá suscribirse al `chainChanged` evento. MetaMask emite este evento cada vez que cambia la cadena conectada.
 

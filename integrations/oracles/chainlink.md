@@ -7,20 +7,20 @@ description: Cómo utilizar los datos de solicitud de un Chainlink Oracle en su 
 
 ![Chainlink Moonbeam Banner](/images/chainlink/chainlink-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Los desarrolladores ahora pueden usar [la red Oracle descentralizada de Chainlink](https://chain.link/) para obtener datos en Moonbase Alpha TestNet. Este tutorial pasa por dos formas diferentes de usar Chainlink Oracles:
 
  - [Modelo de solicitud básica](https://docs.chain.link/docs/architecture-request-model), donde el usuario final envía una solicitud a un proveedor de Oracle, que obtiene los datos a través de una API y cumple la solicitud almacenando estos datos en cadena.
  - [Price Feeds](https://docs.chain.link/docs/architecture-decentralized-model), donde los operadores de Oracle actualizan continuamente los datos en un contrato inteligente para que otros contratos inteligentes puedan obtenerlos.
 
-## Modelo de solicitud básico
+## Modelo de solicitud básico {: #basic-request-model } 
 
 Antes de comenzar a buscar los datos en sí, es importante comprender los conceptos básicos del "modelo de solicitud básico".
 
 --8<-- 'text/chainlink/chainlink-brm.md'
 
-### El contrato del cliente
+### El contrato del cliente {: #the-client-contract } 
 
 El contrato del Cliente es el elemento que inicia la comunicación con Oracle mediante el envío de una solicitud. Como se muestra en el diagrama, llama al método _transferAndCall_ desde el contrato del token LINK, pero se necesita más procesamiento para rastrear la solicitud a Oracle. Para este ejemplo, puede usar el código de [este archivo](/snippets/code/chainlink/Client.sol), e implementarlo en [Remix](/integrations/remix/) para probarlo. Veamos las funciones básicas del contrato:
 
@@ -65,7 +65,7 @@ contract Client is ChainlinkClient {
 
 Tenga en cuenta que el contrato del Cliente debe tener un saldo de tokens LINK para poder pagar esta solicitud. Sin embargo, si implementa su configuración, puede establecer el valor LINK en 0 en su `ChainlinkClient.sol` contract,contrato, pero aún necesita tener implementado el contrato del token LINK.
 
-### Pruébalo en Moonbase Alpha
+### Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Si desea evitar los obstáculos de implementar todos los contratos, configurar su nodo de Oracle, crear ID de trabajo, etc., lo tenemos cubierto.
 
@@ -119,7 +119,7 @@ Después de crear el archivo y compilar el contrato, diríjase a la pestaña "Im
 
 Si hay algún par específico que desea que incluyamos, no dude en comunicarse con nosotros a través de nuestro [servidor de Discord](https://discord.com/invite/PfpUATX).
 
-### Ejecute su contrato con el cliente
+### Ejecute su contrato con el cliente {: #run-your-client-contract } 
 
 Si desea ejecutar su contrato de Cliente pero utiliza nuestro nodo de Oracle, puede hacerlo con la siguiente información:
 
@@ -130,13 +130,13 @@ Si desea ejecutar su contrato de Cliente pero utiliza nuestro nodo de Oracle, pu
 
 Recuerde que el pago del token LINK se establece en cero.
 
-### Otras solicitudes
+### Otras solicitudes {: #other-requests } 
 
 Los oráculos de Chainlink pueden proporcionar tentativamente muchos tipos diferentes de fuentes de datos con el uso de adaptadores externos. Sin embargo, para simplificar, nuestro nodo de Oracle está configurado para entregar solo precios.
 
 Si está interesado en ejecutar su propio nodo Oracle en Moonbeam, visite [esta guía](/node-operators/oracles/node-chainlink/). Además, recomendamos [visitar el sitio de documentación de Chainlink](https://docs.chain.link/docs).
 
-## Feeds de precios
+## Feeds de precios {: #price-feeds } 
 
 Antes de comenzar a buscar los datos en sí, es importante comprender los conceptos básicos de las fuentes de precios.
 
@@ -146,7 +146,7 @@ El usuario final puede recuperar precios con operaciones de solo lectura a trav�
 
 ![Price Feed Diagram](/images/chainlink/chainlink-pricefeed.png)
 
-### Pruébalo en Moonbase Alpha
+### Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Si desea evitar los obstáculos de implementar todos los contratos, configurar su nodo de Oracle, crear ID de trabajo, etc., lo tenemos cubierto.
 

@@ -7,7 +7,7 @@ description: Moonbeam proporciona funciones de staking en las que los titulares 
 
 ![Staking Moonbeam Banner](/images/staking/staking-overview-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Moonbeam utiliza un mecanismo de producción de bloques basado en [el modelo Proof-of-Stake de Polkadot](https://wiki.polkadot.network/docs/learn-consensus) donde hay collators y validators. Los [Collators](https://wiki.polkadot.network/docs/learn-collator) mantienen la parachain (en este caso, Moonbeam) mediante la recopilación de transacciones de los usuarios y la producción de pruebas de transición de estados para los [validators](https://wiki.polkadot.network/docs/learn-validator) de la Relay Chain.
 
@@ -15,7 +15,7 @@ El conjunto de collators (nodos que producen bloques) se selecciona en función 
 
 Los Collators (y los titulares de tokens si nominan) tienen un stake en la red del cual puede haber una disminución o recorte(slash) si cometen fallos. Por lo tanto, cuanto mayor sea el stake, mayor será la seguridad de la red. Cuanto mayor sea el stake, es más probable que el collator sea seleccionado para producir un bloque y ganar recompensas, que comparten con sus nominadores. De esta manera, los miembros de la red están incentivados a hacer stake de sus tokens para mejorar la seguridad general.
 
-## Definiciones generales
+## Definiciones generales {: #general-definitions } 
 
 --8<-- 'text/staking/staking-definitions.md'
 
@@ -30,7 +30,7 @@ Actualmente, para Moonbase Alpha
 |              Ronda               |     | 300 bloques (1 hora) |
 |          Duración del Bond           |     |                            2 rondas                             |
 
-## Distribución de recompensas
+## Distribución de recompensas  {: #reward-distribution } 
 
 Al final de cada ronda (300 bloques), los collators son recompensados por su trabajo de 2 rondas atras.
 
@@ -53,7 +53,7 @@ Para cada nominador, la recompensa se vería así:
 
 Donde el stake  corresponde a la cantidad de tokens vinculados(bond) por cada nominador con respecto al total stake de ese collator.
 
-## Pruébalo en Moonbase Alpha
+## Pruébalo en Moonbase Alpha {: #try-it-out } 
 
 En Moonbase Alpha TestNet, los titulares de tokens pueden hacer stake  y ganar recompensas (para familiarizarse con el sistema, ya que el token no tiene ningún valor real).
 

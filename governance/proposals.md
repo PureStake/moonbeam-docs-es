@@ -7,7 +7,7 @@ description: Cómo enviar una propuesta para votar en Moonbeam a través de func
 
 ![Governance Moonbeam Banner](/images/governance/governance-proposal-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Como se menciona en la [página de descripción general de la gobernanza](/governance/overview/#definitions),una propuesta es una presentación a la cadena en la que el titular de un token sugiere que el sistema lleve a cabo una acción.
 
@@ -22,7 +22,7 @@ Se puede encontrar más información en las páginas Wiki de Polkadot relacionad
 !!! nota
    Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
-## Definiciones
+## Definiciones {: #definitions } 
 
 Algunos de los parámetros clave de esta guía son los siguientes:
 
@@ -42,11 +42,11 @@ Actualmente, para Moonbase Alpha:
 | Depósito mínimo de preimagen |     |                                 0,004 DEV                                  |
 | Depósito mínimo de propuesta |     |                                   4 DEV                                     |
 
-## Hoja de ruta de una propuesta
+## Hoja de ruta de una propuesta {: #roadmap-of-a-proposal } 
 
 --8<-- 'text/governance/roadmap.md'
 
-## Proponer una acción
+## Proponer una acción {: #proposing-an-action } 
 
 En este apartado se repasa el proceso de creación de una propuesta, desde una preimagen hasta que llega a los referendos públicos. En lugar de hacer un ejemplo genérico, esta guía creará una propuesta real que servirá de base para esta guía y otras.
 
@@ -56,7 +56,7 @@ Para hacer una propuesta en la red, debe utilizar la interfaz de PolkadotJS Apps
 
 La propuesta establecerá el balance de Bob en `1500` a través de la gobernanza.
 
-### Enviando una Preimagen de la Propuesta
+### Enviando una Preimagen de la Propuesta {: #submitting-a-preimage-of-the-proposal } 
 
 El primer paso es enviar una pre imagen de la propuesta. Esto se debe a que el costo de almacenamiento de las preimágenes más grandes puede ser bastante elevado, ya que la pre imagen contiene toda la información concerniente a la propuesta en sí misma. Con esta configuración, una cuenta con más fondos puede enviar la pre imagen y otra cuenta puede enviar la propuesta.
 
@@ -80,7 +80,7 @@ Aquí necesitará proveer la información siguiente:
 
 Note que el costo de almacenamiento de la pre imagen se muestra en el botón de la esquina izquierda de esta ventana. Después de haber enviado la transacción, podrá ver algunas confirmaciones en la esquina superior derecha de la interfaz de la Polkadot JS Apps, pero nada habrá cambiado en la pantalla principal correspondiente a la democracia. No obstante, no debe preocuparse. Si la transacción ha sido confirmada, la pre imagen ha sido enviada.
 
-### Enviando una propuesta
+### Enviando una propuesta {: #submitting-a-proposal } 
 
 Una vez que ya ha comprometido la pre imagen (consulte la sección anterior), el siguiente hito en el roadmap es enviar la propuesta correspondiente a la misma. Para hacerlo, seleccione “enviar propuesta” en la pantalla principal de democracia.
 
@@ -102,7 +102,7 @@ Después que la transacción es enviada, podrá ver algunas confirmaciones en la
 
 ![Proposal listed](/images/governance/governance-proposal-6.png)
 
-### Secundando una propuesta
+### Secundando una propuesta {: #seconding-a-proposal } 
 
 El secundar una propuesta significa que está de acuerdo con ella y quiere respaldarla con sus tokens para ayudarla a alcanzar el referéndum público. La cantidad de tokens a ser bloqueados será igual al depósito de la propuesta original- ni más, ni menos.
 

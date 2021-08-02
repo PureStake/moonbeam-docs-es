@@ -7,7 +7,7 @@ description: Cómo ejecutar telemetría para un nodo Parachain completo para Moo
 
 ![Telemetry Moonbeam Banner](/images/fullnode/telemetry-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Desde Moonbase Alpha v6 y el reciente lanzamiento de Moonriver, puede activar un nodo que se conecta a Moonbase Alpha TestNet o Moonriver en Kusama. Puede consultar esos pasos en [este tutorial](/node-operators/networks/full-node/).
 
@@ -16,7 +16,7 @@ Esta guía proporcionará los pasos necesarios para habilitar el servidor de tel
 !!! nota
     Los pasos descritos en esta guía son para una instancia de telemetría diferente a la telemetría estándar de Polkadot habilitada de forma predeterminada (puede ejecutar nodos sin telemetría mediante el uso de la `--no-telemetry` marca). Los pasos descritos en esta guía son obligatorios solo para los nodos de collator.
 
-## Resumen del exportador de telemetría
+## Resumen del exportador de telemetría {: #telemetry-exporter-summary } 
 
 Moonbeam ejecutará un servidor de telemetría que recopila las métricas de Prometheus de todos los nodos de parachain de Moonbeam en la red. Ejecutar esto será de gran ayuda para nosotros durante nuestra fase de desarrollo. 
 
@@ -28,7 +28,7 @@ Por ahora, necesitamos ejecutar dos watchdogs de nodos, uno para la parachain y 
 
 Para obtener ayuda, comuníquese con nuestro [servidor de Discord](https://discord.gg/FQXm74UQ7V) o con [Gantree Discord](https://discord.gg/N95McPjHZ2). 
  
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Antes de seguir este tutorial, debe:
 
@@ -38,11 +38,11 @@ Antes de seguir este tutorial, debe:
 
 Puede usar la misma clave PCK para todas nuestras redes basadas en Moonbeam, que actualmente incluyen Moonbase Alpha y Moonriver.
    
-## Exportador de telemetría con Docker
+## Exportador de telemetría con Docker {: #telemetry-exporter-with-docker } 
 
 Ejecutaremos dos instancias del Gantree node watchdog usando Docker:  una para la parachain y otra para la cadena de retransmisión.
 
-### Información de configuración requerida
+### Información de configuración requerida {: #required-configuration-information } 
 
 - GANTREE_NODE_WATCHDOG_API_KEY
 - GANTREE_NODE_WATCHDOG_PROJECT_ID
@@ -50,7 +50,7 @@ Ejecutaremos dos instancias del Gantree node watchdog usando Docker:  una para l
 - GANTREE_NODE_WATCHDOG_PCKRC
 - GANTREE_NODE_WATCHDOG_METRICS_HOST
 
-### Instrucciones
+### Instrucciones {: #instructions } 
 
 Primero, clone el repositorio del cliente de monitoreo de instancias y cree la imagen de la ventana acoplable:
 
@@ -99,11 +99,11 @@ Debería ver "esperando aprovisionamiento" en los registros. Si es la primera ve
 
 Una vez que todo funcione bien, puede actualizar los comandos para que se ejecuten en modo demonio. Eliminar `-it` y agregar `-d` al comando anterior.  
 
-## Exportador de telemetría con Systemd
+## Exportador de telemetría con Systemd {: #telemetry-exporter-with-systemd } 
 
 Ejecutaremos dos instancias del Gantree node watchdog: uno para la parachain y otro para la cadena de relés.
 
-### Información de configuración requerida
+### Información de configuración requerida {: #required-configuration-information } 
 
 - GANTREE_NODE_WATCHDOG_API_KEY
 - GANTREE_NODE_WATCHDOG_PROJECT_ID
@@ -111,7 +111,7 @@ Ejecutaremos dos instancias del Gantree node watchdog: uno para la parachain y o
 - GANTREE_NODE_WATCHDOG_PCKRC
 - GANTREE_NODE_WATCHDOG_METRICS_HOST
 
-### Instrucciones
+### Instrucciones {: #instructions } 
 
 En primer lugar, tenemos que descargar el organismo de control binario de nodo Gantree desde la [página de la liberación](https://github.com/gantree-io/gantree-node-watchdog/releases), y extraerlo en una carpeta, por ejemplo, `/usr/local/bin`.
 

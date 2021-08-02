@@ -5,7 +5,7 @@ description: Puede parecer abrumador pasar a una parachain de Polkadot si estás
 
 # Compatibilidad con Ethereum
 
-## Diferencias entre Moonbeam y Ethereum
+## Diferencias entre Moonbeam y Ethereum {: #differences-between-moonbeam-and-ethereum } 
 
 Si bien Moonbeam se esfuerza por ser compatible con la API Web3 y EVM de Ethereum, existen varias diferencias importantes en Moonbeam.
 
@@ -13,7 +13,7 @@ Primero, Moonbeam usa un mecanismo de consenso basado en Proof of Stake, lo que 
 
 Otra diferencia significativa entre Moonbeam y Ethereum es que Moonbeam incluye un amplio conjunto de funciones de gobernanza en cadena basadas en la funcionalidad Substrate. Estos módulos de gobernanza en cadena incluyen funciones para impulsar actualizaciones de la propia blockchain en función de la votación ponderada por tokens.
 
-## Lo que permanece igual
+## Lo que permanece igual {: #what-stays-the-same } 
 
 Si está moviendo partes de sus cargas de trabajo existentes y el estado de Ethereum Layer 1 a Moonbeam, puede esperar cambios mínimos requeridos (aparte de las excepciones mencionadas anteriormente). Sus aplicaciones, contratos y herramientas se mantendrán prácticamente sin cambios.
 
