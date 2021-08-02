@@ -156,7 +156,7 @@ Con el lanzamiento de [Moonbase Alpha v3](https://www.purestake.com/news/moonbea
  
 Sin embargo, aprovechando las capacidades RPC completas de Ethereum de Moonbeam, también puede usar [MetaMask](/getting-started/local-node/using-metamask/) para verificar el saldo de esa dirección. Además, también puede utilizar otras herramientas de desarrollo, como [Remix](/getting-started/local-node/using-remix/) y [Truffle](/getting-started/local-node/using-truffle/).
 
-## Flags y opciones comunes {: #common-commands,-flags-and-options } 
+## Flags y opciones comunes {: #common-commands-flags-and-options } 
 
 ### Purgando la Cadena {: #purging-the-chain } 
 
