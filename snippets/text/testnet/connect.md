@@ -1,4 +1,4 @@
-### HTTPS DNS
+### HTTPS DNS  {: #https-dns } 
 
 Para conectarse a Moonbase Alpha a través de HTTPS, simplemente apunte a su proveedor al siguiente DNS de RPC:
 
@@ -32,7 +32,7 @@ const provider = new ethers.providers.StaticJsonRpcProvider(providerURL, {
 
 Cualquier billetera Ethereum debería poder generar una dirección válida para Moonbeam (por ejemplo, [MetaMask](https://metamask.io/)).
 
-### WSS DNS
+### WSS DNS {: #wss-dns } 
 
 Para las conexiones WebSocket, puede utilizar el siguiente DNS:
 
@@ -40,11 +40,11 @@ Para las conexiones WebSocket, puede utilizar el siguiente DNS:
 wss://wss.testnet.moonbeam.network
 ```
 
-### ID de cadena
+### ID de cadena {: #chain-id } 
 
 Para la base lunar Alfa TestNet el ID de cadena es: `1287`.
 
-### Relay Chain
+### Relay Chain {: #relay-chain } 
 
 Para conectarse a la relay chain de Moonbase Alpha, manejada por PureStake, puedes utilizar el siguiente punto de acceso WS:
 
