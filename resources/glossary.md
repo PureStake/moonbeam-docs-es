@@ -15,7 +15,7 @@ Son unos de los participantes principales de la red, necesarios para soportar la
 
 Son los poseedores de tokens que optan por “respaldar” a un validador. Pueden recibir parte de la recompensa del validador, pero serán susceptibles de sufrir un recorte en sus tokens invertidos, en caso de mal comportamiento por parte del validador. Un nominador puede respaldar hasta 16 validadores y las obligaciones se distribuyen íntegramente entre los validadores respaldados que fueran seleccionados para el conjunto de validadores. Si desea nominar PureStake para Polkadot y/o Kusama, por favor siga las instrucciones de [esta guía](https://www.purestake.com/technology/polkadot-validator/).
 
-### Prueba de Participación Nominada {: #nomitated-proof-of-stake } 
+### Prueba de Participación Nominada {: #nominated-proof-of-stake } 
 
 Es el mecanismo utilizado por Polkadot para seleccionar su conjunto de validación de bloque para optimizar la seguridad de la cadena. Básicamente, es un sistema de Prueba de Participación (PoS, por su sigla en inglés) en el que los nominadores respaldan a los validadores. Se seleccionan los validadores con mayor respaldo para ser parte del conjunto validador por una sesión. En caso de mal comportamiento, se recortará la participación del validador. Por ende, se espera que los nominadores realicen las diligencias debidas sobre los validadores que nominan. Si desea nominar PureStake para Polkadot y/o Kusama, por favor siga las instrucciones de [esta guía](https://www.purestake.com/technology/polkadot-validator/).
 
