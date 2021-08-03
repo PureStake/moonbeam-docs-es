@@ -4,7 +4,7 @@ The Moonriver RPC and WSS endpoints hosted by PureStake are for development purp
 - [OnFinality](https://onfinality.io/)
 - [Elara](https://elara.patract.io/)
 
-### HTTPS DNS {: #http-dns }
+### HTTPS DNS {: #https-dns }
 
 To connect to Moonriver via HTTPS, simply point your provider to the following RPC DNS:
 
