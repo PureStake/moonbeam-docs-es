@@ -7,7 +7,7 @@ description: Aprenda a aprovechar la API de depuración de Geth y el módulo Ope
 
 ![Full Node Moonbeam Banner](/images/debugtrace/debugtrace-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Tanto la API de depuración de Geth como el módulo de seguimiento de OpenEthereum proporcionan métodos RPC no estándar para obtener una visión más profunda del procesamiento de transacciones.
 
@@ -20,7 +20,7 @@ Ambas llamadas son bastante pesadas por parte del nodo. Por lo tanto, es necesar
  - **Nodo de desarrollo Moonbeam** — ejecute su propia instancia Moonbeam en su entorno privado. Para hacerlo, puede seguir [esta guía](/getting-started/local-node/setting-up-a-node/). Asegúrese de consultar la [sección de banderas avanzadas](/getting-started/local-node/setting-up-a-node/#advanced-flags-and-options)
  - **Nodo Moonbase Alpha** — ejecute un nodo completo de TestNet y acceda a sus propios puntos finales privados. Para hacerlo, puede seguir [esta guía](/node-operators/networks/full-node/). Asegúrese de consultar la [sección de banderas avanzadas](/node-operators/networks/full-node/#advanced-flags-and-options)
 
-## API de depuración de Geth
+## API de depuración de Geth {: #geth-debug-api } 
 
 La `debug_traceTransaction` implementación de RPC sigue [las pautas de la API de depuración de Geth](https://geth.ethereum.org/docs/rpc/ns-debug#debug_tracetransaction).
 
@@ -32,7 +32,7 @@ El método RPC requiere que se ejecute el hash de la transacción. Como parámet
 
 El seguimiento de transacciones basado en JavaScript no es compatible en este momento.
 
-## Módulo de seguimiento
+## Módulo de seguimiento {: #trace-module } 
 
 La `trace_filter` implementación de RPC sigue las [pautas del módulo de seguimiento de OpenEthereum](https://openethereum.github.io/JSONRPC-trace-module#trace_filter).
 
@@ -45,7 +45,7 @@ El método RPC requiere cualquiera de los siguientes parámetros opcionales:
  - **después** —  una entrada: offset (`uint`), el valor predeterminado es `0`. Número de desplazamiento (o inicio) de seguimiento
  - **contar** — una entrada: número de trazas (`uint`). Número de trazas para mostrar en un lote
 
-## Pruébalo en Moonbase Alpha
+## Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Como se mencionó anteriormente, para usar ambas funciones, debe tener un nodo que se ejecute con los indicadores `debug` y `trace` Para este ejemplo, se utiliza un nodo completo local Moonbase Alpha, con el punto final RPC HTTP en `http://127.0.0.1:9933`.  Si tiene un nodo en ejecución, debería ver un registro de terminal similar:
 

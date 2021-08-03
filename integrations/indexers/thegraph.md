@@ -7,7 +7,7 @@ description: Cree API utilizando el protocolo de indexación Graph en Moonbeam
 
 ![The Graph on Moonbeam](/images/thegraph/thegraph-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Los protocolos de indexación organizan la información de manera que las aplicaciones puedan acceder a ella de manera más eficiente. Por ejemplo, Google indexa todo Internet para proporcionar información rápidamente cuando busca algo.
 
@@ -19,14 +19,14 @@ Con la introducción de los módulos de rastreo de Ethereum en [Moonbase Alpha v
 
 Esta guía lo lleva a través de la creación de un subgráfico simple para un contrato de lotería en Moonbase Alpha.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Para usar The Graph en Moonbase Alpha, tiene dos opciones:
 
  - Ejecute un Graph Node contra Moonbase Alpha y apunte su Subgraph hacia él. Para hacerlo, puede seguir [este tutorial](/node-operators/indexers/thegraph-node/)
  - Apunte su Subgraph a la API Graph a través del [sitio web Graph Explorer](https://thegraph.com/explorer/). Para hacerlo, debe crear una cuenta y tener un token de acceso.
  
-## El contrato de lotería
+## El contrato de lotería {: #the-lottery-contract } 
 
 Para este ejemplo, se utiliza un simple contrato de lotería. Puede encontrar el archivo Solidity en [este enlace](https://github.com/PureStake/moonlotto-subgraph/blob/main/contracts/MoonLotto.sol). 
 
@@ -39,14 +39,14 @@ Las principales funciones del contrato son las siguientes:
  - **enterLottery** — una entrada: la dirección del propietario del boleto. Una función interna que maneja la lógica de los billetes de lotería. Si ha pasado una hora y hay al menos 10 participantes, llama a la `pickWinner` función
  - **pickWinner** —  sin entradas. Una función interna que selecciona al ganador de la lotería con un generador de números pseudoaleatorios (no es seguro, solo con fines de demostración). Maneja la lógica de transferir fondos y restablecer la variable para la próxima ronda de lotería.
 
-### Eventos del contrato de lotería
+### Eventos del contrato de lotería {: #events-of-the-lottery-contract } 
 
 The Graph utiliza los eventos emitidos por el contrato para indexar los datos. El contrato de lotería emite solo dos eventos:
 
  - **PlayerJoined** — en la `enterLottery` función. Proporciona información relacionada con la última entrada de lotería, como la dirección del jugador, la ronda de lotería actual, si el boleto fue regalado y el monto del premio de la ronda actual.
  - **LotteryResult** — en la `pickWinner` función. Proporciona información sobre el sorteo de una ronda en curso, como la dirección del ganador, la ronda de lotería actual, si el boleto ganador fue un regalo, el monto del premio y la marca de tiempo del sorteo.
 
-## Crear un subgrafo
+## Crear un subgrafo {: #creating-a-subgraph } 
 
 Esta sección describe el proceso de creación de un subgrafo. Para Lottery Subgraph, se preparó un [repositorio de GitHub](https://github.com/PureStake/moonlotto-subgraph) con todo lo que necesita para ayudarlo a comenzar. El repositorio también incluye el contrato de lotería, así como un archivo de configuración de Hardhat y un script de implementación. Si no está familiarizado con él, puede consultar nuestra [guía de integración de Hardhat](/integrations/hardhat/). 
 
@@ -70,7 +70,7 @@ El `codegen` comando también se puede ejecutar usando `yarn codegen`.
 
 Para este ejemplo, el contrato se implementó en `0x44ddD2EC5BE2A7f3e4A465C21600bE8df644093f`. Puede encontrar más información sobre cómo implementar un contrato con Hardhat en nuestro [tutorial de integraciones](/integrations/hardhat/). Además, el archivo "README" en el [repositorio de Moonloto](https://github.com/PureStake/moonlotto-subgraph) tiene los pasos necesarios para compilar e implementar el contrato si es necesario.
 
-### Estructura básica de los subgrafos
+### Estructura básica de los subgrafos {: #subgraphs-core-structure } 
 
 En términos generales, los Subgraphs definen los datos que The Graph indexará de la blockchain y la forma en que se almacenan. Los subgrafos tienden a tener algunos de los siguientes archivos:
 
@@ -80,7 +80,7 @@ En términos generales, los Subgraphs definen los datos que The Graph indexará 
 
 No hay un orden en particular a seguir al modificar los archivos para crear un subgrafo.
 
-### Schema.graphql
+### Schema.graphql {: #schemagraphql } 
 
 Es importante delinear qué datos deben extraerse de los eventos del contrato antes de modificar el `schema.graphql`.Los esquemas deben definirse teniendo en cuenta los requisitos de la propia dApp. Para este ejemplo, aunque no hay una dApp asociada a la lotería, se definen cuatro entidades:
 
@@ -115,7 +115,7 @@ type Ticket @entity {
 }
 ```
 
-### Manifiesto de subgrafo
+### Manifiesto de subgrafo {: #subgraph-manifest } 
 
 El `subgraph.yaml` archivo, o el manifiesto de Subgraph, contiene la información relacionada con el contrato inteligente que se indexa, incluidos los eventos que tienen los datos necesarios para mapear. Luego, los nodos Graph almacenan esos datos, lo que permite que las aplicaciones los consulten.
 
@@ -172,7 +172,7 @@ dataSources:
           handler: handleLotteryResult
 ```
 
-### Mapeos
+### Mapeos {: #mappings } 
 
 Los archivos de asignaciones son los que transforman los datos de la blockchain en entidades definidas en el archivo de esquema. Cada controlador de eventos dentro del `subgraph.yaml` archivo debe tener una función posterior en el mapeo.
 
@@ -225,7 +225,7 @@ export function handlePlayerJoined(event: PlayerJoined): void {
 }
 ```
 
-## Implementar un subgrafo
+## Implementar un subgrafo {: #deploying-a-subgraph } 
 
 Si va a utilizar la API Graph (servicio alojado), debe:
 

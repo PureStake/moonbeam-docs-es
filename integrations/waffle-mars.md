@@ -7,7 +7,7 @@ description: Aprenda a usar Waffle y Mars para escribir, compilar, probar e impl
 
 ![Waffle and Mars on Moonbeam](/images/waffle-mars/waffle-mars-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 [Waffle](https://getwaffle.io/)  es una biblioteca para compilar y probar contratos inteligentes, y [Mars](https://github.com/EthWorks/Mars) es un administrador de implementación. Juntos, Waffle y Mars se pueden usar para escribir, compilar, probar e implementar contratos inteligentes de Ethereum. Dado que Moonbeam es compatible con Ethereum, Waffle y Mars se pueden usar para implementar contratos inteligentes en un nodo de desarrollo Moonbeam o Moonbase Alpha TestNet.
 
@@ -17,7 +17,7 @@ Mars proporciona un marco simple y compatible con TypeScript para crear scripts 
 
 En esta guía, creará un proyecto de TypeScript para escribir, compilar y probar un contrato inteligente usando Waffle, luego implementarlo en Moonbase Alpha TestNet usando Mars.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos  {: #checking-prerequisites } 
 
 --8<-- 'text/common/install-nodejs.md'
 
@@ -27,7 +27,7 @@ Waffle y Mars se pueden usar con un nodo de desarrollo Moonbeam que se ejecute l
 
 Una vez que haya creado una cuenta, deberá exportar la clave privada que se utilizará en esta guía. Antes de continuar, asegúrese de que su cuenta tenga fondos y, si es necesario, obtenga `DEV` tokens del [faucet](/getting-started/testnet/faucet/).
 
-## Cree un proyecto de TypeScript con Waffle & Mars
+## Cree un proyecto de TypeScript con Waffle & Mars {: #create-a-typescript-project-with-waffle-mars } 
 
 TPara comenzar, creará un proyecto de TypeScript e instalará y configurará algunas
 
@@ -83,7 +83,7 @@ touch tsconfig.json
 
 Ahora, debe tener un proyecto básico de TypeScript con las dependencias necesarias para comenzar a construir con Waffle y Mars.
 
-## Agregar un contrato
+## Agregar un contrato {: #add-a-contract } 
 
 Para esta guía, creará un contrato ERC-20 que acuña una cantidad específica de tokens al creador del contrato. Está basado en la plantilla Open Zeppelin ERC-20.
 
@@ -109,9 +109,9 @@ contract MyToken is ERC20 {
 
 En este contrato, está creando un token ERC20 llamado MyToken con el símbolo MYTOK, que le permite, como creador del contrato, acuñar tantos MYTOK como desee.
 
-## Utilice Waffle para compilar y probar
+## Utilice Waffle para compilar y probar {: #use-waffle-to-compile-and-test } 
 
-### Compilar con Waffle
+### Compilar con Waffle {: #compile-with-waffle } 
 
 Ahora que ha escrito un contrato inteligente, el siguiente paso es usar Waffle para compilarlo. Antes de sumergirse en la compilación de su contrato, deberá configurar Waffle.
 
@@ -156,7 +156,7 @@ npm run build
 
 Después de compilar sus contratos, Waffle almacena la salida JSON en el directorio de `build`. El contrato de esta guía se basa en la plantilla ERC-20 de Open Zeppelin, por lo que los archivos JSON ERC-20 relevantes también aparecerán en el `build` de compilación. 
 
-### Prueba con Waffle
+### Prueba con Waffle {: #test-with-waffle } 
 
 Antes de implementar su contrato y enviarlo a la naturaleza, primero debe probarlo. Waffle proporciona un marco de prueba avanzado y tiene muchas herramientas para ayudarlo con las pruebas.
 
@@ -320,7 +320,7 @@ describe ('MyToken', () => {
 
 Si desea escribir más pruebas por su cuenta, podría considerar probar transferencias desde cuentas sin fondos o transferencias desde cuentas sin fondos suficientes.
 
-## Use Mars para implementar en Moonbase Alpha
+## Use Mars para implementar en Moonbase Alpha {: #use-mars-to-deploy-to-moonbase-alpha } 
 
 Después de compilar sus contratos y antes de la implementación, tendrá que generar artefactos de contrato para Mars. Mars usa los artefactos de contrato para verificaciones de tipo en implementaciones. Luego, deberá crear un script de implementación e implementar el contrato inteligente `MyToken`.
 
@@ -330,7 +330,7 @@ Recuerde, realizará la implementación en Moonbase Alpha y deberá utilizar las
 
 La implementación se dividirá en tres secciones: [generar artefactos](#generar-artefactos), [crear-una secuencia-de-comandos-de-implementacion](#crear-una-secuencia-de-comandos-de-implementación), y [implementar con Mars](#desplegar-con-mars). 
 
-### Generar artefactos
+### Generar artefactos {: #generate-artifacts } 
 
 Los artefactos deben generarse para Mars para que las comprobaciones de tipo estén habilitadas dentro de los scripts de implementación.
 
@@ -352,7 +352,7 @@ npm run build
 
 Si abre el directorio `build` ahora debería ver un archivo `artifacts.ts` que contiene los datos de artefactos necesarios para las implementaciones. Para continuar con el proceso de implementación, deberá escribir un script de implementación. El script de implementación se utilizará para indicarle a Mars qué contrato implementar, en qué red y qué cuenta se utilizará para activar la implementación.
 
-### Crear una secuencia de comandos de implementación
+### Crear una secuencia de comandos de implementación {: #create-a-deployment-script } 
 
 Ahora debe configurar la implementación del contrato `MyToken` en Moonbase Alpha TestNet.
 
@@ -396,7 +396,7 @@ deploy({network: 'https://rpc.testnet.moonbeam.network', privateKey}, () => {
 
 Hasta ahora, debería haber creado un script de implementación en `deploy.ts` que desplegará el contrato `MyToken` en Moonbase Alpha, y agregó la capacidad de llamar fácilmente al script e implementar el contrato.
 
-### Desplegar con Mars
+### Desplegar con Mars {: #deploy-with-mars } 
 
 Ha configurado la implementación, ahora es el momento de implementar en Moonbase Alpha.
 
@@ -414,6 +414,6 @@ Si tiene éxito, debería ver los detalles sobre su transacción, incluido su ha
 
 ¡Felicidades! ¡Has implementado un contrato en Moonbase Alpha usando Waffle y Mars!
 
-## Proyecto de ejemplo
+## Proyecto de ejemplo {: #example-project } 
 
 Si desea ver un ejemplo completo de un proyecto de Waffle y Marte en Moonbeam, consulte el ejemplo de [moonbeam-waffle-mars-example](https://github.com/EthWorks/moonbeam-waffle-mars-example) creado por el equipo detrás de Waffle y Marte, EthWorks.

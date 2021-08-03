@@ -6,7 +6,7 @@ description: Cómo usar ChainBridge para conectar activos entre Ethereum y Moonb
 
 ![ChainBridge Moonbeam banner](/images/chainbridge/chainbridge-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Un puente permite que dos cadenas económicamente soberanas y tecnológicamente diferentes se comuniquen entre sí. Pueden ir desde centralizados y confiables hasta descentralizados y con la confianza minimizada. Una de las soluciones disponibles actualmente es [ChainBridge](https://github.com/ChainSafe/ChainBridge#installation),  , un puente de blockchain multidireccional modular construido por [ChainSafe](https://chainsafe.io/). Una implementación ChainBridge ahora está disponible en Moonbeam, que conecta nuestra Moonbase Alpha TestNet y Ethereum's Kovan / Rinkeby TestNets.
 
@@ -19,7 +19,7 @@ Esta guía se divide en dos secciones principales. En la primera parte, explicar
     - [Transferir tokens ERC-721](/integrations/bridges/ethereum/chainbridge/#erc-721-token-transfer)
     - [Controlador genérico](/integrations/bridges/ethereum/chainbridge/#generic-handler)
     
-## Cómo funciona el puente
+## Cómo funciona el puente {: #how-the-bridge-works } 
 
 ChainBridge es, en esencia, un protocolo de paso de mensajes. Los eventos en una cadena de origen se utilizan para enviar un mensaje que se enruta a la cadena de destino. Hay tres roles principales:
 
@@ -35,8 +35,7 @@ A ambos lados del puente, hay un conjunto de contratos inteligentes, donde cada 
  - **Contratos de controlador** — valida los parámetros proporcionados por el usuario, creando un registro de depósito / ejecución
  - **Contrato objetivo** — como sugiere el nombre, este es el contrato con el que vamos a interactuar en cada lado del puente
  
-### Flujo de trabajo general
-
+### Flujo de trabajo general {: #general-workflow } 
 
 El flujo de trabajo general es el siguiente (de la cadena A a la cadena B):
  
@@ -52,7 +51,7 @@ Este flujo de trabajo se resume en el siguiente diagrama:
 
 Los dos contratos de destino en cada lado del puente están vinculados mediante una serie de registros en el contrato de manipulador correspondiente a través del contrato del puente. Actualmente, estos registros solo pueden ser realizados por el administrador del contrato puente.
 
-### Definiciones generales
+### Definiciones generales {: #general-definitions } 
 
 Aquí hemos reunido una lista de conceptos aplicables a la implementación de ChainBridge (de la Cadena A a la Cadena B):
 
@@ -60,7 +59,7 @@ Aquí hemos reunido una lista de conceptos aplicables a la implementación de Ch
  - **ID de recurso** — es una palabra de 32 bytes destinada a identificar de forma única un activo en un entorno de cadena cruzada. Tenga en cuenta que el byte menos significativo está reservado para el chainId, por lo que tendríamos 31 bytes en total para representar un activo de una cadena en nuestro puente. Por ejemplo, esto puede expresar que tokenX en la Cadena A es equivalente a tokenY en la Cadena B
  - **Calldata** — es el parámetro requerido para el controlador que incluye la información necesaria para ejecutar la propuesta en la Cadena B. La serialización exacta se define para cada controlador. Puedes encontrar más información [aquí.](https://chainbridge.chainsafe.io/chains/ethereum/#erc20-erc721-handlers)
 
-## Pruébalo en Moonbase Alpha
+## Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Hemos configurado un relé con la implementación de ChainBridge, que está conectado a nuestra Moonbase Alpha TestNet y las redes de prueba Rinkeby y Kovan de Ethereum.
 
@@ -82,7 +81,7 @@ Esta guía repasará dos ejemplos diferentes del uso del puente para transferir 
 !!! nota
     El contrato puente, el contrato de manipulador ERC-20 y las direcciones del contrato de manipulador ERC-721 enumeradas anteriormente son aplicables tanto para Kovan como para Rinkeby.
 
-### Transferencia de token ERC-20
+### Transferencia de token ERC-20 {: #erc-20-token-transfer } 
 
 Los tokens ERC-20 que quieran moverse a través del puente deben ser registrados por los retransmisores en el contrato de manipulador. Por lo tanto, para probar el puente, implementamos un token ERC-20 (ERC20S) donde cualquier usuario puede acuñar 5 tokens:
 
@@ -212,7 +211,7 @@ Recuerda que también puedes acuñar tokens ERC20S en Kovan y enviarlos a Moonba
 !!! nota
     Los tokens se transferirán solo si el contrato del controlador tiene suficiente asignación para gastar tokens en nombre del propietario. Si el proceso falla, verifique la asignación.
 
-### Transferencia de token ERC-721
+### Transferencia de token ERC-721 {: #erc-721-token-transfer } 
 
 Al igual que en nuestro ejemplo anterior, los contratos de tokens ERC-721 deben ser registrados por los retransmisores para permitir la transferencia a través del puente. Por lo tanto, hemos personalizado un contrato de token ERC-721 para que cualquier usuario pueda acuñar un token para probar el puente. Sin embargo, como cada token no es fungible y, en consecuencia, es único, la función de menta solo está disponible en el contrato de token de la cadena de origen y no en el contrato de destino. En otras palabras, los tokens ERC-721M solo se pueden acuñar en Moonbase Alpha y luego transferirse a Rinkeby o Kovan. El siguiente diagrama explica el flujo de trabajo de este ejemplo, donde es importante resaltar que se mantienen el ID del token y los metadatos.
 
@@ -338,7 +337,7 @@ Recuerde que los tokens ERC721M solo se pueden minar en Moonbase Alpha y luego e
 !!! nota
     Los tokens se transferirán solo si se aprueba el contrato de administrador para transferir tokens en nombre del propietario. Si el proceso falla, verifique la aprobación.
 
-### Manejador genérico
+### Manejador genérico {: #generic-handler } 
 
 El Generic Handler ofrece la posibilidad de ejecutar una función en la cadena A y crear una propuesta para ejecutar otra función en la cadena B (similar al diagrama de flujo de trabajo general). Esto proporciona una forma convincente de conectar dos cadenas de bloques independientes.
 
@@ -349,7 +348,7 @@ La dirección del controlador genérico es:
 
 Si está interesado en implementar esta funcionalidad, puede comunicarse con nosotros directamente a través de nuestro [servidor Discord](https://discord.com/invite/PfpUATX). Estaremos encantados de discutir esta implementación.
 
-### Interfaz de usuario de puente de cadena alfa de Moonbase
+### Interfaz de usuario de puente de cadena alfa de Moonbase {: #moonbase-alpha-chainbridge-ui } 
 
 Si quieres jugar con la transferencia de tokens ERC20S de Moonbase Alpha a Kovan o Rinkeby sin tener que configurar los contratos en Remix, puedes consultar nuestra [ interfaz de usuario Moonbase Alpha ChainBridge.](https://moonbase-chainbridge.netlify.app/transfer).
 

@@ -7,7 +7,7 @@ description: Una guía que muestra cómo puede apostar sus tokens en Moonbeam al
 
 ![Staking Moonbeam Banner](/images/staking/staking-stake-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Los collators (productores de bloques) con la participación más alta en la red se unen al grupo activo de collators, del cual son seleccionados para ofrecer un bloque a la cadena de relevo.
 
@@ -17,7 +17,7 @@ Los collators reciben parte de las recompensas en bloque como parte del modelo i
 
 Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0), los usuarios de la red ahora pueden apostar sus tokens para nominar a los collators. Esta guía describe todos los pasos para hacerlo.
 
-## Definiciones generales
+## Definiciones generales {: #general-definitions } 
 
 --8<-- 'text/staking/staking-definitions.md'
 
@@ -31,7 +31,7 @@ Actualmente, para Moonbase Alpha:
 |              Redondo               |     | 300 bloques (1 hora) |
 |          Duración del bono           |     |     2 rondas  |
 
-## Definiciones de extrínsecos
+## Definiciones de extrínsecos {: #extrinsics-definitions } 
 
 Hay muchos aspectos extrínsecos relacionados con el pallet de replanteo, por lo que no todos se tratan en esta guía. Sin embargo, esta lista define todos los aspectos extrínsecos asociados con el proceso de nominación:
 
@@ -44,7 +44,7 @@ Hay muchos aspectos extrínsecos relacionados con el pallet de replanteo, por lo
  - **nominatorBondMore** — dos entradas: dirección de un collator designado y monto. Extrínseco para aumentar la cantidad de tokens apostados para un collator ya nominado
  - **revokeNomination** — una entrada: dirección de un collator designado. Extrínseco para eliminar una nominación existente
 
-## Recuperar la lista de collators
+## Recuperar la lista de collators {: #retrieving-the-list-of-collators } 
 
 Antes de comenzar a apostar tokens, es importante recuperar la lista de collators disponibles en la red. Para hacerlo, navegue hasta "Estado de la cadena" en la pestaña "Desarrollador".
 
@@ -63,7 +63,7 @@ Cada extrínseco proporciona una respuesta diferente:
 
 ![Staking Account](/images/staking/staking-stake-11.png)
 
-## Cómo nominar un collator
+## Cómo nominar un collator {: #get-the-collator-nominator-count } 
 
 Esta sección repasa el proceso de nominación de collators. El tutorial utilizará los siguientes collators como referencia:
 
@@ -110,7 +110,7 @@ En la respuesta, debería ver su cuenta (en este caso, la cuenta de Alice) con u
 
 Puede seguir los mismos pasos que se describen para designar otros collators en la red. Por ejemplo, Alice también nominó `0x62d2e7324f9274fac3893a59aff8e944a323a495`.
 
-## Cómo detener las nominaciones
+## Cómo detener las nominaciones {: #how-to-stop-nominations } 
 
 Si ya es un nominador, tiene dos opciones para detener sus nominaciones: usar el `revokeNomination` extrínseco para retirar sus tokens de un collator específico, o usar el `leaveNominators` extrínseco para revocar todas las nominaciones en curso.
 
@@ -145,7 +145,7 @@ Como se mencionó anteriormente, también puede eliminar todas las nominaciones 
 
 Una vez que se confirma la transacción, su cuenta no debe aparecer en el `nominatorState` estado cuando se le solicite, y no debe tener saldo reservado (relacionado con la participación).
 
-## Recompensas de apuesta
+## Recompensas de apuesta {: #staking-rewards } 
 
 A medida que los collators reciben recompensas por la producción de bloques, los nominadores también obtienen recompensas. En [esta página](/staking/overview/#reward-distribution) se puede encontrar una breve descripción general de cómo se calculan las recompensas.
 

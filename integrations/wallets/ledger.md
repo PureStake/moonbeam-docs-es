@@ -7,7 +7,7 @@ description: Esta guía le muestra cómo usar su billetera de hardware Ledger pa
 
 ![Intro diagram](/images/ledger/ledger-banner.png)
 
-## Introducción 
+## Introducción {: #introduction } 
 
 Las carteras de hardware proporcionan una forma más segura de almacenar fondos criptográficos porque la clave privada (utilizada para firmar transacciones) se almacena fuera de línea. Ledger ofrece dos soluciones de billetera de hardware en el momento de escribir este artículo: Ledger Nano S y Ledger Nano X.
 
@@ -15,8 +15,7 @@ Debido a que Moonbeam es totalmente compatible con Ethereum, y Ledger ahora admi
 
 Este tutorial le muestra cómo comenzar con su billetera de hardware Ledger en Moonbase Alpha. La guía solo ilustra los pasos para un dispositivo Ledger Nano X, pero también puede seguirlos con un Ledger Nano S. El mismo proceso se puede aplicar a las otras redes del ecosistema Moonbeam.
 
-
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Antes de comenzar, actualice [Ledger Live](https://www.ledger.com/ledger-live/download) a la última versión disponible. Además, asegúrese de que su dispositivo de billetera de hardware Ledger ejecute el firmware más reciente. El sitio web de soporte de Ledger ofrece tutoriales sobre cómo actualizar el firmware de los dispositivos [Ledger Nano S](https://support.ledger.com/hc/en-us/articles/360002731113-Update-Ledger-Nano-S-firmware) y [Ledger Nano X](https://support.ledger.com/hc/en-us/articles/360013349800-Update-Ledger-Nano-X-firmware).
 
@@ -31,18 +30,15 @@ En el momento de redactar este documento, se utilizaron las siguientes versiones
 
 Además, necesitará MetaMask como intermediario entre su dispositivo Ledger y Moonbase Alpha. Asegúrese de que su MetaMask esté [conectada a Moonbase Alpha](/integrations/wallets/metamask/).Los usuarios de Chrome (versión 91) necesitan algunos pasos adicionales, que [se detallan en este tutorial](#navegador-chrome).  El uso de Firefox resultará en una experiencia mucho más simple / directa.
 
-
 Tenga en cuenta que su dispositivo Ledger firmará transacciones en cualquier red MetaMask a la que esté conectado.
 
-
-## Importación de su Ledger a MetaMask
+## Importación de su Ledger a MetaMask {: #importing-your-ledger-account-to-metamask } 
 
 Para comenzar, debe conectar su dispositivo Ledger a la computadora, desbloquearlo y abrir la aplicación Ethereum. A continuación, para importar su cuenta Ethereum Ledger a MetaMask, siga los siguientes pasos:
 
 
  1. Haga clic en el logotipo de la esquina superior derecha para expandir el menú.
  2. Seleccione "Conectar cartera de hardware"
-
 
 ![Cartera de hardware MetaMask Connect](/images/ledger/ledger-images1.png)
 
@@ -69,7 +65,7 @@ Si ha importado su cuenta de estilo Ledger Ethereum con éxito, debería verla e
 
 Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Ledger y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#firmar-una-transaccion-con-ledger).
 
-### Navegador Chrome
+### Navegador Chrome {: #chrome-browser } 
 
 A partir de la versión 91 de Chrome, los usuarios que deseen conectar su dispositivo Ledger a MetaMask deben ejecutar la última versión de Ledger Live (v2.29 en el momento de escribir este artículo).
  
@@ -81,7 +77,7 @@ Además, en MetaMask, deben habilitar el soporte de Ledger Live. Para hacerlo, s
 
 Con esta función habilitada, MetaMask abrirá Ledger Live cuando intente conectarse a su dispositivo Ledger. Puede leer más sobre esto en esta [publicación de blog de MetaMask](https://metamask.zendesk.com/hc/en-us/articles/360020394612-How-to-connect-a-Trezor-or-Ledger-Hardware-Wallet).
 
-## Firmar una transacción con Ledger
+## Firmar una transacción con Ledger {: #signing-a-transaction-using-your-ledger } 
 
 Si ha importado con éxito [su cuenta de Ledger a MetaMask](#importacion-de-su-ledger-a-metamask), está listo para firmar transacciones en Moonbeam usando su dispositivo Ledger. Este tutorial le mostrará cómo enviar una transacción simple en Moonbase Alpha TestNet, pero se aplica a otras redes del ecosistema Moonbeam.
 
@@ -112,7 +108,7 @@ Inmediatamente después de haber aprobado la transacción, MetaMask la envía a 
 
 ¡Y eso es todo! ¡Ha firmado una transacción en Moonbase Alpha usando su billetera de hardware Ledger!
 
-## Interactuar con contratos usando su Ledger
+## Interactuar con contratos usando su Ledger {: #interacting-with-contracts-using-your-ledger } 
 
 De forma predeterminada, los dispositivos Ledger no admiten un datacampo en el objeto de transacción. En consecuencia, los usuarios no pueden implementar contratos inteligentes ni interactuar con ellos.
 

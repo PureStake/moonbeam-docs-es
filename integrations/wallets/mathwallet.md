@@ -7,13 +7,13 @@ description: Esta guía le explica cómo conectar Mathwallet, una billetera basa
  
 ![Intro banner](/images/mathwallet/mathwallet-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 MathWallet [anunció](https://mathwallet.org/moonbeam-wallet/en/) que ahora es compatible de forma nativa con [Moonbase Alpha TestNet](/networks/testnet/). Esto significa que ahora puede interactuar con Moonbase Alpha utilizando otra billetera además de MetaMask.
 
 En este tutorial, veremos cómo configurar MathWallet para conectarse a nuestro TestNet. También presentaremos un breve ejemplo del uso de MathWallet como proveedor de Web3 para otras herramientas como [Remix](/integrations/remix/).
 
-## Conecte MathWallet a Moonbeam
+## Conecte MathWallet a Moonbeam {: #connect-mathwallet-to-moonbeam } 
 
 En esta parte, veremos el proceso de conexión de MathWallet con Moonbase Alpha.
 
@@ -35,7 +35,7 @@ Y, por último, en la pantalla principal, haga clic en Cambiar red y seleccione 
 
 ![Wallet Connected to Moonbase Alpha](/images/mathwallet/mathwallet-images-4.png)
 
-## Agregar una billetera
+## Agregar una billetera {: #adding-a-wallet } 
 
 Ahora que MathWallet está conectado a Moonbase Alpha, ahora podemos crear una billetera para obtener una cuenta y comenzar a interactuar con TestNet. Actualmente, hay tres formas de agregar una billetera:
 
@@ -43,7 +43,7 @@ Ahora que MathWallet está conectado a Moonbase Alpha, ahora podemos crear una b
  - Importar una billetera existente usando una clave privada o mnemotécnica
  - Conectar la billetera de hardware (_no compatible por ahora_)
 
-### Crea una billetera
+### Crea una billetera {: #create-a-wallet } 
 
 Para crear una nueva billetera, haga clic en el :heavy_plus_sign: signo junto a "Moonbase Alpha" y seleccione "Crear billetera".
 
@@ -53,7 +53,7 @@ Establezca y confirme un nombre de billetera. A continuación, asegúrese de alm
 
 ![MathWallet wallet created](/images/mathwallet/mathwallet-images-6.png)
 
-### Importar una billetera
+### Importar una billetera {: #import-a-wallet } 
 
 Para crear una nueva billetera, haga clic en el :heavy_plus_sign: signo junto a "Moonbase Alpha" y seleccione "Importar billetera".
 
@@ -67,7 +67,7 @@ Después de hacer clic en Siguiente, configure un nombre de billetera, ¡y eso e
 
 ![MathWallet imported wallet](/images/mathwallet/mathwallet-images-9.png)
 
-## Usando MathWallet
+## Usando MathWallet {: #using-mathwallet } 
 
 MathWallet sirve como proveedor Web3 en herramientas como [Remix](/integrations/remix/). Al tener MathWallet conectado a Moonbase Alpha, puede implementar contratos como le gustaría usando MetaMask, firmando las transacciones con MathWallet en su lugar.
 

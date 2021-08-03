@@ -7,7 +7,7 @@ description: Aprenda a crear y enviar transacciones en la red compatible con Eth
 
 ![Ethereum Libraries Integrations Moonbeam](/images/sendtx/web3-libraries-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Esta guía describe el uso de tres bibliotecas Ethereum diferentes para firmar y enviar manualmente una transacción en Moonbeam. Las tres bibliotecas cubiertas en este tutorial son:
 
@@ -18,7 +18,7 @@ Esta guía describe el uso de tres bibliotecas Ethereum diferentes para firmar y
 !!! nota
     --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Los ejemplos que utilizan web3.js y ethers.js requieren una instalación previa de Node.js y NPM. El ejemplo que usa web3.py requiere Python y PIP. En el momento de redactar esta guía, las versiones utilizadas fueron:
 
@@ -62,7 +62,7 @@ Las versiones utilizadas al momento de la publicación de esta guía fueron:
  - Ethers.js v5.0.31 (`npm ls ethers`)
  - Web3.py v5.17.0 (`pip3 show web3`)
 
-## El archivo de transacciones
+## El archivo de transacciones {: #the-transaction-file } 
 
 Solo se necesita un archivo para ejecutar una transacción entre cuentas. El script que se muestra en esta sección transferirá 1 Token desde una dirección de origen (desde la cual tiene la clave privada) a otra dirección. Puede encontrar el fragmento de código para cada biblioteca aquí (se nombraron arbitrariamente `transaction.*`):
 
@@ -89,7 +89,7 @@ La segunda sección ("Crear e implementar transacciones") describe las funciones
     --8<-- 'code/web3py-tx/transaction.py'
     ```
 
-### Web3.js
+### Web3.js {: #web3js } 
 
 En la primera sección del [script](/snippets/code/web3-tx-local/transaction.js), la `web3` instancia (o proveedor) se crea usando el `Web3` constructor con el proveedor RPC. Al cambiar el proveedor de RPC proporcionado al constructor, puede elegir a qué red desea enviar la transacción.
 
@@ -103,7 +103,7 @@ A continuación, con la transacción firmada (puede `console.log(createTransacti
 
 Por último, ejecute la función de implementación asincrónica.
 
-### Ethers.js
+### Ethers.js {: #ethersjs } 
 
 En la primera sección del [script](/snippets/code/ethers-tx-local/transaction.js),se pueden especificar diferentes redes con un nombre, URL de RPC (obligatorio) e ID de cadena. El proveedor (similar a la `web3` instancia) se crea con el `ethers.providers.StaticJsonRpcProvider` método. Una alternativa es utilizar el `ethers.providers.JsonRpcProvide(providerRPC)` método, que solo requiere la dirección de punto final RPC del proveedor. Pero esto podría crear problemas de compatibilidad con especificaciones de proyectos individuales.
 
@@ -117,7 +117,7 @@ Una vez que se envía la transacción, puede obtener la respuesta de la transacc
 
 Por último, ejecute la función de implementación asincrónica.
 
-### Web3.py
+### Web3.py {: #web3py } 
 
 En la primera sección del [script](/snippets/code/web3py-tx/transaction.py), la `web3` instancia (o proveedor) se crea usando el `Web3(Web3.HTTPProvider(provider_rpc))` método con el proveedor RPC. Al cambiar el proveedor RPC, puede elegir a qué red desea enviar la transacción.
 
@@ -129,7 +129,7 @@ En la segunda sección, el objeto de transacción se crea con los `nonce`, `gasP
 
 A continuación, con la transacción firmada, puede enviarla utilizando el `web3.eth.sendSignedTransaction()` método, proporcionando la transacción firmada ubicada en  `createTransaction.rawTransaction`.
 
-## El archivo de equilibrio
+## El archivo de equilibrio {: #the-balance-file } 
 
 Antes de ejecutar el script, otro archivo verifica los saldos de ambas direcciones antes y después de que se necesite la transacción. Esto se puede hacer fácilmente con una simple consulta del saldo de una cuenta.
 
@@ -158,25 +158,25 @@ La segunda sección ("Función de llamada de saldo") describe las funciones nece
     --8<-- 'code/web3py-tx/balances.py'
     ```
 
-### Web3.js
+### Web3.js {: #web3js } 
 
 La primera sección del [script](/snippets/code/web3-tx-local/balances.js) es muy similar a la del [archivo de transacciones](/getting-started/local-node/send-transaction/#web3js). La principal diferencia es que no se necesita una clave privada porque no es necesario enviar una transacción.
 
 En la segunda sección, una función asíncrona envuelve el método web3 usado para obtener el equilibrio de una dirección, `web3.eth.getBalance(address)`. Una vez más, puede aprovechar la `web3.utils.fromWei()` función para transformar el saldo en un número más legible en ETH.
 
-### Ethers.js
+### Ethers.js {: #ethersjs } 
 
 La primera sección del [script](/snippets/code/ethers-tx-local/balances.js) es muy similar a la del [archivo de transacciones](/getting-started/local-node/send-transaction/#ethersjs). La principal diferencia es que no se necesita una clave privada porque no es necesario enviar una transacción. Al contrario, `addressFrom` hay que definir las necesidades.
 
 En la segunda sección, una función asincrónica envuelve el método de proveedor utilizado para obtener el saldo de una dirección, que es `provider.getBalance(address)`. Una vez más, puede aprovechar la `ethers.utils.formatEther()`función para transformar el saldo en un número más legible en ETH.
 
-### Web3.py
+### Web3.py {: #web3py } 
 
 La primera sección del [script](/snippets/code/web3py-tx/balances.py) es muy similar a la del [archivo de transacciones](/getting-started/local-node/send-transaction/#web3py). La principal diferencia es que no se necesita una clave privada porque no es necesario enviar una transacción.
 
 En la segunda sección, el `web3.eth.getBalance(address)` método se utiliza para obtener el saldo de una dirección de destino. Una vez más, puede aprovechar la `eb3.fromWei()` función para transformar el saldo en un número más legible en ETH.
 
-## Ejecución de los scripts
+## Ejecución de los scripts {: #running-the-scripts } 
 
 Para esta sección, el código que se mostró anteriormente se adaptó para apuntar a un nodo de desarrollo, que puede ejecutar siguiendo [este tutorial](/getting-started/local-node/setting-up-a-node/). Además, cada transacción se envió desde la cuenta prefinanciada que viene con el nodo:
 

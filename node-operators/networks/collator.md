@@ -7,7 +7,7 @@ description: Instrucciones sobre cómo convertirse en un collator en Moonbeam Ne
 
 ![Collator Moonbeam Banner](/images/fullnode/collator-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Los Collators son miembros de la red que mantienen las parachain en las que participan. Ejecutan un nodo completo (tanto para su parachain particular como para la relay chain), y producen la prueba de transición de estado para los validadores de relay chain.
 
@@ -25,21 +25,20 @@ Esta guía lo llevará a través de los siguientes pasos:
  - **[Generar claves de sesión](#claves-de-sesion)** — explica cómo generar claves de sesión, que se utilizan para mapear su ID de autor con su cuenta H160.
  - **[Asignar ID de autor a su cuenta](#asignar-id-de-autor-a-su-cuenta)** — describe los pasos para asignar su clave de sesión pública a su cuenta H160, donde se pagarán las recompensas en bloque
 
-## Requerimientos técnicos
+## Requerimientos técnicos {: #technical-requirements } 
 
 Desde una perspectiva técnica, las collators deben cumplir los siguientes requisitos:  
 
  - Tener un nodo completo ejecutándose con las opciones de collation. Para hacerlo, siga el [tutorial completo de un nodo](/node-operators/networks/full-node/), considerando los fragmentos de código específicos para los collators
  - Habilite el servidor de telemetría para su nodo completo. Para hacerlo, siga el [tutorial de telemetría](/node-operators/networks/telemetry/)
  
-## Cuentas y requisitos de participación
+## Cuentas y requisitos de participación  {: #accounts-and-staking-requirements } 
  
 Al igual que los validadores Polkadot, debe crear una cuenta. Para Moonbeam, esta es una cuenta H160 o básicamente una cuenta estilo Ethereum de la que tiene las claves privadas. Además, necesita una participación nominada (tokens DEV) para recopilar. Actualmente, los espacios están limitados a {{ networks.moonbase.collators_slots }} pero pueden aumentar con el tiempo.  
 
 Los Collators deben tener un mínimo de {{ networks.moonbase.staking.collator_min_stake }} DEV para ser considerados elegibles (convertirse en candidatos). Solo los mejores collators de {{ networks.moonbase.staking.max_collators }} por participación nominada estarán en el conjunto activo. 
 
-
-### Cuenta en PolkadotJS
+### Cuenta en PolkadotJS {: #account-in-polkadotjs } 
 
 Un collator tiene una cuenta asociada con sus actividades de collation. Esta cuenta se asignó a una identificación de autor para identificarlo como un productor de bloque y enviar los pagos de las recompensas de bloque.
 
@@ -52,9 +51,9 @@ Una vez que tenga una cuenta H160 importada a PolkadotJS, debería verla en la p
 
 ![Account in PolkadotJS](/images/fullnode/collator-polkadotjs1.png)
 
-## Conviértase en candidato a Collator
+## Conviértase en candidato a Collator {: #become-a-collator-candidate } 
 
-### Obtenga el tamaño del Pool de candidatos
+### Obtenga el tamaño del Pool de candidatos {: #get-the-size-of-the-candidate-pool } 
 
 Primero, debe obtener el tamaño del `candidatePool` (esto puede cambiar a través de la gobernanza), ya que deberá enviar este parámetro en una transacción posterior. Para hacerlo, deberá ejecutar el siguiente fragmento de código JavaScript desde [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/js):
 
@@ -73,7 +72,7 @@ console.log(`Candidate pool size is: ${candidatePool.length}`);
 
 ![Get Number of Candidates](/images/fullnode/collator-polkadotjs2.png)
 
-### Únase al pool de candidatos
+### Únase al pool de candidatos {: #join-the-candidate-pool } 
 
 Una vez que su nodo se está ejecutando y sincronizado con la red, se convierte en un candidato de collator (y se une al pool de candidatos) siguiendo los pasos a continuación en PolkadotJS : [PolkadotJS](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fwss.testnet.moonbeam.network#/extrinsics):
 
@@ -93,7 +92,7 @@ Una vez que su nodo se está ejecutando y sincronizado con la red, se convierte 
 
 Como se mencionó anteriormente, solo los mejores collators de {{ networks.moonbase.staking.max_collators }} por participación nominada estarán en el conjunto activo.
 
-### Dejar de ser candidato
+### Dejar de ser candidato {: #stop-collating } 
 
 Similar a la `chill()` función de Polkadot , para salir del pool de candidatos del collator's, siga los mismos pasos que antes, pero seleccione la `leaveCandidates()` función en el paso 5.
 
@@ -111,7 +110,7 @@ La siguiente tabla presenta algunos de los tiempos con respecto a las diferentes
 !!! nota 
      Los valores presentados en la tabla anterior están sujetos a cambios en versiones futuras.
      
-## Claves de sesión
+## Claves de sesión {: #session-keys } 
 
 Con el lanzamiento de [Moonbase Alpha v8](/networks/testnet/), los collators firmarán bloques usando una identificación de autor, que es básicamente una [clave de sesión](https://wiki.polkadot.network/docs/learn-keys#session-keys). Para igualar el estándar de sustrato, las claves de sesión de Moonbeam collator son [SR25519](https://wiki.polkadot.network/docs/learn-keys#what-is-sr25519-and-where-did-it-come-from). Esta guía le mostrará cómo puede crear / rotar sus claves de sesión asociadas a su nodo collator.
 
@@ -138,7 +137,7 @@ El nodo collator debe responder con la clave pública correspondiente del nuevo 
 
 Asegúrese de anotar esta clave pública del ID del autor. A continuación, esto se asignará a una dirección de estilo H160 Ethereum a la que se pagan las recompensas en bloque.
 
-## Asignar ID de autor a su cuenta
+## Asignar ID de autor a su cuenta {: #map-author-id-to-your-account } 
 
 Una vez que haya generado su ID de autor (claves de sesión), el siguiente paso es asignarlo a su cuenta H160 (una dirección de estilo Ethereum). Asegúrese de tener las claves privadas de esta cuenta, ya que aquí es donde se pagan las recompensas del bloque.
 
@@ -154,7 +153,7 @@ El módulo también agrega las siguientes llamadas RPC (estado de cadena):
 
 - **Mapping**(*dirección* optionalAuthorID) — muestra todos los Mappings almacenados en cadena, o solo los relacionados con la entrada, si se proporcionan
  
-### Mapping Extrinsic
+### Mapping Extrinsic {: #mapping-extrinsic } 
 
 Para asignar su ID de autor a su cuenta, debe estar dentro del [pool de candidatos ](#conviertase-en-candidato-a-collator).Una vez que sea candidato a collator , debe enviar un mapeo extrinsic (transacción). Tenga en cuenta que esto vinculará {{ networks.moonbase.staking.collator_map_bond }}  tokens DEV, y esto es por ID de autor registrado. Para hacerlo, siga los siguientes pasos:
 
@@ -172,7 +171,7 @@ Si la transacción es exitosa, verá una notificación de confirmación en su pa
 
 ![Author ID Mapping to Account Extrinsic Successful](/images/fullnode/collator-polkadotjs5.png)
 
-### Comprobación de las asignaciones
+### Comprobación de las asignaciones {: #checking-the-mappings } 
 
 También puede verificar las asignaciones actuales en cadena verificando el estado de la cadena. Para hacerlo, siga los siguientes pasos:
 

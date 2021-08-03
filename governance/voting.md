@@ -7,7 +7,7 @@ description: Cómo votar una propuesta para que se apruebe o rechace en Moonbeam
 
 ![Governance Moonbeam Banner](/images/governance/governance-voting-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Una vez que una propuesta llega a referendos públicos, los poseedores de tokens pueden votar sobre ella usando sus propios tokens. Dos factores definen el peso que tiene un voto: la cantidad de tokens bloqueados y la duración del bloqueo (llamado condena). Esto es para asegurar que haya una aceptación económica del resultado para evitar la venta de votos. En consecuencia, cuanto más tiempo esté dispuesto a bloquear sus tokens, más fuerte será su voto. También tiene la opción de no bloquear tokens en absoluto, pero el peso de los votos se reduce drásticamente.
 
@@ -22,7 +22,7 @@ Puede encontrar más información relacionada con la [gobernanza](https://wiki.p
 !!! nota
     Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
-## Definiciones
+## Definiciones {: #definitions } 
 
 Algunos de los parámetros clave de esta guía son los siguientes:
 
@@ -43,11 +43,11 @@ Actualmente, para Moonbase Alpha:
 |      Promulgar período       |     | 7200 bloques (1 dias) |
 | Número máximo de votos |     |                                      100                                       |
 
-## Hoja de ruta de una propuesta
+## Hoja de ruta de una propuesta {: #roadmap-of-a-proposal } 
 
 --8<-- 'text/governance/roadmap.md'
 
-## Votar en un referéndum
+## Votar en un referéndum {: #voting-on-a-referendum } 
 
 Esta sección repasa el proceso de votación de un referéndum. La guía asume que ya existe una, en este caso, la creada en [esta guía](/governance/proposals/).
 
@@ -57,7 +57,7 @@ Para votar una propuesta en la red, debe utilizar la interfaz de PolkadotJS Apps
 
 ¡La propuesta que se está votando pondrá el saldo de Bob en "1500" a través de la gobernanza! 
 
-### Cómo votar
+### Cómo votar {: #how-to-vote } 
 
 Votar en Moonbeam es bastante sencillo. Todo lo relacionado con la gobernabilidad vive en la pestaña "Democracia", donde (en la imagen) se puede notar que hay un `1`, que indica que hay un tema de democracia pendiente (ya sean propuestas o referendos). Una vez allí, puede ver los detalles del referéndum que desea votar haciendo clic en la flecha junto a la descripción. El número junto a la acción y la descripción se llama índice de referéndum (en este caso, es 0). Cuando esté listo, haga clic en el botón "Votar".
 
@@ -107,7 +107,7 @@ Recuerde que, para este ejemplo, la función `setBalance` se usó para establece
 
 ![Proposal Result](/images/governance/governance-vote-5.png)
 
-### Votación delegada
+### Votación delegada {: #delegate-voting }
 
 Los titulares de tokens tienen la opción de delegar su voto a otra cuenta en cuya opinión confían. La cuenta que se delega no necesita realizar ninguna acción en particular. Cuando votan, el peso del voto (es decir, las fichas multiplicadas por el multiplicador de convicciones elegido por el delegador) se agrega a su voto.
 
@@ -146,7 +146,7 @@ De la delegación de votos, hay algunas conclusiones clave:
  - Un titular de tokens que delegó tokens no puede participar en un referéndum público. Primero, el poseedor del token debe anular la delegación de su voto.
  - Un titular de tokens que delegó tokens debe desbloquear manualmente sus tokens bloqueados después de que el período de bloqueo haya expirado. Para ello es necesario conocer el índice de referéndum
  - 
-### Desbloqueo de tokens
+### Desbloqueo de tokens {: #unlocking-locked-tokens } 
 
 Cuando los poseedores de tokens votan, los tokens utilizados se bloquean y no se pueden transferir. Puede verificar si tiene tokens bloqueados en la pestaña "Cuentas", expandiendo los detalles de la cuenta de la dirección para consultar. Allí, verá diferentes tipos de saldos (puede leer más información sobre cada tipo [aquí](https://wiki.polkadot.network/docs/build-protocol-info#free-vs-reserved-vs-locked-vs-vesting-balance)). Si pasa el cursor sobre el icono junto a "democracia", se mostrará un panel de información que le indicará el estado actual de lo bloqueado. Los diferentes estados de bloqueo incluyen:
 
@@ -184,7 +184,7 @@ Una vez que se realiza la transacción, los tokens bloqueados deben desbloquears
 
 ![Check Balance](/images/governance/governance-vote-13.png)
 
-## Sesgo de participación positiva
+## Sesgo de participación positiva {: #positive-turnout-bias } 
 
 Los referendos públicos utilizan una métrica de sesgo de participación positiva, es decir, una fórmula de aprobación por supermayoría. La ecuación es la siguiente:
 

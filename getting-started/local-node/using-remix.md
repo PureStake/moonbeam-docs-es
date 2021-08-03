@@ -8,7 +8,7 @@ description: Aprenda a utilizar una de las herramientas de desarrollo de Ethereu
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//RT_f1-ga_n4' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Puede encontrar todo el código relevante para este tutorial en la <a href="{{ config.site_url }}resources/code-snippets/">página de fragmentos de código</a></div>
 
-## Introducción
+## Introducción {: #introduction } 
 
 Remix es uno de los entornos de desarrollo más utilizados para contratos inteligentes en Ethereum. Dadas las características de compatibilidad con Ethereum de Moonbeam, Remix se puede usar directamente con un nodo de desarrollo Moonbeam o Moonbase Alpha TestNet.
 
@@ -19,7 +19,7 @@ Esta guía describe el proceso de creación e implementación de un contrato int
 
 Esta guía asume que tiene un nodo Moonbeam local ejecutándose en `--dev` modo y que tiene una instalación de [MetaMask](https://metamask.io/) configurada para usar este nodo local. Puede encontrar instrucciones para ejecutar un nodo Moonbeam local [aquí](/getting-started/local-node/setting-up-a-node/) instrucciones para conectar MetaMask a él [aquí](/getting-started/local-node/using-metamask/).
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Si siguió las guías anteriores, debería tener un nodo Moonbeam local que comenzará a crear bloques a medida que lleguen las transacciones:
 
@@ -32,7 +32,7 @@ Y debe tener una instalación de MetaMask conectada a su nodo de desarrollo Moon
 !!! nota
    ¡Asegúrese de estar conectado a su nodo Moonbeam y no a otra red!
 
-## Introducción a Remix
+## Introducción a Remix {: #getting-started-with-remix } 
 
 Ahora, activemos Remix para ejercitar funcionalidades más avanzadas en Moonbeam.
 
@@ -62,7 +62,7 @@ Ahora, navegue a la opción de la barra lateral de compilación para presionar e
 
 Verá que Remix descarga todas las dependencias de Open Zeppelin y compila el contrato.
 
-## Implementar un contrato en Moonbeam usando Remix
+## Implementar un contrato en Moonbeam usando Remix {: #deploying-a-contract-to-moonbeam-using-remix } 
 
 Ahora podemos implementar el contrato navegando a la opción de la barra lateral Implementación. Debe cambiar el menú desplegable "Entorno" superior de "VM JavaScript" a "Web3 inyectado". Esto le dice a Remix que use el proveedor inyectado MetaMask, que lo apuntará a su nodo de desarrollo Moonbeam. Si quisiera probar esto usando Moonbase Alpha TestNet, tendría que conectar MetaMask a TestNet en lugar de su nodo de desarrollo local.
 
@@ -95,7 +95,7 @@ Profundice en el contrato en "Contratos implementados". Al hacer clic en el nomb
 
 ![Interact with the contract from Remix](/images/remix/using-remix-11.png)
 
-## Interactuar con un ERC-20 basado en Moonbeam de MetaMask
+## Interactuar con un ERC-20 basado en Moonbeam de MetaMask {: #interacting-with-a-moonbeam-based-erc-20-from-metamask } 
 
 Ahora, abra MetaMask para agregar los tokens ERC-20 recién implementados. Antes de hacerlo, asegúrese de haber copiado la dirección del contrato de Remix. De vuelta en MetaMask, haga clic en "Agregar token" como se muestra a continuación. Asegúrese de estar en la cuenta que implementó el contrato de token.
 

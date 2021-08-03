@@ -7,7 +7,7 @@ description: Esta guía le muestra cómo usar su billetera de hardware Trezor pa
 
 ![Intro diagram](/images/trezor/trezor-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Las carteras de hardware proporcionan una forma más segura de almacenar fondos criptográficos porque la clave privada (utilizada para firmar transacciones) se almacena fuera de línea. Trezor ofrece dos soluciones de billetera de hardware al momento de escribir: Trezor One y Trezor Model T.
 
@@ -17,7 +17,7 @@ Este tutorial le muestra cómo comenzar con su billetera de hardware Trezor en M
 
 Tenga en cuenta que su dispositivo Trezor firmará transacciones en cualquier red MetaMask a la que esté conectado.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Antes de comenzar, actualice [Trezor Suite](https://suite.trezor.io/) a la última versión disponible. Además, asegúrese de que su dispositivo de billetera de hardware Trezor ejecute el firmware más reciente. El Trezor wiki ofrece tutoriales sobre cómo actualizar el firmware de ambos [Trezor One](https://wiki.trezor.io/User_manual:Updating_the_Trezor_device_firmware__T1) y [Trezor Model T](https://wiki.trezor.io/User_manual:Updating_the_Trezor_device_firmware).
 
@@ -29,7 +29,7 @@ En el momento de redactar este documento, se utilizaron las siguientes versiones
 
 Además, necesitará MetaMask como intermediario entre su dispositivo Trezor y Moonbase Alpha. Asegúrese de que su MetaMask esté [conectada a Moonbase Alpha](/integrations/wallets/metamask/). Tenga en cuenta que su dispositivo Trezor firmará transacciones en cualquier red MetaMask a la que esté conectado.
 
-## Importar su cuenta de Trezor a MetaMask
+## Importar su cuenta de Trezor a MetaMask {: #importing-your-trezor-account-to-metamask } 
 
 Para comenzar, debe haber configurado una billetera (ya sea estándar o una billetera oculta). Una vez que haya conectado su dispositivo Trezor, lo desbloquee y obtenga una configuración de billetera en Trezor Suite. A continuación, para importar su cuenta de Trezor Ethereum a MetaMask, siga los siguientes pasos:
 
@@ -82,7 +82,7 @@ Si ha importado su cuenta de estilo Trezor Ethereum con éxito, debería verla e
 
 Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Trezor y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#firmar-una-transaccion-con-su-trezor).
 
-## Firmar una transacción con su Trezor
+## Firmar una transacción con su Trezor {: #signing-a-transaction-using-your-trezor } 
 
 Si ha importado con éxito [su cuenta de Trezor a MetaMask](#importar-su-cuenta-de-trezor-a-metamask), está listo para firmar transacciones en Moonbeam usando su dispositivo Trezor. Este tutorial le mostrará cómo enviar una transacción simple en Moonbase Alpha TestNet, pero se aplica a otras redes del ecosistema Moonbeam.
 

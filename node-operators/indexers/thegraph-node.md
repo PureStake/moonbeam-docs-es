@@ -7,7 +7,7 @@ description: Cree API utilizando el protocolo de indexación Graph en Moonbeam
 
 ![The Graph Node on Moonbeam](/images/thegraph/thegraphnode-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Un nodo de TheGraph obtiene eventos de una blockchain para actualizar de manera determinista un almacén de datos que luego se puede consultar a través de un punto final GraphQL.
 
@@ -16,7 +16,7 @@ Hay dos formas de configurar un nodo de TheGraph: puede usar Docker para ejecuta
 !!! nota
     Los pasos descritos en esta guía se han probado en entornos MacOs y basados ​​en Ubuntu 18.04, y deberán adaptarse en consecuencia para otros sistemas.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 Antes de sumergirse en la configuración de un nodo de TheGraph, debe tener lo siguiente instalado en su sistema:
 
@@ -31,7 +31,7 @@ Además, debe tener un nodo en ejecución con la `--ethapi=trace` opción habili
 
 En esta guía, un nodo de TheGraph se ejecuta contra un nodo completo Moonbase Alpha con la `--ethapi=trace` bandera.
 
-## Ejecución de un nodo de gráfico
+## Ejecución de un nodo de gráfico {: #running-a-graph-node } 
 
 El primer paso es clonar el [repositorio Graph Node](https://github.com/graphprotocol/graph-node/):
 
