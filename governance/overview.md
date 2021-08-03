@@ -74,7 +74,7 @@ Los parámetros de votación se establecen actualmente de la siguiente manera:
  * El comité técnico puede cancelar una propuesta antes de que esta haya sido aceptada, solo por unanimidad
  * Un solo miembro del comité técnico puede vetar una propuesta entrante al consejo , sin embargo solo puede realizar el veto una vez, y solo durante el periodo cool-off de ({{ networks.moonbase.democracy.cool_period.days}} días)
 
-## Pruébalo en Moonbase Alpha {: #try-it-out } 
+## Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Actualmente, en nuestra Moonbase Alpha TestNet, los titulares de tokens pueden enviar propuestas y votar en referendos. Para hacerlo, consulte las siguientes guías:
 

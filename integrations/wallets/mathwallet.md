@@ -13,7 +13,7 @@ MathWallet [anunció](https://mathwallet.org/moonbeam-wallet/en/) que ahora es c
 
 En este tutorial, veremos cómo configurar MathWallet para conectarse a nuestro TestNet. También presentaremos un breve ejemplo del uso de MathWallet como proveedor de Web3 para otras herramientas como [Remix](/integrations/remix/).
 
-## Conecte MathWallet a Moonbeam {: #connect-to-moonbase-alpha } 
+## Conecte MathWallet a Moonbeam {: #connect-mathwallet-to-moonbeam } 
 
 En esta parte, veremos el proceso de conexión de MathWallet con Moonbase Alpha.
 
