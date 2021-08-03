@@ -5,10 +5,10 @@ description: Utilice la funcionalidad de publicación y suscripción similar a E
 
 # Suscríbete a eventos en Moonbase Alpha
 
-## Introducción
+## Introducción {: #introduction } 
 La capacidad de suscribirse a eventos de estilo Ethereum se agregó con el [lanzamiento de Moonbase Alpha v2](https://moonbeam.network/announcements/testnet-upgrade-moonbase-alpha-v2/). En esta guía, describiremos los tipos de suscripción disponibles y las limitaciones actuales.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 Los ejemplos de esta guía se basan en un entorno Ubuntu 18.04. También necesitará lo siguiente:
 
  - Tener MetaMask instalado y [conectado a Moonbase](/getting-started/testnet/metamask/)
@@ -31,7 +31,7 @@ npm ls web3
 
 En el momento de redactar esta guía, la versión utilizada era 1.3.0. 
 
-## Suscripción a registros de eventos en Moonbase Alpha
+## Suscripción a registros de eventos en Moonbase Alpha {: #subscribing-to-event-logs-in-moonbase-alpha } 
 Cualquier contrato que sigue el estándar token de ERC-20 emite un evento relacionado con una transferencia de fichas, es decir, `event Transfer(address indexed from, address indexed to, uint256 value)`. Para este ejemplo, nos suscribiremos a los registros de dichos eventos. Usando la biblioteca web3.js, necesitamos el siguiente código:
 
 ```js
@@ -83,7 +83,7 @@ Los datos no indexados se devuelven en el `data` campo de los registros, pero se
 
 Si el evento devuelve varios valores no indexados, se agregarán uno tras otro en el mismo orden en que los emite el evento. Por lo tanto, cada valor se obtiene al deconstruir los datos en partes separadas de 32 bytes (o 64 caracteres hexadecimales).
 
-### Uso de comodines y formato condicional
+### Uso de comodines y formato condicional {: #using-wildcards-and-conditional-formatting } 
 
 En la versión v2 que introdujo la función de suscripción a registros, hubo algunas limitaciones con respecto al uso de comodines y formato condicional para los temas. Sin embargo, con el lanzamiento de [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), esto ahora es posible.
 
@@ -126,26 +126,26 @@ Como se muestra, después de proporcionar las dos direcciones con formato condic
 
 Este ejemplo mostró cómo podríamos suscribirnos solo a los registros de eventos de un contrato específico, pero la biblioteca web3.js proporciona otros tipos de suscripción que veremos en las siguientes secciones.
 
-## Suscribirse a transacciones pendientes entrantes
+## Suscribirse a transacciones pendientes entrantes {: #subscribe-to-incoming-pending-transactions } 
 Para suscribirnos a transacciones pendientes, podemos usar el `web3.eth.subscribe(‘pendingTransactions’, [, callback])` mmétodo, implementando la misma función de devolución de llamada para verificar la respuesta. Esto es mucho más simple que nuestro ejemplo anterior y devuelve el hash de transacción de las transacciones pendientes.
 
 ![Subscribe pending transactions response](/images/testnet/testnet-pubsub4.png)
 
 Podemos verificar que este hash de transacción es el mismo que se muestra en MetaMask (o Remix).
 
-## Suscribirse a los encabezados de bloque entrantes
+## Suscribirse a los encabezados de bloque entrantes {: #subscribe-to-incoming-block-headers } 
 Otro tipo disponible en la biblioteca Web3.js es suscribirse a nuevos encabezados de bloque. Para hacerlo, usamos el `web3.eth.subscribe('newBlockHeaders' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción proporciona encabezados de bloque entrantes y se puede usar para rastrear cambios en la blockchain.
 
 ![Subscribe to block headers response](/images/testnet/testnet-pubsub5.png)
 
 Tenga en cuenta que solo se muestra un encabezado de bloque en la imagen. Estos mensajes se muestran para cada bloque producido para que puedan llenar la terminal bastante rápido.
 
-## Compruebe si un nodo está sincronizado con la red
+## Compruebe si un nodo está sincronizado con la red {: #check-if-a-node-is-synchronized-with-the-network } 
 Con pub / sub también es posible verificar si un nodo en particular al que está suscrito está actualmente sincronizado con la red. Para eso, podemos aprovechar el `web3.eth.subscribe(‘syncing' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción devolverá un objeto cuando el nodo esté sincronizado con la red.
 
 ![Subscribe to syncing response](/images/testnet/testnet-pubsub6.png)
 
-## Limitaciones actuales
+## Limitaciones actuales {: #current-limitations } 
 
 La implementación de pub / sub en [Frontier](https://github.com/paritytech/frontier) aún está en desarrollo activo. Esta primera versión permite a los desarrolladores de DApp (o usuarios en general) suscribirse a tipos de eventos específicos, pero aún existen algunas limitaciones. Es posible que haya notado en ejemplos anteriores que algunos de los campos no muestran la información adecuada con la versión actual publicada, y eso se debe a que Frontier aún no admite ciertas propiedades.
 

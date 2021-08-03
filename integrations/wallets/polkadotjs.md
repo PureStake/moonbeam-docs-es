@@ -6,13 +6,13 @@ description: Siga este tutorial rápido para aprender a usar las direcciones H16
 
 ![Intro diagram](/images/polkadotjs/polkadotjs-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Con el [lanzamiento de la actualización v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/) para Moonbase Alpha TestNet, hemos realizado actualizaciones significativas en el sistema de cuentas subyacente en Moonbeam, reemplazando las cuentas y claves predeterminadas de estilo Substrate con cuentas y claves de estilo Ethereum.
 
 La interfaz de Polkadot JS Apps también se actualizó para que admita de forma nativa direcciones H160 y claves ECDSA. Entonces, en este tutorial, verifiquemos esta nueva integración de cuentas basadas en Ethereum en el sitio de Polkadot JS Apps.
 
-## Conectando a Moonbase Alpha
+## Conectando a Moonbase Alpha {: #connecting-to-moonbase-alpha } 
 
 Primero, necesitamos conectarlo a Moonbase Alpha TestNet haciendo clic en el logo de la esquina superior izquierda y seleccionando Moonbase Alpha (bajo Test Networks).
 
@@ -22,7 +22,7 @@ Después de cambiar, el sitio de Polkadot JS no solo se conectará a Moonbase Al
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app2.png)
 
-## Creación o importación de una cuenta H160
+## Creación o importación de una cuenta H160 {: #creating-or-importing-an-h160-account } 
 
 Veamos cómo podemos crear una nueva cuenta o importar una cuenta MetaMask ya existente a Polkadot JS Apps. Primero, navegue a la sección de cuentas y haga clic en el botón Agregar cuenta.
 
@@ -51,7 +51,7 @@ Haga clic en siguiente y finalice el asistente configurando un nombre de cuenta 
 
 ![Connect to Moonbase Alpha](/images/polkadotjs/polkadotjs-app6.png)
 
-## Envío de una transacción a través de la API de Substrate
+## Envío de una transacción a través de la API de Substrate {: #sending-a-transaction-through-substrates-api } 
 
 Ahora, demostremos el potencial del esquema de Cuentas Unificadas de Moonbeam haciendo una transferencia a través de la API Substrate usando Polkadot JS Apps. Recuerde que estamos interactuando con Substrate usando una dirección H160 estilo Ethereum. Para hacerlo, hemos importado otra cuenta llamada Charley con 5 `DEV` tokens.
 

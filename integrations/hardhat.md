@@ -7,13 +7,13 @@ description: Utilice Hardhat para compilar, implementar y depurar contratos inte
 
 ![Hardhat Create Project](/images/hardhat/hardhat-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Hardhat es un entorno de desarrollo de Ethereum que ayuda a los desarrolladores a gestionar y automatizar las tareas recurrentes inherentes a la creación de contratos inteligentes y DApps. Hardhat puede interactuar directamente con la API Ethereum de Moonbeam, por lo que también se puede utilizar para implementar contratos inteligentes en Moonbeam.
 
 Esta guía cubrirá cómo usar Hardhat para compilar, implementar y depurar contratos inteligentes de Ethereum en Moonbase Alpha TestNet.
 
-## Comprobación de requisitos previos
+## Comprobación de requisitos previos {: #checking-prerequisites } 
 
 --8<-- 'text/common/install-nodejs.md'
 
@@ -26,7 +26,7 @@ Además, necesitará lo siguiente:
 
 Una vez que se hayan cumplido todos los requisitos, estará listo para construir con Hardhat.
 
-## Iniciar un proyecto de casco
+## Iniciar un proyecto de casco {: #starting-a-hardhat-project } 
 
 Para iniciar un nuevo proyecto, cree un directorio para él:
 
@@ -63,7 +63,7 @@ Después de ejecutar el comando, elija  `Create an empty hardhat.config.js`:
 
 ![Hardhat Create Project](/images/hardhat/hardhat-images-1.png)
 
-## El archivo del contrato
+## El archivo del contrato {: #the-contract-file } 
 
 Vamos a almacenar nuestro contrato en el `contracts` directorio. Créelo:
 
@@ -98,7 +98,7 @@ contract Box {
 }
 ```
 
-## Archivo de configuración de casco
+## Archivo de configuración de casco {: #hardhat-configuration-file } 
 
 Modifiquemos nuestro archivo de configuración de Hardhat para que podamos compilar e implementar este contrato en Moonbase Alpha.
 
@@ -161,7 +161,7 @@ A continuación, creemos un `secrets.json`, donde se almacena la clave privada m
 
 ¡Felicidades! ¡Estamos listos para el despliegue!
 
-## Compilación de solidez
+## Compilación de solidez {: #compiling-solidity } 
 
 Nuestro contrato `Box.sol` utiliza Solidity 0.8.1. Asegúrese de que el archivo de configuración de Hardhat esté configurado correctamente con esta versión de solidez. Si es así, podemos compilar el contrato ejecutando:
 
@@ -173,7 +173,7 @@ npx hardhat compile
 
 Después de la compilación, `artifacts` se crea un directorio: contiene el código de bytes y los metadatos del contrato, que son `.json` archivos. Es una buena idea agregar este directorio a su `.gitignore`.
 
-## Implementar el contrato
+## Implementar el contrato {: #deploying-the-contract } 
 
 Para implementar el contrato inteligente de Box, necesitaremos escribir un simple `deployment script`. Primero, creemos un nuevo directorio (`scripts`). Dentro del directorio recién creado, agregue un nuevo archivo `deploy.js`.
 
@@ -224,7 +224,7 @@ Después de unos segundos, el contrato se implementa y debería ver la direcció
 
 ¡Felicitaciones, su contrato está activo! Guarde la dirección, ya que la usaremos para interactuar con esta instancia de contrato en el siguiente paso.
 
-## Interactuar con el contrato
+## Interactuar con el contrato {: #interacting-with-the-contract } 
 
 Usemos Hardhat para interactuar con nuestro contrato recién implementado en Moonbase Alpha. Para hacerlo, inicie `hardhat console` ejecutando:
 

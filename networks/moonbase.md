@@ -7,13 +7,13 @@ description: Una descripción general de la configuración actual de Moonbeam Te
 
 _Updated April 5, 2021_
 
-## Objetivo
+## Objetivo {: #goal } 
 
 La primera Moonbeam TestNet, llamada Moonbase Alpha, tiene como objetivo proporcionar a los desarrolladores un lugar para comenzar a experimentar y construir en Moonbeam en un entorno compartido. Dado que Moonbeam se implementará como una parachain en Kusama y Polkadot, queremos que nuestra TestNet refleje nuestra configuración. Por esta razón, decidimos que tenía que ser una configuración basada en parachain  en lugar de una configuración de desarrollo de substrate.
 
 Para recopilar la mayor cantidad de comentarios posible y proporcionar una resolución rápida de problemas, hemos configurado en [Discord un canal dedicado a Moonbase AlphaNet.](https://discord.gg/PfpUATX).
 
-## Configuración inicial
+## Configuración inicial {: #initial-configuration }
 
 Moonbase Alpha tiene la siguiente configuración:
 
@@ -24,7 +24,7 @@ Moonbase Alpha tiene la siguiente configuración:
 
 ![TestNet Diagram](/images/testnet/Moonbase-Alpha-v7.png)
 
-## Características o Funciones
+## Características o Funciones {: #features } 
 
 Están disponibles las siguientes funciones:
 
@@ -70,7 +70,7 @@ Están disponibles las siguientes funciones:
     - El módulo de Staking se ha refactorizado, con nuevos nombres para mejorar la experiencia del usuario final
     - Se agregaron tres nuevas precompilaciones: [Bn128Add](https://eips.ethereum.org/EIPS/eip-196), [Bn128Mul](https://eips.ethereum.org/EIPS/eip-196) y [Bn128Pairing](https://eips.ethereum.org/EIPS/eip-197)
 
-### Notas de lanzamiento
+### Notas de lanzamiento {: #release-notes } 
 
 Para obtener más detalles sobre las actualizaciones de Moonbase Alpha, consulte las siguientes notas de la versión:
 
@@ -81,31 +81,25 @@ Para obtener más detalles sobre las actualizaciones de Moonbase Alpha, consulte
  - [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/releases/tag/v0.6.0)
  - [Moonbase Alpha v7](https://github.com/PureStake/moonbeam/releases/tag/v0.7.0)
 
-### Versiones futuras
-
-Características que pueden implementarse en el futuro:
-
- - Funciones de tesorería con la [pallet de Tesorería](https://github.com/paritytech/substrate/tree/master/frame/treasury))
-
-## Cómo empezar
+## Cómo empezar {: #get-started } 
 
 --8<-- 'text/testnet/connect.md'
 
-## Telemetría
+## Telemetría {: #telemetry } 
 
 Puede ver la información actual de telemetría Moonbase Alpha visitando [este link](https://telemetry.polkadot.io/#list/Moonbase%20Alpha).
 
-## Tokens
+## Tokens {: #tokens } 
 
 --8<-- 'text/testnet/faucet.md'
 
-## Etapa temprana de Proof of Stake
+## Etapa temprana de Proof of Stake  {: #early-stage-proof-of-stake } 
 
 Con el lanzamiento de Moonbase Alpha v6, TestNet ahora se está ejecutando con un sistema Proof of Stake en etapa inicial. Esto significa que, con fines de prueba, se alentará a los socios de Moonbeam a ser los primeros collators de la red.
 
 A medida que avanza Moonbase Alpha, esperamos evolucionar hacia una red Proof of Stake completamente descentralizada.
 
-## Limitaciones
+## Limitaciones  {: #limitations } 
 
 Este es la primera TestNet para Moonbeam, por lo que existen algunas limitaciones.
 
@@ -116,7 +110,7 @@ Desde el lanzamiento de Moonbase Alpha v6, el límite máximo de gas(fees) por b
 
 Los usuarios solo tienen acceso a la parachain Moonbeam. En redes futuras, agregaremos acceso a la relay chain para que los usuarios puedan probar la transferencia de tokens.
 
-## Purga de cadena
+## Purga de cadena {: #chain-purge } 
 
 Esta red está en desarrollo activo. Ocasionalmente, es posible que se necesiten purgas de la cadena para restablecer la blockchain a su estado inicial. Esto es necesario cuando se realizan actualizaciones o mantenimiento importantes de TestNet. Anunciaremos cuándo se llevará a cabo una purga de la cadena a través de nuestro canal de [Discord](https://discord.gg/PfpUATX) al menos con 24 horas de anticipación.
 

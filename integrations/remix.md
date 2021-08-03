@@ -7,11 +7,11 @@ description: Aprenda a utilizar una de las herramientas de desarrollo de Ethereu
 
 ![Intro diagram](/images/integrations/integrations-remix-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Otra herramienta que los desarrolladores pueden usar para interactuar con Moonbeam es [Remix IDE](https://remix.ethereum.org/), uno de los entornos de desarrollo más utilizados para contratos inteligentes en Ethereum. Proporciona una solución basada en web para compilar e implementar rápidamente código basado en Solidity y Vyper en una máquina virtual local o, lo que es más interesante, en un proveedor Web3 externo, como MetaMask. Combinando ambas herramientas, uno puede comenzar muy rápidamente con Moonbeam.
 
-## Implementar un contrato en Moonbeam
+## Implementar un contrato en Moonbeam {: #deploying-a-contract-to-moonbeam } 
 
 Para demostrar cómo puede aprovechar [Remix](https://remix.ethereum.org/) para implementar contratos inteligentes en Moonbeam, usaremos el siguiente contrato básico:
 
@@ -37,7 +37,7 @@ Una vez que se incluye la transacción, el contrato aparece en la sección "Cont
 
 ![Interact with Contract](/images/remix/integrations-remix-2.png)
 
-## Tutoriales paso a paso
+## Tutoriales paso a paso {: #step-by-step-tutorials } 
 
 Si está interesado en una guía paso a paso más detallada, vaya a nuestros tutoriales específicos sobre el uso de [Remix en un nodo de desarrollo Moonbeam](/getting-started/local-node/using-remix/).  Los pasos también se pueden adaptar para implementar en Moonbase Alpha TestNet [conectando MetaMask a él.](/getting-started/testnet/metamask/).
 

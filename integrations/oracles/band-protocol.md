@@ -7,7 +7,7 @@ description: Cómo utilizar los datos de solicitud de un protocolo de banda Orac
 
 ![Band Protocol Moonbeam Diagram](/images/band/band-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Los desarrolladores tienen dos formas de obtener precios de la infraestructura Oracle de Band. Por un lado, pueden usar los contratos inteligentes de Band en Moonbeam. Al hacerlo, acceden a los datos que están en la cadena y se actualizan a intervalos regulares o cuando el deslizamiento del precio es mayor que una cantidad objetivo (diferente para cada token). Por otro lado, los desarrolladores pueden usar la biblioteca auxiliar de Javascript, que usa un punto final de API para obtener los datos usando funciones similares a las de los contratos inteligentes, pero esta implementación omite la blockchain por completo. Esto puede ser útil si su interfaz DApp necesita acceso directo a los datos.
 
@@ -17,7 +17,7 @@ La dirección del contrato del agregador se puede encontrar en la siguiente tabl
 |:--------------:|-|:------------------------------------------:|
 | Moonbase Alpha | | 0xDA7a001b254CD22e46d3eAB04d937489c93174C3 |
 
-## Token admitido
+## Token admitido {: #supported-token } 
 Las consultas de precios con cualquier denominación están disponibles siempre que se admitan los símbolos base y de cotización (_base_/_quote_). Por ejemplo:
 
  - `BTC/USD`
@@ -26,14 +26,14 @@ Las consultas de precios con cualquier denominación están disponibles siempre 
 
 En el momento de escribir este artículo, la lista de símbolos admitidos se puede encontrar siguiendo [este enlace](https://data.bandprotocol.com). Hay más de 146 pares de precios disponibles para consultar.
 
-## Consultar precios
+## Consultar precios {: #querying-prices } 
 
 Como se indicó anteriormente, los desarrolladores pueden aprovechar dos métodos para consultar precios desde el oráculo de Band:
 
  - Contrato inteligente de Band en Moonbeam (implementado en Moonbase Alpha TestNet por ahora)
  - Biblioteca auxiliar de JavaScript
 
-## Obtener datos mediante contratos inteligentes
+## Obtener datos mediante contratos inteligentes {: #get-data-using-smart-contracts } 
 
 Los contratos pueden consultar datos en cadena, como precios de tokens, desde el oráculo de Band mediante la implementación de la interfaz del `StdReference` contrato, que expone las funciones `getReferenceData` y `getReferenceDataBulk`.
 
@@ -59,7 +59,7 @@ La segunda función, `getReferenceDataBulk`, toma información como matrices de 
  - `BTC/ETH`
  - `ETH/EUR`
 
-### Contrato de ejemplo
+### Contrato de ejemplo {: #example-contract } 
 
 El siguiente código de contrato inteligente proporciona algunos ejemplos simples del `StdReference` y la `getReferenceData` función; estos no están destinados a la producción. La `IStdReference.sol` interfaz define la estructura de ReferenceData y las funciones disponibles para realizar las consultas.
 
@@ -153,7 +153,7 @@ contract DemoOracle {
 }
 ```
 
-### Pruébelo en Moonbase Alpha
+### Pruébelo en Moonbase Alpha {: #try-it-in-moonbase alpha } 
 
 Hemos implementado un contrato disponible en Moonbase Alpha TestNet (en la dirección `0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) para que pueda verificar fácilmente la información proporcionada por el oráculo de Band Protocol. Para hacerlo, necesita el siguiente contrato de interfaz:
 
@@ -183,7 +183,7 @@ Esto creará una instancia del contrato de demostración con la que puede intera
 
 ![Band Protocol Remix check price](/images/band/band-demo2.png)
 
-## Biblioteca auxiliar de Javascript BandChain.js
+## Biblioteca auxiliar de Javascript BandChain.js {: #bandchainjs-javascript-helper-library } 
 
 La biblioteca auxiliar también admite una `getReferenceData` función similar . Para comenzar, es necesario instalar la biblioteca:
 
@@ -222,7 +222,7 @@ Luego, devuelve un objeto de matriz con la siguiente estructura:
 ```
 Donde `lastUpdatedBase` y `lastUpdatedQuote` son la última vez que se actualizaron los precios base y de cotización respectivamente (desde la época de UNIX).
 
-### Ejemplo de uso
+### Ejemplo de uso {: #example-usage } 
 
 El siguiente script de Javascript proporciona un ejemplo simple de la `getReferenceData` función.
 

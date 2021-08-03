@@ -7,13 +7,13 @@ description: Como parachain de Polkadot, Moonbeam utilizará un sistema de gober
 
 ![Governance Moonbeam Banner](/images/governance/governance-overview-banner.png)
 
-## Introducción
+## Introducción {: #introduction } 
 
 Moonbeam es una red descentralizada que estará gobernada por una comunidad de titulares de tokens, incluidos desarrolladores core, desarrolladores de aplicaciones, collators, usuarios y otros contribuyentes.
 
 Nuestro objetivo es facilitar la participación de los titulares de tokens de cada una de estas categorías como parte del lanzamiento de la red.
 
-## Definiciones generales
+## Definiciones generales {: #general-definitions } 
 
 Con un gran poder viene una gran responsabilidad. Algunos parámetros importantes que debe comprender antes de comprometerse con la gobernanza de Moonbeam incluyen:
 
@@ -28,7 +28,7 @@ Con un gran poder viene una gran responsabilidad. Algunos parámetros importante
  - **Período Cool-off** - La duración de un veto del comité técnico antes de que se pueda volver a presentar la propuesta.
  - **Delegación** —  acto de transferir su poder de voto a otra cuenta hasta una cierta conviccion.
 
-## Principios
+## Principios {: #principles } 
 
 Los principios rectores "soft" para el compromiso con el proceso de gobernanza de Moonbeam incluyen:
 
@@ -41,7 +41,7 @@ Los principios rectores "soft" para el compromiso con el proceso de gobernanza d
 
 Estos puntos se inspiraron en gran medida en los escritos de Vlad Zamfir sobre gobernanza. Consulte sus artículos, [especialmente este](https://medium.com/@Vlad_Zamfir/how-to-participate-in-blockchain-governance-in-good-faith-and-with-good-manners-bd4e16846434).
 
-## Mecánicas de gobernanza on-chain
+## Mecánicas de gobernanza on-chain {: #on-chain-governance-mechanics } 
 
 El proceso de gobernanza "hard" para Moonbeam será impulsado por un proceso on-chain y aprovechará las pallets de Democracia, Consejo y Tesorería de [Substrate](/resources/glossary/#substrate-frame-pallets), de forma similar a como se rigen Kusama y la Relay Chain de Polkadot. La intención general de estos módulos es permitir que la mayoría de los tokens de la red determinen los resultados de las decisiones clave en la red. Estos puntos de decisión vienen en forma de votaciones ponderadas sobre los referendos propuestos.
 
@@ -55,7 +55,7 @@ Algunos de los componentes principales de este modelo de gobernanza incluyen:
 
 Vea [esta descripción general en el sitio web de Polkadot](https://polkadot.network/a-walkthrough-of-polkadots-governance/) y [esta publicación de wiki](https://wiki.polkadot.network/docs/learn-governance) para obtener más detalles sobre cómo estas pallets de marco de Substrate implementan la gobernanza en cadena.
 
-## Derechos de voto del Consejo y del Comité Técnico
+## Derechos de voto del Consejo y del Comité Técnico {: #voting-rights-of-the-council-and-the-technical-committee } 
 
 Esta sección cubre algunos antecedentes sobre la votación y describe los parámetros de votación del protocolo tal como están configurados actualmente. Existe un límite en la cantidad de tiempo en bloques que el comité técnico y el consejo tienen para votar sobre las mociones. Las mociones pueden terminar en menos bloques si ya se han presentado suficientes votos para determinar el resultado. Se pueden abrir un maximo de {{ networks.moonbase.democracy.max_proposals}} propuestas tanto en el comité técnico como en el consejo
 
@@ -74,7 +74,7 @@ Los parámetros de votación se establecen actualmente de la siguiente manera:
  * El comité técnico puede cancelar una propuesta antes de que esta haya sido aceptada, solo por unanimidad
  * Un solo miembro del comité técnico puede vetar una propuesta entrante al consejo , sin embargo solo puede realizar el veto una vez, y solo durante el periodo cool-off de ({{ networks.moonbase.democracy.cool_period.days}} días)
 
-## Pruébalo en Moonbase Alpha
+## Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
 Actualmente, en nuestra Moonbase Alpha TestNet, los titulares de tokens pueden enviar propuestas y votar en referendos. Para hacerlo, consulte las siguientes guías:
 

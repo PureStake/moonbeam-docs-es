@@ -8,7 +8,7 @@ description: Siga este tutorial para aprender cómo configurar su primer nodo Mo
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed//p_0OAHSlHNM' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>Puede encontrar todo el código relevante para este tutorial en la <a href="{{ config.site_url }}resources/code-snippets/">página de fragmentos de código</a></div>
 
-## Introducción
+## Introducción {: #introduction } 
 
 Esta guía describe los pasos necesarios para crear un nodo de desarrollo para probar las características de compatibilidad de Ethereum de Moonbeam.
 
@@ -23,7 +23,7 @@ Si sigue hasta el final de esta guía, tendrá un nodo de desarrollo Moonbeam ej
 
 Hay dos formas de comenzar a ejecutar un nodo Moonbeam: puede usar [Docker para ejecutar un binario prediseñado](#introduccion-a-docker) o puede [compilar el binario localmente](#introduccion-al-archivo-binario) y configurar un nodo de desarrollo usted mismo. El uso de Docker es una forma rápida y conveniente de comenzar, ya que no tendrá que instalar Substrate y todas las dependencias, y también puede omitir el proceso de construcción del nodo. Requiere que [instales Docker](https://docs.docker.com/get-docker/). Por otro lado, si decide que desea pasar por el proceso de creación de su propio nodo de desarrollo, podría tardar aproximadamente 30 minutos o más en completarse, según su hardware.
 
-## Introducción a Docker
+## Introducción a Docker {: #getting-started-with-docker } 
 
 El uso de Docker le permite activar un nodo en cuestión de segundos. Una vez que tenga Docker instalado, puede ejecutar el siguiente comando para descargar la imagen correspondiente:
 
@@ -74,7 +74,7 @@ purestake/moonbeam \
 
 Para continuar con el tutorial, la siguiente sección no es necesaria ya que ya ha activado un nodo con Docker. Puede pasar a [Conectar aplicaciones JS de Polkadot a un nodo Moonbeam local](#conectando-polkadotjs-apps-a-un-nodo-moonbeam-local).
 
-## Introducción al archivo binario
+## Introducción al archivo binario {: #getting-started-with-the-binary-file } 
 
 !!! nota
     Si sabe lo que está haciendo, puede descargar directamente los archivos binarios precompilados adjuntos a cada versión en la [página de versiones de Moonbeam](https://github.com/PureStake/moonbeam/releases). Estos no funcionarán en todos los sistemas. Por ejemplo, los binarios solo funcionan con Linux x86-64 con versiones específicas de dependencias. La forma más segura de garantizar la compatibilidad es compilar el binario en el sistema desde donde se ejecutará.
@@ -131,7 +131,7 @@ Para obtener más información sobre algunas de las banderas y opciones utilizad
 ```
 ./target/release/moonbeam --help
 ```
-## Conectando PolkadotJS Apps a un nodo Moonbeam local
+## Conectando PolkadotJS Apps a un nodo Moonbeam local {: #connecting-polkadot-js-apps-to-a-local-moonbeam-node } 
 
 El nodo de desarrollo es un nodo basado en sustrato, por lo que puede interactuar con él utilizando herramientas de sustrato estándar. Los dos puntos finales de RPC proporcionados son:
 
@@ -150,15 +150,15 @@ Con Polkadot JS Apps conectadas, verá el nodo de desarrollo Moonbeam esperando 
 
 ![Select Local Node](/images/setting-up-a-node/setting-up-node-7.png)
 
-## Consultando el estado de la cuenta
+## Consultando el estado de la cuenta {: #querying-account-state } 
 
 Con el lanzamiento de [Moonbase Alpha v3](https://www.purestake.com/news/moonbeam-network-upgrades-account-structure-to-match-ethereum/), Moonbeam ahora funciona bajo un formato de cuenta única, que es el H160 estilo Ethereum y ahora también es compatible con Polkadot JS Apps. Para verificar el saldo de una dirección, simplemente puede importar su cuenta en la pestaña Cuentas. Puede encontrar más información en la sección [Cuentas unificadas](/learn/unified-accounts/).
  
 Sin embargo, aprovechando las capacidades RPC completas de Ethereum de Moonbeam, también puede usar [MetaMask](/getting-started/local-node/using-metamask/) para verificar el saldo de esa dirección. Además, también puede utilizar otras herramientas de desarrollo, como [Remix](/getting-started/local-node/using-remix/) y [Truffle](/getting-started/local-node/using-truffle/).
 
-## Flags y opciones comunes
+## Flags y opciones comunes {: #common-commands-flags-and-options } 
 
-### Purgando la Cadena
+### Purgando la Cadena {: #purging-the-chain } 
 
 Cuando se ejecuta un nodo a través del archivo binario, los datos se almacenan en un directorio local que normalmente se encuentra en `~/.local/shared/moonbeam/chains/development/db`. Si desea iniciar una nueva instancia del nodo, puede eliminar el contenido de la carpeta o ejecutar el siguiente comando dentro de la `moonbeam` carpeta:
 
@@ -170,7 +170,7 @@ Esto eliminará la carpeta de datos, tenga en cuenta que todos los datos de la c
 
 Si usó Docker, la carpeta de datos está relacionada con el contenedor de Docker.
 
-### Banderas de nodo
+### Banderas de nodo {: #node-flags } 
 
 Las banderas no toman un argumento. Para usar una bandera, agréguela al final de un comando. Por ejemplo:
 
@@ -184,7 +184,7 @@ Las banderas no toman un argumento. Para usar una bandera, agréguela al final d
 - `--rpc-external`: Escuche todas las interfaces RPC
 - `--ws-external`: Escuche todas las interfaces de Websocket
 
-### Opciones de nodo
+### Opciones de nodo {: #node-options } 
 
 Las opciones aceptan un argumento al lado derecho de la opción. Por ejemplo:
 
@@ -199,7 +199,7 @@ Las opciones aceptan un argumento al lado derecho de la opción. Por ejemplo:
 
 Para obtener una lista completa de banderas y opciones, active su nodo de desarrollo Moonbeam con `--help` agregado al final del comando.
 
-## Opciones y banderas avanzadas
+## Opciones y banderas avanzadas {: #advanced-flags-and-options } 
 
 --8<-- 'text/setting-up-node/advanced-flags.md'
 
@@ -209,7 +209,7 @@ Por ejemplo, al ejecutar el binario:
 ./target/release/moonbeam --dev --execution=Native --ethapi=debug,trace
 ```
 
-## Cuentas de desarrollo prefinanciadas
+## Cuentas de desarrollo prefinanciadas {: #pre-funded-development-accounts } 
 
 Su nodo de desarrollo Moonbeam viene con diez cuentas prefinanciadas para el desarrollo. Las direcciones se derivan del mnemónico de desarrollo canónico de Substrate:
 

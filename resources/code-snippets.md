@@ -5,7 +5,7 @@ description: Para que sea más fácil comenzar con Moonbeam, aquí hay fragmento
 
 # Fragmentos de Código
 
-## Configuración de un Nodo Moonbeam Local
+## Configuración de un Nodo Moonbeam Local {: #setting-up-a-local-moonbeam-node } 
 
 **Clonar el repositorio de tutoriales de Moonbeam:**
 
@@ -50,17 +50,17 @@ cd moonbeam
 ./target/release/moonbeam-development --dev -lerror
 ```
 
-## Cuenta Génesis
+## Cuenta Génesis  {: #genesis-account } 
 
 --8<-- 'text/metamask-local/dev-account.md'
 
-## Cuentas de Desarrollo
+## Cuentas de Desarrollo {: #development-accounts } 
 
 --8<-- 'code/setting-up-node/dev-accounts.md'
 
 --8<-- 'code/setting-up-node/dev-testing-account.md'
 
-## MetaMask
+## MetaMask {: #metamask } 
 
 **Información del nodo de desarrollo de Moonbeam:**
 
