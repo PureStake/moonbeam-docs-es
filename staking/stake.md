@@ -48,7 +48,7 @@ Hay muchos aspectos extrínsecos relacionados con el pallet de replanteo, por lo
 
 Antes de comenzar a apostar tokens, es importante recuperar la lista de collators disponibles en la red. Para hacerlo, navegue hasta "Estado de la cadena" en la pestaña "Desarrollador".
 
-![Staking Account](/images/staking/staking-stake-10.png)
+![Staking Account](/images/staking/staking-stake-1.png)
 
 Aquí, proporcione la siguiente información:
 
