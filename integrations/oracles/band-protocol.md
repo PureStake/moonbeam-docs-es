@@ -90,10 +90,10 @@ interface IStdReference {
 ```
 A continuación, podemos usar el siguiente `DemoOracle` script. Proporciona cuatro funciones: 
 
- - getPrice: una función de _vista_ ue consulta una sola base. En este ejemplo, el precio de `BTC` cotizado en `USD`
- - getMultiPrices: una función de _vista_ que consulta múltiples bases. En este ejemplo, el precio de `BTC` y `ETH`, ambos cotizados en `USD`
- - savePrice: una función _pública_ que consulta el par _base/cotización_ pair. Cada elemento se proporciona como cadenas independientes, por ejemplo `_base = "BTC", _quotes = "USD"`.  Esto envía una transacción y modifica la `price` variable almacenada en el contrato.
- - saveMultiPrices: una función _pública_ que consulta cada par _base/cotización_ pair. Cada elemento se proporciona como una matriz de cadenas. Por ejemplo `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Esto envía una transacción y modifica la `prices` matriz almacenada en el contrato, que mantendrá el precio de cada par en el mismo orden que se especifica en la entrada.
+ - **getPrice**(*string[]* base, *string[]* quotes): una función de _vista_ ue consulta una sola base. En este ejemplo, el precio de `BTC` cotizado en `USD`
+ - **getMultiPrices**(*string[]* bases, *string[]* quotes): una función de _vista_ que consulta múltiples bases. En este ejemplo, el precio de `BTC` y `ETH`, ambos cotizados en `USD`
+- **savePrice**(*string* base, *string* quote): una función _pública_ que consulta el par _base/cotización_ pair. Cada elemento se proporciona como cadenas independientes, por ejemplo `_base = "BTC", _quotes = "USD"`.  Esto envía una transacción y modifica la `price` variable almacenada en el contrato.
+- **saveMultiPrices**(*string[]* bases, *string[]* quotes): una función _pública_ que consulta cada par _base/cotización_ pair. Cada elemento se proporciona como una matriz de cadenas. Por ejemplo `_bases = ["BTC","ETH"], _quotes = ["USD","USD"]`. Esto envía una transacción y modifica la `prices` matriz almacenada en el contrato, que mantendrá el precio de cada par en el mismo orden que se especifica en la entrada.
 
 Cuando se implementa, la función de constructor necesita la dirección del contrato de agregador para la red de destino.
 
@@ -170,8 +170,8 @@ interface TestInterface {
 
 Con él, tendrá dos funciones de visualización disponibles, muy similares a nuestros ejemplos anteriores:
 
- - getPrice: getPrice: proporciona el feed de precios para un solo par base / cotización que se proporciona como entrada a la función, es decir, "BTC", "USD"
- - getMultiPrices: proporciona el feed de precios para varios pares de base / cotización que se proporcionan como entrada a la función, es decir, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR "]
+ - **getPrice**(*string* base, *string* quote): getPrice: proporciona el feed de precios para un solo par base / cotización que se proporciona como entrada a la función, es decir, "BTC", "USD"
+ - **getMultiPrices**(*string[]* bases, *string[]* quotes): proporciona el feed de precios para varios pares de base / cotización que se proporcionan como entrada a la función, es decir, ["BTC", "ETH", "ETH"], ["USD", "USD", "EUR "]
 
 Por ejemplo, usando [Remix](/integrations/remix/),podemos consultar fácilmente el `BTC/USD` par de precios usando esta interfaz.
 
