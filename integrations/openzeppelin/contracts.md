@@ -19,6 +19,9 @@ Esta guía se divide en dos secciones. La primera parte describe los Contracts W
 
 OpenZeppelin ha desarrollado una herramienta generadora de contratos interactiva en línea basada en la web que probablemente sea la forma más fácil y rápida de escribir su contrato inteligente utilizando el código OpenZeppelin. La herramienta se llama Contract Wizard y puede encontrarla en su [sitio de documentación](https://docs.openzeppelin.com/contracts/4.x/wizard).
 
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/l8RTwu6hGpY' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style><div class='caption'>In this video, we use Open Zeppelin Wizard to deploy an ERC-20 token to Moonbase Alpha</a></div>
+
 Actualmente, el Contract Wizard admite los siguientes estándares de ERC:
 
  - [**ERC20**](https://ethereum.org/en/developers/docs/standards/tokens/erc-20/) — un estándar de token fungible que sigue a [EIP-20](https://eips.ethereum.org/EIPS/eip-20). Fungible significa que todos los tokens son equivalentes e intercambiables, es decir, de igual valor. Un ejemplo típico de tokens fungibles son las monedas fiduciarias, donde cada billete de igual denominación tiene el mismo valor.
@@ -74,7 +77,7 @@ El primer paso es ir a [Remix](https://remix.ethereum.org/) y seguir los siguien
  2. Asegúrese de que el archivo se haya creado correctamente. Haga clic en el archivo para abrirlo en el editor de texto.
  3. Escriba su contrato inteligente usando el editor de archivos. Para este ejemplo, se utilizó el siguiente código:
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -130,7 +133,7 @@ Al igual que con el [contrato ERC20](#despliegue-de-un-token-erc20), el primer p
 
 A continuación, deberá escribir el contrato inteligente y compilarlo. Para este ejemplo, se utiliza el siguiente código:
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
@@ -194,7 +197,7 @@ El primer paso es ir a [Remix](https://remix.ethereum.org/) y crear un nuevo arc
 
 Como se muestra para el [token ERC20](#despliegue-de-un-token-erc20), deberá escribir el contrato inteligente y compilarlo. Para este ejemplo, se utiliza el siguiente código:
 
-```sol
+```solidity
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";

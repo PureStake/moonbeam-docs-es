@@ -32,7 +32,7 @@ Puede verificar las ID de trabajo para cada fuente de datos en el siguiente enla
 
 Los contratos pueden consultar datos en cadena, como los precios de los tokens, desde el oráculo de Razor Network mediante la implementación de la interfaz del contrato Bridge, que expone las funciones  `getResult` y `getJob` functions.
 
-```
+```solidity
 pragma solidity 0.6.11;
 
 interface Razor {
@@ -61,7 +61,7 @@ Podemos usar el siguiente `Demo` script. Proporciona varias funciones:
  - savePrice: una función _pública_ que consulta un solo ID de trabajo. Esto envía una transacción y modifica la `price` variable almacenada en el contrato.
  - saveMultiPrices: una función _pública_ ue consulta múltiples ID de trabajo. Por ejemplo, para obtener el precio de `ETH` y `BTC` adentro `USD`, necesitaremos enviar las ID de trabajo `[1,2]`. Esto envía una transacción y modifica la `pricesArr` matriz almacenada en el contrato, que mantendrá el precio de cada par en el mismo orden que se especifica en la entrada.
 
-```sol
+```solidity
 pragma solidity 0.6.11;
 
 interface Razor {

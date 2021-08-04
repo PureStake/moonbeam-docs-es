@@ -33,7 +33,7 @@ Además, debe registrarse para obtener una cuenta gratuita de OpenZeppelin Defen
 
 El contrato utilizado en esta guía es una extensión del contrato `Box.sol` utilizado en la [guía de actualización de contratos inteligentes](https://docs.openzeppelin.com/learn/upgrading-smart-contracts),de la documentación de OpenZeppelin. Además, el contrato se actualizó y se [pausó](https://docs.openzeppelin.com/contracts/4.x/api/security#Pausable) para aprovechar al máximo el componente Admin. Puede implementar su contrato utilizando el siguiente código y siguiendo la [guía de actualización de contratos inteligentes](https://docs.openzeppelin.com/learn/upgrading-smart-contracts):
 
-```sol
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
