@@ -29,8 +29,9 @@ const web3 = new Web3('RPC_URL');
 
 Según la red a la que desee conectarse, puede establecer `RPC_URL` los siguientes valores:
 
- - Nodo de desarrollo Moonbeam:  `http://127.0.0.1:9933`
- - Moonbase Alpha TestNet: `https://rpc.testnet.moonbeam.network`
+ - Nodo de desarrollo Moonbeam: `{{ networks.development.rpc_url }}`
+ - Moonbase Alpha TestNet: `{{ networks.moonbase.rpc_url }}`
+ - Moonriver: `{{ networks.moonriver.rpc_url }}`
 
 ## Tutoriales paso a paso {: #step-by-step-tutorials } 
 

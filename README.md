@@ -27,11 +27,11 @@ Moonbeam también será un parachain en la red Polkadot. Eso significa que obten
 
 ### Redes {: #networks } 
 
-Actualmente, hay dos formas de comenzar a construir en Moonbeam: 
+Currently, there are a few ways you can start building on Moonbeam: 
 
  - Cree su propia instancia de Moonbeam como [nodo de desarrollo](/getting-started/local-node/setting-up-a-node/)
  - [Conéctese](/getting-started/testnet/connect/) a [Moonbase Alpha TestNet](/networks/testnet/)
-
+ - [Connect](/getting-started/moonriver/connect/) to [Moonriver](/networks/moonriver/)
 ### Carteras {: #wallets } 
 
 Actualmente, hemos probado Moonbeam con las siguientes carteras:

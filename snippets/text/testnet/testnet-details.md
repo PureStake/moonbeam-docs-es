@@ -1,4 +1,0 @@
- - Nombre de red: `Moonbase Alpha`
- - Nueva URL de RPC: `https://rpc.testnet.moonbeam.network`
- - ID de cadena: `1287`
- - Símbolo (opcional): `DEV`

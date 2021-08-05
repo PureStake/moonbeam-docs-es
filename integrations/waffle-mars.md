@@ -324,9 +324,7 @@ Si desea escribir más pruebas por su cuenta, podría considerar probar transfer
 
 Después de compilar sus contratos y antes de la implementación, tendrá que generar artefactos de contrato para Mars. Mars usa los artefactos de contrato para verificaciones de tipo en implementaciones. Luego, deberá crear un script de implementación e implementar el contrato inteligente `MyToken`.
 
-Recuerde, realizará la implementación en Moonbase Alpha y deberá utilizar las configuraciones de TestNet:
-
---8<-- 'text/testnet/testnet-details.md'
+Remember, you will be deploying to Moonbase Alpha and will need to use the TestNet RPC URL: `{{ networks.moonbase.rpc_url }}`.
 
 La implementación se dividirá en tres secciones: [generar artefactos](#generar-artefactos), [crear-una secuencia-de-comandos-de-implementacion](#crear-una-secuencia-de-comandos-de-implementación), y [implementar con Mars](#desplegar-con-mars). 
 

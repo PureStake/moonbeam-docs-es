@@ -39,15 +39,23 @@ let wallet = new ethers.Wallet(privKey, provider);
 Hay diferentes métodos disponibles en el interior `provider` y `wallet`. Según la red a la que desee conectarse, puede establecer `RPC_URL` los siguientes valores:
 
 Nodo de desarrollo Moonbeam: 
- - RPC_URL: `http://127.0.0.1:9933`"
- - ChainId: `1281`
- - NETWORK_NAME: `moonbeam-development`
+
+  - RPC_URL: `{{ networks.development.rpc_url }}`
+  - ChainId: `{{ networks.development.chain_id }}`
+  - NETWORK_NAME: `moonbeam-development`
  
 Moonbase Alpha TestNet: 
- - RPC_URL: `https://rpc.testnet.moonbeam.network`
- - ChainId: `1287`
- - NETWORK_NAME: `moonbase-alpha`
 
+  - RPC_URL: `{{ networks.moonbase.rpc_url }}`
+  - ChainId: `{{ networks.moonbase.chain_id }}`
+  - NETWORK_NAME: `moonbase-alpha`
+
+Moonriver:
+
+  - RPC_URL: `{{ networks.moonriver.rpc_url }}`
+  - ChainID: `{{ networks.moonriver.chain_id }}`
+  - NETWORK_NAME: `{{ networks.moonriver.chain_spec }}`
+  
 ## Tutoriales paso a paso {: #step-by-step-tutorials } 
 
 Si está interesado en una guía paso a paso más detallada, puede ir a nuestros tutoriales específicos sobre el uso de ethers.js en Moonbeam para [enviar una transacción](/getting-started/local-node/send-transaction/) o [implementar un contrato](/getting-started/local-node/deploy-contract/).

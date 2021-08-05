@@ -35,14 +35,22 @@ Algunos de los parámetros clave de esta guía son los siguientes:
  - **Período de bloqueo** — el tiempo (después de la promulgación de la propuesta) que se bloquean las fichas de los votantes ganadores. Los usuarios aún pueden usar estos tokens para apostar o votar
  - **Delegación** — el acto de transferir su poder de voto a otra cuenta hasta una cierta condena.
 
-Actualmente, para Moonbase Alpha:
+=== "Moonbase Alpha"
+   |        Variable         |     |                                                         Valor                                                         |
+   | :---------------------: | :-: | :-------------------------------------------------------------------------------------------------------------------: |
+   |       Período de votación       |     |  36000 bloques (5 dias)  |
+   |      Promulgar período       |     | 7200 bloques (1 dias) |
+   | Número máximo de votos |     |                                      100                                       |
 
-|        Variable         |     |                                                         Valor                                                         |
-| :---------------------: | :-: | :-------------------------------------------------------------------------------------------------------------------: |
-|       Período de votación       |     |  36000 bloques (5 dias)  |
-|      Promulgar período       |     | 7200 bloques (1 dias) |
-| Número máximo de votos |     |                                      100                                       |
+=== "Moonriver"
 
+    |        Variable         |  |                                                          Value                                                          |
+    |:-----------------------:|::|:-----------------------------------------------------------------------------------------------------------------------:|
+    |      Enact Period       |  | {{ networks.moonriver.democracy.enact_period.blocks}} blocks ({{ networks.moonriver.democracy.enact_period.days}} days) |
+    | Maximum Number of Votes |  |                                       {{ networks.moonriver.democracy.max_votes}}                                       |
+    |       Vote Period       |  |  {{ networks.moonriver.democracy.vote_period.blocks}} blocks ({{ networks.moonriver.democracy.vote_period.days}} days)  |
+
+This guide will show you how to vote on a referendum on Moonbase Alpha.
 ## Hoja de ruta de una propuesta {: #roadmap-of-a-proposal } 
 
 --8<-- 'text/governance/roadmap.md'

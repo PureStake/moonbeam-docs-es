@@ -24,8 +24,6 @@ Alguna terminología importante para entender con respecto a las tesorerías:
 - **Spend period** — la cantidad de días, en bloques, durante los cuales la tesorería financia tantas propuestas como sea posible sin exceder el máximo
 - **Maximum approved proposals** — la cantidad máxima de propuestas que pueden esperar en la lista de gastos.
 
-Actualmente, los valores de la Tesorería son los siguientes:
-
 === "Moonbase Alpha"
     |             Variable             |     |                                                             Valor                                                      |
     | :------------------------------: | :-: | :--------------------------------------------------------------------------------------------------------------------: |

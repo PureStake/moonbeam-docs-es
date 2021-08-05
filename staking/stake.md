@@ -21,16 +21,29 @@ Con el lanzamiento de [Moonbase Alpha v6](https://github.com/PureStake/moonbeam/
 
 --8<-- 'text/staking/staking-definitions.md'
 
-Actualmente, para Moonbase Alpha:
+=== "Moonbase Alpha"
+    |             Variable             |     |                         Valor                        |
+    | :------------------------------: | :-: | :---------------------------------------------------: |
+    |     Participación mínima de nominación	     |     |     5     |
+    |        Nominación mínima        |     |     5    | 
+    | Máximo de collators por nominador |     |     25     |
+    |              Redondo               |     | 300 bloques (1 hora) |
+    |          Duración del bono           |     |     2 rondas  |
 
-|             Variable             |     |                         Valor                        |
-| :------------------------------: | :-: | :---------------------------------------------------: |
-|     Participación mínima de nominación	     |     |     5     |
-|        Nominación mínima        |     |     5    | 
-| Máximo de collators por nominador |     |     25     |
-|              Redondo               |     | 300 bloques (1 hora) |
-|          Duración del bono           |     |     2 rondas  |
+=== "Moonriver"
 
+    |             Variable             |  |                                                   Value                                                   |
+    |:--------------------------------:|::|:---------------------------------------------------------------------------------------------------------:|
+    |     Minimum nomination stake     |  |                           {{ networks.moonriver.staking.min_nom_stake }} MOVR                             |
+    |        Minimum nomination        |  |                           {{ networks.moonriver.staking.min_nom_amount}} MOVR                             |
+    | Maximum nominators per collators |  |                             {{ networks.moonriver.staking.max_nom_per_col }}                              |
+    | Maximum collators per nominator  |  |                             {{ networks.moonriver.staking.max_col_per_nom }}                              |
+    |              Round               |  | {{ networks.moonriver.staking.round_blocks }} blocks ({{ networks.moonriver.staking.round_hours }} hours) |
+    |          Bond duration           |  |                             {{ networks.moonriver.staking.bond_lock }} rounds                             |
+
+--8<-- 'text/moonriver-launch/staking-phase-4.md'
+
+This guide will show you how to stake on Moonbase Alpha.
 ## Definiciones de extrínsecos {: #extrinsics-definitions } 
 
 Hay muchos aspectos extrínsecos relacionados con el pallet de replanteo, por lo que no todos se tratan en esta guía. Sin embargo, esta lista define todos los aspectos extrínsecos asociados con el proceso de nominación:

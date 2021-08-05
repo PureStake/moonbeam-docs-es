@@ -33,14 +33,23 @@ Algunos de los parámetros clave de esta guía son los siguientes:
  - **Depósito mínimo de propuesta** — cantidad mínima de tokens que el proponente debe vincular al enviar una propuesta. Los tokens pueden estar bloqueados por un período de tiempo indeterminado porque se desconoce cuándo una propuesta puede convertirse en un referéndum (si es que alguna vez lo hace). Esto es cierto para los tokens vinculados tanto por el proponente como por los usuarios que secundan la propuesta.
  - **Período de lanzamiento** — duración (en bloques) durante la cual no se puede volver a presentar una propuesta después de haber sido vetada.
 
-Actualmente, para Moonbase Alpha:
+=== "Moonbase Alpha"
+    |         Variable         |     |                                                          Valor                                                          |
+    | :----------------------: | :-: | :---------------------------------------------------------------------------------------------------------------------: |
+    |     Periodo de lanzamiento       |     | 7200 bloques (1 dias) |
+    |     Período de reflexión      |     |   50400 bloques (7 dias)   |
+    | Depósito mínimo de preimagen |     |                                 0,004 DEV                                  |
+    | Depósito mínimo de propuesta |     |                                   4 DEV                                     |
 
-|         Variable         |     |                                                          Valor                                                          |
-| :----------------------: | :-: | :---------------------------------------------------------------------------------------------------------------------: |
-|     Periodo de lanzamiento       |     | 7200 bloques (1 dias) |
-|     Período de reflexión      |     |   50400 bloques (7 dias)   |
-| Depósito mínimo de preimagen |     |                                 0,004 DEV                                  |
-| Depósito mínimo de propuesta |     |                                   4 DEV                                     |
+=== "Moonriver"
+    |         Variable         |  |                                                           Value                                                           |
+    |:------------------------:|::|:-------------------------------------------------------------------------------------------------------------------------:|
+    |      Launch Period       |  | {{ networks.moonriver.democracy.launch_period.blocks}} blocks ({{ networks.moonriver.democracy.launch_period.days}} days) |
+    |     Cool-off Period      |  |   {{ networks.moonriver.democracy.cool_period.blocks}} blocks ({{ networks.moonriver.democracy.cool_period.days}} days)   |
+    | Minimum Preimage Deposit |  |                                  {{ networks.moonriver.democracy.min_preim_deposit}} MOVR                                 |
+    | Minimum Proposal Deposit |  |                                     {{ networks.moonriver.democracy.min_deposit}} MOVR                                    |
+
+This guide will show you how to submit a proposal on Moonbase Alpha.
 
 ## Hoja de ruta de una propuesta {: #roadmap-of-a-proposal } 
 

@@ -19,16 +19,27 @@ Los Collators (y los titulares de tokens si nominan) tienen un stake en la red d
 
 --8<-- 'text/staking/staking-definitions.md'
 
-Actualmente, para Moonbase Alpha
+=== "Moonbase Alpha"
 
-|             Variable             |     |                                                  Valor                                                  |
-| :------------------------------: | :-: | :-----------------------------------------------------------------------------------------------------: |
-|     Stake Mínimo del Nominador    |     |                          5 tokens                           |
-|        Nominación Mínima     |     |                          5 tokens                           |
-| Máximos de nominadores por collators |     |                             10                             |
-| Máximo de collators por nominador  |     |                             25                             |
-|              Ronda               |     | 300 bloques (1 hora) |
-|          Duración del Bond           |     |                            2 rondas                             |
+    |             Variable             |  |                                                  Value                                                  |
+    |:--------------------------------:|::|:-------------------------------------------------------------------------------------------------------:|
+    |     Minimum nomination stake     |  |                          {{ networks.moonbase.staking.min_nom_stake }} DEV                              |
+    |        Minimum nomination        |  |                          {{ networks.moonbase.staking.min_nom_amount}} DEV                              |
+    | Maximum nominators per collators |  |                             {{ networks.moonbase.staking.max_nom_per_col }}                             |
+    | Maximum collators per nominator  |  |                             {{ networks.moonbase.staking.max_col_per_nom }}                             |
+    |              Round               |  | {{ networks.moonbase.staking.round_blocks }} blocks ({{ networks.moonbase.staking.round_hours }} hours) |
+    |          Bond duration           |  |                            {{ networks.moonbase.staking.bond_lock }} rounds                             |
+
+=== "Moonriver"
+
+    |             Variable             |  |                                                   Value                                                   |
+    |:--------------------------------:|::|:---------------------------------------------------------------------------------------------------------:|
+    |     Minimum nomination stake     |  |                           {{ networks.moonriver.staking.min_nom_stake }} MOVR                             |
+    |        Minimum nomination        |  |                           {{ networks.moonriver.staking.min_nom_amount}} MOVR                             |
+    | Maximum nominators per collators |  |                             {{ networks.moonriver.staking.max_nom_per_col }}                              |
+    | Maximum collators per nominator  |  |                             {{ networks.moonriver.staking.max_col_per_nom }}                              |
+    |              Round               |  | {{ networks.moonriver.staking.round_blocks }} blocks ({{ networks.moonriver.staking.round_hours }} hours) |
+    |          Bond duration           |  |                             {{ networks.moonriver.staking.bond_lock }} rounds                             |
 
 ## Distribución de recompensas  {: #reward-distribution } 
 
@@ -53,8 +64,10 @@ Para cada nominador, la recompensa se vería así:
 
 Donde el stake  corresponde a la cantidad de tokens vinculados(bond) por cada nominador con respecto al total stake de ese collator.
 
-## Pruébalo en Moonbase Alpha {: #try-it-out } 
+## Try it out {: #try-it-out } 
 
 En Moonbase Alpha TestNet, los titulares de tokens pueden hacer stake  y ganar recompensas (para familiarizarse con el sistema, ya que el token no tiene ningún valor real).
 
 Para hacerlo, puede consultar [esta guía](/staking/stake/).
+
+--8<-- 'text/moonriver-launch/staking-phase-4.md'
