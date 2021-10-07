@@ -5,7 +5,7 @@ description: Como parachain de Polkadot, Moonbeam utilizará una tesorería  on-
 
 # Tesorería en Moonbeam
 
-![Treasury Moonbeam Banner](/images/treasury/treasury-overview-banner.png)
+![Treasury Moonbeam Banner](/images/learn/features/treasury/treasury-overview-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -56,4 +56,4 @@ Una vez que la propuesta se encuentre en un "spend period" o "período de gasto"
 
 El camino feliz para una propuesta de tesorería se muestra en el siguiente diagrama:
 
-![Treasury Proposal Happy Path Diagram](/images/treasury/treasury-proposal-roadmap.png)
+![Treasury Proposal Happy Path Diagram](/images/learn/features/treasury/treasury-proposal-roadmap.png)

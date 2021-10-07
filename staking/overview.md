@@ -5,7 +5,7 @@ description: Moonbeam proporciona funciones de staking en las que los titulares 
 
 # Staking en Moonbeam
 
-![Staking Moonbeam Banner](/images/staking/staking-overview-banner.png)
+![Staking Moonbeam Banner](/images/learn/features/staking/staking-overview-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -43,13 +43,13 @@ Cuando los collators se unen al grupo, establecen una comisión para cobrar a su
 
 Matemáticamente hablando, para los collators, la recompensa sería así:
 
-![Staking Collator Reward](/images/staking/staking-overview-1.png)
+![Staking Collator Reward](/images/learn/features/staking/staking-overview-1.png)
 
 Donde el stake corresponde a la cantidad de tokens vinculados(bond) por el collator con respecto al total stake de ese collator (nominaciones contables).
 
 Para cada nominador, la recompensa se vería así:
 
-![Staking Nominator Reward](/images/staking/staking-overview-2.png)
+![Staking Nominator Reward](/images/learn/features/staking/staking-overview-2.png)
 
 Donde el stake  corresponde a la cantidad de tokens vinculados(bond) por cada nominador con respecto al total stake de ese collator.
 

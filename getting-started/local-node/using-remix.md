@@ -23,11 +23,11 @@ Esta guía asume que tiene un nodo Moonbeam local ejecutándose en `--dev` modo 
 
 Si siguió las guías anteriores, debería tener un nodo Moonbeam local que comenzará a crear bloques a medida que lleguen las transacciones:
 
-![Local Moonbeam node producing blocks](/images/remix/using-remix-1.png)
+![Local Moonbeam node producing blocks](/images/tokens/connect/metamask/metamask-12.png)
 
 Y debe tener una instalación de MetaMask conectada a su nodo de desarrollo Moonbeam local con al menos una cuenta que tenga saldo. Debería verse algo como esto (vista ampliada):
 
-![MetaMask installation with a balance](/images/remix/using-remix-2.png)
+![MetaMask installation with a balance](/images/builders/interact/remix/using-remix-2.png)
 
 !!! nota
    ¡Asegúrese de estar conectado a su nodo Moonbeam y no a otra red!
@@ -38,11 +38,11 @@ Ahora, activemos Remix para ejercitar funcionalidades más avanzadas en Moonbeam
 
 Inicie Remix navegando a [https://remix.ethereum.org/](https://remix.ethereum.org/). En la pantalla principal, en Entornos, seleccione Solidity para configurar Remix para el desarrollo de Solidity, luego navegue a la vista Exploradores de archivos:
 
-![File explorer](/images/remix/using-remix-3.png)
+![File explorer](/images/builders/interact/remix/using-remix-3.png)
 
 Crearemos un nuevo archivo para guardar el contrato inteligente de Solidity. Presione el botón + debajo de Exploradores de archivos e ingrese el nombre "MyToken.sol" en el cuadro de diálogo emergente:
 
-![Create a new file for your Solidity contract](/images/remix/using-remix-4.png)
+![Create a new file for your Solidity contract](/images/builders/interact/remix/using-remix-4.png)
 
 A continuación, peguemos el siguiente contrato inteligente en la pestaña del editor que aparece:
 
@@ -54,11 +54,11 @@ Este es un simple contrato ERC-20 basado en la plantilla actual de Open Zeppelin
 
 Una vez que haya pegado el contrato en el editor, debería verse así:
 
-![Paste the contract into the editor](/images/remix/using-remix-5.png)
+![Paste the contract into the editor](/images/builders/interact/remix/using-remix-5.png)
 
 Ahora, navegue a la opción de la barra lateral de compilación para presionar el botón "Compilar MyToken.sol":
 
-![Compile MyToken.sol](/images/remix/using-remix-6.png)
+![Compile MyToken.sol](/images/builders/interact/remix/using-remix-6.png)
 
 Verá que Remix descarga todas las dependencias de Open Zeppelin y compila el contrato.
 
@@ -68,7 +68,7 @@ Ahora podemos implementar el contrato navegando a la opción de la barra lateral
 
 Tan pronto como seleccione "Injected Web3", se le pedirá que permita que Remix se conecte a su cuenta de MetaMask.
 
-![Replace](/images/remix/using-remix-7.png)
+![Replace](/images/builders/interact/remix/using-remix-7.png)
 
 Presione "Siguiente" en Metamask para permitir que Remix acceda a la cuenta seleccionada.
 
@@ -76,48 +76,48 @@ De vuelta en Remix, debería ver que la cuenta que desea usar para la implementa
 
 Una vez que haya ingresado este valor, seleccione "Implementar".
 
-![Enter an account balance and deploy](/images/remix/using-remix-8.png)
+![Enter an account balance and deploy](/images/builders/interact/remix/using-remix-8.png)
 
 Se le pedirá en MetaMask que confirme la transacción de implementación del contrato.
 
-![Confirm the transaction message](/images/remix/using-remix-9.png)
+![Confirm the transaction message](/images/builders/interact/remix/using-remix-9.png)
 
 !!! nota
     Si tiene problemas para implementar algún contrato específico, puede intentar aumentar manualmente el límite de gas. Puede hacer esto en Configuración -> Avanzado -> Controles de gas avanzados = ACTIVADO.
 
 Después de presionar confirmar y la implementación se completa, verá la transacción en la lista de MetaMask. El contrato aparecerá en Contratos implementados en Remix.
 
-![Confirmed label on a transaction](/images/remix/using-remix-10.png)
+![Confirmed label on a transaction](/images/builders/interact/remix/using-remix-10.png)
 
 Una vez que se implementa el contrato, puede interactuar con él desde Remix.
 
 Profundice en el contrato en "Contratos implementados". Al hacer clic en el nombre, el símbolo y el totalSupply debería devolver "MyToken", "MYTOK" y "8000000000000000000000000" respectivamente. Si copia la dirección desde la que implementó el contrato y la pega en el campo balanceOf, debería ver la totalidad del saldo del ERC20 como perteneciente a ese usuario. Copie la dirección del contrato haciendo clic en el botón junto al nombre y la dirección del contrato.
 
-![Interact with the contract from Remix](/images/remix/using-remix-11.png)
+![Interact with the contract from Remix](/images/builders/interact/remix/using-remix-11.png)
 
 ## Interactuar con un ERC-20 basado en Moonbeam de MetaMask {: #interacting-with-a-moonbeam-based-erc-20-from-metamask } 
 
 Ahora, abra MetaMask para agregar los tokens ERC-20 recién implementados. Antes de hacerlo, asegúrese de haber copiado la dirección del contrato de Remix. De vuelta en MetaMask, haga clic en "Agregar token" como se muestra a continuación. Asegúrese de estar en la cuenta que implementó el contrato de token.
 
-![Add a token](/images/remix/using-remix-12.png)
+![Add a token](/images/builders/interact/remix/using-remix-12.png)
 
 Pegue la dirección del contrato copiada en el campo "Token personalizado". Los campos "Símbolo de token" y "Decimales de precisión" deben completarse automáticamente.
 
-![Paste the copied contract address](/images/remix/using-remix-13.png)
+![Paste the copied contract address](/images/builders/interact/remix/using-remix-13.png)
 
 Después de presionar "Siguiente", deberá confirmar que desea agregar estos tokens a su cuenta de MetaMask. Presione "Agregar token" y debería ver un saldo de 8 millones de MyTokens en MetaMask:
 
-![Add the tokens to your MetaMask account](/images/remix/using-remix-14.png)
+![Add the tokens to your MetaMask account](/images/builders/interact/remix/using-remix-14.png)
 
 Ahora podemos enviar algunos de estos tokens ERC-20 a la otra cuenta que hemos configurado en MetaMask. Haga clic en "enviar" para iniciar la transferencia de 500 MyTokens y seleccione la cuenta de destino.
 
 Después de presionar "siguiente", se le pedirá que confirme (similar a lo que se muestra a continuación).
 
-![Confirmation of the token transfer](/images/remix/using-remix-15.png)
+![Confirmation of the token transfer](/images/builders/interact/remix/using-remix-15.png)
 
 Presione "Confirmar" y, una vez que se complete la transacción, verá una confirmación y una reducción del saldo de la cuenta MyToken de la cuenta del remitente en MetaMask:
 
-![Verify the reduction in account balance](/images/remix/using-remix-16.png)
+![Verify the reduction in account balance](/images/builders/interact/remix/using-remix-16.png)
 
 Si posee la cuenta a la que envió los tokens, puede agregar el activo del token para verificar que llegó la transferencia.
 

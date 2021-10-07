@@ -5,7 +5,7 @@ description: Utilice Hardhat para compilar, implementar y depurar contratos inte
 
 # Construyendo con Hardhat en Moonbeam
 
-![Hardhat Create Project](/images/hardhat/hardhat-banner.png)
+![Hardhat Create Project](/images/builders/interact/hardhat/hardhat-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -61,7 +61,7 @@ Esto creará un archivo de configuración de Hardhat (`hardhat.config.js`) en nu
 
 Después de ejecutar el comando, elija  `Create an empty hardhat.config.js`:
 
-![Hardhat Create Project](/images/hardhat/hardhat-images-1.png)
+![Hardhat Create Project](/images/builders/interact/hardhat/hardhat-1.png)
 
 ## El archivo del contrato {: #the-contract-file } 
 
@@ -169,7 +169,7 @@ Nuestro contrato `Box.sol` utiliza Solidity 0.8.1. Asegúrese de que el archivo 
 npx hardhat compile
 ```
 
-![Hardhat Contract Compile](/images/hardhat/hardhat-images-2.png)
+![Hardhat Contract Compile](/images/builders/interact/hardhat/hardhat-2.png)
 
 Después de la compilación, `artifacts` se crea un directorio: contiene el código de bytes y los metadatos del contrato, que son `.json` archivos. Es una buena idea agregar este directorio a su `.gitignore`.
 
@@ -220,7 +220,7 @@ Usando el `run` comando, ahora podemos implementar el `Box` contrato para `Moonb
 
 Después de unos segundos, el contrato se implementa y debería ver la dirección en la terminal.
 
-![Hardhat Contract Deploy](/images/hardhat/hardhat-images-3.png)
+![Hardhat Contract Deploy](/images/builders/interact/hardhat/hardhat-3.png)
 
 ¡Felicitaciones, su contrato está activo! Guarde la dirección, ya que la usaremos para interactuar con esta instancia de contrato en el siguiente paso.
 
@@ -255,7 +255,7 @@ await box.store(5)
 
 La transacción será firmada por su cuenta Moonbase y transmitida a la red. La salida debería verse similar a:
 
-![Transaction output](/images/hardhat/hardhat-images-4.png)
+![Transaction output](/images/builders/interact/hardhat/hardhat-4.png)
 
 Observe su dirección etiquetada `from`, la dirección del contrato y la `data` ue se está pasando. Ahora, recuperemos el valor ejecutando:
 

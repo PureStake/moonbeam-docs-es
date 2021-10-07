@@ -5,7 +5,7 @@ description: Como parachain de Polkadot, Moonbeam utilizará un sistema de gober
 
 # Gobernanza en Moonbeam
 
-![Governance Moonbeam Banner](/images/governance/governance-overview-banner.png)
+![Governance Moonbeam Banner](/images/learn/features/governance/governance-overview-banner.png)
 
 ## Introducción {: #introduction } 
 

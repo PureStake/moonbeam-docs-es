@@ -5,7 +5,7 @@ description: Cómo configurar un nodo de Oracle Chainlink para Moonbeam Network 
 
 # Ejecute un nodo de Oracle Chainlink en Moonbeam
 
-![Chainlink Moonbeam Banner](/images/chainlink/chainlinknode-banner.png)
+![Chainlink Moonbeam Banner](/images/node-operators/oracle-nodes/chainlink/chainlink-node-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -124,7 +124,7 @@ docker ps #Containers Running
 docker logs --tail 50 {container_id} #Logs progressing
 ```
 
-![Docker logs](/images/chainlink/chainlinknode-image1.png)
+![Docker logs](/images/node-operators/oracle-nodes/chainlink/chainlink-node-1.png)
 
 ## Configuración de contrato {: #contract-setup } 
 
@@ -132,11 +132,11 @@ Con el nodo de Oracle en ejecución, configuremos el lado del contrato inteligen
 
 Primero, necesitamos recuperar la dirección que el nodo de Oracle usará para enviar transacciones y escribir datos en cadena. Para recuperar la dirección, inicie sesión en la [IU del nodo ChainLink](http://localhost:6688/) (ubicada en `http://localhost:6688/`) usando las credenciales del `.api` archivo.
 
-![Chainlink login](/images/chainlink/chainlinknode-image2.png)
+![Chainlink login](/images/node-operators/oracle-nodes/chainlink/chainlink-node-2.png)
 
 Vaya a la 'Página de configuración' y copie la dirección del nodo. Utilice el [Moonbeam Faucet](https://docs.moonbeam.network/getting-started/testnet/faucet/)  para financiarlo.
 
-![Chainlink address](/images/chainlink/chainlinknode-image3.png)
+![Chainlink address](/images/node-operators/oracle-nodes/chainlink/chainlink-node-3.png)
 
 A continuación, necesitamos implementar el contrato de Oráculo, que es el middleware entre la cadena y el nodo. El contrato emite un evento con toda la información necesaria, que es leído por el nodo de Oráculo. Luego, el nodo cumple la solicitud y escribe los datos solicitados en el contrato de la persona que llama.
 
@@ -150,7 +150,7 @@ import "https://github.com/smartcontractkit/chainlink/evm-contracts/src/v0.6/Ora
 
 Después de compilar el contrato, diríjase a la pestaña "Implementar y ejecutar transacciones", ingrese la dirección del token de enlace e implemente el contrato. Una vez desplegado, copie la dirección del contrato.
 
-![Deploy Oracle using Remix](/images/chainlink/chainlinknode-image4.png)
+![Deploy Oracle using Remix](/images/node-operators/oracle-nodes/chainlink/chainlink-node-4.png)
 
 Por último, tenemos que vincular el nodo de Oracle y el contrato inteligente de Oracle. Un nodo puede escuchar las solicitudes enviadas a un determinado contrato de Oracle, pero solo los nodos autorizados (también conocidos como vinculados) pueden cumplir la solicitud con un resultado.
 
@@ -161,7 +161,7 @@ Para configurar esta autorización, podemos utilizar la función `setFulfillment
 
 Podemos usar la instancia del contrato implementada en Remix para hacerlo, y verificar que el nodo de Oracle esté autorizado con la función de visualización `getAuthorizationStatus()`, pasando la dirección del nodo de Oracle.
 
-![Authorize Chainlink Oracle Node](/images/chainlink/chainlinknode-image5.png)
+![Authorize Chainlink Oracle Node](/images/node-operators/oracle-nodes/chainlink/chainlink-node-5.png)
 
 ## Crear trabajo en el nodo de Oracle {: #create-job-on-the-oracle-node } 
 
@@ -171,7 +171,7 @@ El último paso para tener un Chainlink Oracle completamente configurado es crea
 
 Al ver un Oracle como un servicio de API, un Job aquí sería una de las funciones a las que podemos llamar y que devolverá un resultado. Para crear nuestro primer trabajo, vaya a las [secciones de trabajos de su nodo](http://localhost:6688/jobs)  y haga clic en "Nuevo trabajo".
 
-![Chainlink Oracle New Job](/images/chainlink/chainlinknode-image6.png)
+![Chainlink Oracle New Job](/images/node-operators/oracle-nodes/chainlink/chainlink-node-6.png)
 
 A continuación, pegue el siguiente JSON. Esto creará un trabajo que solicitará el precio ETH actual en USD. Asegúrese de ingresar su dirección de contrato de Oráculo (`YOUR_ORACLE_CONTRACT_ADDRESS`).
 
@@ -202,7 +202,7 @@ A continuación, pegue el siguiente JSON. Esto creará un trabajo que solicitar�
 }
 ```
 
-![Chainlink New Job JSON Blob](/images/chainlink/chainlinknode-image7.png)
+![Chainlink New Job JSON Blob](/images/node-operators/oracle-nodes/chainlink/chainlink-node-7.png)
 
 ¡Y eso es todo! Ha configurado completamente un nodo de Chainlink Oracle que se ejecuta en Moonbase Alpha.
 

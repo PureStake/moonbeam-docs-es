@@ -5,7 +5,7 @@ description: Cómo utilizar los datos de solicitud de un Chainlink Oracle en su 
 
 # Oráculo de Chailink
 
-![Chainlink Moonbeam Banner](/images/chainlink/chainlink-banner.png)
+![Chainlink Moonbeam Banner](/images/builders/integrations/oracles/chainlink/chainlink-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -115,7 +115,7 @@ Sigamos adelante y usemos el contrato de interfaz con el `BTC to USD` ID de trab
 
 Después de crear el archivo y compilar el contrato, diríjase a la pestaña "Implementar y ejecutar transacciones", ingrese la dirección del contrato del Cliente y haga clic en "En la dirección". Asegúrate de haber configurado el "Entorno" en "Injected Web3" para estar conectado a Moonbase Alpha. Esto creará una instancia del contrato del Cliente con la que podrá interactuar. Utilice la función `requestPrice()` para consultar los datos del ID de trabajo correspondiente. Una vez confirmada la transacción, tenemos que esperar hasta que se produzca todo el proceso explicado anteriormente. Podemos consultar el precio utilizando la función de visualización `currentPrice()`.
 
-![Chainlink Basic Request on Moonbase Alpha](/images/chainlink/chainlink-image1.png)
+![Chainlink Basic Request on Moonbase Alpha](/images/builders/integrations/oracles/chainlink/chainlink-1.png)
 
 Si hay algún par específico que desea que incluyamos, no dude en comunicarse con nosotros a través de nuestro [servidor de Discord](https://discord.com/invite/PfpUATX).
 
@@ -144,7 +144,7 @@ En una configuración estándar, cada fuente de precios se actualiza mediante un
 
 El usuario final puede recuperar precios con operaciones de solo lectura a través de un contrato de consumidor, haciendo referencia a la interfaz de agregación correcta (contrato de proxy). El proxy actúa como un software intermedio para proporcionar al consumidor el agregador más actualizado para un feed de precios en particular.
 
-![Price Feed Diagram](/images/chainlink/chainlink-pricefeed.png)
+![Price Feed Diagram](/images/builders/integrations/oracles/chainlink/chainlink-price-feed.png)
 
 ### Pruébalo en Moonbase Alpha {: #try-it-on-moonbase-alpha } 
 
@@ -199,7 +199,7 @@ Después de crear el archivo y compilar el contrato, diríjase a la pestaña "Im
 Esto creará una instancia del contrato del consumidor con la que puede interactuar. Utilice la función `getLatestPrice()` tpara consultar los datos del feed de precios correspondiente.
 
 
-![Chainlink Price Feeds on Moonbase Alpha](/images/chainlink/chainlink-image2.png)
+![Chainlink Price Feeds on Moonbase Alpha](/images/builders/integrations/oracles/chainlink/chainlink-2.png)
 
 Tenga en cuenta que para obtener el precio real, debe tener en cuenta los decimales del feed de precios, disponible con el `decimals()` método.
 

@@ -5,7 +5,7 @@ description:  Aprenda cómo crear contratos comunes de OpenZeppelin con su Contr
 
 # Contratos y bibliotecas de OpenZeppelin
 
-![OpenZeppelin Contracts Banner](/images/openzeppelin/ozcontracts-banner.png)
+![OpenZeppelin Contracts Banner](/images/builders/interact/oz-remix/oz-contracts-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -36,7 +36,7 @@ El asistente consta de las siguientes secciones:
  4. **Control de acceso** —  lista de todos los [mecanismos de control de acceso](https://docs.openzeppelin.com/contracts/4.x/access-control) disponibles para cada estándar de token
  5. **Visualización de código interactivo** — muestra el código de contrato inteligente con la configuración establecida por el usuario
 
-![OpenZeppelin Contracts Wizard](/images/openzeppelin/ozwizard-images1.png)
+![OpenZeppelin Contracts Wizard](/images/builders/interact/oz-remix/oz-wizard-1.png)
 
 Una vez que haya configurado su contrato con todas las configuraciones y características, es tan fácil como copiar y pegar el código en su archivo de contrato.
 
@@ -93,7 +93,7 @@ contract MyToken is ERC20, Ownable {
 
 Este contrato inteligente de tokens ERC20 se extrajo del [Contract Wizard](#openzeppelin-contract-wizard), estableciendo una premint de `1000` tokens y activando la `Mintable` función.
 
-![Introducción a Remix](/images/openzeppelin/ozcontracts-images1.png)
+![Introducción a Remix](/images/builders/interact/oz-remix/oz-contracts-1.png)
 
 Una vez que su contrato inteligente esté escrito, puede compilarlo siguiendo los siguientes pasos:
 
@@ -101,7 +101,7 @@ Una vez que su contrato inteligente esté escrito, puede compilarlo siguiendo lo
  2. Haga clic en el botón compilar
  3. lternativamente, puede marcar la función "Compilación automática"
 
-![Compile el contrato ERC20 con Remix](/images/openzeppelin/ozcontracts-images2.png)
+![Compile el contrato ERC20 con Remix](/images/builders/interact/oz-remix/oz-contracts-2.png)
 
 Con el contrato compilado, está listo para implementarlo siguiendo los siguientes pasos:
 
@@ -111,7 +111,7 @@ Con el contrato compilado, está listo para implementarlo siguiendo los siguient
  4. Si todo está listo, haga clic en el botón "Desplegar". Revise la información de la transacción en MetaMask y confírmela
  5. Después de unos segundos, la transacción debería confirmarse y debería ver su contrato en "Contratos desplegados".
 
-![Desplegar contrato ERC20 con Remix](/images/openzeppelin/ozcontracts-images3.png)
+![Desplegar contrato ERC20 con Remix](/images/builders/interact/oz-remix/oz-contracts-3.png)
 
 ¡Y eso es todo! Ha desplegado un contrato de token ERC20 utilizando los contratos y las bibliotecas de OpenZeppelin. A continuación, puede interactuar con su contrato de token a través de Remix o agregarlo a MetaMask.
 
@@ -176,7 +176,7 @@ Con el contrato compilado, diríjase a la pestaña "Desplegar y ejecutar transac
  3. Si todo está listo, haga clic en el botón "Desplegar". Revise la información de la transacción en MetaMask y confírmela
  4. Después de unos segundos, la transacción debería confirmarse y debería ver su contrato en "Contratos desplegados".
 
-![Desplegar contrato ERC721 con Remix](/images/openzeppelin/ozcontracts-images4.png)
+![Desplegar contrato ERC721 con Remix](/images/builders/interact/oz-remix/oz-contracts-4.png)
 
 ¡Y eso es todo! Ha desplegado un contrato de token ERC721 utilizando los contratos y las bibliotecas de OpenZeppelin. A continuación, puede interactuar con su contrato de token a través de Remix o agregarlo a MetaMask.
 
@@ -238,6 +238,6 @@ Con el contrato compilado, diríjase a la pestaña "Implementar y ejecutar trans
  3. Si todo está listo, haga clic en el botón "Desplegar". Revise la información de la transacción en MetaMask y confírmela
  4. Después de unos segundos, la transacción debería confirmarse y debería ver su contrato en "Contratos desplegados".
 
-![Desplegar contrato ERC1155 con Remix](/images/openzeppelin/ozcontracts-images5.png)
+![Desplegar contrato ERC1155 con Remix](/images/builders/interact/oz-remix/oz-contracts-5.png)
 
 ¡Y eso es todo! Ha desplegado un contrato de token ERC1155 utilizando los contratos y las bibliotecas de OpenZeppelin. A continuación, puede interactuar con su contrato de token a través de Remix.

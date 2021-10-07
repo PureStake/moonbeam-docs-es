@@ -4,7 +4,7 @@ description: Siga este tutorial para aprender a usar la biblioteca Ethereum Ethe
 ---
 # Biblioteca de JavaScript de Ethers.js
 
-![Intro diagram](/images/integrations/integrations-ethersjs-banner.png)
+![Intro diagram](/images/builders/tools/eth-libraries/ethersjs-banner.png)
 
 ## Introducción {: #introduction } 
 

@@ -5,7 +5,7 @@ description:  Aprenda a usar OpenZeppelin Defender para administrar contratos in
 
 # OpenZeppelin Defender
 
-![OpenZeppelin Defender Banner](/images/openzeppelin/ozdefender-banner.png)
+![OpenZeppelin Defender Banner](/images/builders/tools/openzeppelin/oz-defender-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -77,7 +77,7 @@ contract PausableBox is Initializable, PausableUpgradeable, OwnableUpgradeable {
 
 Una vez que tenga una cuenta OpenZeppelin Defender, inicie sesión en la [Defender App](https://defender.openzeppelin.com/). En la pantalla principal, con MetaMask [conectado a Moonbase Alpha](/getting-started/moonbase/metamask/) haga clic en el botón "Conectar billetera" de la esquina superior derecha:
 
-![OpenZeppelin Defender Connect](/images/openzeppelin/ozdefender-images1.png)
+![OpenZeppelin Defender Connect](/images/builders/tools/openzeppelin/oz-defender-1.png)
 
 Si tiene éxito, debería ver su dirección y un texto que diga "Conectado a Moonbase Alpha".
 
@@ -97,11 +97,11 @@ El primer paso para usar Defender Admin es agregar el contrato que desea adminis
  5. Verifique que las características del contrato se hayan detectado correctamente
  6. Una vez que haya verificado toda la información, haga clic en el botón "Agregar"
 
-![OpenZeppelin Defender Admin Add Contract](/images/openzeppelin/ozdefender-images2.png)
+![OpenZeppelin Defender Admin Add Contract](/images/builders/tools/openzeppelin/oz-defender-2.png)
 
 Si todo se importó correctamente, debería ver su contrato en la pantalla principal del componente Admin:
 
-![OpenZeppelin Defender Admin Contract Added](/images/openzeppelin/ozdefender-images3.png)
+![OpenZeppelin Defender Admin Contract Added](/images/builders/tools/openzeppelin/oz-defender-3.png)
 
 ### Crear una propuesta de contrato {: #create-a-contract-proposal } 
 
@@ -116,7 +116,7 @@ En este caso, se crea una nueva propuesta para pausar el contrato. Para hacerlo,
  1. Haga click en el botón "Nueva propuesta" para ver todas las opciones disponibles
  2. Haga click en "Pausa"
 
-![OpenZeppelin Defender Admin Contract New Pause Proposal](/images/openzeppelin/ozdefender-images4.png)
+![OpenZeppelin Defender Admin Contract New Pause Proposal](/images/builders/tools/openzeppelin/oz-defender-4.png)
 
 Esto abrirá la página de la propuesta, donde se deben completar todos los detalles relacionados con la propuesta. En este ejemplo, debe proporcionar la siguiente información:
 
@@ -125,22 +125,22 @@ Esto abrirá la página de la propuesta, donde se deben completar todos los deta
  3. Descripción de la propuesta. Aquí, debe proporcionar tantos detalles como sea posible para otros miembros / gerentes del contrato (si usa una billetera MultiSig)
  4. Haga click en "Crear propuesta de pausa".
 
-![OpenZeppelin Defender Admin Contract Pause Proposal Details](/images/openzeppelin/ozdefender-images5.png)
+![OpenZeppelin Defender Admin Contract Pause Proposal Details](/images/builders/tools/openzeppelin/oz-defender-5.png)
 
 Una vez que la propuesta se crea correctamente, debe aparecer en el panel de administración del contrato.
 
 
-![OpenZeppelin Defender Admin Contract Proposal List](/images/openzeppelin/ozdefender-images6.png)
+![OpenZeppelin Defender Admin Contract Proposal List](/images/builders/tools/openzeppelin/oz-defender-6.png)
 
 ### Aprobar una propuesta de contrato {: #approve-a-contract-proposal } 
 
 Con la propuesta de contrato creada, el siguiente paso es aprobarla y ejecutarla. Para hacerlo, vaya a la propuesta y haga clic en "Aprobar y ejecutar".
 
-![OpenZeppelin Defender Admin Contract Proposal Pause Approve](/images/openzeppelin/ozdefender-images7.png)
+![OpenZeppelin Defender Admin Contract Proposal Pause Approve](/images/builders/tools/openzeppelin/oz-defender-7.png)
 
 
 Esto iniciará una transacción que debe firmarse con MetaMask, después de lo cual el estado de la propuesta debe cambiar a "Ejecutado (confirmación pendiente)". Una vez que se procesa la transacción, el estado debe mostrar "Ejecutado".
 
-![OpenZeppelin Defender Admin Contract Proposal Pause Executed](/images/openzeppelin/ozdefender-images8.png)
+![OpenZeppelin Defender Admin Contract Proposal Pause Executed](/images/builders/tools/openzeppelin/oz-defender-8.png)
 
 También puede ver que el estado del contrato ha cambiado de "En ejecución" a "En pausa". ¡Estupendo! Ahora sabe cómo usar el componente Admin para administrar sus contratos inteligentes.

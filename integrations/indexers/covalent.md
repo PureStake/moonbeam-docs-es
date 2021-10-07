@@ -4,7 +4,7 @@ description: Consulta de datos de Blockchain con la API Covalent Moonbeam
 
 # Introducción a la API de Covalent
 
-![The Graph on Moonbeam](/images/covalent/covalentbannerimage.png)
+![The Graph on Moonbeam](/images/builders/integrations/indexers/covalent/covalent-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -129,7 +129,7 @@ Copie y pegue el bloque de código a continuación en su entorno preferido, o [J
 
 La salida debe parecerse a la siguiente. El endpoint de saldos devuelve una lista de todos los saldos de tokens ERC20 y NFT, incluidos ERC721 y ERC1155, junto con sus precios al contado actuales (si están disponibles).
 
-![Javascript Console Output](/images/covalent/covalentjs.png)
+![Javascript Console Output](/images/builders/integrations/indexers/covalent/covalentjs.png)
 
 ## Ejemplo de Python {: #python-example } 
 

@@ -25,7 +25,7 @@ Puede interactuar con Moonbeam de dos formas: mediante el uso de puntos finales 
 
 Primero, comenzamos con una instalación de [MetaMask](https://metamask.io/) nueva y predeterminada de la tienda Chrome. Después de descargar, instalar e inicializar la extensión, siga la guía "Comenzar". Allí, debe crear una billetera, establecer una contraseña y almacenar su frase secreta de respaldo (esto le brinda acceso directo a sus fondos, así que asegúrese de guardarlos en un lugar seguro). Una vez completado, importaremos la cuenta de desarrollo:
 
-![Import dev account into MetaMask](/images/metamask/using-metamask-1.png)
+![Import dev account into MetaMask](/images/tokens/connect/metamask/metamask-3.png)
 
 Los detalles de las cuentas de desarrollo que vienen prefinanciadas para este nodo de desarrollo son los siguientes:
 
@@ -35,11 +35,11 @@ Los detalles de las cuentas de desarrollo que vienen prefinanciadas para este no
 
 En la pantalla de importación, seleccione "Clave privada" y pegue una de las claves enumeradas anteriormente. Para este ejemplo usaremos la clave de Gerald:
 
-![Paste your account key into MetaMask](/images/metamask/using-metamask-2.png)
+![Paste your account key into MetaMask](/images/tokens/connect/metamask/metamask-4.png)
 
 Debería terminar con una "Cuenta 2" importada que se ve así:
 
-![MetaMask displaying your new Account 2](/images/metamask/using-metamask-3.png)
+![MetaMask displaying your new Account 2](/images/tokens/connect/metamask/metamask-5.png)
 
 ## Conectando MetaMask a Moonbeam {: #connecting-metamask-to-moonbeam } 
 
@@ -57,11 +57,11 @@ Moonbase Alpha TestNet:
 
 Para el propósito de este tutorial, conectemos MetaMask a nuestro nodo de desarrollo Moonbeam que se ejecuta localmente.
 
-![Enter your new network information into MetaMask](/images/metamask/using-metamask-4.png)
+![Enter your new network information into MetaMask](/images/legacy/metamask/using-metamask-4.png)
 
 Cuando presiona "guardar" y sale de la pantalla de configuración de red, MetaMask debe estar conectado al nodo de desarrollo local de Moonbeam a través de su Web3 RPC, y debería ver la cuenta de desarrollo de Moonbeam con un saldo de 1207925.8196 DEV.
 
-![Your new Moonbeam account with a balance of 1207925.8196](/images/metamask/using-metamask-5.png)
+![Your new Moonbeam account with a balance of 1207925.8196](/images/legacy/metamask/using-metamask-5.png)
 
 ## Iniciar una transferencia {: #initiating-a-transfer } 
 
@@ -69,19 +69,19 @@ Intentemos enviar algunos tokens con MetaMask.
 
 Para simplificar, transferiremos de esta cuenta de desarrollo a la que se creó al configurar MetaMask. Haga clic en "Enviar" para iniciar la transferencia. En consecuencia, podemos utilizar la opción "Transferir entre mis cuentas". Transfieramos 100 tokens y dejemos todas las demás configuraciones como están:
 
-![Initiating a token transfer](/images/metamask/using-metamask-6.png)
+![Initiating a token transfer](/images/tokens/connect/metamask/metamask-9.png)
 
 Una vez que haya enviado la transacción, la verá "pendiente" hasta que se confirme, como se muestra en la siguiente imagen:
 
-![Transaction confirmation](/images/metamask/using-metamask-7.png)
+![Transaction confirmation](/images/tokens/connect/metamask/metamask-10.png)
 
 Tenga en cuenta que el saldo de la Cuenta 2 se ha reducido en la cantidad enviada + las tarifas de gas. Pasando a la Cuenta 1, vemos que han llegado los 100 tokens enviados:
 
-![New balance in Account 1](/images/metamask/using-metamask-8.png)
+![New balance in Account 1](/images/tokens/connect/metamask/metamask-11.png)
 
 Si regresa a su terminal donde tiene su nodo Moonbeam en ejecución, comenzará a ver bloques que se crean a medida que llegan las transacciones:
 
-![Moonbeam Development Node](/images/metamask/using-metamask-9.png)
+![Moonbeam Development Node](/images/tokens/connect/metamask/metamask-12.png)
 
 !!! nota
     Si termina restableciendo su nodo de desarrollo usando el comando Substrate purge-chain, deberá restablecer su cuenta de MetaMask Genesis usando Configuración -> Avanzado -> Restablecer cuenta. Esto borrará el historial de transacciones de sus cuentas y restablecerá el nonce. ¡Asegúrate de no borrar nada que quieras conservar!

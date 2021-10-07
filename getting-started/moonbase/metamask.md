@@ -22,26 +22,26 @@ Si ya tiene MetaMask instalado, puede conectarlo fácilmente a la red de prueba 
 
 Después de instalar [MetaMask](https://metamask.io),  la instalación abrirá automáticamente una nueva tarea con una pantalla de bienvenida. Haga clic en "Comenzar" para comenzar el proceso de configuración.
 
-![MetaMask1](/images/testnet/testnet-metamask1.png)
+![MetaMask1](/images/tokens/connect/metamask/metamask-1.png)
 
 Cuando se le solicite, se le dará la opción de importar una billetera usando una frase inicial de recuperación. Para este ejercicio, configure una nueva billetera.
 
-![MetaMask2](/images/testnet/testnet-metamask2.png)
+![MetaMask2](/images/tokens/connect/metamask/metamask-2.png)
 
 ## Conexión a Moonbase Alpha {: #connecting-to-moonbase-alpha } 
 
 Una vez que termine de crear o importar una billetera, verá la interfaz principal de MetaMask. Aquí, haga clic en el logotipo superior derecho y vaya a Configuración.
 
-![MetaMask3](/images/testnet/testnet-metamask3.png)
+![MetaMask3](/images/tokens/connect/metamask/metamask-6.png)
 
 Vaya a la pestaña Redes y haga clic en el botón "Agregar red".
 
-![MetaMask4](/images/testnet/testnet-metamask4.png)
+![MetaMask4](/images/tokens/connect/metamask/metamask-7.png)
 
 Aquí, complete la siguiente información y luego haga clic en Guardar:
 
 --8<-- 'text/testnet/testnet-details.md'
 
-![MetaMask5](/images/testnet/testnet-metamask5.png)
+![MetaMask5](/images/tokens/connect/metamask/metamask-8.png)
 
 ¡Eso es! Ha conectado correctamente MetaMask a Moonbeam TestNet, Moonbase.
