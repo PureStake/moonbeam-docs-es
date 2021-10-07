@@ -5,7 +5,7 @@ description: Cómo votar una propuesta para que se apruebe o rechace en Moonbeam
 
 # Propuestas
 
-![Governance Moonbeam Banner](/images/governance/governance-voting-banner.png)
+![Governance Moonbeam Banner](/images/tokens/governance/voting/voting-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -53,7 +53,7 @@ Esta sección repasa el proceso de votación de un referéndum. La guía asume q
 
 Para votar una propuesta en la red, debe utilizar la interfaz de PolkadotJS Apps. Para hacerlo, primero debe importar una cuenta estilo Ethereum (dirección H160), lo que puede hacer siguiendo [esta guía](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account). Para este ejemplo, se importaron tres cuentas y se nombraron con nombres súper originales: Alice, Bob y Charley.
 
-![Accounts in PolkadotJS](/images/governance/governance-proposal-1.png)
+![Accounts in PolkadotJS](/images/tokens/governance/proposals-1.png)
 
 ¡La propuesta que se está votando pondrá el saldo de Bob en "1500" a través de la gobernanza! 
 
@@ -61,7 +61,7 @@ Para votar una propuesta en la red, debe utilizar la interfaz de PolkadotJS Apps
 
 Votar en Moonbeam es bastante sencillo. Todo lo relacionado con la gobernabilidad vive en la pestaña "Democracia", donde (en la imagen) se puede notar que hay un `1`, que indica que hay un tema de democracia pendiente (ya sean propuestas o referendos). Una vez allí, puede ver los detalles del referéndum que desea votar haciendo clic en la flecha junto a la descripción. El número junto a la acción y la descripción se llama índice de referéndum (en este caso, es 0). Cuando esté listo, haga clic en el botón "Votar".
 
-![Vote Button](/images/governance/governance-vote-1.png)
+![Vote Button](/images/legacy/governance/governance-vote-1.png)
 
 Aquí, debe proporcionar la siguiente información:
 
@@ -81,14 +81,14 @@ Aquí, debe proporcionar la siguiente información:
 
  4. Haga clic en "Vote Aye" para aprobar la propuesta o "Vote No" para rechazar la propuesta y, luego, firme la transacción.
 
-![Vote Submission](/images/governance/governance-vote-2.png)
+![Vote Submission](/images/legacy/governance/governance-vote-2.png)
 
 !!! nota
    Los períodos de bloqueo que se muestran en la imagen anterior no deben tomarse como referencia. Esta guía se realizó con una versión personalizada de Moonbeam con períodos cortos de lanzamiento / promulgación solo con fines de demostración.
 
 En este caso, Alice y Bob han decidido "Vote Aye" en la propuesta con una convicción de `6x`. Por otro lado, Charley ha decidido "Vote No" en la propuesta, pero optó por no bloquear ningún token (sus tokens solo se bloquean durante la duración del referéndum), por lo que su condena fue `0.1x`.Con tales distribuciones de votos, los resultados parciales se pueden ver en la pestaña principal "Democracia".
 
-![Vote Information](/images/governance/governance-vote-3.png)
+![Vote Information](/images/legacy/governance/governance-vote-3.png)
 
 De la votación, hay algunas conclusiones clave:
 
@@ -101,11 +101,11 @@ De la votación, hay algunas conclusiones clave:
 
 Una vez que haya expirado el período de votación, la propuesta será visible en la pestaña "Dispatch" si se aprueba. Aquí también puede ver el tiempo que queda hasta que se promulgue la propuesta.
 
-![Proposal Enactment](/images/governance/governance-vote-4.png)
+![Proposal Enactment](/images/tokens/governance/voting/vote-5.png)
 
 Recuerde que, para este ejemplo, la función `setBalance` se usó para establecer el saldo de Bob en 1500 tokens. Una vez que haya pasado el período de promulgación, puede volver a la pestaña "Cuentas" para verificar que la propuesta se convirtió en ley.
 
-![Proposal Result](/images/governance/governance-vote-5.png)
+![Proposal Result](/images/legacy/governance/governance-vote-5.png)
 
 ### Votación delegada {: #delegate-voting }
 
@@ -113,7 +113,7 @@ Los titulares de tokens tienen la opción de delegar su voto a otra cuenta en cu
 
 Para delegar su voto, primero navegue al menú "Extrinsics" en la pestaña "Desarrolladores".
 
-![Extrinsics Menu](/images/governance/governance-vote-6.png)
+![Extrinsics Menu](/images/tokens/governance/voting/vote-6.png)
 
 Aquí, debe proporcionar la siguiente información:
 
@@ -125,7 +125,7 @@ Aquí, debe proporcionar la siguiente información:
  6. Establezca la cantidad de tokens que desea delegar a la cuenta proporcionada antes
  7. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
-![Extrinsics Transaction for Delegation](/images/governance/governance-vote-7.png)
+![Extrinsics Transaction for Delegation](/images/tokens/governance/voting/vote-7.png)
 
 En este ejemplo, Alice delegó un peso total de 1000 (1000 tokens con un factor de convicción x1) a Charley.
 
@@ -134,7 +134,7 @@ En este ejemplo, Alice delegó un peso total de 1000 (1000 tokens con un factor 
 
 Una vez que la cuenta haya delegado su voto, el peso total del voto delegado se asignará a la opción que la cuenta seleccionó. Para este ejemplo, Charley ha decidido votar a favor de una propuesta que se encuentra en referéndum público. Votó con un peso total de 800 (800 fichas con un factor de convicción x1). Pero debido a que Alice le delegó 1000 votos, los votos "Sí" suman 1800 unidades.
 
-![Total Votes with Delegation](/images/governance/governance-vote-8.png)
+![Total Votes with Delegation](/images/tokens/governance/voting/vote-9.png)
 
 Para eliminar la delegación, repita el proceso descrito anteriormente, pero seleccione la extrinsic `undelegate` en el paso 3.
 
@@ -154,11 +154,11 @@ Cuando los poseedores de tokens votan, los tokens utilizados se bloquean y no se
  - Bloqueado debido al multiplicador de convicción seleccionado, que muestra el número de bloques y el tiempo restante
  - Bloqueo caducado, lo que significa que ahora puede recuperar sus tokens
 
-![Account Lock Status](/images/governance/governance-vote-9.png)
+![Account Lock Status](/images/tokens/governance/voting/vote-10.png)
 
 Una vez que expire el bloqueo, puede solicitar la devolución de sus tokens. Para hacerlo, navegue hasta el menú "Extrínsics" en la pestaña "Desarrolladores".
 
-![Extrinsics Menu](/images/governance/governance-vote-10.png)
+![Extrinsics Menu](/images/tokens/governance/voting/vote-11.png)
 
 Aquí, se deben enviar dos extrínsecos diferentes. Primero, debe proporcionar la siguiente información:
 
@@ -168,7 +168,7 @@ Aquí, se deben enviar dos extrínsecos diferentes. Primero, debe proporcionar l
  4. ngrese el índice de referéndum. Este es el número que apareció en el lado izquierdo de la pestaña "Democracia". En este caso, es 0
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
-![Remove Vote Extrinsics](/images/governance/governance-vote-11.png)
+![Remove Vote Extrinsics](/images/tokens/governance/voting/vote-12.png)
 
 Para el siguiente extrínseco, debe proporcionar la siguiente información:
 
@@ -178,17 +178,17 @@ Para el siguiente extrínseco, debe proporcionar la siguiente información:
  4. Ingrese la cuenta de destino que recibirá los tokens desbloqueados. En este caso, los tokens se devolverán a Alice.
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
-![Unlock Extrinsics](/images/governance/governance-vote-12.png)
+![Unlock Extrinsics](/images/tokens/governance/voting/vote-13.png)
 
 Una vez que se realiza la transacción, los tokens bloqueados deben desbloquearse. Para volver a verificar, puede volver a la pestaña "Cuentas" y ver que, para este ejemplo, Alice tiene su saldo completo como "transferible".
 
-![Check Balance](/images/governance/governance-vote-13.png)
+![Check Balance](/images/tokens/governance/voting/vote-14.png)
 
 ## Sesgo de participación positiva {: #positive-turnout-bias } 
 
 Los referendos públicos utilizan una métrica de sesgo de participación positiva, es decir, una fórmula de aprobación por supermayoría. La ecuación es la siguiente:
 
-![Positive Turnout Bias](/images/governance/governance-vote-bias.png)
+![Positive Turnout Bias](/images/tokens/governance/voting/vote-bias.png)
 
 Dónde:
 

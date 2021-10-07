@@ -22,7 +22,7 @@ Moonbase Alpha tiene la siguiente configuración:
  - La Relay Chain, aloja tres validadores (alojados por PureStake) para finalizar los bloques de la relay chain. Uno de ellos es seleccionado para finalizar cada bloque recopilado por los collators de Moonbeam. Esta configuración proporciona espacio para expandirse a una configuración de dos parachains en el futuro.
  - Hay dos RPC endpoints (alojados por PureStake). Las personas pueden ejecutar nodos completos para acceder a sus propios RPC endpoints privados
 
-![TestNet Diagram](/images/testnet/Moonbase-Alpha-v7.png)
+![TestNet Diagram](/images/learn/platform/networks/moonbase-diagram-v7.png)
 
 ## Características o Funciones {: #features } 
 

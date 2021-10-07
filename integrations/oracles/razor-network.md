@@ -4,7 +4,7 @@ description: Cómo utilizar los datos de solicitud de un Razor Network Oracle en
 ---
 # Oraculo de Razor Network
 
-![Razor Network Moonbeam Diagram](/images/razor/razor-banner.png)
+![Razor Network Moonbeam Diagram](/images/builders/integrations/oracles/razor/razor-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -131,11 +131,11 @@ Usemos [Remix](/integrations/remix/) para recuperar el `BTC` precio `USD`.
 
 Después de crear el archivo y compilar el contrato, diríjase a la pestaña "Implementar y ejecutar transacciones", ingrese la dirección del contrato (`{{ networks.moonbase.razor.bridge_address }}`), y haga clic en "En la dirección". Asegúrese de haber configurado el "Entorno" en "Injected Web3" para que esté conectado a Moonbase Alpha (a través del proveedor Web3 de la billetera).
 
-![Razor Remix deploy](/images/razor/razor-demo1.png)
+![Razor Remix deploy](/images/builders/integrations/oracles/razor/razor-demo-1.png)
 
 Esto creará una instancia del contrato de demostración con la que puede interactuar. Utilice las funciones `getPrice()` y `getMultiPrices()` para consultar los datos del par correspondiente.
 
-![Razor check price](/images/razor/razor-demo2.png)
+![Razor check price](/images/builders/integrations/oracles/razor/razor-demo-2.png)
 
 ## Contáctenos {: #contact-us } 
 

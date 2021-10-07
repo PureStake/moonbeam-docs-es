@@ -49,7 +49,7 @@ Los contratos inteligentes en Moonbeam se pueden implementar utilizando Solidity
 
 El comportamiento de ejecución y la semántica de los contratos inteligentes basados en Moonbeam se esforzarán por estar lo más cerca posible de Ethereum Layer 1. Moonbeam es un solo fragmento, por lo que las llamadas de contrato cruzado tienen la misma semántica de ejecución sincrónica que en Ethereum Layer 1.
 
-![Diagram showing the interactions made possible through Moonbeam's Ethereum compatibility](/images/technology-diagram.png)
+![Diagram showing the interactions made possible through Moonbeam's Ethereum compatibility](/images/learn/platform/technology-diagram.png)
 
 Arriba se muestra un flujo de interacción de alto nivel. Un nodo Moonbeam recibe una llamada Web3 RPC desde una DApp o una herramienta de desarrollo Ethereum existente, como Truffle. El nodo tendrá RPC de Web3 y RPC de substrate disponibles, lo que significa que puede usar herramientas Ethereum o Substrate al interactuar con un nodo Moonbeam. Estas llamadas RPC son manejadas por funciones de tiempo de ejecución de sustrato asociadas. El tiempo de ejecución del sustrato verifica las firmas y maneja cualquier extrínseco. Las llamadas de contratos inteligentes finalmente se pasan al EVM para ejecutar las transiciones de estado.
 

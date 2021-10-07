@@ -4,7 +4,7 @@ description: Siga este tutorial para aprender a usar la biblioteca Python de Eth
 ---
 # Biblioteca de Python Web3.py
 
-![Intro diagram](/images/integrations/integrations-web3py-banner.png)
+![Intro diagram](/images/builders/tools/eth-libraries/web3py-banner.png)
 
 ## Introducción {: #introduction } 
 

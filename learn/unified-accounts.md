@@ -4,7 +4,7 @@ description: Moonbeam ahora usa el sistema de cuentas H160 basado en Ethereum de
 ---
 # Cuentas Unificadas
 
-![Intro diagram](/images/learn/unifiedaccounts-banner.png)
+![Intro diagram](/images/learn/features/unified-accounts/unified-accounts-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -22,7 +22,7 @@ Sin embargo, Alice solo conoce la clave privada de la dirección H160 y no la de
 
 El siguiente diagrama ilustra esta configuración.
 
-![Old account system diagram](/images/learn/unifiedaccounts-images-1.png)
+![Old account system diagram](/images/learn/features/unified-accounts/unified-accounts-1.png)
 
 Esto puede crear fricciones y una mala experiencia de usuario para Alice. Primero, tiene que mover tokens a su dirección H256 asignada a H160 para poder realizar transacciones e implementar contratos a través del EVM. En segundo lugar, también necesita mantener un saldo en su otra dirección H256 (para la que tiene una clave privada diferente) para usar las funciones basadas en sustrato. En resumen, Alice necesita un mínimo de dos claves privadas para tener lo mejor de ambos mundos.
 
@@ -34,6 +34,6 @@ Con Cuentas Unificadas, un usuario (llamémosle Bob) solo necesitará una única
 
 El diagrama de esta nueva configuración tiene el siguiente aspecto.
 
-![New account system diagram](/images/learn/unifiedaccounts-images-2.png)
+![New account system diagram](/images/learn/features/unified-accounts/unified-accounts-2.png)
 
 Eso es todo, Bob solo tiene una clave privada que coincide con una dirección. No necesita mover saldos entre 2 cuentas diferentes y puede acceder a todas las funciones con una sola cuenta y clave privada. Hemos estandarizado esta cuenta única para cumplir con la dirección H160 de estilo Ethereum y los estándares clave ECDSA.

@@ -5,7 +5,7 @@ description:  Aprenda a usar los productos OpenZeppelin en Moonbeam gracias a su
 
 # OpenZeppelin
 
-![OpenZeppelin Banner](/images/openzeppelin/openzeppelin-banner.png)
+![OpenZeppelin Banner](/images/builders/tools/openzeppelin/openzeppelin-banner.png)
 
 ## Introducción {: #introduction } 
 

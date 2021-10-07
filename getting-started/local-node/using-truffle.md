@@ -74,7 +74,7 @@ Para iniciar un nodo de desarrollo Moonbeam en su entorno local, primero debemos
 truffle run moonbeam install
 ```
 
-![Docker image download](/images/truffle/using-truffle-1.png)
+![Docker image download](/images/builders/interact/truffle/truffle-2.png)
 
 Una vez descargado, podemos proceder a iniciar el nodo local con el siguiente comando:
 
@@ -84,7 +84,7 @@ truffle run moonbeam start
 
 Verá un mensaje que indica que el nodo se ha iniciado, seguido de los dos puntos finales disponibles.
 
-![Moonbeam local node started](/images/truffle/using-truffle-2.png)
+![Moonbeam local node started](/images/builders/interact/truffle/truffle-3.png)
 
 Una vez que haya terminado de usar su nodo de desarrollo Moonbeam, puede ejecutar las siguientes líneas para detenerlo y eliminar la imagen de Docker si ese es el caso:
 
@@ -93,7 +93,7 @@ truffle run moonbeam stop && \
 truffle run moonbeam remove
 ```
 
-![Moonbeam local node stoped and image removed](/images/truffle/using-truffle-3.png)
+![Moonbeam local node stoped and image removed](/images/builders/interact/truffle/truffle-4.png)
 
 ## El archivo del contrato {: #the-contract-file } 
 
@@ -138,7 +138,7 @@ truffle compile
 
 Si tiene éxito, debería ver un resultado como el siguiente:
 
-![Truffle compile success message](/images/truffle/using-truffle-4.png)
+![Truffle compile success message](/images/builders/interact/truffle/truffle-6.png)
 
 Ahora estamos listos para implementar los contratos compilados. Puede hacer esto con el siguiente comando:
 
@@ -148,7 +148,7 @@ truffle migrate --network dev
 
 Si tiene éxito, verá acciones de implementación, incluida la dirección del contrato implementado:
 
-![Successful contract deployment actions](/images/truffle/using-truffle-5.png)
+![Successful contract deployment actions](/images/builders/interact/truffle/truffle-7.png)
 
 Una vez que haya seguido la [guía MetaMask](/getting-started/local-node/using-metamask/) y la [guía Remix](/getting-started/local-node/using-remix/), podrá tomar la dirección de contrato implementada que se devuelve y cargarla en MetaMask o Remix.
 

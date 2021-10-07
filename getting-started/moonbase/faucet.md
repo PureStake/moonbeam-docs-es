@@ -15,7 +15,7 @@ Para solicitar tokens automáticamente, hemos creado un bot de Discord (llamado 
  
 En la categoría "Varios", encontrará nuestro canal de bot AlphaNet.
 
-![Discord1](/images/testnet/testnet-discord1.png)
+![Discord1](/images/builders/get-started/moonbase/discord-1.png)
 
 Para verificar su saldo, ingrese el siguiente mensaje, reemplazando `<enter-address-here->` con su dirección H160:
 
@@ -31,7 +31,7 @@ Para obtener tokens DEV, ingrese el siguiente mensaje, reemplazándolo `<enter-a
 
 Mission Control le enviará 5 tokens DEV y mostrará el saldo de su cuenta actual. Recuerde que Mission Control se limita a dispensar una vez cada 24 horas por usuario de Discord.
 
-![Discord2](/images/testnet/testnet-discord2.png)
+![Discord2](/images/builders/get-started/moonbase/discord-2.png)
 
 ## Procedimiento manual {: #manual-procedure } 
 

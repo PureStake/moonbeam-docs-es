@@ -6,4 +6,4 @@ Un nodo de Oracle tiene un conjunto de ID de trabajo, donde cada uno corresponde
 
 Esta solicitud en realidad envía un _transferAndCall_ al contrato del token LINK, que maneja el pago y transmite la solicitud al contrato de Oracle. Aquí, se emite un evento con la solicitud, que es captada por el nodo de Oracle. A continuación, el nodo obtiene los datos necesarios y ejecuta la función _fulfilOracleRequest_ que ejecuta una devolución de llamada que almacena la información solicitada en el contrato del Cliente. El siguiente diagrama explica este flujo de trabajo.
 
-![Basic Request Diagram](/images/chainlink/chainlink-basicrequest.png)
+![Basic Request Diagram](/images/builders/integrations/oracles/chainlink/chainlink-basic-request.png)

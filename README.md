@@ -5,7 +5,7 @@ description: Bienvenido al sitio web de documentación de la plataforma de contr
 
 # Bienvenido a Moonbeam
 
-![Main Page Banner](/images/main-banner.png)
+![Main Page Banner](/images/learn/platform/main-banner.png)
 
 **Note: this website was translated by members of the Ambassadors program and is part of a community-led effort. The team would like to express his gratitude towards these great Ambassadors that translated all the content: Leonel1925, Peloclick, Jrafaelangarita, Frangs, de1be and ManekiNeko95. If you want to contribute to this translation, please visit the following [GitHub repository](https://github.com/PureStake/moonbeam-docs-es).**
 

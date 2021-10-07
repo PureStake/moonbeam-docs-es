@@ -61,7 +61,7 @@ EventSignature = keccak256(Transfer(address,address,uint256))
 
 El resultado del cálculo se muestra en el fragmento de código anterior. Volveremos a filtrar por temas más adelante. El resto del código maneja la función de devolución de llamada. Una vez que ejecutemos este código, obtendremos un ID de suscripción y el terminal esperará cualquier evento a través de esa suscripción:
 
-![Subscription ID](/images/testnet/testnet-pubsub1.png)
+![Subscription ID](/images/builders/tools/pubsub/pubsub-1.png)
 
 A continuación, se enviará una transferencia de token ERC-20 con los siguientes parámetros:
 
@@ -71,11 +71,11 @@ A continuación, se enviará una transferencia de token ERC-20 con los siguiente
 
 Una vez enviemos la transacción, aparecerá en el terminal el log del evento emitido por la transacción:
 
-![Log of the transfer event](/images/testnet/testnet-pubsub2.png)
+![Log of the transfer event](/images/builders/tools/pubsub/pubsub-2.png)
 
 Analicemos la respuesta recibida. Nuestro evento de destino envía dos piezas de información indexada: las direcciones `from` y `to` (en ese orden), que se tratan como temas. El otro dato compartido por nuestro evento es el número de tokens, que no está indexado. Por tanto, hay un total de tres temas (el máximo son cuatro), que corresponden al código de operación LOG3:
 
-![Description of LOG3](/images/testnet/testnet-pubsub3.png)
+![Description of LOG3](/images/builders/tools/pubsub/pubsub-3.png)
 
 En consecuencia, puede ver que las direcciones `from` y `to` están contenidas dentro de los temas devueltos por los registros. Las direcciones de Ethereum tienen 40 caracteres hexadecimales (1 carácter hexadecimal son 4 bits, por lo tanto, 160 bits o formato H160). Por lo tanto, se necesitan los 24 ceros adicionales para llenar el espacio hasta H256, que tiene 64 caracteres hexadecimales. 
 
@@ -120,7 +120,7 @@ web3.eth
 
 Aquí, al usar el comodín null en su lugar para la firma del evento, filtramos para escuchar todos los eventos emitidos por el contrato al que nos suscribimos. Pero con esta configuración, también podemos usar un segundo campo de entrada (`topic_1`) para definir un filtro por dirección como se mencionó anteriormente. En el caso de nuestra suscripción, estamos notificando que solo queremos recibir eventos donde `topic_1` esté una de las direcciones que proporcionamos. Tenga en cuenta que las direcciones deben estar en formato H256. Por ejemplo, la dirección `0x44236223aB4291b93EEd10E4B511B37a398DEE55` debe ingresarse como `0x00000000000000000000000044236223aB4291b93EEd10E4B511B37a398DEE55`. Como antes, la salida de esta suscripción mostrará la firma del evento `topic_0` para decirnos qué evento fue emitido por el contrato.
 
-![Conditional Subscription](/images/testnet/testnet-pubsub7.png)
+![Conditional Subscription](/images/builders/tools/pubsub/pubsub-4.png)
 
 Como se muestra, después de proporcionar las dos direcciones con formato condicional, recibimos dos registros con el mismo ID de suscripción. Los eventos emitidos por transacciones de diferentes direcciones no arrojarán ningún registro a esta suscripción.
 
@@ -129,21 +129,21 @@ Este ejemplo mostró cómo podríamos suscribirnos solo a los registros de event
 ## Suscribirse a transacciones pendientes entrantes {: #subscribe-to-incoming-pending-transactions } 
 Para suscribirnos a transacciones pendientes, podemos usar el `web3.eth.subscribe(‘pendingTransactions’, [, callback])` mmétodo, implementando la misma función de devolución de llamada para verificar la respuesta. Esto es mucho más simple que nuestro ejemplo anterior y devuelve el hash de transacción de las transacciones pendientes.
 
-![Subscribe pending transactions response](/images/testnet/testnet-pubsub4.png)
+![Subscribe pending transactions response](/images/builders/tools/pubsub/pubsub-5.png)
 
 Podemos verificar que este hash de transacción es el mismo que se muestra en MetaMask (o Remix).
 
 ## Suscribirse a los encabezados de bloque entrantes {: #subscribe-to-incoming-block-headers } 
 Otro tipo disponible en la biblioteca Web3.js es suscribirse a nuevos encabezados de bloque. Para hacerlo, usamos el `web3.eth.subscribe('newBlockHeaders' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción proporciona encabezados de bloque entrantes y se puede usar para rastrear cambios en la blockchain.
 
-![Subscribe to block headers response](/images/testnet/testnet-pubsub5.png)
+![Subscribe to block headers response](/images/builders/tools/pubsub/pubsub-6.png)
 
 Tenga en cuenta que solo se muestra un encabezado de bloque en la imagen. Estos mensajes se muestran para cada bloque producido para que puedan llenar la terminal bastante rápido.
 
 ## Compruebe si un nodo está sincronizado con la red {: #check-if-a-node-is-synchronized-with-the-network } 
 Con pub / sub también es posible verificar si un nodo en particular al que está suscrito está actualmente sincronizado con la red. Para eso, podemos aprovechar el `web3.eth.subscribe(‘syncing' [, callback])` método, implementando la misma función de devolución de llamada para verificar la respuesta. Esta suscripción devolverá un objeto cuando el nodo esté sincronizado con la red.
 
-![Subscribe to syncing response](/images/testnet/testnet-pubsub6.png)
+![Subscribe to syncing response](/images/builders/tools/pubsub/pubsub-7.png)
 
 ## Limitaciones actuales {: #current-limitations } 
 

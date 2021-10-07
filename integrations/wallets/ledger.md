@@ -5,7 +5,7 @@ description: Esta guía le muestra cómo usar su billetera de hardware Ledger pa
 
 # Cartera de hardware Ledger
 
-![Intro diagram](/images/ledger/ledger-banner.png)
+![Intro diagram](/images/tokens/connect/ledger/ledger-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -40,14 +40,14 @@ Para comenzar, debe conectar su dispositivo Ledger a la computadora, desbloquear
  1. Haga clic en el logotipo de la esquina superior derecha para expandir el menú.
  2. Seleccione "Conectar cartera de hardware"
 
-![Cartera de hardware MetaMask Connect](/images/ledger/ledger-images1.png)
+![Cartera de hardware MetaMask Connect](/images/tokens/connect/ledger/ledger-1.png)
 
 En la siguiente pantalla, se le pedirá que seleccione qué billetera de hardware le gustaría usar en MetaMask. En el momento de escribir este artículo, solo se admiten las carteras de hardware Ledger y Trezor. Aquí, siga los siguientes pasos:
 
  1. Seleccione el logotipo de Ledger
  2. Haga clic en "Continuar"
 
-![Cartera de hardware MetaMask Select Ledger](/images/ledger/ledger-images2.png)
+![Cartera de hardware MetaMask Select Ledger](/images/tokens/connect/ledger/ledger-2.png)
 
 Si MetaMask pudo conectarse correctamente a su dispositivo Ledger, debería ver una lista de cinco cuentas de estilo Ethereum. Por el contrario, verifique que Ledger Live esté cerrado, que haya conectado su dispositivo Ledger a la computadora, lo haya desbloqueado y que la aplicación Ethereum esté abierta. Si está utilizando Chrome, consulte estos [pasos adicionales](#navegador-chrome).
 
@@ -57,11 +57,11 @@ De esta lista de cinco cuentas de Ethereum, siga los siguientes pasos:
  2. Haga clic en "Desbloquear"
 
 
-![MetaMask selecciona las cuentas de Ethereum para importar](/images/ledger/ledger-images3.png)
+![MetaMask selecciona las cuentas de Ethereum para importar](/images/tokens/connect/ledger/ledger-3.png)
 
 Si ha importado su cuenta de estilo Ledger Ethereum con éxito, debería verla en la pantalla principal de MetaMask como se muestra en la siguiente imagen:
 
-![MetaMask importó correctamente la cuenta del libro mayor](/images/ledger/ledger-images4.png)
+![MetaMask importó correctamente la cuenta del libro mayor](/images/tokens/connect/ledger/ledger-4.png)
 
 Ahora ha importado con éxito una cuenta compatible con Moonbeam desde su dispositivo Ledger y ahora está listo para comenzar a [firmar transacciones usando su billetera de hardware](#firmar-una-transaccion-con-ledger).
 
@@ -83,7 +83,7 @@ Si ha importado con éxito [su cuenta de Ledger a MetaMask](#importacion-de-su-l
 
 Primero, asegúrese de que su cuenta de Ledger esté [financiada con tokens DEV](/getting-started/moonbase/faucet/). A continuación, haga clic en el botón "Enviar".
 
-![Cuenta MetaMask Ledger financiada](/images/ledger/ledger-images5.png)
+![Cuenta MetaMask Ledger financiada](/images/tokens/connect/ledger/ledger-5.png)
 
 Como lo haría en una transacción estándar, configure la dirección del destinatario, ingrese la cantidad de tokens para enviar, revise los detalles de la transacción y confírmela. Esto iniciará el asistente de firma de transacciones en su dispositivo Ledger. Aquí, siga los siguientes pasos:
 
@@ -100,11 +100,11 @@ Como lo haría en una transacción estándar, configure la dirección del destin
     En el momento de escribir este artículo, el nombre del token siempre se muestra como `ETH`.  Tenga en cuenta que el token que se está manejando es el correspondiente a la red a la que está conectado MetaMask.
 
 
-![MetaMask Ledger Transacción Wizard](/images/ledger/ledger-images6.png)
+![MetaMask Ledger Transacción Wizard](/images/tokens/connect/ledger/ledger-6.png)
 
 Inmediatamente después de haber aprobado la transacción, MetaMask la envía a la red. Una vez que se confirma la transacción, se mostrará como "Enviar" en la pantalla principal de MetaMask.
 
-![MetaMask Ledger Transacción Wizard](/images/ledger/ledger-images7.png)
+![MetaMask Ledger Transacción Wizard](/images/tokens/connect/ledger/ledger-7.png)
 
 ¡Y eso es todo! ¡Ha firmado una transacción en Moonbase Alpha usando su billetera de hardware Ledger!
 
@@ -122,4 +122,4 @@ Sin embargo, si desea utilizar su billetera de hardware Ledger para transaccione
 !!! nota
     Esta opción es necesaria para usar su dispositivo Ledger para interactuar con los contratos de token ERC20 que podrían vivir dentro del ecosistema Moonbeam.
 
-![Libro mayor de MetaMask Permitir contratos Tx](/images/ledger/ledger-images8.png)
+![Libro mayor de MetaMask Permitir contratos Tx](/images/tokens/connect/ledger/ledger-8.png)

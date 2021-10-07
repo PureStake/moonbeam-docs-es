@@ -5,7 +5,7 @@ description: Aprenda a usar Waffle y Mars para escribir, compilar, probar e impl
 
 # Usando Waffle & Mars en Moonbeam
 
-![Waffle and Mars on Moonbeam](/images/waffle-mars/waffle-mars-banner.png)
+![Waffle and Mars on Moonbeam](/images/builders/interact/waffle-mars/waffle-mars-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -152,7 +152,7 @@ Eso es todo lo que necesita hacer para configurar Waffle, ahora está todo listo
 npm run build
 ```
 
-![Waffle compiler output](/images/waffle-mars/waffle-mars-1.png)
+![Waffle compiler output](/images/builders/interact/waffle-mars/waffle-mars-1.png)
 
 Después de compilar sus contratos, Waffle almacena la salida JSON en el directorio de `build`. El contrato de esta guía se basa en la plantilla ERC-20 de Open Zeppelin, por lo que los archivos JSON ERC-20 relevantes también aparecerán en el `build` de compilación. 
 
@@ -348,7 +348,7 @@ Los artefactos deben generarse para Mars para que las comprobaciones de tipo est
 ```
 npm run build
 ```
-![Salida del compilador Waffle y Mars](/images/waffle-mars/waffle-mars-2.png)
+![Salida del compilador Waffle y Mars](/images/builders/interact/waffle-mars/waffle-mars-2.png)
 
 Si abre el directorio `build` ahora debería ver un archivo `artifacts.ts` que contiene los datos de artefactos necesarios para las implementaciones. Para continuar con el proceso de implementación, deberá escribir un script de implementación. El script de implementación se utilizará para indicarle a Mars qué contrato implementar, en qué red y qué cuenta se utilizará para activar la implementación.
 
@@ -406,11 +406,11 @@ npm run deploy
 ```
 
 2. En su Terminal, Mars le pedirá que presione `ENTER` para enviar su transacción:
-![Mars confirm deployment](/images/waffle-mars/waffle-mars-3.png)
+![Mars confirm deployment](/images/builders/interact/waffle-mars/waffle-mars-3.png)
 
 Si tiene éxito, debería ver los detalles sobre su transacción, incluido su hash, el bloque en el que se incluyó y su dirección.
 
-![Mars deployment output](/images/waffle-mars/waffle-mars-4.png)
+![Mars deployment output](/images/builders/interact/waffle-mars/waffle-mars-4.png)
 
 ¡Felicidades! ¡Has implementado un contrato en Moonbase Alpha usando Waffle y Mars!
 

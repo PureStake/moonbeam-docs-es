@@ -5,7 +5,7 @@ description: Cree API utilizando el protocolo de indexación Graph en Moonbeam
 
 # Ejecución de un nodo de gráfico en Moonbeam
 
-![The Graph Node on Moonbeam](/images/thegraph/thegraphnode-banner.png)
+![The Graph Node on Moonbeam](/images/node-operators/indexer-nodes/the-graph/the-graph-node-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -48,7 +48,7 @@ A continuación, ejecute el `setup.sh` archivo. Esto extraerá todas las imágen
 
 El final de los registros del comando anterior debería tener un aspecto similar a:
 
-![Graph Node setup](/images/thegraph/thegraphnode-images1.png)
+![Graph Node setup](/images/node-operators/indexer-nodes/the-graph/the-graph-node-1.png)
 
 Una vez que todo está configurado, debe modificar el "entorno Ethereum" dentro del `docker-compose.yml` archivo, de modo que apunte al punto final del nodo contra el que está ejecutando este nodo de TheGraph. Tenga en cuenta que el `setup.sh` archivo detecta `Host IP` y escribe su valor, por lo que deberá modificarlo en consecuencia.
 
@@ -105,10 +105,10 @@ Por último, para ejecutar el nodo de TheGraph, simplemente ejecute el siguiente
 docker-compose up
 ```
 
-![Graph Node compose up](/images/thegraph/thegraphnode-images2.png)
+![Graph Node compose up](/images/node-operators/indexer-nodes/the-graph/the-graph-node-2.png)
 
 Después de un tiempo, debería ver los registros relacionados con la sincronización del nodo de TheGraph con el último bloque disponible en la red:
 
-![Graph Node logs](/images/thegraph/thegraphnode-images3.png)
+![Graph Node logs](/images/node-operators/indexer-nodes/the-graph/the-graph-node-3.png)
 
 ¡Y eso es todo! Tiene un nodo de TheGraph ejecutándose en Moonbase Alpha TestNet. No dude en adaptar este ejemplo también a un nodo de desarrollo Moonbeam.

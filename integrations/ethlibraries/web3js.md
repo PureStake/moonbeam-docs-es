@@ -4,7 +4,7 @@ description: Siga este tutorial para aprender a usar la biblioteca de JavaScript
 ---
 # Biblioteca JavaScript de Web3.js
 
-![Intro diagram](/images/integrations/integrations-web3js-banner.png)
+![Intro diagram](/images/builders/tools/eth-libraries/web3js-banner.png)
 
 ## Introducción {: #introduction } 
 

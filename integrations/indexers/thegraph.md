@@ -5,7 +5,7 @@ description: Cree API utilizando el protocolo de indexación Graph en Moonbeam
 
 # Usando The Graph en Moonbeam
 
-![The Graph on Moonbeam](/images/thegraph/thegraph-banner.png)
+![The Graph on Moonbeam](/images/builders/integrations/indexers/the-graph/the-graph-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -267,6 +267,6 @@ Dónde:
 
 Los registros del comando anterior deberían tener un aspecto similar a:
 
-![The Graph deployed](/images/thegraph/thegraph-images1.png)
+![The Graph deployed](/images/builders/integrations/indexers/the-graph/the-graph-1.png)
 
 Las DApps ahora pueden usar los puntos finales de Subgraph para recuperar los datos indexados por el protocolo The Graph.

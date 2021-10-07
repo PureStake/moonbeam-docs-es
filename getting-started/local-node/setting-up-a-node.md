@@ -33,7 +33,7 @@ docker pull purestake/moonbeam:{{ networks.development.build_tag }}
 
 El final del registro de la consola debería verse así:
 
-![Docker - imaged pulled](/images/setting-up-a-node/setting-up-node-1.png)
+![Docker - imaged pulled](/images/builders/get-started/moonbeam-dev/moonbeam-dev-1.png)
 
 Una vez que se descarga la imagen de Docker, el siguiente paso es ejecutar la imagen.
 
@@ -62,7 +62,7 @@ Puede ejecutar la imagen de Docker con lo siguiente:
 
 Esto debería activar un nodo de desarrollo Moonbeam en modo de sello instantáneo para pruebas locales, de modo que los bloques se creen instantáneamente a medida que se reciben las transacciones. Si tiene éxito, debería ver una salida que muestra un estado inactivo esperando a que se creen los bloques:
 
-![Docker - output shows blocks being produced](/images/setting-up-a-node/setting-up-node-2.png)
+![Docker - output shows blocks being produced](/images/builders/get-started/moonbeam-dev/moonbeam-dev-2.png)
 
 Para obtener más información sobre algunas de las banderas y opciones utilizadas en el ejemplo, consulte [Opciones y flags comunes](#flags-y-opciones-comunes). Si desea ver una lista completa de todos los indicadores, opciones y subcomandos, abra el menú de ayuda ejecutando:
 
@@ -111,7 +111,7 @@ Si aparece un _error de carga no encontrada_ en la terminal, agregue manualmente
 
 Así es como debería verse el final de la salida de la compilación:
 
-![End of build output](/images/setting-up-a-node/setting-up-node-3.png)
+![End of build output](/images/builders/get-started/moonbeam-dev/moonbeam-dev-3.png)
 
 Luego, querrá ejecutar el nodo en modo dev usando el siguiente comando:
 
@@ -124,7 +124,7 @@ Luego, querrá ejecutar el nodo en modo dev usando el siguiente comando:
 
 Debería ver una salida similar a la siguiente, que muestra un estado inactivo a la espera de que se produzcan bloques:
 
-![Output shows blocks being produced](/images/setting-up-a-node/setting-up-node-4.png)
+![Output shows blocks being produced](/images/builders/get-started/moonbeam-dev/moonbeam-dev-4.png)
 
 Para obtener más información sobre algunas de las banderas y opciones utilizadas en el ejemplo, consulte [Opciones y banderas comunes](#flags-y-opciones-comunes). Si desea ver una lista completa de todos los indicadores, opciones y subcomandos, abra el menú de ayuda ejecutando:
 
@@ -140,15 +140,15 @@ El nodo de desarrollo es un nodo basado en sustrato, por lo que puede interactua
 
 Comience conectándose a él con Polkadot JS Apps. Abra un navegador para: [https://polkadot.js.org/apps/#/explorer](https://polkadot.js.org/apps/#/explorer). Esto abrirá Polkadot JS Apps, que se conecta automáticamente a Polkadot MainNet.
 
-![Polkadot JS Apps](/images/setting-up-a-node/setting-up-node-5.png)
+![Polkadot JS Apps](/images/builders/get-started/moonbeam-dev/moonbeam-dev-5.png)
 
 Haga clic en la esquina superior izquierda para abrir el menú para configurar las redes y luego navegue hacia abajo para abrir el submenú Desarrollo. Allí, querrá alternar la opción "Nodo local", que apunta a Polkadot JS Apps `ws://127.0.0.1:9944`. A continuación, seleccione el botón Cambiar y el sitio debería conectarse a su nodo de desarrollo Moonbeam.
 
-![Select Local Node](/images/setting-up-a-node/setting-up-node-6.png)
+![Select Local Node](/images/builders/get-started/moonbeam-dev/moonbeam-dev-6.png)
 
 Con Polkadot JS Apps conectadas, verá el nodo de desarrollo Moonbeam esperando que lleguen las transacciones para comenzar a producir bloques.
 
-![Select Local Node](/images/setting-up-a-node/setting-up-node-7.png)
+![Select Local Node](/images/builders/get-started/moonbeam-dev/moonbeam-dev-7.png)
 
 ## Consultando el estado de la cuenta {: #querying-account-state } 
 

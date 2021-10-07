@@ -5,7 +5,7 @@ description: Cómo ejecutar telemetría para un nodo Parachain completo para Moo
 
 # Telemetría para un nodo completo
 
-![Telemetry Moonbeam Banner](/images/fullnode/telemetry-banner.png)
+![Telemetry Moonbeam Banner](/images/node-operators/networks/telemetry-banner.png)
 
 ## Introducción {: #introduction } 
 

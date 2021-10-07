@@ -5,7 +5,7 @@ description: Cómo compilar el binario Moonbeam para ejecutar un nodo Parachain 
 
 # Compilar el binario Moonbeam
 
-![Full Node Moonbeam Banner](/images/fullnode/compile-binary-banner.png)
+![Full Node Moonbeam Banner](/images/node-operators/networks/compile-binary/compile-binary-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -42,7 +42,7 @@ Por último, compile el binario de parachain:
 cargo build --release
 ```
 
-![Compiling Binary](/images/fullnode/compile-binary1.png)
+![Compiling Binary](/images/node-operators/networks/compile-binary/compile-binary-1.png)
 
 Si aparece un _error de carga no encontrada_ en la terminal, agregue manualmente Rust a la ruta de su sistema o reinicie su sistema:
 

@@ -7,4 +7,4 @@ Antes de que se promulgue una propuesta, debe pasar por varios pasos. El flujo g
  - Una vez en el referéndum, los poseedores de fichas votan "Sí" o "No" en la propuesta bloqueando las fichas. Dos factores tienen en cuenta el peso del voto: cantidad bloqueada y período de bloqueo
  - Si la propuesta se aprueba, se promulga después de un cierto período de tiempo.
  
-![Proposal Roadmap](/images/governance/governance-proposal-roadmap.png)
+![Proposal Roadmap](/images/tokens/governance/proposals/governance-proposal-roadmap.png)

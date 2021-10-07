@@ -5,7 +5,7 @@ description: Aprenda a utilizar una de las herramientas de desarrollo de Ethereu
 
 # Interactuar con Moonbeam usando Remix
 
-![Intro diagram](/images/integrations/integrations-remix-banner.png)
+![Intro diagram](/images/builders/tools/remix/remix-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -31,11 +31,11 @@ Una vez compilado, podemos navegar a la pestaña "Implementar y ejecutar transac
 
 Para este ejemplo, implementaremos el contrato desde una cuenta MetaMask financiada. Puede usar nuestro [grifo TestNet](/getting-started/testnet/faucet/) para financiar su cuenta para implementaciones en Moonbase Alpha. Luego, pase `Test Contract` como entrada a nuestra función constructora y presione implementar. Una ventana emergente de MetaMask mostrará la información relacionada con la transacción, que tendremos que firmar haciendo clic en "confirmar".
 
-![Deploying Contract](/images/remix/integrations-remix-1.png)
+![Deploying Contract](/images/builders/tools/remix/remix-1.png)
 
 Una vez que se incluye la transacción, el contrato aparece en la sección "Contratos implementados" en Remix. Allí, podemos interactuar con las funciones disponibles en nuestro contrato.
 
-![Interact with Contract](/images/remix/integrations-remix-2.png)
+![Interact with Contract](/images/builders/tools/remix/remix-2.png)
 
 ## Tutoriales paso a paso {: #step-by-step-tutorials } 
 

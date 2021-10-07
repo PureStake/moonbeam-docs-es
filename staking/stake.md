@@ -5,7 +5,7 @@ description: Una guía que muestra cómo puede apostar sus tokens en Moonbeam al
 
 # Cómo apostar tus tokens
 
-![Staking Moonbeam Banner](/images/staking/staking-stake-banner.png)
+![Staking Moonbeam Banner](/images/tokens/staking/stake/stake-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -48,7 +48,7 @@ Hay muchos aspectos extrínsecos relacionados con el pallet de replanteo, por lo
 
 Antes de comenzar a apostar tokens, es importante recuperar la lista de collators disponibles en la red. Para hacerlo, navegue hasta "Estado de la cadena" en la pestaña "Desarrollador".
 
-![Staking Account](/images/staking/staking-stake-10.png)
+![Staking Account](/images/tokens/staking/stake/stake-10.png)
 
 Aquí, proporcione la siguiente información:
 
@@ -61,7 +61,7 @@ Cada extrínseco proporciona una respuesta diferente:
  - **selectedCandidates** — devuelve el conjunto activo actual de collators, es decir, los 32 collators principales por tokens totales apostados (incluidas las nominaciones)
  - **candidatePool** — devuelve la lista actual de todos los collators, incluidos los que no están en el conjunto activo.
 
-![Staking Account](/images/staking/staking-stake-11.png)
+![Staking Account](/images/legacy/staking/staking-stake-11.png)
 
 ## Cómo nominar un collator {: #get-the-collator-nominator-count } 
 
@@ -78,7 +78,7 @@ Para este ejemplo, se importó una cuenta y se nombró con un nombre súper orig
 
 Actualmente, se debe acceder a todo lo relacionado con el replanteo a través del menú "Extrínsecos", en la pestaña "Desarrollador":
 
-![Staking Account](/images/staking/staking-stake-1.png)
+![Staking Account](/images/tokens/staking/stake/stake-1.png)
 
 Para designar un collator, proporcione la siguiente información:
 
@@ -89,13 +89,13 @@ Para designar un collator, proporcione la siguiente información:
  5. Establezca la cantidad de tokens que desea apostar
  6. Haga clic en el botón "Enviar transacción" y firme la transacción.
  
-![Staking Join Nominators Extrinsics](/images/staking/staking-stake-2.png)
+![Staking Join Nominators Extrinsics](/images/tokens/staking/stake/stake-2.png)
 
 Una vez que se confirma la transacción, puede regresar a la pestaña "Cuentas" para verificar que tiene un saldo reservado (igual a la cantidad de tokens apostados).
 
 Para verificar una nominación, puede navegar hasta "Estado de la cadena" en la pestaña "Desarrollador".
 
-![Staking Account and Chain State](/images/staking/staking-stake-3.png)
+![Staking Account and Chain State](/images/tokens/staking/stake/stake-3.png)
 
 Aquí, proporcione la siguiente información:
 
@@ -104,7 +104,7 @@ Aquí, proporcione la siguiente información:
  3. Asegúrate de deshabilitar el control deslizante "opción de inclusión".
  4. Envíe la consulta de estado haciendo clic en el botón "+"
 
-![Staking Chain State Query](/images/staking/staking-stake-4.png)
+![Staking Chain State Query](/images/tokens/staking/stake/stake-4.png)
 
 En la respuesta, debería ver su cuenta (en este caso, la cuenta de Alice) con una lista de las nominaciones. Cada nominación contiene la dirección de destino del collator y la cantidad.
 
@@ -124,7 +124,7 @@ Puede eliminar su nominación de un collator específico navegando al menú "Ext
  4. Establezca la dirección del collator de la que desea eliminar su nominación. En este caso, se establece en `0x62d2e7324f9274fac3893a59aff8e944a323a495`
  5. Haga clic en el botón "Enviar transacción" y firme la transacción.
 
-![Staking Revoke Nomination Extrinsic](/images/staking/staking-stake-7.png)
+![Staking Revoke Nomination Extrinsic](/images/tokens/staking/stake/stake-7.png)
 
 Una vez que se confirma la transacción, puede verificar que su nominación fue eliminada en la opción "Estado de la cadena" en la pestaña "Desarrollador".
 
@@ -135,13 +135,13 @@ Aquí, proporcione la siguiente información:
  3. Asegúrate de deshabilitar el control deslizante "incluir opciones".
  4. Envíe la consulta de estado haciendo clic en el botón "+"
 
-![Staking Revoke Nomination Cain State](/images/staking/staking-stake-8.png)
+![Staking Revoke Nomination Cain State](/images/tokens/staking/stake/stake-8.png)
 
 En la respuesta, debería ver su cuenta (en este caso, la cuenta de Alice) con una lista de las nominaciones. Cada nominación contiene la dirección de destino del collator y la cantidad.
 
 Como se mencionó anteriormente, también puede eliminar todas las nominaciones en curso con la `leaveNominators` extrínseca (en el paso 3 de las instrucciones "Extrínsecas"). Este extrínseco no requiere entrada:
 
-![Staking Leave Nominatiors Extrinsic](/images/staking/staking-stake-9.png)
+![Staking Leave Nominatiors Extrinsic](/images/tokens/staking/stake/stake-9.png)
 
 Una vez que se confirma la transacción, su cuenta no debe aparecer en el `nominatorState` estado cuando se le solicite, y no debe tener saldo reservado (relacionado con la participación).
 
@@ -153,4 +153,4 @@ En resumen, los nominadores obtendrán recompensas en función de su participaci
 
 En el ejemplo anterior, Alice fue recompensada con `0.0044` tokens después de dos rondas de pago:
 
-![Staking Reward Example](/images/staking/staking-stake-10.png)
+![Staking Reward Example](/images/tokens/staking/stake/stake-10.png)

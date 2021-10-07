@@ -5,7 +5,7 @@ description: Cómo utilizar los datos de solicitud de un protocolo de banda Orac
 # Protocolo de banda Oracle
 
 
-![Band Protocol Moonbeam Diagram](/images/band/band-banner.png)
+![Band Protocol Moonbeam Diagram](/images/builders/integrations/oracles/band/band-banner.png)
 
 ## Introducción {: #introduction } 
 
@@ -177,11 +177,11 @@ Por ejemplo, usando [Remix](/integrations/remix/),podemos consultar fácilmente 
 
 Después de crear el archivo y compilar el contrato, diríjase a la pestaña "Implementar y ejecutar transacciones", ingrese la dirección del contrato (`0xf15c870344c1c02f5939a5C4926b7cDb90dEc655`) y haga clic en "En la dirección". Asegúrate de haber configurado el "Entorno" en "Injected Web3" para estar conectado a Moonbase Alpha.
 
-![Band Protocol Remix deploy](/images/band/band-demo1.png)
+![Band Protocol Remix deploy](/images/builders/integrations/oracles/band/band-demo-1.png)
 
 Esto creará una instancia del contrato de demostración con la que puede interactuar. Utilice las funciones `getPrice()` y `getMultiPrices()` para consultar los datos del par correspondiente.
 
-![Band Protocol Remix check price](/images/band/band-demo2.png)
+![Band Protocol Remix check price](/images/builders/integrations/oracles/band/band-demo-2.png)
 
 ## Biblioteca auxiliar de Javascript BandChain.js {: #bandchainjs-javascript-helper-library } 
 
@@ -242,6 +242,6 @@ queryData();
 
 Podemos ejecutar este código con un nodo, y el siguiente `dataQuery` resultado debería verse así:
 
-![Band Protocol JavaScript Library](/images/band/band-console.png)
+![Band Protocol JavaScript Library](/images/builders/integrations/oracles/band/band-console.png)
 
 Tenga en cuenta que, en comparación con la solicitud realizada a través de contratos inteligentes, el resultado se proporciona directamente en las unidades correctas.
