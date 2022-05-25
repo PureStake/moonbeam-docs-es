@@ -1,9 +1,9 @@
 ---
-title: Cómo Hacer Staking
+title: Cómo hacer Staking
 description: Una guía que muestra cómo puede apostar sus tokens en Moonbeam al nominar a los collators
 ---
 
-# Cómo apostar tus tokens
+# Cómo hacer staking de tus tokens
 
 ![Staking Moonbeam Banner](/images/tokens/staking/stake/stake-banner.png)
 
@@ -72,21 +72,21 @@ Esta sección repasa el proceso de nominación de collators. El tutorial utiliza
 | Collator 1 |     | 0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce |
 | Collator 2 |     | 0x62d2e7324f9274fac3893a59aff8e944a323a495 |
 
-Para acceder a las funciones de replanteo, debe utilizar la interfaz de PolkadotJS Apps. Para hacerlo, primero debe importar / crear una cuenta estilo Ethereum (dirección H160), lo que puede hacer siguiendo [esta guía](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account).
+Para acceder a las funciones de staking, debe utilizar la interfaz de PolkadotJS Apps. Para hacerlo, primero debe importar / crear una cuenta estilo Ethereum (dirección H160), lo que puede hacer siguiendo [esta guía](/integrations/wallets/polkadotjs/#creating-or-importing-an-h160-account).
 
 Para este ejemplo, se importó una cuenta y se nombró con un nombre súper original: Alice.
 
-Actualmente, se debe acceder a todo lo relacionado con el replanteo a través del menú "Extrínsecos", en la pestaña "Desarrollador":
+Actualmente, se debe acceder a todo lo relacionado con el staking a través del menú "Extrínsecos", en la pestaña "Desarrollador":
 
 ![Staking Account](/images/tokens/staking/stake/stake-1.png)
 
 Para designar un collator, proporcione la siguiente información:
 
- 1. Seleccione la cuenta desde la que desea apostar sus tokens
+ 1. Seleccione la cuenta desde la que desea hacer staking de sus tokens
  2. Elija la pallet con la que desea interactuar. En este caso, es el `parachainStaking` palet
  3. Elija el método extrínseco que se utilizará para la transacción. Esto determinará los campos que deben completarse en los siguientes pasos. En este caso, es el `nominate` extrínseco
  4. Establezca la dirección del collator que desea nominar. En este caso, se establece en `0x4c5A56ed5A4FF7B09aA86560AfD7d383F4831Cce`
- 5. Establezca la cantidad de tokens que desea apostar
+ 5. Establezca la cantidad de tokens que desea colocar en staking
  6. Haga clic en el botón "Enviar transacción" y firme la transacción.
  
 ![Staking Join Nominators Extrinsics](/images/tokens/staking/stake/stake-2.png)
@@ -145,7 +145,7 @@ Como se mencionó anteriormente, también puede eliminar todas las nominaciones 
 
 Una vez que se confirma la transacción, su cuenta no debe aparecer en el `nominatorState` estado cuando se le solicite, y no debe tener saldo reservado (relacionado con la participación).
 
-## Recompensas de apuesta {: #staking-rewards } 
+## Recompensas de staking {: #staking-rewards } 
 
 A medida que los collators reciben recompensas por la producción de bloques, los nominadores también obtienen recompensas. En [esta página](/staking/overview/#reward-distribution) se puede encontrar una breve descripción general de cómo se calculan las recompensas.
 
